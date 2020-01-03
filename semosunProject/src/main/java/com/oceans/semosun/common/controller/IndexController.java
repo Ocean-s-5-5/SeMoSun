@@ -18,4 +18,19 @@ public class IndexController {
 		return "admin/adminMain";
 	}
 	
+	@RequestMapping("/memberControl.am")
+	public String memberControl() {
+		return "admin/memberControl";
+	}
+	
+	@RequestMapping("/reportControl.am")
+	public String reportControl() {
+		return "admin/reportControl";
+	}
+	
+	@RequestMapping("/teacherControl.am")
+	public String teacherControl() {
+		return "admin/teacherControl";
+	}
+	
 }
