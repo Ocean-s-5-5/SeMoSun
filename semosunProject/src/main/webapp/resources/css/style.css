@@ -3443,7 +3443,6 @@ span.progress-bar-tooltip:after {
 }
 
 .portfolio-item .portfolio-details span:after {
-	content: ", ";
 	margin-right: 2px;
 }
 
