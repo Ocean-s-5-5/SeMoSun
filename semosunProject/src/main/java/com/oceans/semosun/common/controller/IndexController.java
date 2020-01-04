@@ -17,5 +17,9 @@ public class IndexController {
 	public String adminMain() {
 		return "admin/adminMain";
 	}
-	
+
+	@RequestMapping("/signUp.sg")
+	public String signUp() {
+		return "memberSign/signUp";
+	}
 }
