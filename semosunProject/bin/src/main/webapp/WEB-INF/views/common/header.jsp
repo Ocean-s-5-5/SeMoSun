@@ -70,9 +70,7 @@
                         </li>
                         <li> <a href="about.html">Pages</a>
                             <ul class="dropdown">
-                                <li><li><a
-								href="${pageContext.request.contextPath }/myPage/myPage.do">myPage</a>
-							</li> </li>
+                                <li><a href="about.html">About</a> </li>
                                 <li><a href="services.html">Services</a> </li>
                                 <li><a href="404.html">404 Page</a> </li>
                             </ul>
@@ -108,14 +106,6 @@
                     </ul>
                     <!-- End Navigation List --> 
                 </div>
-            <div style="position:absolute; left:1850px; bottom:20px;">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="button"
-				data-toggle="modal" data-target="#loginModal"
-				style="bottom:50px;">로그인</button>
-			<button class="btn btn-outline-success my-2 my-sm-0" type="button"
-				onclick="location.href='/spring/member/memberEnroll.do'"
-				style="margin-right:100px; bottom:100px;">회원가입</button>
-		</div>
             </div>
         </div>
         <!-- End Header Logo & Naviagtion --> 

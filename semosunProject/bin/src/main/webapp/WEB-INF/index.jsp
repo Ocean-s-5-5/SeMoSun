@@ -617,10 +617,6 @@ solid
 
 <!-- Define Charset -->
 <meta charset="utf-8">
-
-<link rel=" shortcut icon"
-	href="resources/images/icons/semosun1.png">
-<link rel="icon" href="resources/images/icons/semosun1.png">
 </head>
 
 <body>
