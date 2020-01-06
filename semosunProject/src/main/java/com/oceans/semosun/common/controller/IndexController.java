@@ -18,4 +18,10 @@ public class IndexController {
 		return "admin/adminMain";
 	}
 	
+	// 세모선 숲 리스트
+	@RequestMapping("/supList.su")
+	public String supList() {
+		return "semosunsup/supList";
+	}
+
 }
