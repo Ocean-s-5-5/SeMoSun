@@ -13,6 +13,12 @@ public class IndexController {
 		return "common/404";
 	}
 	
+	@RequestMapping("/signUp.sg")
+	public String signUp() {
+		return "memberSign/signUp";
+	}
+	
+	// Admin Page
 	@RequestMapping("/adminMain.am")
 	public String adminMain() {
 		return "admin/adminMain";
