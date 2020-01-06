@@ -25,14 +25,7 @@ public class MemberController {
 	BCryptPasswordEncoder bcryptPasswordEncoder;
 
 	
-	@RequestMapping("/memberSign/memberEnroll.do")
-	public String memberEnroll() {
-		
-		return "memberSign/test";
-		
-	}
-	
-	@RequestMapping("/memberSign/memberEnrollEnd.do")
+	@RequestMapping("/memberEnrollEnd.sg")
 	public String memberEnrollEnd(Member member, Model model) {
 		// 스프링에서는 response에 객체를 담지않고 model에 담는다.
 		
@@ -50,7 +43,7 @@ public class MemberController {
 		member.setPwd(encPassword);
 		
 		/************비밀 번호 암호화 끝**********/
-		
+		System.out.println(member);
 		int result = memberService.insertMember(member);
 		
 		System.out.println("회원 가입 확인 용 : "+member);
