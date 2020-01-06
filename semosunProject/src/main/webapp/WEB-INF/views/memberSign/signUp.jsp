@@ -491,7 +491,7 @@ label{
 							<!-- Start Contact Form -->
 							<div id="contact-form" class="contatct-form">
 								<div class="loader"></div>
-								<form action="/memberEnrollEnd.sg" class="contactForm" name="cform"
+								<form action="memberEnrollEnd.sg" class="contactForm" name="cform"
 									method="post">
 									<div class="row">
 										<div>

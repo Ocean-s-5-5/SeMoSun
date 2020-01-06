@@ -37,7 +37,6 @@ public class MemberController {
 	@Autowired
 	BCryptPasswordEncoder bcryptPasswordEncoder;
 
-	
 
 	@RequestMapping(value="/memberEnrollEnd.sg",  method = RequestMethod.POST)
 	public String memberEnrollEnd(Member member, Model model, RedirectAttributes rttr) throws Exception {
