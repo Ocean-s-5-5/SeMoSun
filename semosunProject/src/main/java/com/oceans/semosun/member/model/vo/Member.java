@@ -13,18 +13,14 @@ public class Member implements Serializable{
 	private String erecive;
 	private String profile;
 	private String profileName;
+
 	
 	public Member() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	// 이메일 인증 생성자
-	public Member(String email, String ehash) {
-		super();
-		this.email = email;
-		this.ehash = ehash;
-	}
+
 
 	public Member(int userNo, String userId, String pwd, String nickName, String gender, String email, String ehash,
 			String erecive, String profile, String profileName) {

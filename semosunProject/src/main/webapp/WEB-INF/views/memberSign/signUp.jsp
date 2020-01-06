@@ -492,7 +492,7 @@ label{
 							<div id="contact-form" class="contatct-form">
 								<div class="loader"></div>
 								<form action="memberEnrollEnd.sg" class="contactForm" name="cform"
-									method="post" onsubmit="return fn_enroll_validate();">
+									method="post">
 									<div class="row">
 										<div>
 											<label for="name">아이디<span class="required">*</span></label>
