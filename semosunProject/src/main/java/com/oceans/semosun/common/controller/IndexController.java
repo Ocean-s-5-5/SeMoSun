@@ -13,13 +13,30 @@ public class IndexController {
 		return "common/404";
 	}
 	
-	@RequestMapping("/adminMain.am")
-	public String adminMain() {
-		return "admin/adminMain";
-	}
-
 	@RequestMapping("/signUp.sg")
 	public String signUp() {
 		return "memberSign/signUp";
 	}
+	
+	// Admin Page
+	@RequestMapping("/adminMain.am")
+	public String adminMain() {
+		return "admin/adminMain";
+	}
+	
+	@RequestMapping("/memberControl.am")
+	public String memberControl() {
+		return "admin/memberControl";
+	}
+	
+	@RequestMapping("/reportControl.am")
+	public String reportControl() {
+		return "admin/reportControl";
+	}
+	
+	@RequestMapping("/teacherControl.am")
+	public String teacherControl() {
+		return "admin/teacherControl";
+	}
+	
 }

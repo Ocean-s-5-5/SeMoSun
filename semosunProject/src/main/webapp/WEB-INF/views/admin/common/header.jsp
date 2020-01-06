@@ -7,7 +7,8 @@
 <div id="header" class="header">
    
 	<div class="project-name">
-        <h3>Documentation</h3>
+        <h3>세 모 선</h3>
+        <h6 style="color:white;">관리자님 안녕하세요</h6>
     </div>
     
     <nav>
@@ -23,3 +24,19 @@
     </nav>
 
 </div>
+    <nav class="hiddenNav">
+    	<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+    </nav>

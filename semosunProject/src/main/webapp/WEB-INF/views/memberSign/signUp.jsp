@@ -491,31 +491,31 @@ label{
 							<!-- Start Contact Form -->
 							<div id="contact-form" class="contatct-form">
 								<div class="loader"></div>
-								<form action="mail.php" class="contactForm" name="cform"
+								<form action="/memberEnrollEnd.sg" class="contactForm" name="cform"
 									method="post">
 									<div class="row">
 										<div>
 											<label for="name">아이디<span class="required">*</span></label>
 											<span class="name-missing">Please enter your name</span> <input
-												id="name" name="name" type="text" value="" size="30" />
+												id="name" name="userId" type="text" value="" size="30" />
 										</div>
 										<br />
 										<div>
 											<label for="name">비밀번호<span class="required">*</span></label>
 											<span class="name-missing">비밀번호</span> <input id="password"
-												name="password" type="password" value="" size="30" />
+												name="pwd" type="password" value="" size="30" />
 										</div>
 										<br />
 										<div>
 											<label for="name">비밀번호 확인<span class="required">*</span></label>
 											<span class="name-missing">비밀번호</span> <input id="password"
-												name="password" type="password" value="" size="30" />
+												name="pwdCheck" type="password" value="" size="30" />
 										</div>
 										<br />
 										<div>
 											<label for="name">닉네임<span class="required">*</span></label>
 											<span class="name-missing">Please enter your nickname</span>
-											<input id="name" name="name" type="text" value="" size="30" />
+											<input id="name" name="nickName" type="text" value="" size="30" />
 										</div>
 										<br />
 										<div>
@@ -524,11 +524,11 @@ label{
 												<div style="padding-left: 30px"class="btn-group btn-group-vertical"
 													data-toggle="buttons">
 													<label class="btn active"> <input type="radio"
-														name='gender1' checked><i
+														name='gender' value="M"><i
 														class="fa fa-circle-o fa-2x"></i><i
 														class="fa fa-dot-circle-o fa-2x"></i> <span> 남</span>
 													</label> <label class="btn"> <input type="radio"
-														name='gender1'><i class="fa fa-circle-o fa-2x"></i><i
+														name='gender' value="F"><i class="fa fa-circle-o fa-2x"></i><i
 														class="fa fa-dot-circle-o fa-2x"></i><span> 여</span>
 													</label>
 												</div>
@@ -538,28 +538,32 @@ label{
 											<div>
 												<label for="name">이메일<span class="required">*</span></label>
 												<span class="name-missing">Please enter your email</span> <input
-													id="name" name="name" type="text" value="" size="30" />
+													id="name" name="email" type="text" value="" size="30" />
 											</div>
 											<br />
 											<div>
 												<label for="name">이메일 수신여부<span class="required"></span></label><br />
 												<div id="radio">
-													&nbsp;<input id="checkbox" name="checkbox" type="checkbox"
+													&nbsp;<input id="checkbox" name="erecive" type="checkbox"
 														value="Y" /><br />
 												</div>
 												<br />
 											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="reset" class="btn btn-secondary"
+											data-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary">Save
+											changes</button>
+									</div>
+									<!-- test용 (필수값) -->
+									<input type="text" name="ehash" value="ehash" />
 								</form>
 							</div>
 							<!-- End Contact Form -->
 
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save
-							changes</button>
 					</div>
 				</div>
 			</div>
@@ -572,30 +576,6 @@ label{
 		<c:import url="../common/footer.jsp" />
 
 		<script type="text/javascript">
-			function init_map() {
-				var myOptions = {
-					zoom : 14,
-					center : new google.maps.LatLng(40.805478,
-							-73.96522499999998),
-					mapTypeId : google.maps.MapTypeId.ROADMAP
-				};
-				map = new google.maps.Map(document.getElementById("map"),
-						myOptions);
-				marker = new google.maps.Marker({
-					map : map,
-					position : new google.maps.LatLng(40.805478,
-							-73.96522499999998)
-				});
-				infowindow = new google.maps.InfoWindow({
-					content : "<b>Venue</b><br/>2880 Broadway<br/> New York"
-				});
-				google.maps.event.addListener(marker, "click", function() {
-					infowindow.open(map, marker);
-				});
-				infowindow.open(map, marker);
-			}
-			google.maps.event.addDomListener(window, 'load', init_map);
-
 			$("#password").click(function() {
 				toggleClass("#password:active");
 			});

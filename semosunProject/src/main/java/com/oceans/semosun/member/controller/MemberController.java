@@ -38,14 +38,8 @@ public class MemberController {
 	BCryptPasswordEncoder bcryptPasswordEncoder;
 
 	
-	@RequestMapping("/memberSign/memberEnroll.do")
-	public String memberEnroll() {
-		
-		return "memberSign/test";
-		
-	}
-	
-	@RequestMapping(value="/memberSign/memberEnrollEnd.do",  method = RequestMethod.POST)
+
+	@RequestMapping(value="/memberEnrollEnd.sg",  method = RequestMethod.POST)
 	public String memberEnrollEnd(Member member, Model model, RedirectAttributes rttr) throws Exception {
 		// 스프링에서는 response에 객체를 담지않고 model에 담는다.
 		
