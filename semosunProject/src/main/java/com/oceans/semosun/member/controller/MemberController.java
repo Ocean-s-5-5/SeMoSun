@@ -1,17 +1,27 @@
 package com.oceans.semosun.member.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.oceans.semosun.member.MailHandler;
+import com.oceans.semosun.member.TempKey;
+import com.oceans.semosun.member.exception.MemberException;
 import com.oceans.semosun.member.model.service.MemberService;
 import com.oceans.semosun.member.model.vo.Member;
 
@@ -20,6 +30,9 @@ public class MemberController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	JavaMailSender mailSender;
 	
 	@Autowired
 	BCryptPasswordEncoder bcryptPasswordEncoder;
@@ -32,14 +45,15 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping("/memberSign/memberEnrollEnd.do")
-	public String memberEnrollEnd(Member member, Model model) {
+	@RequestMapping(value="/memberSign/memberEnrollEnd.do",  method = RequestMethod.POST)
+	public String memberEnrollEnd(Member member, Model model, RedirectAttributes rttr) throws Exception {
 		// 스프링에서는 response에 객체를 담지않고 model에 담는다.
 		
 		/************비밀 번호 암호화 시작**********/
 		// 1. 첫번째 회원 : 비밀번호를 1234로 입력한 후 테스트
 		// 2. 두번째 회원 : 비밀번호를 1234로 입력한 후 테스트
 		// 3. 3번째 회원 : 비밀번호를 00700으로 입력한 후 테스트
+		// memberService.create(member);
 		
 		String password = member.getPwd();
 		System.out.println("암호화 전 비밀번호 : " + password);
@@ -58,9 +72,35 @@ public class MemberController {
 		String msg = "";
 		String loc = "";
 		
-		if(result > 0) {
-			msg = "회원가입성공";
-			loc = "/";
+		if(result > 0) { // 회원 정보가 DB에 들어갔을 때
+			String authKey = new TempKey().getKey(50, false);
+			result = memberService.createAuth(member.getEmail(), authKey);
+			
+			if(result > 0) { // 인증키가 DB에 저장되었을 때
+				
+				// 이메일 인증에 대한 메일 발송
+				MailHandler sendMail = new MailHandler(mailSender);
+				sendMail.setSubject("[홈페이지 이메일 인증]"); // 메일제목
+				sendMail.setText( // 메일내용
+						"<h1>메일인증</h1>" +
+						"<a href='http://localhost:8088/semosun/emailConfirm?email=" + member.getEmail() +
+						"&authKey=" + authKey +
+						"' target='_blenk'>이메일 인증 확인</a>");
+				sendMail.setFrom("semosun123@gmail.com", "세모선관리자"); // 보낸이
+				sendMail.setTo(member.getEmail()); // 받는이
+				
+				sendMail.send();
+				
+				msg = "회원가입성공!!\n인증메일을 확인하세요~";
+				loc = "/";
+				
+			} else {
+				
+				msg = "회원가입 실패 ! - 이메일 인증키 생성 실패 ";
+				loc = "/";
+			}
+			
+			
 			
 		}else {
 			msg = "회원가입 실패 ! ";
@@ -70,63 +110,86 @@ public class MemberController {
 		
 		model.addAttribute("msg", msg);
 		model.addAttribute("loc", loc);
-		
+		rttr.addFlashAttribute("msg", "regSuccess");
 		return "common/msg";
 	}
 
-
-//	@RequestMapping("/member/memberLogin.do")
-//	public ModelAndView memberLogin(Member member, HttpSession session, Model model) {
-//		
-//		ModelAndView mv = new ModelAndView();
-//		
-//		try {
-//			
-//			Member m = memberService.selectOneMember(member);
-//			
-//			String msg = "";
-//			String loc = "/";
-//			
-//						// 로그인시 입력한 비밀번호, DB에 저장된 비밀번호 두개를 비교하는 코드
-//			if(m != null && bcryptPasswordEncoder.matches(member.getPassword(),m.getPassword())) {
-//				msg = "로그인 성공 !";
-//				session.setAttribute("member", m);
-//				mv.addObject("member", m);
-//				
-//				System.out.println(member);
-//			}else if(m !=null){
-//				msg = "비밀번호가 틀렸습니다.";
-//			}
-//			else {
-//				msg = "로그인 실패!";
-//			}
-//			
-//			mv.addObject("msg", msg).addObject("loc", loc);
-//			mv.setViewName("common/msg");
-//			
-//			/*
-//			model.addAttribute("msg", msg);
-//			model.addAttribute("loc", loc);
-//			*/
-//			
-//		}catch(Exception e) {
-//			
-//			throw new MemberException("로그인 시도 중 에러 발생");
-//			
-//		}
-//		
-//		return mv;
-//	}
-//	
-//	@RequestMapping("/member/memberLogout.do")
-//	public String memberLogout(HttpSession session) {
-//		
-//		session.invalidate();
-//		
-//		
-//		return "redirect:/";
-//	}
-//	
+	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)
+	public String emailConfirm(String email, String authKey, Model model) throws Exception { // 이메일 인증 확인창
+			int result = memberService.userAuth(email, authKey);
+			//model.addAttribute("email", email);
+			
+			// 화면 처리 시작
+			String msg = "";
+			String loc = "";
+			if(result > 0) {
+				msg = "회원인증 성공!";
+				loc = "/";
+			} else {
+				msg = "회원인증 실패 !";
+				loc = "/";
+			
+			}
+			
+			model.addAttribute("msg", msg);
+			model.addAttribute("loc", loc);
+			
+			return "common/msg";
+	}
+	
+	
+	@RequestMapping("/member/memberLogin.do")
+	public ModelAndView memberLogin(Member member, HttpSession session, Model model) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		try {
+			
+			Member m = memberService.selectOneMember(member);
+			
+			String msg = "";
+			String loc = "/";
+			
+						// 로그인시 입력한 비밀번호, DB에 저장된 비밀번호 두개를 비교하는 코드
+			if(m != null && bcryptPasswordEncoder.matches(member.getPwd(),m.getPwd())) {
+				msg = "로그인 성공 !";
+				session.setAttribute("member", m);
+				mv.addObject("member", m);
+				
+				System.out.println(member);
+			}else if(m !=null){
+				msg = "비밀번호가 틀렸습니다.";
+			}
+			else {
+				msg = "로그인 실패!";
+			}
+			
+			mv.addObject("msg", msg).addObject("loc", loc);
+			mv.setViewName("common/msg");
+			
+			/*
+			model.addAttribute("msg", msg);
+			model.addAttribute("loc", loc);
+			*/
+			
+		}catch(Exception e) {
+			
+			throw new MemberException("로그인 시도 중 에러 발생");
+			
+		}
+		
+		return mv;
+	}
+	
+	@RequestMapping("/member/memberLogout.do")
+	public String memberLogout(HttpSession session) {
+		
+		session.invalidate();
+		
+		
+		return "redirect:/";
+	}
+	
 //	
 //	@RequestMapping("/member/memberView.do")
 //	public String memberView(Member member, HttpSession session, Model model) {
