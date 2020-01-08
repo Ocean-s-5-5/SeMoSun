@@ -18,4 +18,9 @@ public class IndexController {
 		return "admin/adminMain";
 	}
 	
+	@RequestMapping("/noticeForm.nt")
+	public String noticeForm() {
+		return "notice/noticeForm";
+	}
+	
 }
