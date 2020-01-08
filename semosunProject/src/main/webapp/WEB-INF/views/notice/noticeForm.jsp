@@ -91,7 +91,7 @@ textarea, input[type="text"] {
                                 <div class="row">
                                     <div class="col-md-8">
                                         <label for="author">제목<span class="required">*</span></label>
-                                        <input id="author" name="noticeTitle" type="text" size="30" aria-required="true">
+                                        <input id="author" name="noticeTitle" type="text" size="30" aria-required="true"/>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="email">작성일</label> <br />

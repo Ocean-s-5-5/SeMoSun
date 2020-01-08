@@ -9,7 +9,7 @@
 	</settings>
 
 	<typeAliases>
-		<!-- <typeAlias type="com.kh.spring.member.model.vo.Member" alias="Member" /> -->
+		<typeAlias type="com.oceans.semosun.member.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.oceans.semosun.notice.model.vo.Notice" alias="Notice" />
 	</typeAliases>
 </configuration>

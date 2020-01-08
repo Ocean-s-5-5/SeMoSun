@@ -10,6 +10,16 @@
 		</layout>
 	</appender>
 	
+	<!-- 서버의 실행 기록들을 파일로 남기는 어펜더 -->
+<!-- <appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="file" value="C:/Users/user1/Desktop/semosun_1/SeMoSun/semosunProject/src/main/resources/log/systemLog/system.log" />
+      <param name="Append" value="true"/>
+      <param name="datePattern" value=".yyyy-MM-dd"/>
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%-5p:[%d{yyyy-MM-dd HH:mm:ss}] %m%n"/>
+      </layout>
+   </appender> 
+-->
 	<!-- Application Loggers -->
 	<logger name="com.oceans.semosun">
 		<level value="info" />
@@ -36,6 +46,7 @@
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
+<!-- 	<appender-ref ref="fileAppender" /> 	-->
 	</root>
 	
 </log4j:configuration>
