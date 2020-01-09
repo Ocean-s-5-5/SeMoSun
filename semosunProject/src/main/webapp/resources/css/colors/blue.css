@@ -1,299 +1,597 @@
 a {
+<<<<<<< HEAD
     color: #4473c5ff;
+=======
+    color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .accent-color {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .accent-color-bg {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .top-bar a:hover {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .section-overlay {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .service-box .read-more {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 a.main-button, input[type="submit"] {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .navbar-default .navbar-nav > li:hover > a,
 .navbar-default .navbar-nav > li > a.active {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .navbar-default .navbar-nav > li > a:after {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .navbar-default .navbar-nav > li > a.active, .navbar-default .navbar-nav > li:hover > a {
+<<<<<<< HEAD
 	border-color: #4473c5ff;
+=======
+	border-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .dropdown > li:hover > a, .sup-dropdown li:hover > a {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .dropdown  li a.active, .sup-dropdown li a.active {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 ul.breadcrumbs li a:hover {
+<<<<<<< HEAD
     color: #4473c5ff;
+=======
+    color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .full-width-recent-projects .portfolio-item:hover .portfolio-thumb .thumb-overlay {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .tp-caption.color-bg {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .team-member .member-socail a.mail:hover i {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .post-share a.mail:hover {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .progress .progress-bar.progress-bar-primary {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .latest-news .post-time-section .post-month i {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .latest-news .post-time-section .post-month .month {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .latest-news .post-title a:hover {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .latest-news .read-more {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .blog-post .post-time-section .post-month .month {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .panel-title a {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .panel-title a:hover {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .milestone-block .milestone-icon {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .milestone-block .milestone-icon:after {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .milestone-block .milestone-number {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .pricing-tables .pricing-table.highlight-plan .plan-signup {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .pricing-tables .pricing-table.highlight-plan .plan-name {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .btn-custom {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .btn-custom.border-btn {
+<<<<<<< HEAD
 	border-color: #4473c5ff;
 	color: #4473c5ff;
+=======
+	border-color: #4473C5;
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .btn-custom.border-btn:hover {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 ul.icons-list li i {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-small {
+<<<<<<< HEAD
 	text-shadow: 0 0 0 #4473c5ff;
+=======
+	text-shadow: 0 0 0 #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-small:hover, .service-box:hover .icon-small {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 .icon-medium {
+<<<<<<< HEAD
 	text-shadow: 0 0 0 #4473c5ff;
+=======
+	text-shadow: 0 0 0 #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-medium:hover, .service-box:hover .icon-medium {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-large {
+<<<<<<< HEAD
 	text-shadow: 0 0 0 #4473c5ff;
+=======
+	text-shadow: 0 0 0 #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-large:hover, .service-box:hover .icon-large {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-1 {
+<<<<<<< HEAD
 	box-shadow: 0 0 0 3px #4473c5ff;
 	-o-box-shadow: 0 0 0 3px #4473c5ff;
 	-moz-box-shadow: 0 0 0 3px #4473c5ff;
   	-webkit-box-shadow: 0 0 0 3px #4473c5ff;
+=======
+	box-shadow: 0 0 0 3px #4473C5;
+	-o-box-shadow: 0 0 0 3px #4473C5;
+	-moz-box-shadow: 0 0 0 3px #4473C5;
+  	-webkit-box-shadow: 0 0 0 3px #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-1:after {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-1:hover, .service-box:hover .icon-effect-1 {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-2 {
+<<<<<<< HEAD
 	color: #4473c5ff;
 	box-shadow: 0 0 0 3px #4473c5ff;
 	-o-box-shadow: 0 0 0 3px #4473c5ff;
 	-moz-box-shadow: 0 0 0 3px #4473c5ff;
   	-webkit-box-shadow: 0 0 0 3px #4473c5ff;
+=======
+	color: #4473C5;
+	box-shadow: 0 0 0 3px #4473C5;
+	-o-box-shadow: 0 0 0 3px #4473C5;
+	-moz-box-shadow: 0 0 0 3px #4473C5;
+  	-webkit-box-shadow: 0 0 0 3px #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-2:after {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-3 {
+<<<<<<< HEAD
 	color: #4473c5ff;
 	box-shadow: 0 0 0 3px #4473c5ff;
 	-o-box-shadow: 0 0 0 3px #4473c5ff;
 	-moz-box-shadow: 0 0 0 3px #4473c5ff;
   	-webkit-box-shadow: 0 0 0 3px #4473c5ff;
+=======
+	color: #4473C5;
+	box-shadow: 0 0 0 3px #4473C5;
+	-o-box-shadow: 0 0 0 3px #4473C5;
+	-moz-box-shadow: 0 0 0 3px #4473C5;
+  	-webkit-box-shadow: 0 0 0 3px #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-4 {
+<<<<<<< HEAD
 	color: #4473c5ff;
 	box-shadow: 0 0 0 3px #4473c5ff;
 	-o-box-shadow: 0 0 0 3px #4473c5ff;
 	-moz-box-shadow: 0 0 0 3px #4473c5ff;
   	-webkit-box-shadow: 0 0 0 3px #4473c5ff;
+=======
+	color: #4473C5;
+	box-shadow: 0 0 0 3px #4473C5;
+	-o-box-shadow: 0 0 0 3px #4473C5;
+	-moz-box-shadow: 0 0 0 3px #4473C5;
+  	-webkit-box-shadow: 0 0 0 3px #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-5 {
+<<<<<<< HEAD
 	color: #4473c5ff;
 	box-shadow: 0 0 0 3px #4473c5ff;
 	-o-box-shadow: 0 0 0 3px #4473c5ff;
 	-moz-box-shadow: 0 0 0 3px #4473c5ff;
   	-webkit-box-shadow: 0 0 0 3px #4473c5ff;
+=======
+	color: #4473C5;
+	box-shadow: 0 0 0 3px #4473C5;
+	-o-box-shadow: 0 0 0 3px #4473C5;
+	-moz-box-shadow: 0 0 0 3px #4473C5;
+  	-webkit-box-shadow: 0 0 0 3px #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .icon-effect-6 {
+<<<<<<< HEAD
 	color: #4473c5ff;
 	box-shadow: 0 0 0 3px #4473c5ff;
 	-o-box-shadow: 0 0 0 3px #4473c5ff;
 	-moz-box-shadow: 0 0 0 3px #4473c5ff;
   	-webkit-box-shadow: 0 0 0 3px #4473c5ff;
+=======
+	color: #4473C5;
+	box-shadow: 0 0 0 3px #4473C5;
+	-o-box-shadow: 0 0 0 3px #4473C5;
+	-moz-box-shadow: 0 0 0 3px #4473C5;
+  	-webkit-box-shadow: 0 0 0 3px #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .team-member .member-photo .member-name span {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .classic-title span {
+<<<<<<< HEAD
 	border-bottom-color: #4473c5ff;
+=======
+	border-bottom-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .portfolio-filter li a:hover {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .portfolio-filter li a.selected {
+<<<<<<< HEAD
 	border-color: #4473c5ff;
 	background-color: #4473c5ff;
+=======
+	border-color: #4473C5;
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .project-content h4 span {
+<<<<<<< HEAD
 	border-bottom-color: #4473c5ff;
+=======
+	border-bottom-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .recent-projects h4.title span {
+<<<<<<< HEAD
 	border-bottom-color: #4473c5ff;
+=======
+	border-bottom-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 ul.post-meta li a:hover {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 #pagination span.current {
+<<<<<<< HEAD
 	border-color: #4473c5ff;
 	background-color: #4473c5ff;
+=======
+	border-color: #4473C5;
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 #pagination a:hover {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .post-tags-list a:hover {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .sidebar a:hover {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .widget-search .search-btn {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .sidebar .tagcloud a:hover {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .back-to-top:hover i {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .touch-slider .owl-controls.clickable .owl-buttons div:hover {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .touch-carousel .owl-controls.clickable .owl-buttons div:hover {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .testimonials-carousel .owl-controls.clickable .owl-buttons div {
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .testimonials-carousel .owl-controls.clickable .owl-buttons div:hover i {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 
@@ -302,64 +600,133 @@ ul.post-meta li a:hover {
 }
 
 .services-3-icon i {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .services-2-icon i {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 #main-slide .animated2 strong {
+<<<<<<< HEAD
     color: #4473c5ff;
+=======
+    color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 #main-slide .animated4 strong {
+<<<<<<< HEAD
     color: #4473c5ff;
+=======
+    color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 #main-slide .animated7 strong {
+<<<<<<< HEAD
     color: #4473c5ff;
+=======
+    color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 #main-slide .carousel-control i:hover{
+<<<<<<< HEAD
 	background-color: #4473c5ff;
+=======
+	background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
     color: #FFFFFF;
 }
 .slider.btn {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 #main-slide .carousel-indicators .active {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 
 .counter-item i {
+<<<<<<< HEAD
     color: #4473c5ff;
+=======
+    color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .timer {
+<<<<<<< HEAD
     color: #4473c5ff;
+=======
+    color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .progress-bar {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .team-member.modern .member-photo:after {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .team-member-box {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .twitter-widget a {
+<<<<<<< HEAD
 	color: #4473c5ff;
+=======
+	color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .dot1, .dot2 {
+<<<<<<< HEAD
     background-color: #4473c5ff;
+=======
+    background-color: #4473C5;
+>>>>>>> refs/remotes/origin/master
 }
 
 .call-action-style1 {
+<<<<<<< HEAD
     border-left: 5px solid #4473c5ff;
+=======
+    border-left: 5px solid #4473C5;
+}
+
+#btn-add {
+	background: #4473C5;
+	color: white;
+>>>>>>> refs/remotes/origin/master
 }

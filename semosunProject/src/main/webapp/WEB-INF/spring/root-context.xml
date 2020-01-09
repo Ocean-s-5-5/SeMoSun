@@ -58,4 +58,24 @@
 	<!-- 프로그래밍적 AOP 처리 방식 (어노테이션 처리 방식) -->
 	<aop:aspectj-autoproxy />
 	
+	 <!-- 메일 보내기 (SEND) -->
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="semosun123@gmail.com" />
+      <property name="password" value="semosunadmin1!" />
+    
+
+      <!-- email 요청시는 SMTP -->
+      <property name="javaMailProperties">
+         <props>
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+   </bean>
+	
+	
 </beans>

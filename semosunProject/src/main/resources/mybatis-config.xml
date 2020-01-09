@@ -11,8 +11,13 @@
 	<typeAliases>
 	<!-- 마이바티스 = dao의 부하, DB왔다갔다함 -->
 	<!-- 마이바티스 컨피스 = 마이바티스 환경설정 -->
-	
-		<!-- <typeAlias type="com.kh.spring.member.model.vo.Member" alias="Member" /> -->
+		<!-- 회원 -->
+		<typeAlias type="com.oceans.semosun.member.model.vo.Member" alias="Member"/>
+		
+		<!-- 공지사항 -->
+		<typeAlias type="com.oceans.semosun.notice.model.vo.Notice" alias="Notice" />
+		
+		<!-- 세모선숲 -->
 		<typeAlias type="com.oceans.semosun.talk.model.vo.Talk" alias="Talk" />
 		<typeAlias type="com.oceans.semosun.talk.model.vo.TalkComment" alias="TalkComment" />
 	</typeAliases>

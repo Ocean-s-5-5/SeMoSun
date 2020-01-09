@@ -52,9 +52,10 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles --> 
-                <a class="navbar-brand" href="index.html"> <img alt="" src="${pageContext.request.contextPath }/resources/images/venue.png"> </a> </div>
+                <a class="navbar-brand" href="${pageContext.request.contextPath }"> <img id="logologologo" alt="" src="${pageContext.request.contextPath }/resources/images/semosunlogo.png"> </a> </div>
+            
+            <!-- Start Navigation List -->
             <div class="navbar-collapse collapse"> 
-                <!-- Start Navigation List -->
                 <ul class="nav navbar-nav navbar-right">
                     <li> <a class="active" href="index.html">Home</a>
                         <ul class="dropdown">
@@ -68,11 +69,11 @@
                             <li><a href="homepage-7.html">Home Version 7</a> </li>
                         </ul>
                     </li>
-                    <li> <a href="about.html">Pages</a>
+                    <li> <a href="#">Pages</a>
                         <ul class="dropdown">
-                            <li><a href="about.html">About</a> </li>
-                            <li><a href="services.html">Services</a> </li>
-                            <li><a href="404.html">404 Page</a> </li>
+                            <li>
+                            	<a href="${pageContext.request.contextPath }/myPage/myPage.do">myPage</a>
+							</li>
                         </ul>
                     </li>
                     <li> <a href="#">Shortcodes</a>
@@ -95,20 +96,23 @@
                             <li><a href="single-project.html">Single Project</a> </li>
                         </ul>
                     </li>
-                    <li> <a href="blog.html">Blog</a>
-                        <ul class="dropdown">
-                            <li><a href="blog.html">Blog - right Sidebar</a> </li>
-                            <li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a> </li>
-                            <li><a href="single-post.html">Blog Single Post</a> </li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a> </li>
+                    <li> <a href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
+                    <li> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
                 </ul>
-                <!-- End Navigation List --> 
             </div>
-        </div>
-    </div>
-    <!-- End Header Logo & Naviagtion --> 
+            <!-- End Navigation List --> 
+            
+	        <div style="position:absolute; left:1850px; bottom:20px;">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button"
+						data-toggle="modal" data-target="#loginModal"
+						style="bottom:50px;">로그인</button>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button"
+						onclick="location.href='/spring/member/memberEnroll.do'"
+						style="margin-right:100px; bottom:100px;">회원가입</button>
+			</div>
+          </div>
+      </div>
+      <!-- End Header Logo & Naviagtion --> 
     
 </header>
 <!-- End Header Section --> 

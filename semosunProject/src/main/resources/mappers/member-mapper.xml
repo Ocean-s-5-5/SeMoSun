@@ -3,5 +3,85 @@
 "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member-mapper">
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO MEMBER
+		VALUES (SEQ_UNO.nextval, #{userId}, #{pwd}, #{nickName}, #{gender}, 
+		#{email}, #{ehash}, DEFAULT, #{profile}, #{profileName})
 	
+	</insert>
+	
+<insert id="createAuthKey" parameterType="map">
+	insert into userAuth values(#{email}, #{authKey})
+</insert>
+
+<update id="userAuth">
+	<![CDATA[update MEMBER 
+			 set ERECIVE = 1 
+			 where (select count(*) 
+			 		from userAuth 
+			 		where userEmail = #{email} 
+			 		  and authkey= #{authKey}) > 0
+			   and email = #{email} ]]>
+</update>
+
+	
+<!-- 	<resultMap id="resultMember" type="Member"> -->
+<!--     	<id property="userId" column="USERID" /> -->
+<!--     	<result property="password" column="PASSWORD" /> -->
+<!--     	<result property="userName" column="USERNAME" /> -->
+<!--     	<result property="gender" column="GENDER" /> -->
+<!--     	<result property="age" column="AGE" /> -->
+<!--     	<result property="email" column="EMAIL" /> -->
+<!--     	<result property="phone" column="PHONE" /> -->
+<!--     	<result property="address" column="ADDRESS" /> -->
+<!--     	<result property="hobby" column="HOBBY" /> -->
+<!--     	<result property="enrollDate" column="ENROLLDATE" /> -->
+<!-- 	</resultMap> -->
+	
+	<select parameterType="Member" resultType="Member" id="selectOneMember">
+		SELECT * FROM MEMBER
+		WHERE USERID = #{userId}
+		AND ERECIVE = 1
+	</select>
+	
+<!-- 	<delete  id="DeleteOneMember" parameterType="Member"> -->
+<!-- 		DELETE FROM MEMBER -->
+<!-- 		WHERE USERID = #{userId} -->
+<!-- 		AND PASSWORD = #{password} -->
+		
+<!-- 	</delete> -->
+
+<!-- 	<update id="updateMember" parameterType="Member"> -->
+<!-- 		UPDATE MEMBER  -->
+<!-- 		<set> -->
+<!-- 			<if test="userName != null"> -->
+<!-- 				USERNAME=#{userName}, -->
+<!-- 			</if> -->
+<!-- 			<if test="age > 0"> -->
+<!-- 				AGE = #{age}, -->
+<!-- 			</if> -->
+<!-- 			<if test="email != null"> -->
+<!-- 				EMAIL = #{email}, -->
+<!-- 			</if> -->
+<!-- 			<if test="password != null"> -->
+<!-- 			 	PASSWORD = #{password} -->
+<!-- 			</if> -->
+<!-- 		</set>  -->
+<!-- 		,PHONE = #{phone}, -->
+<!-- 		ADDRESS = #{address}, GENDER = #{gender}, HOBBY = #{hobby} -->
+<!-- 		WHERE USERID = #{userId} -->
+<!-- 	</update> -->
+	
+<!-- 	<select id="checkIdDuplicate" parameterType="hashmap" statementType="CALLABLE"> -->
+
+	<!-- CALLABLE Statement는 일반 Statement, PreparedStatement와는 다른게 프로시져(PL/SQL)를 호출하는 전용 실행 문법이다. -->
+	
+	<!-- CallableStatement는 {}로 묶어 실행하며, 시작 괄호'{'다음에 Tab을 사용할 경우 값을 읽지 못한다. -->
+	<!--  result 란 키에 값이 들어있음 -->
+<!-- 		{ CALL ID_DUP_CHK( #{userId, mode=IN, jdbcType=VARCHAR}, -->
+<!-- 		#{result, mode=OUT, jdbcType=NUMERIC, javaType=integer})} -->
+<!-- 	</select> -->
+	
+
 </mapper>
+ 

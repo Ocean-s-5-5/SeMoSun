@@ -13,15 +13,38 @@ public class IndexController {
 		return "common/404";
 	}
 	
+	// 회원
+	@RequestMapping("/signUp.sg")
+	public String signUp() {
+		return "memberSign/signUp";
+	}
+	
+	// 공지사항
+	@RequestMapping("/noticeForm.nt")
+	public String noticeForm() {
+		return "notice/noticeForm";
+	}
+	
+	
+	// Admin Page
 	@RequestMapping("/adminMain.am")
 	public String adminMain() {
 		return "admin/adminMain";
 	}
-	
-	// 세모선 숲 리스트
-	@RequestMapping("/talkList.ta")
-	public String supList() {
-		return "semosunsup/talkList.ta";
+		
+	@RequestMapping("/memberControl.am")
+	public String memberControl() {
+		return "admin/memberControl";
 	}
-
+	
+	@RequestMapping("/reportControl.am")
+	public String reportControl() {
+		return "admin/reportControl";
+	}
+	
+	@RequestMapping("/teacherControl.am")
+	public String teacherControl() {
+		return "admin/teacherControl";
+	}
+	
 }

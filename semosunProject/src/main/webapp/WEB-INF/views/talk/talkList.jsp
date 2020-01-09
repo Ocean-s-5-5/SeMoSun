@@ -435,7 +435,7 @@ button {
 							    		var pageEnd = $('body').get(0).scrollHeight - $(window).scrollTop() - $(window).height();
 							    		
 						    			 //console.log(pageEnd);
-							    		if(pageEnd < 900 && currentPage <= maxPage) {
+							    		if(pageEnd < 1 && currentPage <= maxPage) {
 							    			$.ajax({
 							    				url : "${pageContext.request.contextPath}/talk/talkScroll.do",    // 이동할 서블릿 주소
 							    				data : { currentPage : ++currentPage, keyword : '${keyword}' }, 
