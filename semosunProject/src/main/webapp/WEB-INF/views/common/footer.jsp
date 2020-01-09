@@ -125,41 +125,22 @@
 				</div>
 			</div>
 
-			<!-- Venue JS  -->
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.min.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.migrate.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/modernizrr.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/bootstrap/js/bootstrap.min.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.fitvids.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.appear.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.easing-1.3.pack.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/nivo-lightbox.min.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.isotope.min.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/count-to.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.textillate.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.lettering.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.nicescroll.min.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.themepunch.plugins.min.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.themepunch.revolution.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/custom-revslider.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/script.js"></script>
-    
+<!-- Venue JS  --> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.migrate.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/modernizrr.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/bootstrap/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.fitvids.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.appear.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.easing-1.3.pack.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/nivo-lightbox.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.isotope.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/count-to.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.textillate.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.lettering.js"></script> 
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.nicescroll.min.js"></script>  --%>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.themepunch.plugins.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.themepunch.revolution.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/custom-revslider.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/script.js"></script>

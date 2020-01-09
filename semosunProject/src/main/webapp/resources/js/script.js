@@ -67,7 +67,7 @@ $(document).ready(function($) {
     /*----------------------------------------------------*/
     /*	Nice-Scroll
 	/*----------------------------------------------------*/
-
+/*
     $("html").niceScroll({
         scrollspeed: 100,
         mousescrollstep: 38,
@@ -79,7 +79,7 @@ $(document).ready(function($) {
         horizrailenabled: false,
         cursorborderradius: 0,
     });
-
+*/
 
 
 
@@ -501,7 +501,7 @@ $(document).ready(function($) {
                     'padding-top': 19 + "px",
                     'padding-bottom': 19 + "px"
                 });
-
+                $('#logologologo').width('50px');
                 if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || $(window).width() < 479) {
                     $('.navbar-default .navbar-nav > li > a').css({
                         'padding-top': 0 + "px",
@@ -524,7 +524,7 @@ $(document).ready(function($) {
                     'padding-top': 27 + "px",
                     'padding-bottom': 27 + "px"
                 });
-
+                $('#logologologo').width('');
                 if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || $(window).width() < 479) {
                     $('.navbar-default .navbar-nav > li > a').css({
                         'padding-top': 0 + "px",
