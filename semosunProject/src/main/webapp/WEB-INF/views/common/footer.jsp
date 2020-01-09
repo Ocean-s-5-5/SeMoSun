@@ -139,7 +139,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/count-to.js"></script> 
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.textillate.js"></script> 
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.lettering.js"></script> 
-<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.nicescroll.min.js"></script> 
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.nicescroll.min.js"></script>  --%>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.themepunch.plugins.min.js"></script> 
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.themepunch.revolution.js"></script> 
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/custom-revslider.js"></script> 

@@ -19,9 +19,9 @@ public class IndexController {
 	}
 	
 	// 세모선 숲 리스트
-	@RequestMapping("/supList.su")
+	@RequestMapping("/talkList.ta")
 	public String supList() {
-		return "semosunsup/supList";
+		return "semosunsup/talkList.ta";
 	}
 
 }

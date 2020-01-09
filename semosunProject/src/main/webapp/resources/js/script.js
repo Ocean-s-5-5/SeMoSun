@@ -67,7 +67,7 @@ $(document).ready(function($) {
     /*----------------------------------------------------*/
     /*	Nice-Scroll
 	/*----------------------------------------------------*/
-
+/*
     $("html").niceScroll({
         scrollspeed: 100,
         mousescrollstep: 38,
@@ -79,7 +79,7 @@ $(document).ready(function($) {
         horizrailenabled: false,
         cursorborderradius: 0,
     });
-
+*/
 
 
 
