@@ -681,6 +681,13 @@ a, a:hover, a:active, a:visited, a:focus {
 body {
 	background: #F8F8F8 !important;
 }
+li:hover {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1);
+}
 </style>
 
 

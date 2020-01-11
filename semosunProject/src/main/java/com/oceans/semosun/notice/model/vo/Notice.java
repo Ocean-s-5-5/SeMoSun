@@ -1,8 +1,9 @@
 package com.oceans.semosun.notice.model.vo;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Notice {
+public class Notice implements Serializable{
 	private int noticeNo;
 	private String noticeTitle;
 	private String noticeContent;

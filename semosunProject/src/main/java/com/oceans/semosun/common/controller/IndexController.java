@@ -13,10 +13,18 @@ public class IndexController {
 		return "common/404";
 	}
 	
+	// 회원
 	@RequestMapping("/signUp.sg")
 	public String signUp() {
 		return "memberSign/signUp";
 	}
+	
+	// 공지사항
+	@RequestMapping("/noticeForm.nt")
+	public String noticeForm() {
+		return "notice/noticeForm";
+	}
+	
 	
 	// Admin Page
 	@RequestMapping("/adminMain.am")

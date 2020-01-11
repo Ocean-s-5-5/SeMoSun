@@ -1,6 +1,8 @@
 package com.oceans.semosun.teacher.model.vo;
 
-public class Teacher {
+import java.io.Serializable;
+
+public class Teacher implements Serializable{
 	private int tNo;
 	private int userNo;
 	private String tName;

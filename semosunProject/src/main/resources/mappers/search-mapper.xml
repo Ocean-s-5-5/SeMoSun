@@ -34,8 +34,7 @@
 		SELECT TT.* FROM(SELECT T.*, m.nickname, m.profilename FROM TALK T
 		JOIN MEMBER M ON(M.USERNO=T.USERNO)
 		ORDER BY t.talkdate) TT
-	WHERE TALKTITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
- 	   OR TALKCONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+	WHERE TALKCONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
  	   OR NICKNAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
 	
 	</select>

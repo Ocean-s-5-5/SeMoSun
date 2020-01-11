@@ -413,14 +413,6 @@ label.jsx-2014955477 {
 .btn.focus, .btn:focus, .btn:hover {
 	color: #5481CB !important;
 }
-
-li:hover {
-    -webkit-transform: scale(1.1,1.1);
-    -moz-transform: scale(1.1,1.1);
-    -o-transform: scale(1.1,1.1);
-    -ms-transform: scale(1.1,1.1);
-    transform: scale(1.1,1.1);
-}
 </style>
 </head>
 <!-- Start Header Section -->
@@ -501,11 +493,7 @@ li:hover {
 					<i class="fa fa-bars"></i>
 				</button>
 				<!-- End Toggle Nav Link For Mobiles -->
-				<a class="navbar-brand" href="${ pageContext.request.contextPath }">
-					<img alt=""
-					src="${pageContext.request.contextPath }/resources/images/semosunlogo.png">
-				</a>
-			</div>
+				<a class="navbar-brand" href="${pageContext.request.contextPath }"> <img id="logologologo" alt="" src="${pageContext.request.contextPath }/resources/images/semosunlogo.png"> </a> </div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a class="active" href="index.html">Home</a>
@@ -520,11 +508,9 @@ li:hover {
 							<li><a href="homepage-6.html">Home Version 6</a></li>
 							<li><a href="homepage-7.html">Home Version 7</a></li>
 						</ul></li>
-					<li><a href="about.html">Pages</a>
+					<li><a href="#">Pages</a>
 						<ul class="dropdown">
-							<li></li>
-							<li><a href="services.html">Services</a></li>
-							<li><a href="404.html">404 Page</a></li>
+							<li><a href="${pageContext.request.contextPath }/myPage/myPageProfile.do">myPage</a></li>
 						</ul></li>
 					<li><a href="#">Shortcodes</a>
 						<ul class="dropdown">
@@ -547,11 +533,9 @@ li:hover {
 						</ul></li>
 					<li><a href="blog.html">Blog</a>
 						<ul class="dropdown">
-							<li><a href="blog.html">Blog - right Sidebar</a></li>
-							<li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a>
-							</li>
-							<li><a href="single-post.html">Blog Single Post</a></li>
-						</ul></li>
+							<li> <a href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
+                    		<li> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
+                		</ul></li>
 					<!-- <li><a style="background-color: white;" type="button"
 					data-toggle="modal" data-target="#exampleModalCenter1">강사 등록</a></li> -->
 				</ul>

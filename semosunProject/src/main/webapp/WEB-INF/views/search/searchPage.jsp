@@ -805,7 +805,6 @@ solid
 								<div class="testimonial_author clearfix">
 									<img class="testimonial_photo" style="width:20%; height: auto;" src="${pageContext.request.contextPath }/resources/images/profileImage/${talk.profileName}"
 										alt="">
-									<div class="testimonial_name">&nbsp&nbsp<b>제목</b> : ${talk.talkTitle}</div>
 									<div class="testimonial_position">&nbsp&nbsp&nbsp<b>닉네임</b> : ${talk.nickName}</div>
 								</div>
 							</div>

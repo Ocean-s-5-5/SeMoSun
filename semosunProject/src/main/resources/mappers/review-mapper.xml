@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review-mapper">
+
+	<insert id="insertReview" parameterType="Review">
+		INSERT INTO REVIEW VALUES(SEQ_RNO.NEXTVAL, #{tNo}, #{userNo}, #{rtitle}, #{gcontent}, #{bcontent}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, DEFAULT, DEFAULT)
+	</insert>
+
+	<select id="selectListTeacherReview" parameterType="int" resultType="Review">
+		SELECT r.*, m.nickname, m.profilename ,(SELECT COUNT(*) FROM likey where rno = r.rno) likeCount
+		FROM review r JOIN member m on(r.USERNO = m.USERNO) 
+		WHERE 
+		<if test="keyword != null">
+			TNO = #{tNo} AND
+		</if>
+		 r.RSTATUS = 'N' ORDER BY RDATE DESC
+	</select>
+	
+	<select id="selectOneTeacher" parameterType="int" resultType="Teacher">
+		SELECT * FROM TEACHER WHERE TNO = #{tNo} AND TSTATUS = 'Y'
+	</select>
+	
+	<update id="deleteReview" parameterType="int">
+		UPDATE REVIEW SET RSTATUS = 'Y' WHERE RNO = #{rno}
+	</update>
+	
+<!-- 	<select id="selectListTalk" resultType="Talk"> -->
+<!-- 		SELECT * FROM TALK JOIN member USING(USERNO) WHERE TSTATUS = 'N' ORDER BY TALKDATE DESC -->
+<!-- 	</select> -->
+	
+<!-- 	<update id="updateTalk" parameterType="Talk"> -->
+<!-- 		UPDATE TALK -->
+<!-- 		SET TALKCONTENT = #{talkcontent} -->
+<!-- 		WHERE TALKNO = #{talkno} -->
+<!-- 	</update> -->
+	
+<!-- 	<select id="selectTalk" parameterType="_int" resultType="Talk"> -->
+<!-- 		SELECT * FROM TALK JOIN member USING(USERNO) WHERE TALKNO = #{talkno} AND TSTATUS = 'N' -->
+<!-- 	</select> -->
+
+
+
+</mapper>
