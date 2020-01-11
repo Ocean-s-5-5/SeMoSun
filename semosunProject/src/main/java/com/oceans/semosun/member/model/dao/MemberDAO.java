@@ -1,13 +1,16 @@
 package com.oceans.semosun.member.model.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.oceans.semosun.member.model.vo.Member;
+import com.oceans.semosun.teacher.model.vo.Teacher;
 
 @Repository
 public class MemberDAO {
@@ -44,27 +47,48 @@ public class MemberDAO {
 		
 		return sqlSession.selectOne("member-mapper.selectOneMember", member);
 	}
-//	
-//	
-//
-//	public int DeleteOneMember(Member member) {
-//		
-//				
-//		return sqlSession.delete("member-mapper.DeleteOneMember", member);
-//	}
-//
-//	public int updateMember(Member member) {
-//		// 여기에서 DB로 이동하구요.
-//		return sqlSession.update("member-mapper.updateMember", member);
-//	}
-//
-//	public int checkIdDuplicate(HashMap<String, Object> hmap) {
-//	
-//		sqlSession.selectOne("member-mapper.checkIdDuplicate", hmap);
-////		CallableStatement를 사용하면
-//		// result에 값이 들어있음
-//		
-//		return (Integer)hmap.get("result");
-//	}
 	
+	
+
+	public int DeleteOneMember(Member member) {
+		
+				
+		return sqlSession.delete("member-mapper.DeleteOneMember", member);
+	}
+
+	public int updateMember(Member member) {
+		// 여기에서 DB로 이동하구요.
+		return sqlSession.update("member-mapper.updateMember", member);
+	}
+
+	public int checkIdDuplicate(HashMap<String, Object> hmap) {
+	
+		sqlSession.selectOne("member-mapper.checkIdDuplicate", hmap);
+//		CallableStatement를 사용하면
+		// result에 값이 들어있음
+		
+		return (Integer)hmap.get("result");
+	}
+	
+	public int checkEmailDup(HashMap<String, Object> hmap) {
+		
+		sqlSession.selectOne("member-mapper.checkEmailDup", hmap);
+			
+		return (Integer)hmap.get("result");
+	}
+
+	public int selectTotalContents(int userNo) {
+		return sqlSession.selectOne("member-mapper.selectTotalContents", userNo);
+	}
+
+	public List<Map<String, String>> selectTeacherList(int cPage, int numPerPage, int userNo) {
+		RowBounds rows = new RowBounds((cPage-1) * numPerPage, numPerPage);
+		return sqlSession.selectList("member-mapper.selectTeacherList", userNo, rows);
+	}
+
+	public Teacher selectOneTeacher(int tNo) {
+		return sqlSession.selectOne("member-mapper.selectOneTeacher", tNo);
+	}
+
+
 }

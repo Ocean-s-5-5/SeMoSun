@@ -126,6 +126,7 @@
 			</div>
 
 			<!-- Venue JS  -->
+			
 			<script type="text/javascript"
 				src="${pageContext.request.contextPath }/resources/js/jquery.min.js"></script>
 			<script type="text/javascript"
@@ -162,4 +163,4 @@
 				src="${pageContext.request.contextPath }/resources/js/custom-revslider.js"></script>
 			<script type="text/javascript"
 				src="${pageContext.request.contextPath }/resources/js/script.js"></script>
-    
+		

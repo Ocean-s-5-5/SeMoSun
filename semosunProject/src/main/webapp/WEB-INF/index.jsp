@@ -93,12 +93,6 @@ text-align: center !important;
 		padding: 0px 16px !important;
 	}
 
-	.semo2 {
-		height: 100% !important;
-		padding: 16px !important;
-		overflow: hidden !important;
-	}
-
 	.live-review-box.jsx-4179964491>.btn-more {
 		text-align: center;
 	}
@@ -131,7 +125,7 @@ text-align: center !important;
 }
 
 .semo2 {
-	height: 458px;
+	height: 500px;
 	overflow-y: scroll;
 	padding: 0px 16px 0px 24px;
 }
@@ -281,7 +275,8 @@ button.jsx-693606843 {
 	border-style: solid;
 	border-color: rgb(223, 223, 223);
 	border-image: initial;
-	overflow: hidden;
+	height : 500px;
+	overflow: auto;
 }
 
 .title.jsx-1976876495 {
@@ -452,9 +447,16 @@ h4.jsx-2548577942 {
 	background-position: center center;
 	background-repeat: no-repeat;
 }
+::-webkit-scrollbar {width: 2px;   }
+::-webkit-scrollbar-size { height: 1px !important;}
+::-webkit-scrollbar-thumb {background: rgba(99, 59, 241);} /* 실질적 스크롤 바 */
 /*지금뜨는리뷰 css 끝*/
 
+
 /*검색창 css*/
+
+   
+
 .bar-layout.jsx-2460799870 {
 	padding-top: 32px !important;
 	display: flex;
@@ -560,6 +562,8 @@ svg[Attributes Style] {
 		line-height: normal;
 	}
 }
+
+
 /* 타이핑 css*/
 .typing-txt {
 	display: none;
@@ -577,39 +581,21 @@ svg[Attributes Style] {
 	animation-iteration-count: infinite;
 }
 
-@
-keyframes cursor { 0%{
-	border-right: 1px solid #fff
-}
-
-50%{
-border-right
-:
- 
-1
-px
- 
-solid
- 
-#000
-}
+@keyframes cursor { 
+0%{border-right: 1px solid #fff}50%{border-right:1px solid #000}
 100%{
-border-right
-:
- 
-1
-px
- 
-solid
- 
-#fff
-}
-}
+border-right:1px solid #fff
+}}
 /*선생님 이미지 사진 크기*/
 .lig {
 	width: 422px;
 	height: 278.99px;
 }
+#content {
+    padding: 40px 0;
+    background: #ffff !important;
+}
+
 </style>
 
 <!-- Basic -->
@@ -618,9 +604,10 @@ solid
 <!-- Define Charset -->
 <meta charset="utf-8">
 
-<link rel=" shortcut icon"
-	href="resources/images/icons/semosun1.png">
-<link rel="icon" href="resources/images/icons/semosun1.png">
+<link rel="shortcut icon" href="http://localhost:8088/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="http://localhost:8088/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath }/resources/images/icons/semosunpabefon.png">
+
 </head>
 
 <body>
@@ -634,85 +621,92 @@ solid
 
 		<!-- Start Home Page Slider -->
 		<section id="home">
-			<div class="slider-1_container">
+			<div class="slider-1_container" >
 				<div class="slider-1_wrapper">
 					<div class="slider-1 revslider">
 						<ul>
 							<!-- THE FIRST SLIDE -->
 							<li data-transition="fade" data-slotamount="5"
 								data-masterspeed="300">
-								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE --> <img
-								src="${pageContext.request.contextPath }/resources/images/slider_1_bg.jpg"
+								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE --> <img class="slider1"
+								src="${pageContext.request.contextPath }/resources/images/slider11.png"
 								data-fullwidthcentering="on" alt="background"> <!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
 								<div class="caption medium-700-black lfr" data-x="58"
-									data-y="138" data-speed="300" data-start="1600"
+									data-y="150" data-speed="300" data-start="1600"
 									data-easing="easeOutExpo">
-									Welcome to Venue. <br /> Responsive HTML5 Template.
+								<span style="color:snow; font-size:10px; ">대한민국 No1 강사리뷰사이트</span>
+								
+								<p style="color:snow; font-size:20px;">비싼 강의료</p>
+								
+								<p style="color:snow; font-size:20px;">강의 신청 하기전에 </p>
+								
+								<p style="color:snow; font-size:20px;">나한태 맞는 강사를 알수없을까 ??</p>
+								
+								<br />
 								</div>
 								<div class="caption small-600-black lfr" data-x="58"
-									data-y="210" data-speed="300" data-start="2000"
+									data-y="300" data-speed="300" data-start="2000"
 									data-easing="easeOutExpo">
-									Venue is best solution for your business, <br /> Responsive &
-									Flexible, You can present your <br /> business and services
-									properly.
+									<br />
+									<strong>
+									
+									<p style="font-size:30px; color:rgb(68,115,197);">세모선</p>									
+									</strong>
 								</div>
-								<div class="caption randomrotate" data-x="58" data-y="285"
-									data-speed="300" data-start="2400" data-easing="easeOutExpo">
-									<a href="#" class="btn-custom btn-medium">Purchase Item</a>
-								</div>
-								<div class="caption lfl" data-x="595" data-y="51"
-									data-speed="300" data-start="1200" data-easing="easeOutExpo">
-									<img
-										src="${pageContext.request.contextPath }/resources/images/slider_1_browser.png"
-										alt="browser" />
-								</div>
-								<div class="caption lfl" data-x="500" data-y="194"
-									data-speed="300" data-start="800" data-easing="easeOutExpo">
-									<img
-										src="${pageContext.request.contextPath }/resources/images/slider_1_tablet.png"
-										alt="tablet" />
-								</div>
-								<div class="caption lfl" data-x="460" data-y="304"
-									data-speed="300" data-start="400" data-easing="easeOutExpo">
-									<img
-										src="${pageContext.request.contextPath }/resources/images/slider_1_phone.png"
-										alt="phone" />
-								</div>
+<!-- 								<div class="caption randomrotate" data-x="80" data-y="385"  -->
+<!-- 									data-speed="300" data-start="2400" data-easing="easeOutExpo"> -->
+<!-- 									<a href="#" class="btn-custom btn-medium">리뷰 보러 가자</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="caption lfl" data-x="595" data-y="51" -->
+<!-- 									data-speed="300" data-start="1200" data-easing="easeOutExpo"> -->
+<!-- 									<img -->
+<%-- 										src="${pageContext.request.contextPath }/resources/images/simmin_3.png" --%>
+<!-- 										alt="browser" /> -->
+<!-- 								</div> -->
+<!-- 								<div class="caption lfl" data-x="500" data-y="194" -->
+<!-- 									data-speed="300" data-start="800" data-easing="easeOutExpo"> -->
+<!-- 									<img -->
+<%-- 										src="${pageContext.request.contextPath }/resources/images/simmin_2.png" --%>
+<!-- 										alt="tablet" /> -->
+<!-- 								</div> -->
+<!-- 								<div class="caption lfl" data-x="460" data-y="304" -->
+<!-- 									data-speed="300" data-start="400" data-easing="easeOutExpo"> -->
+<!-- 									<img -->
+<%-- 										src="${pageContext.request.contextPath }/resources/images/simin1_1.png" --%>
+<!-- 										alt="phone" /> -->
+<!-- 								</div> -->
 							</li>
 
 							<!-- THE SECOND SLIDE -->
-							<li data-transition="papercut" data-slotamount="5"
+						<li data-transition="papercut" data-slotamount="5"
 								data-masterspeed="500" data-delay="9400">
 								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE --> <img
-								src="${pageContext.request.contextPath }/resources/images/slider_2_bg.jpg"
+<%-- 								src="${pageContext.request.contextPath }/resources/images/slider1.png" --%>
 								data-fullwidthcentering="on" alt="background"> <!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
-								<div class="caption medium-700-black lfr" data-x="625"
+								<div class="caption medium-700-black lfr" data-x="825"
 									data-y="150" data-speed="300" data-start="400"
-									data-easing="easeOutExpo">
-									EVERYTHING YOU NEED <br /> TO BUILD EXCEPTIONAL PROJECT.
+									data-easing="easeOutExpo" style="font-size: 20px;">
+									강사에 대한 <br /> 평가를 남겨주세요.
 								</div>
-								<div class="caption small-600-black lfr" data-x="625"
+								<div class="caption small-600-black lfr" data-x="825"
 									data-y="225" data-speed="300" data-start="800"
-									data-easing="easeOutExpo">
-									Venue is the best solution for your business, Responsive & <br />
-									Flexible, You can present your business and services <br />
-									properly.
+									data-easing="easeOutExpo" style="font-size: 30px;">
+									<strong style="color: rgb(68,115,197);">세모선</strong>은 여러분이 만들어갑니다. 
 								</div>
-								<div class="caption randomrotate" data-x="625" data-y="300"
+								<div class="caption randomrotate" data-x="825" data-y="300"
 									data-speed="300" data-start="1200" data-easing="easeOutExpo">
-									<a href="#" class="btn-custom btn-medium border-btn">Purchase
-										Item</a>
+									<a href="#" class="btn-custom btn-medium border-btn">리뷰 등록</a>
 								</div>
 								<div class="tp-caption sfl start" data-x="30" data-y="bottom"
 									data-speed="1000" data-start="1000" data-easing="easeOutExpo">
 									<img
-										src="${pageContext.request.contextPath }/resources/images/slider-3.png"
+										src="${pageContext.request.contextPath }/resources/images/slide-3.png"
 										alt="" />
 								</div>
 							</li>
 
 							<!-- THE THIRD SLIDE -->
-							<li data-transition="turnoff" data-slotamount="5"
+						<li data-transition="turnoff" data-slotamount="5"
 								data-masterspeed="300">
 								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE --> <img
 								src="${pageContext.request.contextPath }/resources/images/slider_3_bg.jpg"
@@ -723,60 +717,59 @@ solid
 								<div class="caption medium-700-black lfr" data-x="58"
 									data-y="138" data-speed="300" data-start="800"
 									data-easing="easeOutExpo">
-									Fully Responsive. Retina Display Ready. <br /> Touch Enabled
-									Sliders.
+									실시간으로 <br /> 올라오는 청정 리뷰 !!
 								</div>
 								<div class="caption small-600-black lfr" data-x="58"
 									data-y="214" data-speed="300" data-start="1200"
 									data-easing="easeOutExpo">
-									Venue is the best solution for your business, Responsive &
-									Flexible, <br /> You can present your business and services
-									properly.
+									<p style="font-size:30px; color:rgb(68,115,197);">세상의 모든 선생님</p>
+								
+									 <br /> 
 								</div>
-								<div class="caption randomrotate" data-x="58" data-y="275"
-									data-speed="300" data-start="1600" data-easing="easeOutExpo">
-									<a href="#" class="btn-custom btn-medium border-btn">Explore
-										More Features</a>
-								</div>
-								<div class="caption lfb" data-x="420" data-y="40"
+<!-- 								<div class="caption randomrotate" data-x="58" data-y="275" -->
+<!-- 									data-speed="300" data-start="1600" data-easing="easeOutExpo"> -->
+<!-- 									<a href="#" class="btn-custom btn-medium border-btn">Explore -->
+<!-- 										More Features</a> -->
+<!-- 								</div> -->
+								<div class="caption lfb" data-x="620" data-y="40"
 									data-speed="300" data-start="400" data-easing="easeOutExpo">
 									<img
-										src="${pageContext.request.contextPath }/resources/images/slider_3_tablet.png"
+										src="${pageContext.request.contextPath }/resources/images/slider1_browser.png"
 										alt="tablet" />
 								</div>
 							</li>
 
 							<!-- THE FOURTH SLIDE -->
-							<li data-transition="papercut" data-slotamount="7"
-								data-masterspeed="300">
-								<!-- MAIN IMAGE --> <img
-								src="${pageContext.request.contextPath }/resources/images/slider_4_bg.jpg"
-								data-fullwidthcentering="on" alt="background"> <!-- LAYER NR. 1 -->
-								<div class="caption medium-700-black lfr" data-x="540"
-									data-y="125" data-speed="300" data-start="1600"
-									data-easing="easeOutExpo">
-									<span class="accent-color">Solutions</span> that you need! <br>
-									The best template to get you started
-								</div> <!-- LAYER NR. 3 -->
-								<div class="caption small-600-black lfr" data-x="540"
-									data-y="200" data-speed="300" data-start="2000"
-									data-easing="easeOutExpo">
-									Venue is best solution for your business, Responsive &
-									Flexible, <br> You can present your business and services
-									properly.
-								</div> <!-- LAYER NR. 4 -->
-								<div class="tp-caption sfb start" data-x="540" data-y="265"
-									data-speed="300" data-start="2500" data-easing="easeOutExpo">
-									<a href="#" class="btn-custom btn-medium border-btn">Purchase
-										This Now</a>
-								</div> <!-- LAYER NR. 5 -->
-								<div class="tp-caption sfl start" data-x="180" data-y="bottom"
-									data-speed="1000" data-start="1000" data-easing="easeOutExpo">
-									<img
-										src="${pageContext.request.contextPath }/resources/images/slide-02-image-01.png"
-										alt="" />
-								</div>
-							</li>
+<!-- 							<li data-transition="papercut" data-slotamount="7" -->
+<!-- 								data-masterspeed="300"> -->
+<!-- 								MAIN IMAGE <img -->
+<%-- 								src="${pageContext.request.contextPath }/resources/images/slider_4_bg.jpg" --%>
+<!-- 								data-fullwidthcentering="on" alt="background"> LAYER NR. 1 -->
+<!-- 								<div class="caption medium-700-black lfr" data-x="540" -->
+<!-- 									data-y="125" data-speed="300" data-start="1600" -->
+<!-- 									data-easing="easeOutExpo"> -->
+<!-- 									<span class="accent-color">Solutions</span> that you need! <br> -->
+<!-- 									The best template to get you started -->
+<!-- 								</div> LAYER NR. 3 -->
+<!-- 								<div class="caption small-600-black lfr" data-x="540" -->
+<!-- 									data-y="200" data-speed="300" data-start="2000" -->
+<!-- 									data-easing="easeOutExpo"> -->
+<!-- 									Venue is best solution for your business, Responsive & -->
+<!-- 									Flexible, <br> You can present your business and services -->
+<!-- 									properly. -->
+<!-- 								</div> LAYER NR. 4 -->
+<!-- 								<div class="tp-caption sfb start" data-x="540" data-y="265" -->
+<!-- 									data-speed="300" data-start="2500" data-easing="easeOutExpo"> -->
+<!-- 									<a href="#" class="btn-custom btn-medium border-btn">Purchase -->
+<!-- 										This Now</a> -->
+<!-- 								</div> LAYER NR. 5 -->
+<!-- 								<div class="tp-caption sfl start" data-x="180" data-y="bottom" -->
+<!-- 									data-speed="1000" data-start="1000" data-easing="easeOutExpo"> -->
+<!-- 									<img -->
+<%-- 										src="${pageContext.request.contextPath }/resources/images/slide-02-image-01.png" --%>
+<!-- 										alt="" /> -->
+<!-- 								</div> -->
+<!-- 							</li> -->
 						</ul>
 					</div>
 				</div>
@@ -785,32 +778,38 @@ solid
 		<!-- End Home Page Slider -->
 		<!-- 검색창 -->
 
+			<a href="${pageContext.request.contextPath}/search/searchPage.do?userId=${member.userId}">
 		<div class="jsx-2160661806 search-bar">
 			<div class="jsx-2460799870 bar-layout">
 				<p class="jsx-2460799870">
 					어떤  <span class="jsx-2460799870">선생님</span>을 찾으세요?
 				</p>
-				<div class="jsx-2460799870 search-box">
+		<div class="jsx-2460799870 search-box" >
 					<div class="jsx-2460799870 search-bar">
+						
+					
+						
 						<div class="typing-txt">
 							<ul>
 								<li>어떤 선생님을 찾으세요 ?</li>
 								<li>세상의 모든 선생님을 여러분이 만들어주세요 !!</li>
 								<li>그리고 선생님을 평가하세요 ~!</li>
 							</ul>
-
+							
 						</div>
 						<p class="typing"></p>
-						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-							viewBox="0 0 24 24" fill="none" stroke="#3f60cc" stroke-width="2"
-							stroke-linecap="round" stroke-linejoin="round"
-							style="position: relative; margin-left: auto;">
-							<circle cx="11" cy="11" r="8"></circle>
-							<line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+<!-- 						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" -->
+<!-- 							viewBox="0 0 24 24" fill="none" stroke="#3f60cc" stroke-width="2" -->
+<!-- 							stroke-linecap="round" stroke-linejoin="round" -->
+<!-- 							style="position: relative; margin-left: auto;"> -->
+<%-- 							<circle cx="11" cy="11" r="8"></circle> --%>
+<!-- 							<line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> -->
 					</div>
 				</div>
 			</div>
 		</div>
+					</a>
+
 
 		<!-- 검색창끝 -->
 
@@ -829,7 +828,7 @@ solid
 					<div class="semo1">
 						<h3 class="jsx-4179964491">리뷰 Live</h3>
 
-						<ul class="semo2">
+						<ul class="semo2" style="overflow-y: scroll;">
 
 							<li class="semo3">
 								<div class="semoimg"
@@ -910,6 +909,66 @@ solid
 								</div>
 								<div class="semocheck complete">0</div>
 							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
 
 						</ul>
 						
@@ -929,7 +988,7 @@ solid
 					
 					<div class="jsx-1976876495 hot-review-box ">
 						<div class="jsx-1976876495 title">
-							<h3 class="jsx-1976876495">지금 뜨는 리뷰</h3>
+							<h3 class="jsx-4179964491">지금 뜨는 리뷰</h3>
 							<div class="jsx-1976876495 btn-box">
 								<button type="button" class="jsx-1976876495 prev">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -1052,13 +1111,16 @@ solid
 							<!-- Start Recent Projects Carousel -->
 							<div class="recent-projects">
 								<h4 class="title">
-									<span>Recent Projects</span>
+									<span>실시간 강사 정보</span>
 								</h4>
 								<div class="projects-carousel touch-carousel">
 
 									<div class="portfolio-item item">
+<%-- 											<c:forEach items="${teacherList}" var="teacher"> --%>
+<%-- 											</c:forEach> --%>
 										<div class="portfolio-border">
 											<div class="portfolio-thumb">
+											
 												<a class="lightbox" data-lightbox-type="ajax"
 													href="https://vimeo.com/78468485">
 													<div class="thumb-overlay">
@@ -1066,16 +1128,20 @@ solid
 													</div> <img alt=""
 													src="${pageContext.request.contextPath }/resources/images/portfolio/1.jpg" />
 												</a>
+												
 											</div>
+											
 											<div class="portfolio-details">
 												<a href="#">
-													<h4>심우철 강사</h4> <span>리뷰 평점 :
+													<h4>{teacherList.tName}</h4> <span>리뷰 평점 :
 														<h5>2.2</h5>
 												</span> <span>#심슨 #단어 #빠르다</span>
 												</a>
 											</div>
-										</div>
+											
+										
 									</div>
+								</div>
 
 									<div class="portfolio-item item">
 										<div class="portfolio-border">
@@ -1226,271 +1292,7 @@ solid
 					<!-- Start News & Skill Section -->
 					<div class="container">
 						<div class="row">
-							<div class="col-md-7">
-
-								<!-- Classic Heading -->
-								<h4 class="classic-title">
-									<span>Latest News</span>
-								</h4>
-								<div class="latest-news custom-carousel touch-carousel"
-									data-appeared-items="2">
-
-									<!-- Start Project Item -->
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<!-- Start Project Thumb -->
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_8@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/8.jpg" />
-												</a>
-											</div>
-											<!-- End Project Thumb -->
-											<!-- Start Project Details -->
-											<div class="portfolio-details">
-												<div class="latest-news">
-													<!-- Post 1 -->
-													<div class="post-row">
-														<div class="post-time-section">
-															<div class="post-date">
-																<span class="day">28</span>
-															</div>
-															<div class="post-month">
-																<span class="month">Dec</span>
-															</div>
-														</div>
-														<h4 class="post-title">
-															<a href="#">Standard Post With Image</a>
-														</h4>
-														<div class="post-content">
-															<p>Nemo enim ipsam voluptatem quia voluptas sit
-																aspernatur aut odit aut</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- End Project Details -->
-										</div>
-									</div>
-									<!-- End Project Item -->
-
-									<!-- Start Project Item -->
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<!-- Start Project Thumb -->
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_7@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/7.jpg" />
-												</a>
-											</div>
-											<!-- End Project Thumb -->
-											<!-- Start Project Details -->
-											<div class="portfolio-details">
-												<div class="latest-news">
-													<!-- Post 1 -->
-													<div class="post-row">
-														<div class="post-time-section">
-															<div class="post-date">
-																<span class="day">28</span>
-															</div>
-															<div class="post-month">
-																<span class="month">Dec</span>
-															</div>
-														</div>
-														<h4 class="post-title">
-															<a href="#">Standard Post With Image</a>
-														</h4>
-														<div class="post-content">
-															<p>Nemo enim ipsam voluptatem quia voluptas sit
-																aspernatur aut odit aut</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- End Project Details -->
-										</div>
-									</div>
-									<!-- End Project Item -->
-
-									<!-- Start Project Item -->
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<!-- Start Project Thumb -->
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="아무거나 입력"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_6@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/6.jpg" />
-												</a>
-											</div>
-											<!-- End Project Thumb -->
-											<!-- Start Project Details -->
-											<div class="portfolio-details">
-												<div class="latest-news">
-													<!-- Post 1 -->
-													<div class="post-row">
-														<div class="post-time-section">
-															<div class="post-date">
-																<span class="day">28</span>
-															</div>
-															<div class="post-month">
-																<span class="month">Dec</span>
-															</div>
-														</div>
-														<h4 class="post-title">
-															<a href="#">Standard Post With Image</a>
-														</h4>
-														<div class="post-content">
-															<p>Nemo enim ipsam voluptatem quia voluptas sit
-																aspernatur aut odit aut</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- End Project Details -->
-										</div>
-									</div>
-									<!-- End Project Item -->
-
-									<!-- Start Project Item -->
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<!-- Start Project Thumb -->
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_5@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/5.jpg" />
-												</a>
-											</div>
-											<!-- End Project Thumb -->
-											<!-- Start Project Details -->
-											<div class="portfolio-details">
-												<div class="latest-news">
-													<!-- Post 1 -->
-													<div class="post-row">
-														<div class="post-time-section">
-															<div class="post-date">
-																<span class="day">28</span>
-															</div>
-															<div class="post-month">
-																<span class="month">Dec</span>
-															</div>
-														</div>
-														<h4 class="post-title">
-															<a href="#">Standard Post With Image</a>
-														</h4>
-														<div class="post-content">
-															<p>Nemo enim ipsam voluptatem quia voluptas sit
-																aspernatur aut odit aut</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- End Project Details -->
-										</div>
-									</div>
-									<!-- End Project Item -->
-
-									<!-- Start Project Item -->
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<!-- Start Project Thumb -->
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_4@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/4.jpg" />
-												</a>
-											</div>
-											<!-- End Project Thumb -->
-											<!-- Start Project Details -->
-											<div class="portfolio-details">
-												<div class="latest-news">
-													<!-- Post 1 -->
-													<div class="post-row">
-														<div class="post-time-section">
-															<div class="post-date">
-																<span class="day">28</span>
-															</div>
-															<div class="post-month">
-																<span class="month">Dec</span>
-															</div>
-														</div>
-														<h4 class="post-title">
-															<a href="#">Standard Post With Image</a>
-														</h4>
-														<div class="post-content">
-															<p>Nemo enim ipsam voluptatem quia voluptas sit
-																aspernatur aut odit aut</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- End Project Details -->
-										</div>
-									</div>
-									<!-- End Project Item -->
-
-									<!-- Start Project Item -->
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<!-- Start Project Thumb -->
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_3@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/3.jpg" />
-												</a>
-											</div>
-											<!-- End Project Thumb -->
-											<!-- Start Project Details -->
-											<div class="portfolio-details">
-												<div class="latest-news">
-													<!-- Post 1 -->
-													<div class="post-row">
-														<div class="post-time-section">
-															<div class="post-date">
-																<span class="day">28</span>
-															</div>
-															<div class="post-month">
-																<span class="month">Dec</span>
-															</div>
-														</div>
-														<h4 class="post-title">
-															<a href="#">Standard Post With Image</a>
-														</h4>
-														<div class="post-content">
-															<p>Nemo enim ipsam voluptatem quia voluptas sit
-																aspernatur aut odit aut</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- End Project Details -->
-										</div>
-									</div>
-									<!-- End Project Item -->
-								</div>
-							</div>
-							<!-- .col-md-6 -->
-
-							<div class="col-md-5">
+						<div class="col-md-5">
 
 								<!-- Classic Heading -->
 								<h4 class="classic-title">
@@ -1535,10 +1337,187 @@ solid
 									</div>
 								</div>
 							</div>
-							<!-- .col-md-6 -->
+					<!-- 세모숲 -->
+							<div class="mainReview col-md-7" >
+
+					<div class="semo1" style="height:298px !important;">
+						<h3 class="jsx-4179964491">리뷰 Live</h3>
+
+						<ul class="semo2" style="overflow-y: scroll;">
+
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck ban">반려</div>
+							</li>
+
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck ban">반려</div>
+							</li>
+
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck stay">승인대기</div>
+							</li>
+
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+
+						</ul>
+						
+						<div class="jsx-4179964491 btn-more hide-on-desktop">
+							<button name="btnMore" type="button" class="jsx-334325833 btn btn-light">더보기</button>
+						</div>
+
+
+					</div>
+				</div>
+							
 						</div>
 						<!-- .row -->
-					</div>
+				
+					<!-- .container -->
+					<!-- End News & Skill Section -->
+
+					<!-- Divider -->
+					<div class="hr1 margin-top"></div>
+
+					<!-- Start Clients/Partner Section -->
+
+					<!-- End Clients/Partner Section -->
+
+				</div>
+				<!-- End Content -->
+				
+							<!-- .col-md-6 -->
+
+							
+							<!-- .col-md-6 -->
+						
+						<!-- .row -->
+				
 					<!-- .container -->
 					<!-- End News & Skill Section -->
 

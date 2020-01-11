@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="memberEnrollEnd.do" method="post">
+	<form action="/memberEnrollEnd.sg" method="post">
 		<input type="text" name="userId" value="userId" />
 		<input type="password" name="pwd" value="pwd" />
 		<input type="text" name="nickName" value="nickName" />
@@ -28,7 +28,7 @@
 		        <!-- 로그인,회원가입 버튼 -->
 		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#loginModal">로그인</button>
 		        &nbsp;
-		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberEnroll.do'">회원가입</button>
+		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/memberEnrollEnd.sg'">회원가입</button>
 		    </c:if>
 		    <c:if test="${!empty member}">
 		        <span><a href="${pageContext.request.contextPath}/member/memberView.do?userId=${member.userId}" title="내정보보기">${member.userName}</a> 님, 안녕하세요</span>
@@ -36,7 +36,7 @@
 		        <button class="btn btn-outline-success m-y2 my-sm-0" tpye="button"
 		        onclick="chattingBtn();" style="margin-left:10px;">채팅하기</button>
 		   		&nbsp;
-		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">로그아웃</button>
+		        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/memberEnrollEnd.sg'">로그아웃</button>
 		   
 		   
 		    </c:if>

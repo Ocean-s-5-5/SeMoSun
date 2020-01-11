@@ -1,6 +1,7 @@
 package com.oceans.semosun.member.model.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ import com.oceans.semosun.member.MailHandler;
 import com.oceans.semosun.member.TempKey;
 import com.oceans.semosun.member.model.dao.MemberDAO;
 import com.oceans.semosun.member.model.vo.Member;
+import com.oceans.semosun.teacher.model.vo.Teacher;
 
 
 @Service
@@ -46,27 +48,52 @@ public class MemberService {
 		
 		return memberDAO.selectOneMember(member);
 	}
-//	
-//	
-//	
-//
-//	public int DeleteOneMember(Member member) {
-//		// TODO Auto-generated method stub
-//		return memberDAO.DeleteOneMember(member);
-//	}
-//
-//	public int updateMember(Member member) {
-//		// 여기에서 DAO로 이동합니다.
-//		
-//		return memberDAO.updateMember(member);
-//	}
-//
-//	public int checkIdDuplicate(String userId) {
-//		HashMap<String, Object> hmap = new HashMap();
-//		
-//		hmap.put("userId", userId);
-//		
-//		return memberDAO.checkIdDuplicate(hmap);
-//	}
+	
+	
+	
+
+	public int DeleteOneMember(Member member) {
+		// TODO Auto-generated method stub
+		return memberDAO.DeleteOneMember(member);
+	}
+
+	public int updateMember(Member member) {
+		// 여기에서 DAO로 이동합니다.
+		
+		return memberDAO.updateMember(member);
+	}
+
+	public int checkIdDuplicate(String userId) {
+		HashMap<String, Object> hmap = new HashMap();
+		
+		hmap.put("userId", userId);
+		
+		return memberDAO.checkIdDuplicate(hmap);
+	}
+	public int checkEmailDup(String email) {
+		HashMap<String, Object> hmap = new HashMap();
+		
+		hmap.put("email", email);
+		
+		return memberDAO.checkEmailDup(hmap);
+	}
+
+	public List<Map<String, String>> selectList(int cPage, int numPerPage,int userNo) {
+		return memberDAO.selectTeacherList(cPage, numPerPage, userNo);
+	}
+
+	public int selectTotalContents(int userNo) {
+		return memberDAO.selectTotalContents(userNo);
+	}
+
+	public Teacher selectOneTeacher(int tNo) {
+		return memberDAO.selectOneTeacher(tNo);
+	}
+
+	
+
+
+	
+
 
 }

@@ -2,16 +2,22 @@
 <!DOCTYPE configuration PUBLIC
 "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
 	
 	<settings> <!-- 마이바티스 설정을 담당하는 부분 -->
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
+
 	<!-- 나중에 SQL에서 사용할 때 직접 내용을 적지않고 별칭으로도 접근이 가능하다. 내가쓸 vo 계속 추가 -->
  	<!-- type : class full name / alias : 사용하려는 객체 별칭 -->
  	<typeAliases> 
 				<typeAlias type="com.oceans.semosun.member.model.vo.Member" alias="Member"/>
- 	</typeAliases> 
+				<typeAlias type="com.oceans.semosun.teacher.model.vo.Teacher" alias="Teacher"/>
+ 				<typeAlias alias="Notice" type="com.oceans.semosun.notice.model.vo.Notice"/>
+				<typeAlias alias="Talk" type="com.oceans.semosun.talk.model.vo.Talk"/>
+				<typeAlias alias="TalknMember" type="com.oceans.semosun.search.model.vo.TalknMember"/>
+	</typeAliases>
 	
 </configuration>
 
