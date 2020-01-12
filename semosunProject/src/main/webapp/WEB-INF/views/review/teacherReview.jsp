@@ -60,6 +60,50 @@
 .UDBtnDiv>div {
 	display: inline-block;
 }
+
+.modal-body .progress-bar {
+	transition: width .2s ease-out;
+}
+
+/* *************** highchart.js [통계 차트 관련 css] 시작 **************** */
+/* 참고 url : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/polar-spider/ */
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 320px; 
+    max-width: 660px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+/* *************** highchart.js [통계 차트 관련 css] 끝 **************** */
+
 </style>
 </head>
 <body>
@@ -73,14 +117,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Blog</h2>
-                        <p>Blog Page With Left Sidebar</p>
+                        <h2>${Teacher.tName} 선생님 리뷰</h2>
+                        <p>과목 : ${ Teacher.subject } / 소속 : ${ Teacher.company }</p>
                     </div>
                     <div class="col-md-6">
                         <ul class="breadcrumbs">
                             <li><a href="#">Home</a>
                             </li>
-                            <li>Blog with Left Sidebar</li>
+                            <li>${Teacher.tName} 선생님 리뷰</li>
                         </ul>
                     </div>
                 </div>
@@ -196,9 +240,21 @@
                             <!-- Post Thumb -->
                             <div class="post-head">
                                 
+                                
+					<figure class="highcharts-figure">
+					    <div id="highchart-container1"></div>
+					    <p class="highcharts-description text-center">
+					       ${member.nickName}님에게 맞는 강의 스타일을 확인해보세요!
+					    </p>
+					</figure>
+					
+					<figure class="highcharts-figure">
+					    <div id="highchart-container2"></div>
+					</figure>
+                                
                     <!-- Start Service Icon 1 -->
                     <div class="col-md-4 service-box service-icon-left">
-                     <h4 class="classic-title"><span>Latest News</span></h4>
+                     <h4 class="classic-title"><span>강의 총 점수</span></h4>
                         <div class="service-icon">
                             <i class="fa fa-trophy icon-mini-effect icon-effect-1"></i>
                         </div>
@@ -254,14 +310,17 @@
 
                         <!-- Start Comment Area -->
                         <div id="comments">
-                            <h2 class="comments-title">총 ${reviewCount}개의 리뷰가 있습니다!</h2>
+                        	<c:if test="${reviewCount == 0}">
+                        		<h2 class="comments-title">
+                        			아직 리뷰가 등록되지 않았습니다.<br>
+                        			첫 리뷰의 주인공이 되어 보세요!
+                        		</h2>
+                        	</c:if><c:if test="${reviewCount != 0}">
+                        		<h2 class="comments-title">총 ${reviewCount}개의 리뷰가 있습니다!</h2>
+                        	</c:if>
+                            
                             <ol class="comments-list">
-                            
-                            
-                            
-                            
-                            
-                            
+                    <!-- --------------------------- 리뷰 for-each 시작 --------------------------- -->
                             <c:forEach items="${list}" var="r" varStatus="num">
                             <!-- list[0] → r -->
                                 <li>
@@ -331,33 +390,33 @@
 								                        <span>별점 5개 Our Skills </span>
 								                    </h4>
 								                        <div class="progress-bars">
-								                            <div class="progress-label"> SCORE1 </div>
+								                            <div class="progress-label"> 난이도 </div>
 								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score1}0%">
+								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score1 * 20}%">
 								                                    <span class="progress-bar-tooltip">${r.score1}점</span>
 								                                </div>
 								                            </div>
-								                            <div class="progress-label"> SCORE2 </div>
+								                            <div class="progress-label"> 유머 </div>
 								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score2}0%" data-animation-delay="300">
+								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score2 * 20}%" data-animation-delay="300">
 								                                    <span class="progress-bar-tooltip">${r.score2}점</span>
 								                                </div>
 								                            </div>
-								                            <div class="progress-label"> SCORE3 </div>
+								                            <div class="progress-label"> 과제양 </div>
 								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score3}0%" data-animation-delay="600">
+								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score3 * 20}%" data-animation-delay="600">
 								                                    <span class="progress-bar-tooltip">${r.score3}점</span>
 								                                </div>
 								                            </div>
-								                            <div class="progress-label"> SCORE4 </div>
+								                            <div class="progress-label"> 교재수 </div>
 								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score4}0%" data-animation-delay="900">
+								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score4 * 20}%" data-animation-delay="900">
 								                                    <span class="progress-bar-tooltip">${r.score4}점</span>
 								                                </div>
 								                            </div>
-								                            <div class="progress-label"> SCORE5 </div>
+								                            <div class="progress-label"> 목소리톤(차분 ↔ 파워풀) </div>
 								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score5}0%" data-animation-delay="1200">
+								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score5 * 20}%" data-animation-delay="1200">
 								                                    <span class="progress-bar-tooltip">${r.score5}점</span>
 								                                </div>
 								                            </div>
@@ -379,27 +438,14 @@
                                   </div>
                                 </li>
                             </c:forEach>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
+               <!-- --------------------------- 리뷰 for-each 끝 --------------------------- -->
                             </ol>
                         </div>
                         <!-- End Comment Area -->
 
 
                         <!-- Start Pagination -->
-                        <div id="pagination">
-                            <span class="all-pages">Page 1 of 3</span>
-                            <span class="current page-num">1</span>
-                            <a class="page-num" href="#">2</a>
-                            <a class="page-num" href="#">3</a>
-                            <a class="next-page" href="#">Next</a>
-                        </div>
+                        <c:out value="${pageBar}" escapeXml="false"/>
                         <!-- End Pagination -->
 
                     </div>
@@ -459,67 +505,67 @@
 	            <div class="progress-bars">
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> SCORE1 </div>
+				        <div class="progress-label"> 난이도 </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
-				                <span class="progress-bar-tooltip">100%</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+				                <span class="progress-bar-tooltip">3점</span>
 				            </div>
 				        </div>
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="10" min="0" step="1" name="score1"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);"><br />
 	                 </div>   
 				    </div>
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> SCORE2 </div>
+				        <div class="progress-label"> 유머 </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="85%" data-animation-delay="300">
-				                <span class="progress-bar-tooltip">85%</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+				                <span class="progress-bar-tooltip">3점</span>
 				            </div>
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="10" min="0" step="1"  name="score2"><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);"  data-animation-delay="300"><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> SCORE3 </div>
+				        <div class="progress-label"> 과제양 </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="75%" data-animation-delay="600">
-				                <span class="progress-bar-tooltip">75%</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+				                <span class="progress-bar-tooltip">3점</span>
 				            </div>
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="10" min="0" step="1"  name="score3"><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);"  data-animation-delay="600"><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> SCORE4 </div>
+				        <div class="progress-label"> 교재수 </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="85%" data-animation-delay="900">
-				                <span class="progress-bar-tooltip">85%</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+				                <span class="progress-bar-tooltip">3점</span>
 				            </div>
 				        </div> 
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="10" min="0" step="1" name="score4"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);" data-animation-delay="900"><br />
 	                 </div>    
 				    </div> 
 				<div class="row"> 
 					<div class="col-sm-6">
-				        <div class="progress-label"> SCORE5 </div>
+				        <div class="progress-label"> 목소리톤(차분 ↔ 파워풀) </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="95%" data-animation-delay="1200">
-				                <span class="progress-bar-tooltip">95%</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+				                <span class="progress-bar-tooltip">3점</span>
 				            </div>
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="10" min="0" step="1" name="score5"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);" data-animation-delay="1200"><br />
 	                 </div>   
 				</div>
 	       		</div>
@@ -607,9 +653,153 @@
 </c:if>
 
 		<c:import url="../common/footer.jsp" />
-		
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/highcharts-more.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 		
 		<script type="text/javascript">
+		/* --------------- highchart 스크립트 영역 시작 ------------- */
+		var reviewStat = "${!empty reviewStat}";
+		var data1;
+		if(reviewStat == "false"){
+			data1 = [{
+		        name: '${member.nickName}',
+		        data: [3, 3, 3, 3, 3],
+		        pointPlacement: 'on'
+		    }];
+		} else {
+			data1 = [{
+		        name: '${member.nickName}',
+		        data: [3, 3, 3, 3, 3],
+		        pointPlacement: 'on'
+		    }, {
+		        name: '${Teacher.tName}님의 스타일',
+		        data: [${reviewStat.chartStr}],
+		        pointPlacement: 'on'
+		    }];
+		}
+			Highcharts.chart('highchart-container1', {
+			    chart: {
+			        polar: true,
+			        type: 'line'
+			    },
+			
+			    accessibility: {
+			        description: '${member.nickName}님에게 맞는 강의 스타일을 확인해보세요!'
+			    },
+			
+			    title: {
+			        text: '${Teacher.tName} 선생님의 강의 스타일',
+			        x: -80
+			    },
+			
+			    pane: {
+			        size: '80%'
+			    },
+			
+			    xAxis: {
+			        categories: ['난이도', '유머', '과제', '교재', '목소리'],
+			        tickmarkPlacement: 'on',
+			        lineWidth: 0
+			    },
+			
+			    yAxis: {
+			        gridLineInterpolation: 'polygon',
+			        lineWidth: 0,
+			        min: 0,
+			        max : 5
+			    },
+			
+			    tooltip: {
+			        shared: true,
+			        pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y}점</b><br/>'
+			    },
+			
+			    legend: {
+			        align: 'center',
+			        verticalAlign: 'bottom',
+			        layout: 'horizontal'
+			    },
+			
+			    series: data1,
+			    responsive: {
+			        rules: [{
+			            condition: {
+			                maxWidth: 500
+			            },
+			            chartOptions: {
+			                legend: {
+			                    align: 'center',
+			                    verticalAlign: 'bottom',
+			                    layout: 'horizontal'
+			                },
+			                pane: {
+			                    size: '70%'
+			                }
+			            }
+			        }]
+			    }
+			});
+		
+			Highcharts.chart('highchart-container2', {
+			    chart: {
+			        plotBackgroundColor: null,
+			        plotBorderWidth: 0,
+			        plotShadow: false
+			    },
+			    title: {
+			        text: '강의평 분석',
+			        align: 'center',
+			        verticalAlign: 'middle',
+			        y: 60
+			    },
+			    tooltip: {
+			        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			    },
+			    accessibility: {
+			        point: {
+			            valueSuffix: '%'
+			        }
+			    },
+			    plotOptions: {
+			        pie: {
+			            dataLabels: {
+			                enabled: true,
+			                distance: -50,
+			                style: {
+			                    fontWeight: 'bold',
+			                    color: 'white'
+			                }
+			            },
+			            startAngle: -90,
+			            endAngle: 90,
+			            center: ['50%', '75%'],
+			            size: '110%'
+			        }
+			    },
+			    series: [{
+			        type: 'pie',
+			        name: '평가비율',
+			        innerSize: '50%',
+			        data: [
+			            ['긍정', Number('${reviewLevel.REVIEW_0}')],
+			            ['보통', Number('${reviewLevel.REVIEW_1}')],
+			            ['부정', Number('${reviewLevel.REVIEW_2}')]
+			        ]
+			    }]
+			});
+
+		/* --------------- highchart 스크립트 영역 끝  ------------- */
+		
+			function changeProgress(obj){
+				console.log($(obj).val() * 20);
+				
+				$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
+				$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');
+			}
+			
 			// 수정 폼
 			function updateBtn(obj) {
 				$('#exampleModalCenter form').prepend($('<input>').attr('type','hidden').attr('name','rno'));
@@ -631,7 +821,7 @@
 					}else if(i<4){
 						$('#exampleModalCenter').find('input[name='+objArray[i]+']').val('');
 					}else {
-						$('#exampleModalCenter').find('input[name='+objArray[i]+']').val('5');
+						$('#exampleModalCenter').find('input[name='+objArray[i]+']').val('3');
 					}
 				}
 			}

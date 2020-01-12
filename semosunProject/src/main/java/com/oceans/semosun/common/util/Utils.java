@@ -1,8 +1,7 @@
 package com.oceans.semosun.common.util;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
 public class Utils {
 	
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url ){

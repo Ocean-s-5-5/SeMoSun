@@ -8,6 +8,30 @@
 		VALUES (SEQ_TNO.nextval,#{userNo}, #{tName}, #{tGender}, #{company}, #{subject}, 
 		#{profile}, #{profileName}, DEFAULT)
 	</insert>
-
+	<select id="selectList" resultType="Teacher">
+		SELECT * FROM TEACHER
+		WHERE TSTATUS = 'Y'
+	</select>
+	
+	<select id="teacherChart" parameterType="int" resultType="hashmap">
+		SELECT TO_CHAR(ROUND(AVG((SCORE1 + SCORE2 + SCORE3 + SCORE4 + SCORE5)/5), 2)) Total,
+              TO_CHAR(ROUND(AVG(SCORE1), 2)) score1,  
+              TO_CHAR(ROUND(AVG(SCORE2), 2)) score2, 
+              TO_CHAR(ROUND(AVG(SCORE3), 2)) score3,  
+              TO_CHAR(ROUND(AVG(SCORE4), 2)) score4,  
+              TO_CHAR(ROUND(AVG(SCORE5), 2)) score5
+		FROM REVIEW
+		WHERE TNO = ${tNo}
+	</select>
+	
+	<select id="getTeacherCount" resultType="int">
+		SELECT COUNT(*) FROM TEACHER
+		WHERE TSTATUS = 'Y'
+	</select>
+	
+	<select id="getReviewCount" resultType="int">
+		SELECT COUNT(*) FROM REVIEW
+		WHERE RSTATUS = 'N'
+	</select>
 </mapper>
  

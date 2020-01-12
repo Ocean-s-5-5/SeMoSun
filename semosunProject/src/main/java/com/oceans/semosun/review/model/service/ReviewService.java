@@ -1,7 +1,9 @@
 package com.oceans.semosun.review.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,45 @@ public class ReviewService {
 
 	public int deleteReview(int rno) {
 		return rDao.deleteReview(rno);
+	}
+
+	public HashMap<String, String> selectChartMap(int tNo) {
+		HashMap<String, String> map = new HashMap<>();
+		map = rDao.selectChart(tNo);
+		HashMap<String, String> resultMap = new HashMap<>();
+		String chartStr = "";
+		System.out.println(map);
+		
+		resultMap.put("total", map.get("TOTAL"));
+		
+		for(int i = 1; i < map.size() ; i++) {
+			if(i < map.size()-1) {
+				chartStr += map.get("SCORE"+i) + ", ";
+			} else {
+				chartStr += map.get("SCORE"+i);
+			}
+		}
+		
+		resultMap.put("chartStr", chartStr);
+		
+		return resultMap;
+	}
+
+	public HashMap<String, String> selectReviewLevel(int tNo) {
+		HashMap<String, String> map = new HashMap<>();
+		map = rDao.selectReviewLevel(tNo);
+		HashMap<String, String> resultMap = new HashMap<>();
+		
+		return map;
+	}
+
+	public List<Review> selectReviewLive() {
+		
+		return rDao.selectReviewLive();
+	}
+
+	public List<Review> selectBestReview() {
+		return rDao.selectBestReview();
 	}
 
 

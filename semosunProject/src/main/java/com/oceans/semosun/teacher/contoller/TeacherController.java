@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,13 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.oceans.semosun.common.util.Utils;
 import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.teacher.model.service.TeacherInsertService;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
 
 @Controller
-public class TeacherController2 {
+public class TeacherController {
 	
 	@Autowired
 	TeacherInsertService teacherService;
@@ -95,6 +97,24 @@ public class TeacherController2 {
 		
 		return "common/msg";
 		
+	}
+	
+	@RequestMapping("/teacher/selectTeacherList.do")
+	public String teacherList(@RequestParam(value="cPage", defaultValue = "1", required = false) int cPage, Model model) {
+		
+		int limit = 9;
+		int total = teacherService.getTeacherCount();
+		
+		String pagebar = Utils.getPageBar(total, cPage, limit, "/semosun/teacher/selectTeacherList.do");
+		List<Teacher> list = teacherService.selectList(cPage, limit);
+
+		model.addAttribute("teacherCount", teacherService.getTeacherCount())
+		     .addAttribute("reviewCount", teacherService.getReviewCount())
+		     .addAttribute("pageBar", pagebar)
+		     .addAttribute("list", list);
+				
+		
+		return "teacher/teacherList";
 	}
 	
 }

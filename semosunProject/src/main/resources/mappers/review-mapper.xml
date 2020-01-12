@@ -22,6 +22,34 @@
 		SELECT * FROM TEACHER WHERE TNO = #{tNo} AND TSTATUS = 'Y'
 	</select>
 	
+	<select id="reviewLevel" parameterType="int" resultType="hashmap">
+	<![CDATA[
+		SELECT COUNT(CASE WHEN TOTAL < 3 THEN 1 END) REVIEW_0,
+              COUNT(CASE WHEN TOTAL < 4 AND TOTAL >= 3 THEN 1 END) REVIEW_1,
+               COUNT(CASE WHEN TOTAL > 4 THEN 1 END) REVIEW_2
+		FROM (SELECT (SCORE1 + SCORE2 + SCORE3 + SCORE4 + SCORE5)/5 TOTAL 
+             FROM REVIEW 
+             WHERE TNO = #{tNo})
+    ]]>
+	</select>
+	
+	<select id="selectLive" resultType="Review">
+		SELECT R.*, M.PROFILENAME, T.TNAME, T.SUBJECT, T.COMPANY
+		FROM REVIEW R, MEMBER M, TEACHER T
+		WHERE R.USERNO = M.USERNO
+		  AND R.TNO = T.TNO
+		ORDER BY 1 DESC
+	</select>
+	
+	<select id="selectBestReview" resultType="Review">
+		SELECT R.*, T.TNAME, T.PROFILENAME, T.SUBJECT, T.COMPANY, (SELECT COUNT(*) FROM likey where rno = R.rno) likeCount
+		FROM REVIEW R, TEACHER T
+		WHERE R.TNO = T.TNO
+		ORDER BY (SELECT COUNT(*) 
+		          FROM LIKEY 
+		          WHERE R.RNO = LIKEY.RNO) DESC
+	</select>
+	
 	<update id="deleteReview" parameterType="int">
 		UPDATE REVIEW SET RSTATUS = 'Y' WHERE RNO = #{rno}
 	</update>

@@ -22,6 +22,12 @@ public class Review implements Serializable{
 	private String nickName;
 	private String profileName;
 	
+	// 작성한 강사의 정보 확인 용
+	private String tName;
+	private String subject;
+	private String company;
+	
+	
 	// 좋아요 수
 	private int likeCount;
 
@@ -83,13 +89,43 @@ public class Review implements Serializable{
 		this.profileName = profileName;
 		this.likeCount = likeCount;
 	}
+	
+	
 
+	public Review(int rno, int tNo, int userNo, String rtitle, String gcontent, String bcontent, int score1, int score2,
+			int score3, int score4, int score5, String rstatus, Timestamp rdate, String nickName, String profileName,
+			String tName, String subject, String company, int likeCount) {
+		super();
+		this.rno = rno;
+		this.tNo = tNo;
+		this.userNo = userNo;
+		this.rtitle = rtitle;
+		this.gcontent = gcontent;
+		this.bcontent = bcontent;
+		this.score1 = score1;
+		this.score2 = score2;
+		this.score3 = score3;
+		this.score4 = score4;
+		this.score5 = score5;
+		this.rstatus = rstatus;
+		this.rdate = rdate;
+		this.nickName = nickName;
+		this.profileName = profileName;
+		this.tName = tName;
+		this.subject = subject;
+		this.company = company;
+		this.likeCount = likeCount;
+	}
+
+	
+	
 	@Override
 	public String toString() {
 		return "Review [rno=" + rno + ", tNo=" + tNo + ", userNo=" + userNo + ", rtitle=" + rtitle + ", gcontent="
 				+ gcontent + ", bcontent=" + bcontent + ", score1=" + score1 + ", score2=" + score2 + ", score3="
 				+ score3 + ", score4=" + score4 + ", score5=" + score5 + ", rstatus=" + rstatus + ", rdate=" + rdate
-				+ ", nickName=" + nickName + ", profileName=" + profileName + ", likeCount=" + likeCount + "]";
+				+ ", nickName=" + nickName + ", profileName=" + profileName + ", tName=" + tName + ", subject="
+				+ subject + ", company=" + company + ", likeCount=" + likeCount + "]";
 	}
 
 	public int getRno() {
@@ -219,6 +255,29 @@ public class Review implements Serializable{
 	public void setLikeCount(int likeCount) {
 		this.likeCount = likeCount;
 	}
-	
+
+	public String gettName() {
+		return tName;
+	}
+
+	public void settName(String tName) {
+		this.tName = tName;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
 	
 }

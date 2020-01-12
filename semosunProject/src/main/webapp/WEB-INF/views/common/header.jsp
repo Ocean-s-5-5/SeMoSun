@@ -413,72 +413,17 @@ label.jsx-2014955477 {
 .btn.focus, .btn:focus, .btn:hover {
 	color: #5481CB !important;
 }
+
+.navbar-nav li a {
+	color : black !important;
+}
+
 </style>
 </head>
 <!-- Start Header Section -->
 <div class="hidden-header"></div>
 <header class="clearfix">
 
-	<!-- Start Top Bar -->
-	<div class="top-bar">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<!-- Start Contact Info -->
-					<ul class="contact-details">
-						<li><a href="#"><i class="fa fa-phone"></i> +12 345 678
-								000</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i>
-								info@yourcompany.com</a></li>
-					</ul>
-					<!-- End Contact Info -->
-				</div>
-				<!-- .col-md-6 -->
-				<div class="col-md-6">
-					<!-- Start Social Links -->
-					<ul class="social-list">
-						<li><a class="facebook" data-placement="bottom"
-							title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a class="twitter" data-placement="bottom"
-							title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a class="google" data-placement="bottom"
-							title="Google Plus" href="#"><i class="fa fa-google-plus"></i></a>
-						</li>
-						<li><a class="dribbble" data-placement="bottom"
-							title="Dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a class="linkdin" data-placement="bottom"
-							title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-						<li><a class="flickr" data-placement="bottom" title="Flickr"
-							href="#"><i class="fa fa-flickr"></i></a></li>
-						<li><a class="tumblr" data-placement="bottom" title="Tumblr"
-							href="#"><i class="fa fa-tumblr"></i></a></li>
-						<li>
-						<c:if test="${!empty member}"><button type="button" class="jsx-707316887 btn-logout" 
-						style="position:absolute; margin-left:170px; margin-top:5px; height: 20px; background:white !important; border-style:none;" 
-						onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">
-							<span class="jsx-707316887 power-icon" style="margin-right:4px;"><svg
-									xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-									viewBox="0 0 24 24" fill="none" stroke="#666666"
-									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-									style="position: relative;">
-									<path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
-									<line x1="12" y1="2" x2="12" y2="12"></line></svg></span><span
-								class="jsx-7073168871" style="font-size:13px; color:black !important;">로그아웃</span>
-						</button>	
-						</c:if>
-						</li>
-					</ul>
-					<!-- End Social Links -->
-				</div>
-				
-				<!-- .col-md-6 -->
-			</div>
-			<!-- .row -->
-		</div>
-
-		<!-- .container -->
-		
-	</div>
 	<!-- .top-bar -->
 	<!-- End Top Bar -->
 
@@ -496,52 +441,29 @@ label.jsx-2014955477 {
 				<a class="navbar-brand" href="${pageContext.request.contextPath }"> <img id="logologologo" alt="" src="${pageContext.request.contextPath }/resources/images/semosunlogo.png"> </a> </div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="active" href="index.html">Home</a>
+					<li><a class="active" href="${pageContext.request.contextPath }">Home</a>
 						<ul class="dropdown">
-							<li><a class="active" href="index.html">Default Version</a>
-							</li>
-							<li><a href="homepage-1.html">Home Version 1</a></li>
-							<li><a href="homepage-2.html">Home Version 2</a></li>
-							<li><a href="homepage-3.html">Home Version 3</a></li>
-							<li><a href="homepage-4.html">Home Version 4</a></li>
-							<li><a href="homepage-5.html">Home Version 5</a></li>
-							<li><a href="homepage-6.html">Home Version 6</a></li>
-							<li><a href="homepage-7.html">Home Version 7</a></li>
+							<li> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
 						</ul></li>
-					<li><a href="#">Pages</a>
-						<ul class="dropdown">
-							<li><a href="${pageContext.request.contextPath }/myPage/myPageProfile.do">myPage</a></li>
-						</ul></li>
-					<li><a href="#">Shortcodes</a>
-						<ul class="dropdown">
-							<li><a href="tabs.html">Tabs</a></li>
-							<li><a href="buttons.html">Buttons</a></li>
-							<li><a href="testimonials.html">Testimonials</a></li>
-							<li><a href="latest-posts.html">Latest Posts</a></li>
-							<li><a href="latest-projects.html">Latest Projects</a></li>
-							<li><a href="pricing.html">Pricing Tables</a></li>
-							<li><a href="animated-graphs.html">Animated Graphs</a></li>
-							<li><a href="accordion-toggles.html">Accordion & Toggles</a>
-							</li>
-						</ul></li>
-					<li><a href="portfolio-3.html">Portfolio</a>
-						<ul class="dropdown">
-							<li><a href="portfolio-2.html">2 Columns</a></li>
-							<li><a href="portfolio-3.html">3 Columns</a></li>
-							<li><a href="portfolio-4.html">4 Columns</a></li>
-							<li><a href="single-project.html">Single Project</a></li>
-						</ul></li>
-					<li><a href="blog.html">Blog</a>
-						<ul class="dropdown">
-							<li> <a href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
-                    		<li> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
-                		</ul></li>
-					<!-- <li><a style="background-color: white;" type="button"
-					data-toggle="modal" data-target="#exampleModalCenter1">강사 등록</a></li> -->
+					<li><a href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">강사리뷰</a></li>
+					<li> <a href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
+					<c:if test="${empty member}">
+					<li><a href="${ pageContext.request.contextPath }/login/login.do">로그인</a></li>
+					<li><a href="${ pageContext.request.contextPath }/signUp.sg">회원가입</a></li>
+					</c:if>
+					<c:if test="${!empty member}">
+					<li><a href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a>
+					<ul class="dropdown">
+							<li><a href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a></li>
+							<li><a href="#" data-toggle="modal" data-target="#exampleModalCenter1">강사등록</a></li>
+						</ul>
+					</li>
+					<li><a href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
+					</c:if>
 				</ul>
 				<!-- End Navigation List -->
 			</div>
-			<c:if test="${empty member}">
+			<%-- <c:if test="${empty member}">
 				<div style="position: absolute; left: 1650px; bottom: 20px;">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="button"
 						onclick="location.href='${ pageContext.request.contextPath }/login/login.do'"
@@ -566,7 +488,7 @@ label.jsx-2014955477 {
 						마이페이지</button>
 
 				</div>
-			</c:if>
+			</c:if> --%>
 		</div>
 	</div>
 	<!-- End Header Logo & Naviagtion -->
