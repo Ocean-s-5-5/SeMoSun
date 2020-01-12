@@ -1,12 +1,15 @@
 package com.oceans.semosun.review.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.review.model.service.ReviewService;
@@ -29,10 +32,18 @@ public class ReviewController {
 		List<Review> listTeacherReview = reviewService.selectListTeacherReview(Integer.parseInt(tNo));
 		int reviewCount = listTeacherReview.size();
 		
+		if (listTeacherReview.size() > 0) {
+			HashMap<String, String> map1 = reviewService.selectChartMap(Integer.parseInt(tNo));
+			HashMap<String, String> reviewLevel = reviewService.selectReviewLevel(Integer.parseInt(tNo));
+			
+			model.addAttribute("reviewStat", map1)
+				 .addAttribute("reviewLevel", reviewLevel);
+		}
+		
 		model.addAttribute("Teacher", t)
 			 .addAttribute("list", listTeacherReview)
 			 .addAttribute("reviewCount", reviewCount);
-		
+			 
 		return "review/teacherReview";
 	}
 	
@@ -65,4 +76,19 @@ public class ReviewController {
 		}
 		return "common/msg";
 	}
+	
+	@RequestMapping("/review/selectReviewLive.do")
+	@ResponseBody
+	public List<Review> reviewLive(){
+		List<Review> list = reviewService.selectReviewLive(); 
+		return list;
+	}
+	
+	@RequestMapping("/review/selectBestReview.do")
+	@ResponseBody
+	public List<Review> bestReview(){
+		List<Review> list = reviewService.selectBestReview(); 
+		return list;
+	}
+	
 }

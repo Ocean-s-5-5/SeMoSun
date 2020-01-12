@@ -123,9 +123,15 @@
 
 		//process the queue
 		checkAll: function() {
-			var length = $.fn.appear.checks.length;
-			if (length > 0) while (length--) ($.fn.appear.checks[length])();
-		},
+            var length = $.fn.appear.checks.length;
+            if (length > 0) {
+                while (length--) {
+                    try {
+                        ($.fn.appear.checks[length])();
+                    } catch (e) {}
+                }
+            }
+        },
 
 		//check the queue asynchronously
 		run: function() {

@@ -1,5 +1,7 @@
 package com.oceans.semosun.teacher.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,18 @@ public class TeacherInsertService {
 		}
 	public int selectTeacher(int tNo) {
 		return TeacherDAO.selectTeacher(tNo);
+	}
+	public int getTeacherCount() {
+		
+		return TeacherDAO.getTeacherCount();
+	}
+	public int getReviewCount() {
+		
+		return TeacherDAO.getReviewCount();
+	}
+	public List<Teacher> selectList(int cPage, int limit) {
+		
+		return TeacherDAO.selectList(cPage, limit);
 	}
 }
 

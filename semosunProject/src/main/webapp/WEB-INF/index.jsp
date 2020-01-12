@@ -596,6 +596,11 @@ border-right:1px solid #fff
     background: #ffff !important;
 }
 
+/* 리뷰 라이브 배경색 변경 */
+.semocheck.primary {
+	background-color: rgb(93, 126, 233);
+	color: rgb(255, 255, 255);
+}
 </style>
 
 <!-- Basic -->
@@ -828,147 +833,8 @@ border-right:1px solid #fff
 					<div class="semo1">
 						<h3 class="jsx-4179964491">리뷰 Live</h3>
 
-						<ul class="semo2" style="overflow-y: scroll;">
+						<ul class="semo2 reviewLive" style="overflow-y: scroll;">
 
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck ban">반려</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck ban">반려</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck stay">승인대기</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
 
 						</ul>
 						
@@ -986,11 +852,11 @@ border-right:1px solid #fff
 					
 				<div class="mainReview col-md-4">
 					
-					<div class="jsx-1976876495 hot-review-box ">
-						<div class="jsx-1976876495 title">
+					<div class="jsx-1976876495 hot-review-box bestReview">
+						<div class="jsx-1976876495 title ">
 							<h3 class="jsx-4179964491">지금 뜨는 리뷰</h3>
 							<div class="jsx-1976876495 btn-box">
-								<button type="button" class="jsx-1976876495 prev">
+								<button type="button" class="jsx-1976876495 prevReview">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 										viewBox="0 0 24 24" fill="none" stroke="#8f8f8f"
 										stroke-width="2" stroke-linecap="round"
@@ -999,7 +865,7 @@ border-right:1px solid #fff
            								 	</polyline></svg>
 									<span class="jsx-1976876495 alt-text">이전</span>
 								</button>
-								<button type="button" class="jsx-1976876495 next">
+								<button type="button" class="jsx-1976876495 nextReview">
 									<svg xmlns="https://www.w3.org/TR/2018/CR-SVG2-20181004/"
 										width="16" height="16" viewBox="0 0 24 24" fill="none"
 										stroke="#8f8f8f" stroke-width="2" stroke-linecap="round"
@@ -1009,74 +875,8 @@ border-right:1px solid #fff
 								</button>
 							</div>
 						</div>
-						<a class="jsx-1976876495"
-							href="/gong2/tutors/4235/subjects/339/reviews?review_id=146903&amp;review_type=tutor">
-							<div class="jsx-1976876495 header">
-								<div class="jsx-2548577942 header">
-									<div class="jsx-2548577942 avatar">
-										<div class="jsx-1076345726 avatar">
-											<div class="jsx-1076345726 circle"
-												style="background-image: url('https://ifh.cc/g/c3mKt.png');">
-											</div>
-										</div>
-									</div>
-									<div class="jsx-2548577942 name-box">
-										<h4 class="jsx-2548577942">민경애 선생님</h4>
-										<div class="jsx-2548577942 tutor-info">
-											<span class="jsx-2548577942">기술단기</span> <span
-												class="jsx-2548577942 division-line"></span> <span
-												class="jsx-2548577942 subject">공중보건</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="jsx-1976876495 content">
-								<div class="jsx-2318878368 content">
-									<h4 class="jsx-2318878368">
-										“ <span class="jsx-2318878368">농담이 많지 않고 강의 러닝 타임이 짧아
-											좋아요</span> ”
-									</h4>
-									<div class="jsx-2318878368 positive">
-										<div class="jsx-3001902121 badges-box">
-											<span class="jsx-3001902121 box primary">장점</span>
-										</div>
-										<p class="jsx-2318878368">러닝 타임 짧고 쉬운 이론 설명 많은 기출 예문 제공 짧은
-											시간 내 문제 풀이까지 완벽함 기본서 내용 알차고 문제 수 적당함 기본속도로 들으면 조금 천천히 말씀하시는
-											경향이 있어 속도 조절하면 더 짧은 시간 내 완강 가능</p>
-									</div>
-									<div class="jsx-2318878368 negative">
-										<div class="jsx-3001902121 badges-box">
-											<span class="jsx-3001902121 box point">단점</span>
-										</div>
-										<p class="jsx-2318878368">모르는 문제 질문 시 답변 시간이 조금 걸림 1문제
-											1포인트 문법으로 집고 넘어가 다른 부분이 궁금하면 직접 알아봐야 함 챕터에 따라 해당 문제를 모아 놨는데
-											보기에 앞으로 배울 챕터 내용이 있는 경우 설명하지 않고 넘어감 그래서 조금 답답할때가 있음</p>
-									</div>
-									<div class="jsx-2318878368 rating-box">
-										<div class="jsx-2318878368 rating">
-											<span class="jsx-2318878368">8.0</span>
-											<div class="jsx-237548703 stars">
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-0"></div>
-											</div>
-										</div>
-										<div class="jsx-2318878368 buttons">
-											<button type="button" class="jsx-693606843 button--voteup">
-												<i class="glyphicon glyphicon-thumbs-up" width="20"
-													height="20" viewBox="0 0 24 24" fill="none"
-													stroke="#8f8f8f" stroke-width="2" stroke-linecap="round"
-													stroke-linejoin="round"
-													style="position: relative; vertical-align: top;"> </i> <span
-													class="jsx-693606843 count">0</span>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div> </a>
-					
+						<!-- 강사 리뷰 목록 ajax로 가져올 예정 -->
+						
 					</div>
 				</div>
 			
@@ -1374,22 +1174,6 @@ border-right:1px solid #fff
 										<li class="semo5">#수능</li>
 									</ul>
 								</div>
-								<div class="semocheck ban">반려</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
 								<div class="semocheck stay">승인대기</div>
 							</li>
 
@@ -1537,6 +1321,9 @@ border-right:1px solid #fff
 				<%@ include file="views/common/footer.jsp"%>
 
 			<script>
+			/* 자바스크립트 난독화 */
+			/* https://javascript-minifier.com/ */
+			
 				var typingBool = false;
 				var typingIdx = 0;
 				var liIndex = 0;
@@ -1575,6 +1362,257 @@ border-right:1px solid #fff
 						}, 1000);
 					}
 				}
+				$(document).ready(function(){
+					$.ajax({
+						url : "${pageContext.request.contextPath }/review/selectBestReview.do",
+						dataType: "json",
+						success : function(data){
+							console.log(data);
+							
+							var bestReview = $('.bestReview');
+							
+							for(var i in data){
+								var score = parseFloat((data[i].score1 + data[i].score2 + data[i].score3 + data[i].score4 + data[i].score5) / 5.0);
+								
+								// 별점 HTML 
+								var starText = '';   // 1.2
+								for(var j = 0; j < 5; j++){
+									if(j < Math.round(score)){
+										starText += '<div class="jsx-237548703 star star-2"></div>';
+									} else {
+										starText += '<div class="jsx-237548703 star star-0"></div>';
+									}
+								}
+								
+								var text = '<a class="jsx-1976876495 bestReviewOne' + i + '"' +
+									'href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo=' + data[i].tNo + '">' +
+								'<div class="jsx-1976876495 header">' +
+									'<div class="jsx-2548577942 header">' +
+										'<div class="jsx-2548577942 avatar">' +
+											'<div class="jsx-1076345726 avatar">' +
+												'<div class="jsx-1076345726 circle"' +
+													'style="background-image: url(\'${pageContext.request.contextPath}/resources/imges/profileImage2/'+ data[i].profileName  + '\');">' +
+												'</div></div></div>' +
+										'<div class="jsx-2548577942 name-box">' +
+											'<h4 class="jsx-2548577942">' + data[i].tName + '선생님</h4>' +
+											'<div class="jsx-2548577942 tutor-info">' +
+												'<span class="jsx-2548577942">' + data[i].company + '</span>' + 
+												'<span class="jsx-2548577942 division-line"></span>' +
+												'<span class="jsx-2548577942 subject">' + data[i].subject + '</span>' +
+											'</div></div></div></div>' +
+								'<div class="jsx-1976876495 content">' +
+									'<div class="jsx-2318878368 content">' +
+										'<h4 class="jsx-2318878368">' +
+										'	“ <span class="jsx-2318878368">' + data[i].rtitle + '</span> ”'+
+										'</h4> '+
+										'<div class="jsx-2318878368 positive"> '+
+										'	<div class="jsx-3001902121 badges-box">'+
+										'		<span class="jsx-3001902121 box primary">장점</span>'+
+										'	</div> '+
+										'	<p class="jsx-2318878368">' + data[i].gcontent + '</p> '+
+										'</div> '+
+										'<div class="jsx-2318878368 negative"> '+
+										'	<div class="jsx-3001902121 badges-box"> '+
+										'		<span class="jsx-3001902121 box point">단점</span> '+
+										'	</div> '+
+										'	<p class="jsx-2318878368">' + data[i].bcontent + '</p>' +
+										'</div> '+
+										'<div class="jsx-2318878368 rating-box"> '+
+										'	<div class="jsx-2318878368 rating">'+
+										'		<span class="jsx-2318878368">' + score + '</span>'+
+										'		<div class="jsx-237548703 stars">'+ starText +
+										'		</div>'+
+										'	</div>'+
+											'<div class="jsx-2318878368 buttons">' +
+												'<button type="button" class="jsx-693606843 button--voteup">' +
+													'<i class="glyphicon glyphicon-thumbs-up" width="20" height="20" viewBox="0 0 24 24" fill="none"' +
+														'stroke="#8f8f8f" stroke-width="2" stroke-linecap="round"' +
+														'stroke-linejoin="round"' +
+														'style="position: relative; vertical-align: top;"> </i>' +
+											'<span class="jsx-693606843 count">' + 
+											data[i].likeCount + 
+											'</button></div></div></div></div> </a>';
+											
+								$('.bestReview').append(text);
+							}
+							
+							$('[class*=bestReviewOne]').hide();
+							$('[class*=bestReviewOne]').eq(0).fadeIn('slow');
+							
+							$('.prevReview').click(function(){
+								
+								if($('.bestReviewOne0').css('display') != 'none'){
+									$('.bestReviewOne0').hide();
+									$('.bestReviewOne2').fadeIn();
+								} else {
+									$('[class*=bestReviewOne]').each(function(){
+										if($(this).css('display') != 'none') {
+											$(this).hide();
+											$(this).prev('a').fadeIn('slow');
+										}
+									});
+								}
+								
+							});
+							
+							$('.nextReview').click(function(){
+								if($('.bestReviewOne2').css('display') != 'none'){
+									$('.bestReviewOne2').hide();
+									$('.bestReviewOne0').fadeIn('slow');
+								} else {
+									$('[class*=bestReviewOne]').each(function(){
+										if($(this).css('display') != 'none') {
+											$(this).hide();
+											$(this).next('a').fadeIn('slow');
+											return false;
+										}
+									});
+								}
+							});
+							
+							/*
+							<a class="jsx-1976876495"
+							href="/gong2/tutors/4235/subjects/339/reviews?review_id=146903&amp;review_type=tutor">
+							<div class="jsx-1976876495 header">
+								<div class="jsx-2548577942 header">
+									<div class="jsx-2548577942 avatar">
+										<div class="jsx-1076345726 avatar">
+											<div class="jsx-1076345726 circle"
+												style="background-image: url('https://ifh.cc/g/c3mKt.png');">
+											</div>
+										</div>
+									</div>
+									<div class="jsx-2548577942 name-box">
+										<h4 class="jsx-2548577942">민경애 선생님</h4>
+										<div class="jsx-2548577942 tutor-info">
+											<span class="jsx-2548577942">기술단기</span> <span
+												class="jsx-2548577942 division-line"></span> <span
+												class="jsx-2548577942 subject">공중보건</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="jsx-1976876495 content">
+								<div class="jsx-2318878368 content">
+									<h4 class="jsx-2318878368">
+										“ <span class="jsx-2318878368">농담이 많지 않고 강의 러닝 타임이 짧아
+											좋아요</span> ”
+									</h4>
+									<div class="jsx-2318878368 positive">
+										<div class="jsx-3001902121 badges-box">
+											<span class="jsx-3001902121 box primary">장점</span>
+										</div>
+										<p class="jsx-2318878368">러닝 타임 짧고 쉬운 이론 설명 많은 기출 예문 제공 짧은
+											시간 내 문제 풀이까지 완벽함 기본서 내용 알차고 문제 수 적당함 기본속도로 들으면 조금 천천히 말씀하시는
+											경향이 있어 속도 조절하면 더 짧은 시간 내 완강 가능</p>
+									</div>
+									<div class="jsx-2318878368 negative">
+										<div class="jsx-3001902121 badges-box">
+											<span class="jsx-3001902121 box point">단점</span>
+										</div>
+										<p class="jsx-2318878368">모르는 문제 질문 시 답변 시간이 조금 걸림 1문제
+											1포인트 문법으로 집고 넘어가 다른 부분이 궁금하면 직접 알아봐야 함 챕터에 따라 해당 문제를 모아 놨는데
+											보기에 앞으로 배울 챕터 내용이 있는 경우 설명하지 않고 넘어감 그래서 조금 답답할때가 있음</p>
+									</div>
+									<div class="jsx-2318878368 rating-box">
+										<div class="jsx-2318878368 rating">
+											<span class="jsx-2318878368">8.0</span>
+											<div class="jsx-237548703 stars">
+												<div class="jsx-237548703 star star-2"></div>
+												<div class="jsx-237548703 star star-2"></div>
+												<div class="jsx-237548703 star star-2"></div>
+												<div class="jsx-237548703 star star-2"></div>
+												<div class="jsx-237548703 star star-0"></div>
+											</div>
+										</div>
+										<div class="jsx-2318878368 buttons">
+											<button type="button" class="jsx-693606843 button--voteup">
+												<i class="glyphicon glyphicon-thumbs-up" width="20"
+													height="20" viewBox="0 0 24 24" fill="none"
+													stroke="#8f8f8f" stroke-width="2" stroke-linecap="round"
+													stroke-linejoin="round"
+													style="position: relative; vertical-align: top;"> </i> <span
+													class="jsx-693606843 count">0</span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div> </a>
+							*/
+						}, error : function(data){
+							console.log(data);
+						}
+					});
+					
+					$.ajax({
+						url : "${pageContext.request.contextPath }/review/selectReviewLive.do",
+						dataType: "json",
+						success : function(data){
+							console.log(data);
+							/*
+							<li class="semo3">
+								<div class="semoimg"
+									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
+								</div>
+								<div>
+									<p class="semo4">지금까지 이런 강사는 없었다</p>
+									<ul class="semo">
+
+										<li class="semo5">#강사리뷰</li>
+										<li class="semo5">#대치동</li>
+										<li class="semo5">#수능</li>
+									</ul>
+								</div>
+								<div class="semocheck complete">0</div>
+							</li>
+							*/
+							var semo2 = $('.reviewLive');
+							
+							for(var i in data){
+								var semo3 = $('<li class="semo3">');
+								var semoimgDiv = $('<div class="semoimg"' +
+										'style="background-image: url(\'${pageContext.request.contextPath}/resources/imges/profileImage/'+ data[i].profileName +'\');">' +
+										'</div>');
+								
+								var contentDiv = $('<div>');
+								var titleP = $('<p class="semo4">');
+								titleP.text(data[i].rtitle);
+								var innerUl = $('<ul class="semo">');
+								var innerLi1 = $('<ll class="semo5">');
+								var innerLi2 = $('<ll class="semo5">');
+								var innerLi3 = $('<ll class="semo5">');
+								innerLi1.text("#"+data[i].tName);
+								innerLi2.text("#"+data[i].subject);
+								innerLi3.text("#"+data[i].company);
+								innerUl.append(innerLi1).append(innerLi2).append(innerLi3);
+								var scoreDiv = $('<div class="semocheck">');
+								var score = (data[i].score1 + data[i].score2 + data[i].score3 + data[i].score4 + data[i].score5) / 5;
+								
+								if(score < 3){
+									// 부정적인 리뷰
+									scoreDiv.addClass("ban");
+									scoreDiv.text('부정');
+								} else if(score >= 4){
+									// 긍정적인 리뷰
+									scoreDiv.addClass("primary");
+									scoreDiv.text('긍정');
+								} else {
+									// 보통 리뷰
+									scoreDiv.addClass("stay");
+									scoreDiv.text('보통');
+								}
+								
+								contentDiv.append(titleP).append(innerUl);
+								semo3.append(semoimgDiv).append(contentDiv).append(scoreDiv);
+								
+								semo2.append(semo3);
+							}
+						}, error : function(data){
+							console.log(data);
+							console.log("ajax 실패!!");
+						}
+					});
+				});
 			</script>
 </body>
 </html>
