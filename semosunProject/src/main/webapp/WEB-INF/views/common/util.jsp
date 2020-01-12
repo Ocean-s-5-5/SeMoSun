@@ -10,7 +10,8 @@
 <!-- Page Description and Author -->
 <meta name="description" content="Venue - Responsive HTML5 Template">
 <meta name="author" content="Square Media">
-
+<link rel="icon" href="${pageContext.request.contextPath }/resources/images/icons/semosunpabefon.png" type="image/x-icon"/>
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/icons/semosunpabefon.png" type="image/x-icon"/>
 <!-- Bootstrap CSS  -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/bootstrap/css/bootstrap.min.css" type="text/css" media="screen">
 
