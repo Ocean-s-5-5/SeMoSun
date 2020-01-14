@@ -46,6 +46,11 @@ public class TalkDAO {
 	public Talk selectOneTalk(int talkno) {
 		return sqlSession.selectOne("Talk-mapper.selectTalk", talkno);
 	}
+
+	public List<Talk> selectTalkLive() {
+		RowBounds rows = new RowBounds(0, 10);
+		return sqlSession.selectList("Talk-mapper.selectLive", null, rows);
+	}
 }
 
 

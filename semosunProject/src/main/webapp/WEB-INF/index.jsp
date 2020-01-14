@@ -1424,6 +1424,10 @@ border-right:1px solid #fff
 						}, 1000);
 					}
 				}
+				/*타이핑 끝*/
+				
+				
+				/*지금 뜨는 리뷰*/
 				$(document).ready(function(){
 					$.ajax({
 						url : "${pageContext.request.contextPath }/review/selectBestReview.do",
@@ -1532,75 +1536,6 @@ border-right:1px solid #fff
 								}
 							});
 							
-							/*
-							<a class="jsx-1976876495"
-							href="/gong2/tutors/4235/subjects/339/reviews?review_id=146903&amp;review_type=tutor">
-							<div class="jsx-1976876495 header">
-								<div class="jsx-2548577942 header">
-									<div class="jsx-2548577942 avatar">
-										<div class="jsx-1076345726 avatar">
-											<div class="jsx-1076345726 circle"
-												style="background-image: url('https://ifh.cc/g/c3mKt.png');">
-											</div>
-										</div>
-									</div>
-									<div class="jsx-2548577942 name-box">
-										<h4 class="jsx-2548577942">민경애 선생님</h4>
-										<div class="jsx-2548577942 tutor-info">
-											<span class="jsx-2548577942">기술단기</span> <span
-												class="jsx-2548577942 division-line"></span> <span
-												class="jsx-2548577942 subject">공중보건</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="jsx-1976876495 content">
-								<div class="jsx-2318878368 content">
-									<h4 class="jsx-2318878368">
-										“ <span class="jsx-2318878368">농담이 많지 않고 강의 러닝 타임이 짧아
-											좋아요</span> ”
-									</h4>
-									<div class="jsx-2318878368 positive">
-										<div class="jsx-3001902121 badges-box">
-											<span class="jsx-3001902121 box primary">장점</span>
-										</div>
-										<p class="jsx-2318878368">러닝 타임 짧고 쉬운 이론 설명 많은 기출 예문 제공 짧은
-											시간 내 문제 풀이까지 완벽함 기본서 내용 알차고 문제 수 적당함 기본속도로 들으면 조금 천천히 말씀하시는
-											경향이 있어 속도 조절하면 더 짧은 시간 내 완강 가능</p>
-									</div>
-									<div class="jsx-2318878368 negative">
-										<div class="jsx-3001902121 badges-box">
-											<span class="jsx-3001902121 box point">단점</span>
-										</div>
-										<p class="jsx-2318878368">모르는 문제 질문 시 답변 시간이 조금 걸림 1문제
-											1포인트 문법으로 집고 넘어가 다른 부분이 궁금하면 직접 알아봐야 함 챕터에 따라 해당 문제를 모아 놨는데
-											보기에 앞으로 배울 챕터 내용이 있는 경우 설명하지 않고 넘어감 그래서 조금 답답할때가 있음</p>
-									</div>
-									<div class="jsx-2318878368 rating-box">
-										<div class="jsx-2318878368 rating">
-											<span class="jsx-2318878368">8.0</span>
-											<div class="jsx-237548703 stars">
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-2"></div>
-												<div class="jsx-237548703 star star-0"></div>
-											</div>
-										</div>
-										<div class="jsx-2318878368 buttons">
-											<button type="button" class="jsx-693606843 button--voteup">
-												<i class="glyphicon glyphicon-thumbs-up" width="20"
-													height="20" viewBox="0 0 24 24" fill="none"
-													stroke="#8f8f8f" stroke-width="2" stroke-linecap="round"
-													stroke-linejoin="round"
-													style="position: relative; vertical-align: top;"> </i> <span
-													class="jsx-693606843 count">0</span>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div> </a>
-							*/
 						}, error : function(data){
 							console.log(data);
 						}
@@ -1640,9 +1575,9 @@ border-right:1px solid #fff
 								var titleP = $('<p class="semo4">');
 								titleP.text(data[i].rtitle);
 								var innerUl = $('<ul class="semo">');
-								var innerLi1 = $('<ll class="semo5">');
-								var innerLi2 = $('<ll class="semo5">');
-								var innerLi3 = $('<ll class="semo5">');
+								var innerLi1 = $('<li class="semo5">');
+								var innerLi2 = $('<li class="semo5">');
+								var innerLi3 = $('<li class="semo5">');
 								innerLi1.text("#"+data[i].tName);
 								innerLi2.text("#"+data[i].subject);
 								innerLi3.text("#"+data[i].company);
@@ -1674,7 +1609,49 @@ border-right:1px solid #fff
 							console.log("ajax 실패!!");
 						}
 					});
+				
+				/*수다방 화면*/
+				$.ajax({ 
+					url : "${pageContext.request.contextPath}/talk/talkLive.do",
+					dataType: "json",
+					success : function(data){
+						console.log(data);
+						
+						var semo2 = $('.semoTalk');
+						
+						for(var i in data){
+							var semo3 = $('<li class="semo3">');
+							var semoimgDiv = $('<div class="semoimg"' +
+									'style="background-image: url(\'${pageContext.request.contextPath}/resources/images/profileImage/'+ data[i].profileName +'\');">' +
+									'</div>');
+							
+							var contentDiv = $('<div>');
+							var titleP = $('<p class="semo4">');
+							titleP.text(data[i].talkcontent);
+							var innerUl = $('<ul class="semo">');
+							var innerLi1 = $('<li class="semo5">');
+							var innerLi2 = $('<li class="semo5">');
+
+							innerLi1.text("이름 : "+data[i].nickName);
+							innerLi2.text("#"+data[i].talkdate);
+							innerUl.append(innerLi1).append(innerLi2);
+							
+							contentDiv.append(titleP).append(innerUl);
+							semo3.append(semoimgDiv).append(contentDiv)
+							
+							semo2.append(semo3);
+							
+							
+						}
+					}, error : function(data){
+						console.log(data);
+						console.log("ajax 실패!!");
+					}
 				});
+			
+			});
+	
+
 			</script>
 </body>
 </html>
