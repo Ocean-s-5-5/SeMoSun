@@ -37,12 +37,6 @@
 	<update id="deleteTalk" parameterType="int">
 		UPDATE TALK SET TSTATUS = 'Y' WHERE TALKNO = #{talkno}
 	</update>
-	
-	<select id="selectLive" resultType="talk">
-		select * from talk t
-		join member m on (t.userno = m.userno)
-		ORDER BY TALKDATE
-	</select>
 
 </mapper>
 

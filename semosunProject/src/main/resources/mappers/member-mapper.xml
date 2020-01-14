@@ -8,7 +8,7 @@
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO MEMBER
 		VALUES (SEQ_UNO.nextval, #{userId}, #{pwd}, #{nickName}, #{gender}, 
-		#{email}, DEFAULT, DEFAULT, #{profile}, #{profileName})
+		#{email}, DEFAULT, DEFAULT, #{profile}, #{profileName}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5})
 	</insert>
 	
 <insert id="createAuthKey" parameterType="map">
@@ -56,6 +56,7 @@
 			 	PROFILENAME = #{profileName},
 			</if>
 		</set> 
+		SCORE1 = #{score1}, SCORE2 = #{score2}, SCORE3 = #{score3}, SCORE4 = #{score4}, SCORE5 = #{score5}
 		WHERE USERID = #{userId}
 	</update>
 	

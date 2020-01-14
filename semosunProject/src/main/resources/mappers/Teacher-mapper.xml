@@ -24,7 +24,7 @@
               TO_CHAR(ROUND(AVG(SCORE4), 2)) score4,  
               TO_CHAR(ROUND(AVG(SCORE5), 2)) score5
 		FROM REVIEW
-		WHERE TNO = #{tNo}
+		WHERE TNO = ${tNo}
 	</select>
 	
 	<select id="getTeacherCount" resultType="int">
@@ -35,18 +35,6 @@
 	<select id="getReviewCount" resultType="int">
 		SELECT COUNT(*) FROM REVIEW
 		WHERE RSTATUS = 'N'
-	</select>
-	
-	<select id="selectLive" resultType="Teacher">
-	SELECT TE.*, (SELECT TO_CHAR(ROUND(AVG((SCORE1 + SCORE2 + SCORE3 +
-	SCORE4 + SCORE5 + SCORE6
-	+ SCORE7 + SCORE8 + SCORE9 + SCORE10)/10), 2))Total
-	FROM TEACHER T
-	JOIN REVIEW R ON(T.TNO=R.TNO)
-	WHERE T.TNO = #{tNo} ) TOTAL
-	FROM TEACHER TE
-	WHERE TE.TNO = #{tNo};
-	
 	</select>
 </mapper>
  

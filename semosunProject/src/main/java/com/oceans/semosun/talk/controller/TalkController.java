@@ -123,12 +123,5 @@ public class TalkController {
 		return list;
 		
 	}
-	@RequestMapping("/talk/talkLive.do")
-	@ResponseBody
-	public List<Talk> TalkLive(){
-		List<Talk> list = talkService.selectTalkLive();
-		
-		return list;
-	}
 	
 }

@@ -81,5 +81,9 @@ public class ReviewService {
 		return rDao.likeReview(isLike, rno, userNo); 
 	}
 
+	public int updateReview(Review review) {
+		return rDao.updateReview(review);
+	}
+
 
 }

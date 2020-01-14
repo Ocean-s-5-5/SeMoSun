@@ -74,5 +74,9 @@ public class ReviewDAO {
 		if(isLike) return sqlSession.insert("review-mapper.insertLikeReview", Likey);
 		else return sqlSession.insert("review-mapper.deleteLikeReview", Likey);
 	}
+
+	public int updateReview(Review review) {
+		return sqlSession.update("review-mapper.updateReview", review);
+	}
 	
 }

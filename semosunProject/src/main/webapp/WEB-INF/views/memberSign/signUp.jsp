@@ -250,6 +250,9 @@ input{
 .MAL5{
 	width: 200px;
 }
+input[type=range] {
+	width: 100% !important;
+}
 </style>
 </head>
 
@@ -627,7 +630,7 @@ input{
 		<div class="container">
 			<div>
 				<button type="button" class="btn btn-primary" id="signUpBtn" data-toggle="modal"
-					data-target="#exampleModalCenter" disabled>먼저 모든 약관에 동의해주세요</button>
+					data-target="#exampleModalCenter">먼저 모든 약관에 동의해주세요</button>
 			</div>
 		</div>
 	</div>
@@ -645,18 +648,109 @@ input{
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
-					<div>
-						<!-- Classic Heading -->
-						<h4 class="classic-title">
-							<span>회원가입</span>
-						</h4>
+				<div class="modal-body tabs-section">
+				<form action="memberEnrollEnd.sg" class="contactForm" name="join"
+					onsubmit="return validate(this);" method="post"
+								enctype="multipart/form-data">
+			          <!-- Nav Tabs -->
+			          <ul class="nav nav-tabs">
+			              <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-desktop"></i> 선호 취향 등록</a></li>
+			              <li><a href="#tab-2" data-toggle="tab"><i class="fa fa-leaf"></i> 회원 정보</a></li>
+			          </ul>
+
+          			<div class="tab-content">
+					
+					<!-- modal-body 2 : 별점 (추천) -->
+			      <div class="tab-pane fade in active" id="tab-1">
+		            <p><strong class="accent-color">나의 강의 성향 스타일은?</strong> <br>
+	           		</p>
+		            <ul class="icons-list">
+	                    <li><i class="fa fa-check"></i> 마이페이지에서 수정할 수 있습니다.</li>
+	                    <li><i class="fa fa-check"></i> 올바르지 않은 정보를 입력 시, 정확한 서비스를 제공할 수 없습니다.</li>
+	                    <li><i class="fa fa-check"></i> 당신의 강의 선호 스타일과 선생님의 강의 스타일을 비교해보세요!</li>
+		            </ul>
+	                <pre style="background: white;">                                                              </pre>
+	               
+		            <div class="progress-bars">
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 찾으시는 수업의 난이도는 높은 편인가요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            </div>
+					        </div>
+					     </div>
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);"><br />
+		                 </div>   
+					    </div>
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 유머러스한 강의를 좋아하시나요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            </div>
+					        </div> 
+					     </div> 
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);" ><br />
+		                 </div>   
+					    </div> 
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 과제가 많은 수업을 좋아하시나요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            </div>
+					        </div> 
+					     </div> 
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);" ><br />
+		                 </div>   
+					    </div> 
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 교재가 많은 수업이 좋으신가요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            </div>
+					        </div> 
+					     </div>
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);"><br />
+		                 </div>    
+					    </div> 
+					<div class="row"> 
+						<div class="col-sm-6">
+					        <div class="progress-label"> 발음, 발성, 속도의 강도가 어떤<br>강사님을 좋아하시나요? (차분 ↔ 파워풀)   </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            </div>
+					        </div> 
+					     </div> 
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);"><br />
+		                 </div>   
+					</div>
+		       		</div>
+	              </div>
+	              <script type="text/javascript">
+	              function changeProgress(obj){
+	      			$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
+	      			$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');
+	      		}
+	      		
+	              </script>
+	              <div class="tab-pane fade in" id="tab-2">
+						
 						<!-- Start Contact Form -->
 						<div id="contact-form" class="contatct-form ">
 							<div class="loader"></div>
-							<form action="memberEnrollEnd.sg" class="contactForm" name="join"
-								onsubmit="return validate(this);" method="post"
-								enctype="multipart/form-data">
 								<div class="row">
 									<div id="userId-container" >
 										<label for="name">아이디<span class="required">※</span></label> <input
@@ -739,15 +833,15 @@ input{
 											var JJ = $.noConflict();
 										</script>
 										<script>
-										function signCheck(){
-											$('#signUpBtn').attr('disabled', true);
-											if($('#useAgree1').prop('checked') && 
-											   $('#useAgree2').prop('checked') &&
-											   $('#useAgree3').prop('checked')){
-											   $('#signUpBtn').removeAttr('disabled').text("이제 회원가입이 가능합니다!");
-											}
+// 										function signCheck(){
+// 											$('#signUpBtn').attr('disabled', true).text("먼저 모든 약관에 동의해주세요");
+// 											if($('#useAgree1').prop('checked') && 
+// 											   $('#useAgree2').prop('checked') &&
+// 											   $('#useAgree3').prop('checked')){
+// 											   $('#signUpBtn').removeAttr('disabled').text("이제 회원가입이 가능합니다!");
+// 											}
 												
-										} 
+// 										} 
 										function LoadImg(value) {
 										    if (value.files && value.files[0]) {
 										        var reader = new FileReader();
@@ -931,17 +1025,19 @@ input{
 
 									</div>
 								</div>
-								<div class="modal-footer">
-									<button type="reset" class="btn btn-secondary"
-										data-dismiss="modal">Close</button>
-									<button type="submit" class="btn btn-primary">Save
-										changes</button>
-								</div>
-								<!-- test용 (필수값) -->
-							</form>
+							
 						</div>
 						<!-- End Contact Form -->
+						<div class="modal-footer">
+							<button type="reset" class="btn btn-secondary"
+								data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">회원가입하기</button>
+						</div>
 					</div>
+	     		 <!-- 별점 5개 End -->
+						<!-- test용 (필수값) -->
+				</div>
+					</form>
 				</div>
 			</div>
 		</div>

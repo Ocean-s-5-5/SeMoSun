@@ -58,11 +58,6 @@ public class TalkService {
 		
 		return talkDAO.deleteTalk(talkNo);
 	}
-
-	public List<Talk> selectTalkLive() {
-		
-		return talkDAO.selectTalkLive();
-	}
 	
 	
 	/*
