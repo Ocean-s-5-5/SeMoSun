@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.notice.model.vo.Notice;
+import com.oceans.semosun.review.model.vo.Review;
 import com.oceans.semosun.search.model.service.SearchService;
 import com.oceans.semosun.search.model.vo.TalknMember;
 import com.oceans.semosun.talk.model.vo.Talk;
@@ -64,8 +65,10 @@ public class SearchController {
 	public String searchForm(String keyword, Model model){
 		
 		List<Teacher> teacherList = searchService.selectTeacherList(keyword);
-		// List<Review> reviewList = searchService.selectReviewList(keyword);
-		List<Member> memberList = searchService.selectMemberList(keyword);
+	    
+		List<Review> reviewList = searchService.selectReviewList(keyword);
+		
+	    //List<Member> memberList = searchService.selectMemberList(keyword);
 		
 		List<TalknMember> talkList = searchService.selectTalkList(keyword);
 
@@ -75,7 +78,7 @@ public class SearchController {
 		
 		
 		model.addAttribute("teacherList", teacherList)
-			 .addAttribute("memberList", memberList)
+			 .addAttribute("reviewList", reviewList)
 			.addAttribute("talkList", talkList)
 			.addAttribute("noticeList", noticeList);
 		

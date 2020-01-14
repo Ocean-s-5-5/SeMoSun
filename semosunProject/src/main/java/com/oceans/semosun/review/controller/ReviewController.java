@@ -32,13 +32,9 @@ public class ReviewController {
 		Teacher t = reviewService.selectOneTeacher(Integer.parseInt(tNo));
 		
 		int numPerPage = 10;
-		HashMap<String, Float> tatalMap = reviewService.totalReviewPerTeacher(Integer.parseInt(tNo));
-		System.out.println(tatalMap.toString());
-		int reviewCount = Math.round(tatalMap.getOrDefault("A", 0.f));
+		int reviewCount = reviewService.totalReviewPerTeacher(Integer.parseInt(tNo));
 		List<Review> listTeacherReview = reviewService.selectListTeacherReview(Integer.parseInt(tNo), cPage, numPerPage);
-		String pageBar = Utils.getPageBar(1, cPage, numPerPage, "/review/selectListTeacherReview.do");
-//		Float reviewAvg = 0;
-//		if(reviewCount != 0) reviewAvg
+		String pageBar = Utils.getPageBar(reviewCount, cPage, numPerPage, "/review/selectListTeacherReview.do");
 				
 		if (listTeacherReview.size() > 0) {
 			HashMap<String, String> map1 = reviewService.selectChartMap(Integer.parseInt(tNo));
@@ -50,7 +46,6 @@ public class ReviewController {
 		model.addAttribute("Teacher", t)
 			 .addAttribute("list", listTeacherReview)
 			 .addAttribute("reviewCount", reviewCount)
-//			 .addAttribute("reviewAvg", reviewAvg)
 			 .addAttribute("pageBar", pageBar); 
 		
 		return "review/teacherReview";

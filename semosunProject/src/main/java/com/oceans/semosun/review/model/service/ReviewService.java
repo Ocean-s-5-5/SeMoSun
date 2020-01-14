@@ -71,7 +71,7 @@ public class ReviewService {
 		return rDao.selectBestReview();
 	}
 
-	public HashMap<String, Float> totalReviewPerTeacher(int tNo) {
+	public int totalReviewPerTeacher(int tNo) {
 		return rDao.totalReviewPerTeacher(tNo);
 	}
 

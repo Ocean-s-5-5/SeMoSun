@@ -23,11 +23,18 @@
 	</select>
 
 
-	<select id="selectMemberList" parameterType="string" resultType="Member">
-	SELECT * FROM MEMBER 
-	WHERE NICKNAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
- 	   OR EMAIL LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+	<select id="selectReviewList" parameterType="string" resultType="Review">
+     SELECT RR.company,RR.subject,RR.tname,RR.PROFILENAME,RR.RTITLE,RR.NICKNAME 
+     FROM (SELECT M.*,R.*,t.company,t.subject,t.tname FROM REVIEW R
+	 JOIN  MEMBER M ON(R.USERNO=M.USERNO)
+     JOIN TEACHER T ON(R.TNO=T.TNO)
+     ORDER BY RDATE DESC)RR
+	 WHERE RTITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+ 	   OR GCONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
  	   OR PROFILENAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+ 	   OR TNAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+       OR COMPANY LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+  	   OR SUBJECT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
 	</select>
 
 	<select id="selectTalkList" parameterType="string" resultType="TalknMember">

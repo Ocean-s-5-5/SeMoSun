@@ -29,7 +29,8 @@
                COUNT(CASE WHEN TOTAL > 4 THEN 1 END) REVIEW_2
 		FROM (SELECT (SCORE1 + SCORE2 + SCORE3 + SCORE4 + SCORE5)/5 TOTAL 
              FROM REVIEW 
-             WHERE TNO = #{tNo})
+             WHERE TNO = #{tNo}
+             AND RSTATUS = 'N')
     ]]>
 	</select>
 	
@@ -54,8 +55,8 @@
 		UPDATE REVIEW SET RSTATUS = 'Y' WHERE RNO = #{rno}
 	</update>
 	
-	<select id="totalReviewPerTeacher" parameterType="int" resultType="hashmap">
-		SELECT COUNT(*) a, AVG(SCORE6) b,  AVG(SCORE7) c,  AVG(SCORE8) d,  AVG(SCORE9) e,  AVG(SCORE10) f FROM REVIEW WHERE TNO = #{tNo} AND RSTATUS = 'N'
+	<select id="totalReviewPerTeacher" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM REVIEW WHERE TNO = #{tNo} AND RSTATUS = 'N'
 	</select>
 	
 <!-- 	<select id="selectListTalk" resultType="Talk"> -->

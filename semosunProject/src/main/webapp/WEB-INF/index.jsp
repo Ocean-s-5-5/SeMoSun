@@ -642,13 +642,13 @@ border-right:1px solid #fff
 								<div class="caption medium-700-black lfr" data-x="58"
 									data-y="150" data-speed="300" data-start="1600"
 									data-easing="easeOutExpo">
-								<span style="color:snow; font-size:10px; ">대한민국 No1 강사리뷰사이트</span>
+								<span style=" font-size:10px; ">대한민국 No1 강사리뷰사이트</span>
 								
-								<p style="color:snow; font-size:20px;">비싼 강의료</p>
+								<p style=" font-size:20px;">비싼 강의료</p>
 								
-								<p style="color:snow; font-size:20px;">강의 신청 하기전에 </p>
+								<p style=" font-size:20px;">강의 신청 하기전에 </p>
 								
-								<p style="color:snow; font-size:20px;">나한태 맞는 강사를 알수없을까 ??</p>
+								<p style=" font-size:20px;">나한태 맞는 강사를 알수없을까 ??</p>
 								
 								<br />
 								</div>
@@ -823,10 +823,10 @@ border-right:1px solid #fff
 		<!-- 검색창끝 -->
 
 		
-                        <!-- Divider -->
+                        <!-- 선 -->
                         <div class="hr5 margin-40"></div>
 					<div class="numberDiv">
-                        <!-- Start Milestone Block -->
+                        <!-- Start 총 갯수 Div -->
                         <div class="milestone-block">
                             <div class="milestone-icon"><i class="fa fa-user"></i></div>
                             <div class="milestone-right">
@@ -870,8 +870,9 @@ border-right:1px solid #fff
                                 <div class="milestone-text">Twitter Update</div>
                             </div>
                         </div>
-        			</div>                
-                        <!-- Divider -->
+        			</div>    
+        			<!-- End 총 갯수 Div -->            
+                        <!-- 선 -->
                         <div class="hr5 margin-40"></div>
                         
                         
@@ -945,15 +946,18 @@ border-right:1px solid #fff
 				</div>
 				
 					<!-- 지금뜨는 리뷰 끝 -->
+					
+					
+					<!-- 적페 청산 신고게시판 -->
 					<div class="jsx-2849469776 banner"
 						style="background-size: contain; background-color: rgb(25, 36, 68);">
 						<a
-							href="https://www.starteacher.co.kr/gong1/community/report/articles"
+							href="${pageContext.request.contextPath }/reportList.do"
 							target="_self" class="jsx-2849469776"> <span
 							class="jsx-2849469776 alt-text"> 적폐청산 // 
 							보다 가치있고 투명한 정보를전달하기 위해 제보게시판을 운영합니다 </span></a>
 					</div>
-
+					<!-- 적페 청산 끝 -->
 
 
 

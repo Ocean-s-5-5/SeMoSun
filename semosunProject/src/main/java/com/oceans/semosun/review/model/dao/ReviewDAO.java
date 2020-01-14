@@ -53,7 +53,7 @@ public class ReviewDAO {
 		return sqlSession.selectList("review-mapper.selectBestReview", null, rows);
 	}
 
-	public HashMap<String, Float> totalReviewPerTeacher(int tNo) {
+	public int totalReviewPerTeacher(int tNo) {
 		return sqlSession.selectOne("review-mapper.totalReviewPerTeacher", tNo);
 	}
 	

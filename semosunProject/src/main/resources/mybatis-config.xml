@@ -31,7 +31,8 @@
 		<typeAlias type="com.oceans.semosun.talk.model.vo.TalkComment" alias="TalkComment" />
 			<!-- 상호씨가 만든 조인 객체 -->
 			<typeAlias alias="TalknMember" type="com.oceans.semosun.search.model.vo.TalknMember"/>
-			
+		<!-- 신고 게시판 -->
+		<typeAlias alias="Report" type="com.oceans.semosun.report.model.vo.Report"/>	
 	</typeAliases>
 	
 </configuration>

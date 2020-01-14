@@ -297,7 +297,7 @@
 	                        <div class="service-content">
 	                            <h4>총 평점</h4>
                                 <div class="jsx-2318878368 rating">
-									<span class="jsx-2318878368">${ }</span>
+									<span class="jsx-2318878368"></span>
 									<div class="jsx-237548703 stars">
 									</div>
 		                        </div>
@@ -449,7 +449,7 @@
                                     <!-- 좋아요, 신고 -->
                                    <div class="divBtn">
 	                                  <button class="btn btn-default btn-md" type="button"><i class="fa fa-home"></i> ${r.likeCount}</button>
-	                                  <button class="btn btn-default btn-md reportBtn" type="button"><i class="fa fa-home"></i> 신고</button>
+	                                  <button class="btn btn-default btn-md reportBtn" type="button" onclick="fn_reportView(${r.rno});"><i class="fa fa-home"></i> 신고</button>
                                    </div>
 									<!-- 좋아요, 신고 End -->
 									
@@ -925,6 +925,12 @@
 				}
 
 			});
+		
+			// 신고 버튼 함수
+			function fn_reportView(rno) {
+				location.href="${pageContext.request.contextPath}/report/reportForm.do?rno="+rno+"&tNo=${Teacher.tNo}";
+			}
+		
 			// 시간
 			$('.dateForm').each(function() {
 				$(this).text(new Date($(this).text()).format('yyyy-MM-dd a/p hh:mm:ss'));

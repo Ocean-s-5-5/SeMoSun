@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.notice.model.vo.Notice;
+import com.oceans.semosun.review.model.vo.Review;
 import com.oceans.semosun.search.model.dao.SearchDAO;
 import com.oceans.semosun.search.model.vo.TalknMember;
 import com.oceans.semosun.talk.model.vo.Talk;
@@ -27,10 +28,10 @@ public class SearchService {
 		return list;
 	}
 
-	public List<Member> selectMemberList(String keyword) {
-		List<Member> list = new ArrayList<>();
+	public List<Review> selectReviewList(String keyword) {
+		List<Review> list = new ArrayList<>();
 		if(keyword.length() > 0) {
-			list = searchDAO.selectMemberList(keyword);
+			list = searchDAO.selectReviewList(keyword);
 		}
 		return list;
 	}

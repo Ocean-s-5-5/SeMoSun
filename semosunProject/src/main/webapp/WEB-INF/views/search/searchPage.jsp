@@ -751,11 +751,11 @@ solid
 					<div class="recent-projects">
 						<h4 class="title">
 							<span><b> 검색된 리뷰 수 : <font id="reviewCnt"
-									style="color: red;">${ memberList.size() }</font> 건
+									style="color: red;">${ reviewList.size() }</font> 건
 							</b></span>
 						</h4>
 						<div class="projects-carousel touch-carousel">
-							<c:forEach items="${memberList}" var="member">
+							<c:forEach items="${reviewList}" var="review">
 								<div class="portfolio-item item">
 									<div class="portfolio-border">
 										<div class="portfolio-thumb">
@@ -764,14 +764,16 @@ solid
 												<div class="thumb-overlay">
 													<i class="fa fa-arrows-alt"></i>
 												</div> <img style="width: 265px; height: 270px;"
-									src="${pageContext.request.contextPath }/resources/images/profileImage/${member.profileName}" />
+									src="${pageContext.request.contextPath }/resources/images/profileImage/${review.profileName}" />
 											</a>
 										</div>
 										<div class="portfolio-details">
-											<a href="#"> <%-- <h4>${ review.tName }</h4>
+											<a href="#"> 
+											<h4>작성자 : ${review.nickName }</h4>
+											<h4>강사명 : ${ review.tName }</h4>
 											<span>${ review.company }, </span>
-											<span>${ review.subject }</span> --%>
-												<h4>${ member.nickName }</h4> <span>${ member.email }</span>
+											<span>${ review.subject }</span>
+											<h4>한줄 평 : ${ review.rtitle }</h4> <span></span>
 
 											</a>
 										</div>

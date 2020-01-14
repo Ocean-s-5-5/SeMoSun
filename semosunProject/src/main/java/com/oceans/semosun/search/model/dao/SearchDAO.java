@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.notice.model.vo.Notice;
+import com.oceans.semosun.review.model.vo.Review;
 import com.oceans.semosun.search.model.vo.TalknMember;
 import com.oceans.semosun.talk.model.vo.Talk;
 import com.oceans.semosun.teacher.model.vo.Teacher;
@@ -23,9 +24,9 @@ public class SearchDAO {
 		return sqlSession.selectList("search-mapper.selectTeacherList", keyword);
 	}
 
-	public List<Member> selectMemberList(String keyword) {
+	public List<Review> selectReviewList(String keyword) {
 		
-		return sqlSession.selectList("search-mapper.selectMemberList", keyword);
+		return sqlSession.selectList("search-mapper.selectReviewList", keyword);
 	}
 	public List<TalknMember> selectTalkList(String keyword){
 		
