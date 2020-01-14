@@ -85,22 +85,17 @@ svg[Attributes Style] {
 }
 
 svg
-
-
 :not
-
  
-
 (
 :root
-
  
-
 ){
 overflowhidden
-
-
 ;
+
+	
+
 }
 path[Attributes Style] {
 	d: path("M 20 21 v -2 a 4 4 0 0 0 -4 -4 H 8 a 4 4 0 0 0 -4 4 v 2");
@@ -686,6 +681,16 @@ a, a:hover, a:active, a:visited, a:focus {
 body {
 	background: #F8F8F8 !important;
 }
+li:hover {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1);
+}
+th {
+	text-align:center !important;
+}
 </style>
 
 
@@ -695,176 +700,96 @@ body {
 <link rel="icon"
 	href="${pageContext.request.contextPath}/resources/images/icons/semosun1.png">
 
-<script>
-	function memberForm() {
-		location.href = "${pageContext.request.contextPath}/board/boardForm.do";
-	}
-
-	$(function() {
-		$("tr[id]")
-				.on(
-						"click",
-						function() {
-							var tNo = $(this).attr("id");
-							console.log("tNo=" + tNo);
-							location.href = "${pageContext.request.contextPath}/member/memberView.do?no="
-									+ tNo;
-						});
-	});
-</script>
 </head>
 <body>
 
 	<div id="__next">
 		<c:import url="../common/header.jsp" />
-		<div style="height: 100px;"></div>
 		<div class="jsx-2255473334 layout" style="margin-top: 50px;">
-			<div class="jsx-695160636 gnb">
-				<div class="jsx-695160636 wrapper">
-					<div class="jsx-695160636 service-box">
-						<a class="jsx-695160636" href="/mypage"><div
-								class="jsx-695160636 photo"
-								style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user02_02@2x.png&quot;);">
-								<span class="jsx-695160636 alt-text">프로필 이미지</span>
-							</div></a>
-					</div>
-				</div>
-				<div class="jsx-695160636 sub-gnb code--null">
-					<ul class="jsx-695160636"></ul>
-				</div>
-			</div>
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
-					style="background: white; width: 1257px; height: 850px;">
-					<c:import url="mypageSidebar.jsp" />
+					style="background: white; width: 1000px; height: 850px;">
 
-					<div id="contact-form" class="contatct-form" >
-						<div class="loader"></div>
-						<form action="teacherInsert.do" class="contactForm" name="cform" style="margin-left: 250px;"
-							onsubmit="return validate();" method="post"
-							enctype="multipart/form-data">
-							<input type="hidden" name="userNo" value="${ member.userNo }" />
-							<div class="jsx-1392383053 popup-box undefined">
-								<div class="jsx-1392383053 title-box">
-									<div class="jsx-1422744987">
-										<h2 class="jsx-1422744987"  style="margin-left:110px;">강사정보</h2>
-									</div>
-								</div>
-								<div class="jsx-3890274511 label-box" style="margin-left: 50px;">
+					<div id="container">
+						<section id="member-container" class="container">
+							<p>총 ${totalContents}건의 게시물이 있습니다.</p>
+							<table id="tbl-board" class="table table-striped table-hover" style="text-align:center;">
+								<tr>
+									<th></th>
+									<th>번호</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>등록일</th>
+								</tr>
 
-									<!-- 이름입력 -->
-									<label class="jsx-3712571264 "><span
-										class="jsx-3712571264">이름&nbsp;</span>
-										<div class="jsx-3890274511 select-box">
-											<div class="jsx-3890274511 input-flex">
-												<div class="jsx-3664481379 input">
-													<input required="" placeholder="이름을 입력해 주세요."
-														class="jsx-3664481379 " name="tName"
-														value="${teacher.tName}">
+								<c:forEach items="${list}" var="q">
+									<tr id="${q.qNo}">
 
-												</div>
-											</div>
-										</div></label> <br />
-									<!-- 이름입력 -->
-
-									<!-- 성별 -->
-									
-									<label class="jsx-3712571264 "><span
-										class="jsx-3712571264">성별&nbsp;</span>
-										<div class="jsx-3890274511 select-box">
-											<div class="jsx-3890274511 input-flex">
-												<div class="jsx-3664481379 input">
-													<input required=""
-														class="jsx-3664481379 " name="tGender"
-														value="${teacher.tGender}" disabled>
-												</div>
-											</div>
-										</div></label> <br />
-									<!-- 성별 -->
-
-								<!-- 과목선택 -->
-								<label class="jsx-3712571264 "><span
-										class="jsx-3712571264">과목&nbsp;</span>
-										<div class="jsx-3890274511 select-box">
-											<div class="jsx-3890274511 input-flex">
-												<div class="jsx-3664481379 input">
-													<input required="" placeholder="과목을 입력해 주세요."
-														class="jsx-3664481379 " name="subject"
-														value="${teacher.subject}">
-
-												</div>
-											</div>
-										</div></label>
-								</div>
-								<!-- 과목선택 -->
-
-								<!-- 학원명 -->
-								<label class="jsx-3712571264 "
-									style="margin-left: 50px; margin-top: 10px;"><span
-									class="jsx-3712571264">학원명&nbsp;</span>
-									<div class="jsx-3890274511 select-box">
-										<div class="jsx-3890274511 input-flex">
-											<div class="jsx-3664481379 input">
-												<input required="" placeholder="학원명을 입력해 주세요."
-													class="jsx-3664481379 " name="company"
-													value="${teacher.company}">
-											</div>
-										</div>
-									</div> </label>
-								<!-- 학원명 -->
-
-								</div>
-
-
-								<!-- 사진등록 -->
-								<div class="jsx-2014955477 photo-upload-preview">
-									<div class="jsx-3815033897 avatar">
-										<%-- <div class="jsx-3815033897 circle"
-													style="background-image: url(&quot;${pageContext.request.contextPath}/resources/images/teacher/default.png&quot;);">
-													<!-- &quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot -->
-												</div> --%>
-										<div id="profileImgArea"  style="margin-left:50px;">
-											<img id="profileImg"
-												src="${pageContext.request.contextPath }/resources/images/profileImage/defaultMmember.png"
-												onclick="$('#profile').click();"
-												style="width: 150px; hegiht: 150px; display: block; margin-left: auto; margin-right: auto;"
-												align="center">
-										</div>
-
-										<!-- <input style="visibility: hidden;" type="file"
-													id="40026ef7-ead8-42f9-9c86-3e7b1f01b037" accept="image/*"
-													class="jsx-2014955477"><label
-													for="40026ef7-ead8-42f9-9c86-3e7b1f01b037"
-													class="jsx-2014955477"><span
-													class="jsx-2014955477 alt-text">사진 첨부</span></label> -->
-										<div id="fileArea">
-											<input type="file" id="profile" name="upFile"
-												onchange="LoadImg(this)" style="display: none;" multiple>
-										</div>
-									</div>
-								</div>
-								<!-- 사진등록 -->
-								<div class="jsx-4275940456 btn-box">
-								<div class="jsx-4275940456 btn-blue"  style="margin-left:50px;">
-									<button type="submit" class="jsx-2946748022 ">등록</button>
-								</div>
-							</div>
-							</div>
+										<td><input type="hidden" value="${q.qNo}" /></td>
+										<td onclick="selectOne(${q.qNo});">${q.qNo}</td>
+										<td onclick="selectOne(${q.qNo});">${q.qTitle}</td>
+										<td onclick="selectOne(${q.qNo});">${q.nickName}</td>
+										<td onclick="selectOne(${q.qNo});">${q.qDate}</td>
+									</tr>
+								</c:forEach>
+							</table>
+							<div style="margin-left:460px;">
+							<c:out value="${pageBar}" escapeXml="false" />
 							
-						</form>
-
+							</div>
+						</section>
+						<div>
+							<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="qnaForm();"
+							style="position:absolute; bottom:20px; right: 100px;"/>
+						</div>
 					</div>
-
 				</div>
+				</div>
+				
 			</div>
 
 		</div>
 		<div class="jsx-2567582721 reviews"></div>
 		<div id="topmost" class="jsx-2567582721"></div>
 	</div>
+	<!-- 시작 -->
 
 
+
+	<!-- 끝  -->
+
+	<script>
+		function LoadImg(value) {
+			if (value.files && value.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#profileImg').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(value.files[0]);
+			}
+		}
+		
+		
+  		/* $(function (){
+			$("tr[id]").on("click",function selectOne(){
+				var tNo = $(this).attr("id");
+				console.log("tNo="+tNo);
+				location.href = "${pageContext.request.contextPath}/member/memberView.do?no="+tNo;
+			});
+		}); */
+		
+ 		function selectOne(qNo){
+			location.href = '${pageContext.request.contextPath}/qna/qnaPwd.do?no=' + qNo;
+		};
+/* 		<h3>
+		<a href="${pageContext.request.contextPath}/noticeView.nt?no=${n.noticeNo}"><b>${n.noticeTitle}</b></a>
+        </h3> */
+        
+        function qnaForm(){
+    		location.href = "${pageContext.request.contextPath}/qna/qnaInsert.do";
+    	}
+	</script>
 	<div style="height: 200px;"></div>
 	<c:import url="../common/footer.jsp" />
 	</div>

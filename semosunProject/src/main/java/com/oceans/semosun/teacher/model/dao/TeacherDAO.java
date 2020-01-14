@@ -41,4 +41,8 @@ public class TeacherDAO {
 		return sqlSession.selectList("Teacher-mapper.selectList", null, rows);
 	}
 
+	public int selectTotalContents() {
+		return sqlSession.selectOne("Teacher-mapper.selectTotalContents");
+	}
+
 }

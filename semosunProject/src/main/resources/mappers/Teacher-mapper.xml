@@ -12,6 +12,9 @@
 		SELECT * FROM TEACHER
 		WHERE TSTATUS = 'Y'
 	</select>
+	<select id="selectTotalContents" resultType="int">
+		SELECT COUNT(*) FROM TEACHER
+	</select>
 	
 	<select id="teacherChart" parameterType="int" resultType="hashmap">
 		SELECT TO_CHAR(ROUND(AVG((SCORE1 + SCORE2 + SCORE3 + SCORE4 + SCORE5)/5), 2)) Total,

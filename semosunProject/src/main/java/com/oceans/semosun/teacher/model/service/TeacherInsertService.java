@@ -34,5 +34,8 @@ public class TeacherInsertService {
 		
 		return TeacherDAO.selectList(cPage, limit);
 	}
+	public int selectTotalContents() {
+		return TeacherDAO.selectTotalContents();
+	}
 }
 

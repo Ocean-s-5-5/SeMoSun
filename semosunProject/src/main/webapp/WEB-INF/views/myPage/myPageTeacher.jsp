@@ -688,6 +688,9 @@ li:hover {
     -ms-transform: scale(1.1,1.1);
     transform: scale(1.1,1.1);
 }
+th {
+	text-align:center !important;
+}
 </style>
 
 
@@ -702,7 +705,6 @@ li:hover {
 
 	<div id="__next">
 		<c:import url="../common/header.jsp" />
-		<div style="height: 100px;"></div>
 		<div class="jsx-2255473334 layout" style="margin-top: 50px;">
 			<div class="jsx-695160636 gnb">
 				<div class="jsx-695160636 wrapper">
@@ -722,54 +724,19 @@ li:hover {
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
 					style="background: white; width: 1257px; height: 850px;">
-					<div class="jsx-707316887 my-snb"
-						style="bottom: 1px; height: 853px;">
-						<h2 class="jsx-707316887">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-								viewBox="0 0 24 24" fill="none" stroke="#dfdfdf"
-								stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-								style="position: relative;">
-								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-								<circle cx="12" cy="7" r="4"></circle></svg>
-							<span class="jsx-707316887">마이페이지</span>
-						</h2>
-						<ul class="jsx-707316887">
-							<li class="jsx-707316887 "><a class="jsx-707316887"
-								href="${pageContext.request.contextPath }/myPage/myPageProfile.do"
-								style="text-decoration: none; margin-top: 20px;">프로필</a></li>
-							<li class="jsx-707316887 active"><form
-									action="${pageContext.request.contextPath }/member/teacherSelectList.do"
-									method="post">
-									<input type="hidden" name="${teacher.tNo}" />
-									<button type="submit" style="outline: solid  0 white; background:white;">
-										<li class="jsx-707316887 "><a class="jsx-707316887"
-											style="text-decoration: none; margin-top: 20px;  "  >기본정보</a></li>
-									</button>
-								</form></li>
-						</ul>
-						<button type="button" class="jsx-707316887 btn-logout"
-							style="height: 35px; margin-bottom: 50px; margin-left: 25px; background: white; border-style: none;"
-							onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">
-							<span class="jsx-707316887 power-icon"><svg
-									xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-									viewBox="0 0 24 24" fill="none" stroke="#666666"
-									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-									style="position: relative;">
-									<path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
-									<line x1="12" y1="2" x2="12" y2="12"></line></svg></span><span
-								class="jsx-7073168871" style="font-size: 16px;"><b>로그아웃</b></span>
-						</button>
-					</div>
+					<c:import url="mypageSidebar.jsp" />
 					<div id="container">
 						<section id="member-container" class="container">
 							<p>총 ${totalContents}건의 게시물이 있습니다.</p>
-							<table id="tbl-board" class="table table-striped table-hover">
+							<table id="tbl-board" class="table table-striped table-hover" style="text-align:center;">
 								<tr>
 									<th></th>
 									<th>번호</th>
 									<th>강사이름</th>
 									<th>소속</th>
 									<th>과목</th>
+									<th></th>
+									<th>파일</th>
 								</tr>
 
 								<c:forEach items="${list}" var="t">
@@ -785,9 +752,13 @@ li:hover {
 									</tr>
 								</c:forEach>
 							</table>
+							<div style="margin-left:460px;">
 							<c:out value="${pageBar}" escapeXml="false" />
+							</div>
 						</section>
 					</div>
+
+				</div>
 
 				</div>
 				<div class="jsx-3888259898 btn-save">

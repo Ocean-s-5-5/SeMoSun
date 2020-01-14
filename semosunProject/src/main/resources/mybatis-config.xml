@@ -33,6 +33,9 @@
 			<typeAlias alias="TalknMember" type="com.oceans.semosun.search.model.vo.TalknMember"/>
 		<!-- 신고 게시판 -->
 		<typeAlias alias="Report" type="com.oceans.semosun.report.model.vo.Report"/>	
+		
+		<!-- QNA -->
+		<typeAlias type="com.oceans.semosun.qna.model.vo.Qna" alias="Qna"/>
 	</typeAliases>
 	
 </configuration>

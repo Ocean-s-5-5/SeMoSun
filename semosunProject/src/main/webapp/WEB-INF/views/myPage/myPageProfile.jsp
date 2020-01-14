@@ -669,6 +669,13 @@ a, a:hover, a:active, a:visited, a:focus {
 body{
 		background: #F8F8F8 !important;
 }
+li:hover {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1);
+}
 </style>
 <!-- 파비콘 -->
 <link rel=" shortcut icon" href="${pageContext.request.contextPath}/resources/images/icons/semosun1.png">
@@ -678,6 +685,7 @@ body{
 
 <body>
 	<c:import url="../common/header.jsp"/>
+	<div style="height: 15px;"></div>
 	<div id="__next">
 	
 		<div class="jsx-2255473334 layout">
@@ -712,16 +720,26 @@ body{
 							<span class="jsx-707316887">마이페이지</span>
 						</h2>
 						<ul class="jsx-707316887">
-							<li class="jsx-707316887 active"><a class="jsx-707316887"
-								href="${pageContext.request.contextPath }/myPage/myPageProfile.do" style="text-decoration: none; margin-top: 20px;">프로필</a></li>
+							<li class="jsx-707316887 active">
+							<a class="jsx-707316887"
+								href="${pageContext.request.contextPath }/myPage/myPageProfile.do" 
+								style="text-decoration: none; margin-top: 10px; margin-left: 10px;">프로필
+							</a>
+								</li>
 								<form action="${pageContext.request.contextPath }/member/teacherSelectList.do" method="post">
+								<br />
 								<input type="hidden" name="${teacher.tNo}"/>
-							<button type="submit"><li class="jsx-707316887 "><a class="jsx-707316887"
-								style="text-decoration: none; margin-top: 20px;">기본정보</a></li>
+							<button type="submit" style="border: 0;  background:white;">
+							<li class="jsx-707316887 " 
+									style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+										style="text-decoration: none; margin-top: 20px; text-align:left; width:340px;"  >강사정보</a>
+								</li>
 								</button>
 								</form>
 						</ul>
-						<button type="button" class="jsx-707316887 btn-logout" style="height: 35px; margin-bottom: 50px; margin-left:25px;  background:white; border-style:none;" 
+						<button type="button" class="jsx-707316887 btn-logout" style="height: 35px; margin-bottom: 50px; margin-left:25px;  background:white; border:none;" 
 						onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">
 							<span class="jsx-707316887 power-icon"><svg
 									xmlns="http://www.w3.org/2000/svg" width="10" height="10"
@@ -777,7 +795,7 @@ body{
 												<label class="jsx-3712571264 "><span
 										class="jsx-3712571264">비밀번호&nbsp;</span>
 									<div class="jsx-3664481379 input">
-											<input  class="jsx-3664481379 " name="pwd" id="pwd" placeholder="변경할비밀번호">
+											<input type="password" class="jsx-3664481379 " name="pwd" id="pwd" placeholder="변경할비밀번호">
 										</div></label>
 										</div>
 										<div class="jsx-1936111413 review-access">

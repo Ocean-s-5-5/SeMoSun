@@ -483,7 +483,7 @@ public class MemberController {
 		int totalContents = memberService.selectTotalContents(m.getUserNo());
 		System.out.println(totalContents);
 		// 페이지 계산 HTML을 추가하기
-		String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "teacherInsert.do");
+		String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "teacherSelectList.do");
 		
 		System.out.println("페이지 바" + pageBar);
 		

@@ -33,5 +33,8 @@
 <!-- Color CSS Styles  -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/colors/blue.css" title="blue" media="screen" />
 
+<!-- headerCss CSS Styles  -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/headerCss.css" type="text/css"  media="screen" />
+
 <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
