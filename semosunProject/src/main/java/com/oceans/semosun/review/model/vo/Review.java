@@ -35,6 +35,7 @@ public class Review implements Serializable{
 	
 	// 좋아요 수
 	private int likeCount;
+	private int checkLike;
 
 	public Review() {
 		super();
@@ -76,7 +77,7 @@ public class Review implements Serializable{
 	public Review(int rno, int tNo, int userNo, String rtitle, String gcontent, String bcontent, int score1, int score2,
 			int score3, int score4, int score5, int score6, int score7, int score8, int score9, int score10,
 			String rstatus, Timestamp rdate, String nickName, String profileName, String tName, String subject,
-			String company, int likeCount) {
+			String company, int likeCount, int checkLike) {
 		super();
 		this.rno = rno;
 		this.tNo = tNo;
@@ -102,7 +103,9 @@ public class Review implements Serializable{
 		this.subject = subject;
 		this.company = company;
 		this.likeCount = likeCount;
+		this.checkLike = checkLike;
 	}
+
 
 	@Override
 	public String toString() {
@@ -111,8 +114,19 @@ public class Review implements Serializable{
 				+ score3 + ", score4=" + score4 + ", score5=" + score5 + ", score6=" + score6 + ", score7=" + score7
 				+ ", score8=" + score8 + ", score9=" + score9 + ", score10=" + score10 + ", rstatus=" + rstatus
 				+ ", rdate=" + rdate + ", nickName=" + nickName + ", profileName=" + profileName + ", tName=" + tName
-				+ ", subject=" + subject + ", company=" + company + ", likeCount=" + likeCount + "]";
+				+ ", subject=" + subject + ", company=" + company + ", likeCount=" + likeCount + ", checkLike="
+				+ checkLike + "]";
 	}
+	
+
+	public int getCheckLike() {
+		return checkLike;
+	}
+
+	public void setCheckLike(int checkLike) {
+		this.checkLike = checkLike;
+	}
+
 
 	public int getRno() {
 		return rno;

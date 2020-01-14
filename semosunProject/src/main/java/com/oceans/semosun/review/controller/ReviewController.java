@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,19 +25,21 @@ public class ReviewController {
 	ReviewService reviewService;
 	
 	@RequestMapping("/review/selectListTeacherReview.do")
-	public String selectListTeacherReview( @RequestParam(value="cPage", defaultValue = "1", required = false) int cPage, @RequestParam(value="tNo", required = false) String tNo, Model model) {
+	public String selectListTeacherReview( @RequestParam(value="cPage", defaultValue = "1", required = false) int cPage, @RequestParam(value="tNo", required = false) String tNo, Model model, HttpSession session) {
 		if (tNo == null) {
 			model.addAttribute("msg", "강사가 선택되지 않았습니다.")
 		 		 .addAttribute("loc", "/");
 			return "common/msg";
 		}
 		Teacher t = reviewService.selectOneTeacher(Integer.parseInt(tNo));
-		
-		int numPerPage = 10;
+		int numPerPage = 5;
 		int reviewCount = reviewService.totalReviewPerTeacher(Integer.parseInt(tNo));
-		List<Review> listTeacherReview = reviewService.selectListTeacherReview(Integer.parseInt(tNo), cPage, numPerPage);
-		String pageBar = Utils.getPageBar(reviewCount, cPage, numPerPage, "/review/selectListTeacherReview.do");
-				
+		float reviewAvg = reviewService.averagePerTeacher(Integer.parseInt(tNo));
+		int userNo = 0;
+		if (session.getAttribute("member") != null) userNo = ((Member) session.getAttribute("member")).getUserNo();
+		List<Review> listTeacherReview = reviewService.selectListTeacherReview(Integer.parseInt(tNo), userNo, cPage, numPerPage);
+		String pageBar = Utils.getPageBar(reviewCount, cPage, numPerPage, "selectListTeacherReview.do?tNo="+tNo + "&");
+//											  http://localhost:8088/semosun/review/selectListTeacherReview.do?tNo=61&?cPage=2
 		if (listTeacherReview.size() > 0) {
 			HashMap<String, String> map1 = reviewService.selectChartMap(Integer.parseInt(tNo));
 			HashMap<String, String> reviewLevel = reviewService.selectReviewLevel(Integer.parseInt(tNo));
@@ -46,6 +50,7 @@ public class ReviewController {
 		model.addAttribute("Teacher", t)
 			 .addAttribute("list", listTeacherReview)
 			 .addAttribute("reviewCount", reviewCount)
+			 .addAttribute("reviewAvg", reviewAvg)
 			 .addAttribute("pageBar", pageBar); 
 		
 		return "review/teacherReview";
@@ -93,6 +98,12 @@ public class ReviewController {
 	public List<Review> bestReview(){
 		List<Review> list = reviewService.selectBestReview(); 
 		return list;
+	}
+	
+	@RequestMapping("/review/likeReview.do")
+	@ResponseBody
+	public int likeReview(@RequestParam Boolean isLike, @RequestParam int rno, @RequestParam int userNo){
+		return reviewService.likeReview(isLike, rno, userNo); 
 	}
 	
 }

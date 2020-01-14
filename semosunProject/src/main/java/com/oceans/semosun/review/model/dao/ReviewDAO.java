@@ -20,9 +20,13 @@ public class ReviewDAO {
 		return sqlSession.insert("review-mapper.insertReview", review);
 	}
 
-	public List<Review> selectListTeacherReview(int tNo, int cPage, int numPerPage) {
+	public List<Review> selectListTeacherReview(int tNo, int userNo, int cPage, int numPerPage) {
+		HashMap<String, Integer> selectMap = new HashMap<String, Integer>();
+		selectMap.put("tNo", tNo);
+		selectMap.put("userNo", userNo);
+		
 		RowBounds rowBounds = new RowBounds(cPage-1, numPerPage);
-		return sqlSession.selectList("review-mapper.selectListTeacherReview", tNo, rowBounds);
+		return sqlSession.selectList("review-mapper.selectListTeacherReview", selectMap, rowBounds);
 	}
 
 	public Teacher selectOneTeacher(int tNo) {
@@ -57,5 +61,18 @@ public class ReviewDAO {
 		return sqlSession.selectOne("review-mapper.totalReviewPerTeacher", tNo);
 	}
 	
+	public float averagePerTeacher(int tNo) {
+		return sqlSession.selectOne("review-mapper.averagePerTeacher", tNo);
+	}
+
+	public int likeReview(Boolean isLike, int rno, int userNo) {
+		// Likey 객체
+		HashMap<String, Integer> Likey = new HashMap<String, Integer>();
+		Likey.put("rno", rno);
+		Likey.put("userNo", userNo);
+		
+		if(isLike) return sqlSession.insert("review-mapper.insertLikeReview", Likey);
+		else return sqlSession.insert("review-mapper.deleteLikeReview", Likey);
+	}
 	
 }

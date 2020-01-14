@@ -1453,7 +1453,7 @@ border-right:1px solid #fff
 										'<div class="jsx-2548577942 avatar">' +
 											'<div class="jsx-1076345726 avatar">' +
 												'<div class="jsx-1076345726 circle"' +
-													'style="background-image: url(\'${pageContext.request.contextPath}/resources/imges/profileImage2/'+ data[i].profileName  + '\');">' +
+													'style="background-image: url(\'${pageContext.request.contextPath}/resources/images/profileImage2/'+ data[i].profileName  + '\');">' +
 												'</div></div></div>' +
 										'<div class="jsx-2548577942 name-box">' +
 											'<h4 class="jsx-2548577942">' + data[i].tName + '선생님</h4>' +
@@ -1633,7 +1633,7 @@ border-right:1px solid #fff
 							for(var i in data){
 								var semo3 = $('<li class="semo3">');
 								var semoimgDiv = $('<div class="semoimg"' +
-										'style="background-image: url(\'${pageContext.request.contextPath}/resources/imges/profileImage/'+ data[i].profileName +'\');">' +
+										'style="background-image: url(\'${pageContext.request.contextPath}/resources/images/profileImage/'+ data[i].profileName +'\');">' +
 										'</div>');
 								
 								var contentDiv = $('<div>');

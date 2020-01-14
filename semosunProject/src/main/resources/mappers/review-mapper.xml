@@ -8,14 +8,13 @@
 		INSERT INTO REVIEW VALUES(SEQ_RNO.NEXTVAL, #{tNo}, #{userNo}, #{rtitle}, #{gcontent}, #{bcontent}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{score10}, DEFAULT, DEFAULT)
 	</insert>
 
-	<select id="selectListTeacherReview" parameterType="int" resultType="Review">
-		SELECT r.*, m.nickname, m.profilename ,(SELECT COUNT(*) FROM likey where rno = r.rno) likeCount
+	<select id="selectListTeacherReview" parameterType="hashmap" resultType="Review">
+		SELECT r.*, m.nickname, m.profilename , (SELECT COUNT(*) FROM likey where rno = r.rno) likeCount
+                                        <if test="userNo != 0">
+                                        , (SELECT COUNT(*) FROM likey WHERE RNO = r.rno AND USERNO = #{userNo}) checkLike
+                                        </if>
 		FROM review r JOIN member m on(r.USERNO = m.USERNO) 
-		WHERE 
-		<if test="keyword != null">
-			TNO = #{tNo} AND
-		</if>
-		 r.RSTATUS = 'N' ORDER BY RDATE DESC
+		WHERE TNO = #{tNo} AND r.RSTATUS = 'N' ORDER BY RDATE DESC
 	</select>
 	
 	<select id="selectOneTeacher" parameterType="int" resultType="Teacher">
@@ -29,11 +28,11 @@
                COUNT(CASE WHEN TOTAL > 4 THEN 1 END) REVIEW_2
 		FROM (SELECT (SCORE1 + SCORE2 + SCORE3 + SCORE4 + SCORE5)/5 TOTAL 
              FROM REVIEW 
-             WHERE TNO = #{tNo}
-             AND RSTATUS = 'N')
+             WHERE TNO = #{tNo} AND RSTATUS = 'N')
     ]]>
 	</select>
 	
+	<!-- index -->
 	<select id="selectLive" resultType="Review">
 		SELECT R.*, M.PROFILENAME, T.TNAME, T.SUBJECT, T.COMPANY
 		FROM REVIEW R, MEMBER M, TEACHER T
@@ -50,6 +49,7 @@
 		          FROM LIKEY 
 		          WHERE R.RNO = LIKEY.RNO) DESC
 	</select>
+	<!-- index -->
 	
 	<update id="deleteReview" parameterType="int">
 		UPDATE REVIEW SET RSTATUS = 'Y' WHERE RNO = #{rno}
@@ -58,6 +58,20 @@
 	<select id="totalReviewPerTeacher" parameterType="int" resultType="int">
 		SELECT COUNT(*) FROM REVIEW WHERE TNO = #{tNo} AND RSTATUS = 'N'
 	</select>
+<!-- 	SELECT COUNT(*) , NVL((AVG(SCORE6)+AVG(SCORE7)+AVG(SCORE8)+AVG(SCORE9)+AVG(SCORE10))/5, 0) FROM REVIEW WHERE TNO = 61 AND RSTATUS = 'N'; -->
+	<select id="averagePerTeacher" parameterType="int" resultType="float">
+		SELECT NVL(ROUND((AVG(SCORE6)+AVG(SCORE7)+AVG(SCORE8)+AVG(SCORE9)+AVG(SCORE10))/5, 2), 0) FROM REVIEW WHERE TNO = #{tNo} AND RSTATUS = 'N'
+	</select>
+	
+	<!-- like -->
+	<insert id="insertLikeReview" parameterType="hashmap">
+		INSERT INTO LIKEY VALUES(#{rno}, #{userNo}, DEFAULT)
+	</insert>
+	
+	<delete id="deleteLikeReview" parameterType="hashmap">
+		DELETE FROM LIKEY WHERE RNO = #{rno} AND USERNO = #{userNo}
+	</delete>
+	<!-- like -->
 	
 <!-- 	<select id="selectListTalk" resultType="Talk"> -->
 <!-- 		SELECT * FROM TALK JOIN member USING(USERNO) WHERE TSTATUS = 'N' ORDER BY TALKDATE DESC -->

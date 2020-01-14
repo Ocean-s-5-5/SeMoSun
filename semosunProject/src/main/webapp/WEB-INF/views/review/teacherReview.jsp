@@ -56,6 +56,7 @@
 }
 .UDBtnDiv {
 	text-align-last: justify;
+	padding: 5px;
 }
 .UDBtnDiv div {
 	display: inline-block;
@@ -86,6 +87,15 @@
 .post-head .row {
     margin-right: 0px;
     margin-left: 0px;
+}
+.comment-content>h2 {
+    margin-block-end: 0;
+}
+.myLike {
+    background: rgba(230, 130, 160, 0.4);
+    box-shadow: 0px 0px 5px 0px rgba(230, 130, 160);
+    border: 0px;
+	
 }
 /* *************** highchart.js [통계 차트 관련 css] 시작 **************** */
 /* 참고 url : https://www.highcharts.com/demo */
@@ -193,7 +203,7 @@
 					   <div class="widget widget-teacherProfile">
                            <div class="custom-testimonial-img">
                            <!-- 강사 사진 경로 : ${Teacher.profileName} -->
-                               <img class="fade-in-animate" src="${pageContext.request.contextPath }/resources/images/member-01.jpg" alt="">
+                               <img class="fade-in-animate" src="${pageContext.request.contextPath}/resources/images/profileImage2/${Teacher.profileName}" alt="">
                            </div>
                            <div class="custom-testimonial-user-info">
                                <h2>${Teacher.tName}</h2>
@@ -297,7 +307,7 @@
 	                        <div class="service-content">
 	                            <h4>총 평점</h4>
                                 <div class="jsx-2318878368 rating">
-									<span class="jsx-2318878368"></span>
+									<span class="jsx-2318878368">${reviewAvg}</span>
 									<div class="jsx-237548703 stars">
 									</div>
 		                        </div>
@@ -389,10 +399,9 @@
 										<input type="hidden" name="bcontent" value="${r.bcontent}"/>
 										
 										
-                                    <!-- 사진 PROFILENAME : ${r.profileName}-->
-                                        <div class="avatar"><img alt="" src="${pageContext.request.contextPath }/resources/images/avatar.png" /></div>
                                         
 		                                <!-- 제목, 작성자, 날짜 -->
+                                        <div class="avatar"><img alt="" src="${pageContext.request.contextPath}/resources/images/profileImage/${r.profileName}" /></div>
                                         <div class="comment-content">
 	                            			<h2>${r.rtitle}</h2>
                             				<!-- <h4>RTITLE Gallery Post With Nice Lightbox</h4> -->
@@ -445,10 +454,14 @@
 	                                            </div>
 	                                        </li>
 	                                    </ul>
-                                    
+                                    ${r.checkLike}
                                     <!-- 좋아요, 신고 -->
                                    <div class="divBtn">
-	                                  <button class="btn btn-default btn-md" type="button"><i class="fa fa-home"></i> ${r.likeCount}</button>
+                                   <c:if test="${r.checkLike == 1}">
+	                                  <button class="btn btn-default btn-md myLike" type="button" onclick="like(this, ${r.rno}, ${member.userNo });"><i class="fa fa-heart"></i> ${r.likeCount}</button>
+                                   </c:if><c:if test="${r.checkLike == 0}">
+	                                  <button class="btn btn-default btn-md" type="button" onclick="like(this, ${r.rno}, ${member.userNo });"><i class="fa fa-heart"></i> ${r.likeCount}</button>
+                                   </c:if> 
 	                                  <button class="btn btn-default btn-md reportBtn" type="button" onclick="fn_reportView(${r.rno});"><i class="fa fa-home"></i> 신고</button>
                                    </div>
 									<!-- 좋아요, 신고 End -->
@@ -547,7 +560,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score7" onchange="changeProgress(this);"  data-animation-delay="300"><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score7" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -560,7 +573,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score8" onchange="changeProgress(this);"  data-animation-delay="600"><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score8" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -573,7 +586,7 @@
 				        </div> 
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score9" onchange="changeProgress(this);" data-animation-delay="900"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score9" onchange="changeProgress(this);"><br />
 	                 </div>    
 				    </div> 
 				<div class="row"> 
@@ -586,7 +599,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score10" onchange="changeProgress(this);" data-animation-delay="1200"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score10" onchange="changeProgress(this);"><br />
 	                 </div>   
 				</div>
 	       		</div>
@@ -631,7 +644,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);"  data-animation-delay="300"><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -644,7 +657,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);"  data-animation-delay="600"><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -657,7 +670,7 @@
 				        </div> 
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);" data-animation-delay="900"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);"><br />
 	                 </div>    
 				    </div> 
 				<div class="row"> 
@@ -670,7 +683,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);" data-animation-delay="1200"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);"><br />
 	                 </div>   
 				</div>
 	       		</div>
@@ -748,7 +761,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="reset" class="btn btn-secondary">초기화</button>
+        <button type="button" class="btn btn-secondary" onclick="modalDataBtn(this, true);">초기화</button>
         <button type="submit" class="btn btn-primary">등록하기</button>
       </div>
 	</form>
@@ -780,11 +793,49 @@
 				if(isDefault && i<11) data = 5;  else if(isDefault) data = '';
 				else data = $(obj).parents('.comment-box.clearfix').find('input[name='+objArray[i]+']').val();
 				
-				if(i<12) $('#exampleModalCenter').find('input[name='+objArray[i]+']').val(data);
+				if(i<10) {
+					var score = $('#exampleModalCenter').find('input[name='+objArray[i]+']')
+					score.val(data);
+					score.parents('.row').find('.progress-bar').attr('data-progress-animation', data * 20 + '%').css('width', data * 20 + '%');
+					score.parents('.row').find('.progress-bar-tooltip').text(data + '점');
+				}
+				else if(i<12) $('#exampleModalCenter').find('input[name='+objArray[i]+']').val(data);
 				else $('#exampleModalCenter').find('textarea[name='+objArray[i]+']').val(data);
 			}
 		}
 		
+		function like(Btn, rno, userNo) {
+			if(userNo == null) { alert("로그인을 해주세요!"); return; }
+			
+			var isLike;
+			var count;
+			
+			// 버튼 CSS
+			if($(Btn).hasClass('myLike')) {
+				$(Btn).removeClass('myLike');
+				isLike = false;
+				count = Number($(Btn).text().trim())-1;
+			}else {
+				$(Btn).addClass('myLike');
+				isLike = true;
+				count = Number($(Btn).text().trim())+1;
+			}
+			$.ajax({
+				url : "${pageContext.request.contextPath }/review/likeReview.do",
+				data : { isLike : isLike , rno : rno , userNo : userNo },
+				dataType: "json",
+				success : function(data) {
+					$(Btn).html('<i class="fa fa-heart"></i> '+count);
+				}, error : function() {
+					console.log("ajax 실패!");
+					if($(Btn).hasClass('myLike')) {
+						$(Btn).addClass('myLike');
+					}else {
+						$(Btn).removeClass('myLike');
+					}
+				}
+			})
+		}
 		
 		/* --------------- highchart 스크립트 영역 시작 ------------- */
 		var reviewStat = "${!empty reviewStat}";
@@ -875,7 +926,7 @@
 			        text: '강의평 분석',
 			        align: 'center',
 			        verticalAlign: 'middle',
-			        x: -23,
+			        x: -26,
 			        y: 80
 			    },
 			    tooltip: {
