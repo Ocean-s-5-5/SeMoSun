@@ -417,7 +417,9 @@ label.jsx-2014955477 {
 .navbar-nav li a {
 	color : black !important;
 }
-
+.navbar-default .navbar-nav > li:nth-child(3)~li > a.active, .navbar-default .navbar-nav > li:nth-child(3)~li > a {
+	border-bottom: 3px solid white;
+}
 </style>
 </head>
 <!-- Start Header Section -->
@@ -441,7 +443,7 @@ label.jsx-2014955477 {
 				<a class="navbar-brand" href="${pageContext.request.contextPath }"> <img id="logologologo" alt="" src="${pageContext.request.contextPath }/resources/images/semosunlogo.png"> </a> </div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="active" href="${pageContext.request.contextPath }">Home</a>
+					<li><a href="${pageContext.request.contextPath }">Home</a>
 						<ul class="dropdown">
 							<li> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
 						</ul></li>
@@ -460,6 +462,7 @@ label.jsx-2014955477 {
 					</li>
 					<li><a href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
 					</c:if>
+					
 				</ul>
 				<!-- End Navigation List -->
 			</div>
@@ -646,5 +649,4 @@ label.jsx-2014955477 {
 	</div>
 
 	</section>
-
 </header>

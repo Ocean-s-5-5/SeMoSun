@@ -20,9 +20,9 @@ public class ReviewDAO {
 		return sqlSession.insert("review-mapper.insertReview", review);
 	}
 
-	public List<Review> selectListTeacherReview(int tNo) {
-//		RowBounds rowBounds = new RowBounds(offset, limit);
-		return sqlSession.selectList("review-mapper.selectListTeacherReview", tNo);
+	public List<Review> selectListTeacherReview(int tNo, int cPage, int numPerPage) {
+		RowBounds rowBounds = new RowBounds(cPage-1, numPerPage);
+		return sqlSession.selectList("review-mapper.selectListTeacherReview", tNo, rowBounds);
 	}
 
 	public Teacher selectOneTeacher(int tNo) {
@@ -51,6 +51,10 @@ public class ReviewDAO {
 	public List<Review> selectBestReview() {
 		RowBounds rows = new RowBounds(0, 3);
 		return sqlSession.selectList("review-mapper.selectBestReview", null, rows);
+	}
+
+	public HashMap<String, Float> totalReviewPerTeacher(int tNo) {
+		return sqlSession.selectOne("review-mapper.totalReviewPerTeacher", tNo);
 	}
 	
 	

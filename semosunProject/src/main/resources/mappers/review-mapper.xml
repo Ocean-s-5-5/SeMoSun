@@ -5,7 +5,7 @@
 <mapper namespace="review-mapper">
 
 	<insert id="insertReview" parameterType="Review">
-		INSERT INTO REVIEW VALUES(SEQ_RNO.NEXTVAL, #{tNo}, #{userNo}, #{rtitle}, #{gcontent}, #{bcontent}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, DEFAULT, DEFAULT)
+		INSERT INTO REVIEW VALUES(SEQ_RNO.NEXTVAL, #{tNo}, #{userNo}, #{rtitle}, #{gcontent}, #{bcontent}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{score10}, DEFAULT, DEFAULT)
 	</insert>
 
 	<select id="selectListTeacherReview" parameterType="int" resultType="Review">
@@ -53,6 +53,10 @@
 	<update id="deleteReview" parameterType="int">
 		UPDATE REVIEW SET RSTATUS = 'Y' WHERE RNO = #{rno}
 	</update>
+	
+	<select id="totalReviewPerTeacher" parameterType="int" resultType="hashmap">
+		SELECT COUNT(*) a, AVG(SCORE6) b,  AVG(SCORE7) c,  AVG(SCORE8) d,  AVG(SCORE9) e,  AVG(SCORE10) f FROM REVIEW WHERE TNO = #{tNo} AND RSTATUS = 'N'
+	</select>
 	
 <!-- 	<select id="selectListTalk" resultType="Talk"> -->
 <!-- 		SELECT * FROM TALK JOIN member USING(USERNO) WHERE TSTATUS = 'N' ORDER BY TALKDATE DESC -->

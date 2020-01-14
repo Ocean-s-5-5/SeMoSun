@@ -20,8 +20,8 @@ public class ReviewService {
 		return rDao.insertReview(review);
 	}
 
-	public List<Review> selectListTeacherReview(int tNo) {
-		return rDao.selectListTeacherReview(tNo);
+	public List<Review> selectListTeacherReview(int tNo, int cPage, int numPerPage) {
+		return rDao.selectListTeacherReview(tNo, cPage, numPerPage);
 	}
 
 	public Teacher selectOneTeacher(int tNo) {
@@ -69,6 +69,10 @@ public class ReviewService {
 
 	public List<Review> selectBestReview() {
 		return rDao.selectBestReview();
+	}
+
+	public HashMap<String, Float> totalReviewPerTeacher(int tNo) {
+		return rDao.totalReviewPerTeacher(tNo);
 	}
 
 

@@ -23,9 +23,9 @@
 .widget-teacherProfile {
     text-align: center;
 }
-.blog-page>div>div:not(:last-child) {
-/* 	임시. 색과 패딩을 바꿔야함. */
-	border: 1px solid gray;
+.blog-page>div>div:not(:last-child), .comment-box.clearfix {
+    box-shadow: 0px 0px 20px 0px lightgrey;
+    padding: 30px;
 }
 .avatar>button {
 /* 	장단점 버튼 */
@@ -57,15 +57,38 @@
 .UDBtnDiv {
 	text-align-last: justify;
 }
-.UDBtnDiv>div {
+.UDBtnDiv div {
 	display: inline-block;
 }
 
 .modal-body .progress-bar {
 	transition: width .2s ease-out;
 }
-
+.clearfix+ul{
+	margin-left: 15% !important;
+}
+.box.jsx-3001902121 {
+    color: rgb(255, 255, 255);
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0px 16px;
+    border-radius: 16px;
+}
+.primary {
+    background-color: rgb(93, 126, 233);
+}
+.point {
+    background-color: rgb(255, 51, 102);
+}
+.post-head .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
 /* *************** highchart.js [통계 차트 관련 css] 시작 **************** */
+/* 참고 url : https://www.highcharts.com/demo */
 /* 참고 url : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/polar-spider/ */
 
 .highcharts-figure, .highcharts-data-table table {
@@ -102,6 +125,35 @@
     background: #f1f7ff;
 }
 
+.rating.jsx-2318878368 {
+	line-height: 42px;
+	font-size: 28px;
+	font-weight: 700;
+}
+
+.rating.jsx-2318878368>.stars {
+	display: inline-block;
+	margin-left: 4px;
+}
+
+.star-2.jsx-237548703 {
+	background-image:
+		url('https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png');
+}
+
+.star-0.jsx-237548703 {
+	background-image:
+		url('https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_off.png');
+}
+.star.jsx-237548703 {
+	float: left;
+	width: 12px;
+	height: 12px;
+	margin-right: 4px;
+	background-size: cover;
+	overflow: hidden;
+}
+
 /* *************** highchart.js [통계 차트 관련 css] 끝 **************** */
 
 </style>
@@ -122,8 +174,6 @@
                     </div>
                     <div class="col-md-6">
                         <ul class="breadcrumbs">
-                            <li><a href="#">Home</a>
-                            </li>
                             <li>${Teacher.tName} 선생님 리뷰</li>
                         </ul>
                     </div>
@@ -146,9 +196,9 @@
                                <img class="fade-in-animate" src="${pageContext.request.contextPath }/resources/images/member-01.jpg" alt="">
                            </div>
                            <div class="custom-testimonial-user-info">
-                               <h3 class="custom-testimonial-user-name">${Teacher.tName}</h3>
-                               <p>${Teacher.company}</p>
-                               <p>${Teacher.subject}</p>
+                               <h2>${Teacher.tName}</h2>
+                               <h3>${Teacher.company}</h3>
+                               <h4>${Teacher.subject}</h4>
                            </div>
                         </div>
                         
@@ -212,14 +262,12 @@
                         </div>
                         
                         
-						<!-- 등록하기 modal -->
-                        <c:if test="${!empty member}">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="resetModalForm();">리뷰 등록하기</button>
-						</c:if>
-                        <c:if test="${empty member}">
-							<button type="button" class="btn btn-primary" data-toggle="modal" onclick="alert('로그인을 해주세요!');">리뷰 등록하기</button>
-						</c:if>
-						
+						<!-- 등록하기 button -->
+						<button id="insert" type="button" class="btn btn-primary" data-toggle="modal" 
+							data-target="#exampleModalCenter" onclick="modalDataBtn(this, true);" <c:if test="${empty member}"> disabled </c:if>>
+							리뷰 등록하기
+						</button>
+						<!-- 등록하기 button -->
 						
 	                    </c:if>
 	                    <c:if test="${Teacher.tStatus eq 'N'}">
@@ -239,70 +287,78 @@
                         
                             <!-- Post Thumb -->
                             <div class="post-head">
-                                
-                                
-					<figure class="highcharts-figure">
-					    <div id="highchart-container1"></div>
-					    <p class="highcharts-description text-center">
-					       ${member.nickName}님에게 맞는 강의 스타일을 확인해보세요!
-					    </p>
-					</figure>
-					
-					<figure class="highcharts-figure">
-					    <div id="highchart-container2"></div>
-					</figure>
-                                
-                    <!-- Start Service Icon 1 -->
-                    <div class="col-md-4 service-box service-icon-left">
-                     <h4 class="classic-title"><span>강의 총 점수</span></h4>
-                        <div class="service-icon">
-                            <i class="fa fa-trophy icon-mini-effect icon-effect-1"></i>
-                        </div>
-                        <div class="service-content">
-                            <h4>High Quality Theme</h4>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Icon 1 -->
-
-                    <!-- Start Service Icon 2 -->
-                    <div class="col-md-4 service-box service-icon-left">
-                     <h4 class="classic-title"><span>Latest News</span></h4>
-                        <div class="service-icon">
-                            <i class="fa fa-trophy icon-mini-effect icon-effect-1"></i>
-                        </div>
-                        <div class="service-content">
-                            <h4>Fast &amp; Light Theme</h4>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Icon 2 -->
-
-                    <!-- Start Service Icon 3 -->
-                    <div class="col-md-4 service-box service-icon-left">
-                     <h4 class="classic-title"><span>Latest News</span></h4>
-                        <div class="service-icon">
-                            <i class="fa fa-rocket icon-mini-effect icon-effect-1"></i>
-                        </div>
-                        <div class="service-content">
-                            <h4>Retina Display Ready</h4>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Icon 3 -->
-
+	                 <div class="row">
+	                    <!-- Start Service Icon 1 -->
+	                    <div class="col-sm-6 service-box service-icon-left">
+	                     <h4 class="classic-title"><span>추천 기준</span></h4>
+	                        <div class="service-icon">
+	                            <i class="fa fa-trophy icon-mini-effect icon-effect-1"></i>
+	                        </div>
+	                        <div class="service-content">
+	                            <h4>총 평점</h4>
+                                <div class="jsx-2318878368 rating">
+									<span class="jsx-2318878368">${ }</span>
+									<div class="jsx-237548703 stars">
+									</div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                    <!-- End Service Icon 1 -->
+	                    <!-- Start Service Icon 2 -->
+	                    <div class="col-sm-6 service-box service-icon-left">
+	                     <h4 class="classic-title"><span>리뷰 수</span></h4>
+	                        <div class="service-icon">
+	                            <i class="fa fa-trophy icon-mini-effect icon-effect-1"></i>
+	                        </div>
+	                        <div class="service-content">
+	                            <c:if test="${reviewCount == 0}">
+	                            	<h4>아직 리뷰가 등록되지 않았습니다.<br>
+                        				첫 리뷰의 주인공이 되어 보세요!
+                       				</h4>
+	                        	</c:if><c:if test="${reviewCount != 0}">
+	                            <h4>지금도 리뷰가 올라오고 있어요!</h4>
+		                        	<div class="milestone-block">
+			                            <div class="milestone-right">
+			                                <span class="milestone-text">총</span>
+			                                <span class="milestone-number">${reviewCount}</span>
+			                                <span class="milestone-text"> 개의 리뷰</span>
+			                            </div>
+			                        </div>
+	                        	</c:if>
+	                        </div>
+	                    </div>
+	                    <!-- End Service Icon 2 -->
+	                 </div>
+					<div class="row">
                     <!-- Start Service Icon 4 -->
-                    <div class="col-md-4 service-box service-icon-left">
-                     <h4 class="classic-title"><span>Latest News</span></h4>
+                    <div class="col-sm-6 service-box service-icon-left">
+                     <h4 class="classic-title"><span>강의 스타일 기준</span></h4>
                         <div class="service-icon">
                             <i class="fa fa-rocket icon-mini-effect icon-effect-1"></i>
                         </div>
                         <div class="service-content">
-                            <h4>Clean Modern Code</h4>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
+                            <h4>${member.nickName}님에게 맞는 <br>강의 스타일을 확인하세요!</h4>
+                            <figure class="highcharts-figure">
+							    <div id="highchart-container1"></div>
+							</figure>
                         </div>
                     </div>
                     <!-- End Service Icon 4 -->
+                    <!-- Start Service Icon 3 -->
+                    <div class="col-sm-6 service-box service-icon-left">
+                     <h4 class="classic-title"><span>강의평 분석</span></h4>
+                        <div class="service-icon">
+                            <i class="fa fa-rocket icon-mini-effect icon-effect-1"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>리뷰의 통계를 확인하세요!</h4>
+                           <figure class="highcharts-figure">
+					    <div id="highchart-container2"></div>
+					</figure>
+                        </div>
+                    </div>
+                    <!-- End Service Icon 3 -->
+	               </div>
                             </div>
                            
                         </div>
@@ -310,15 +366,6 @@
 
                         <!-- Start Comment Area -->
                         <div id="comments">
-                        	<c:if test="${reviewCount == 0}">
-                        		<h2 class="comments-title">
-                        			아직 리뷰가 등록되지 않았습니다.<br>
-                        			첫 리뷰의 주인공이 되어 보세요!
-                        		</h2>
-                        	</c:if><c:if test="${reviewCount != 0}">
-                        		<h2 class="comments-title">총 ${reviewCount}개의 리뷰가 있습니다!</h2>
-                        	</c:if>
-                            
                             <ol class="comments-list">
                     <!-- --------------------------- 리뷰 for-each 시작 --------------------------- -->
                             <c:forEach items="${list}" var="r" varStatus="num">
@@ -326,15 +373,20 @@
                                 <li>
                                     <div class="comment-box clearfix">
                                       	<!-- 수정용.. 귀찮아서..  -->
-		            					<input type="hidden" name="rno" value="${r.rno}"/>
-										<input type="hidden" name="rtitle" value="${r.rtitle}"/>
-										<input type="hidden" name="gcontent" value="${r.gcontent}"/>
-										<input type="hidden" name="bcontent" value="${r.bcontent}"/>
 										<input type="hidden" name="score1" value="${r.score1}"/>
 										<input type="hidden" name="score2" value="${r.score2}"/>
 										<input type="hidden" name="score3" value="${r.score3}"/>
 										<input type="hidden" name="score4" value="${r.score4}"/>
 										<input type="hidden" name="score5" value="${r.score5}"/>
+										<input type="hidden" name="score6" value="${r.score6}"/>
+										<input type="hidden" name="score7" value="${r.score7}"/>
+										<input type="hidden" name="score8" value="${r.score8}"/>
+										<input type="hidden" name="score9" value="${r.score9}"/>
+										<input type="hidden" name="score10" value="${r.score10}"/>
+		            					<input type="hidden" name="rno" value="${r.rno}"/>
+										<input type="hidden" name="rtitle" value="${r.rtitle}"/>
+										<input type="hidden" name="gcontent" value="${r.gcontent}"/>
+										<input type="hidden" name="bcontent" value="${r.bcontent}"/>
 										
 										
                                     <!-- 사진 PROFILENAME : ${r.profileName}-->
@@ -342,9 +394,7 @@
                                         
 		                                <!-- 제목, 작성자, 날짜 -->
                                         <div class="comment-content">
-                            				<div>
-	                            					<h2>${r.rtitle}</h2>
-                            				</div>
+	                            			<h2>${r.rtitle}</h2>
                             				<!-- <h4>RTITLE Gallery Post With Nice Lightbox</h4> -->
                                             <div class="comment-meta post-bottom UDBtnDiv">
                                             	<div>
@@ -352,20 +402,29 @@
 	                                                <span class="comment-date dateForm">${r.rdate}</span>
                                                 </div>
                                                 <div>
+                                                	<div class="service-content">
+						                                <div class="jsx-2318878368 rating">
+															<span class="jsx-2318878368">${(r.score6+r.score7+r.score8+r.score9+r.score10)/5}</span>
+															<div class="jsx-237548703 stars">
+															</div>
+								                        </div>
+							                        </div>
                                                 <c:if test="${member.userNo eq r.userNo}">
-													<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModalCenter" onclick="updateBtn(this);">수정</button>
-													<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('정말 삭제 하시겠습니까?') == true) location.href = '${pageContext.request.contextPath }/review/deleteReview.do?rno=${r.rno}&tNo=${Teacher.tNo}' ">삭제</button>
+	                                                <div>
+														<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModalCenter" onclick="modalDataBtn(this, false);">수정</button>
+														<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('정말 삭제 하시겠습니까?') == true) location.href = '${pageContext.request.contextPath }/review/deleteReview.do?rno=${r.rno}&tNo=${Teacher.tNo}' ">삭제</button>
+													</div>
 												</c:if>
 	                            				</div>
                                             </div>
                                         </div>
 		                                <!-- 제목, 작성자, 날짜 End -->
                                     
-	                                      <ul class="post-bottom">
+	                                      <ul>
 		                                    <!-- 장점 -->
 	                                        <li>
 	                                            <div>
-	                                                <div class="avatar"><button class="btn btn-primary btn-sm" type="button">Primary</button></div>
+	                                                <div class="avatar"><span class="jsx-3001902121 box primary">장점</span></div>
 	                                                <div class="comment-content">
 	                                                    <div class="comment-meta">
 	                                                    	<p>${r.gcontent}</p>
@@ -377,53 +436,12 @@
 		                                    <!-- 단점 -->
 	                                        <li>
 	                                            <div>
-	                                                <div class="avatar"><button class="btn btn-danger btn-sm" type="button">Danger</button></div>
+	                                                <div class="avatar"><span class="jsx-3001902121 box point">단점</span></div>
 	                                                <div class="comment-content post-bottom prosConsBottom">
 	                                                    <div class="comment-meta">
 	                                                    	<p>${r.bcontent}</p>
 	                                                    </div>
 	                                                </div>
-	                                                
-								                   <!-- 별점 5개 -->
-								                   <div>
-								                        <h4 class="classic-title">
-								                        <span>별점 5개 Our Skills </span>
-								                    </h4>
-								                        <div class="progress-bars">
-								                            <div class="progress-label"> 난이도 </div>
-								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score1 * 20}%">
-								                                    <span class="progress-bar-tooltip">${r.score1}점</span>
-								                                </div>
-								                            </div>
-								                            <div class="progress-label"> 유머 </div>
-								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score2 * 20}%" data-animation-delay="300">
-								                                    <span class="progress-bar-tooltip">${r.score2}점</span>
-								                                </div>
-								                            </div>
-								                            <div class="progress-label"> 과제양 </div>
-								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score3 * 20}%" data-animation-delay="600">
-								                                    <span class="progress-bar-tooltip">${r.score3}점</span>
-								                                </div>
-								                            </div>
-								                            <div class="progress-label"> 교재수 </div>
-								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score4 * 20}%" data-animation-delay="900">
-								                                    <span class="progress-bar-tooltip">${r.score4}점</span>
-								                                </div>
-								                            </div>
-								                            <div class="progress-label"> 목소리톤(차분 ↔ 파워풀) </div>
-								                            <div class="progress">
-								                                <div class="progress-bar progress-bar-primary" data-progress-animation="${r.score5 * 20}%" data-animation-delay="1200">
-								                                    <span class="progress-bar-tooltip">${r.score5}점</span>
-								                                </div>
-								                            </div>
-								                        </div>
-								                    </div>
-								                    <!-- 별점 5개 End -->
-	                                   
 	                                            </div>
 	                                        </li>
 	                                    </ul>
@@ -443,11 +461,11 @@
                         </div>
                         <!-- End Comment Area -->
 
-
-                        <!-- Start Pagination -->
-                        <c:out value="${pageBar}" escapeXml="false"/>
-                        <!-- End Pagination -->
-
+						<div style="text-align: center;">
+	                        <!-- Start Pagination -->
+	                        <c:out value="${pageBar}" escapeXml="false"/>
+	                        <!-- End Pagination -->
+						</div>
                     </div>
                     <!-- End Blog Posts -->
                     </c:if>
@@ -475,6 +493,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
     <form action="${pageContext.request.contextPath }/review/insertReview.do">
+    <input type="hidden" name="rno" value=""/>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">리뷰 등록하기</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -487,28 +506,114 @@
         <div class="tabs-section">
           <!-- Nav Tabs -->
           <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-desktop"></i> 별점</a>
-              </li>
-              <li><a href="#tab-2" data-toggle="tab"><i class="fa fa-leaf"></i> 내용</a>
-              </li>
+              <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-desktop"></i> 강사님 스타일</a></li>
+              <li><a href="#tab-2" data-toggle="tab"><i class="fa fa-leaf"></i> 추천 별점</a></li>
+              <li><a href="#tab-3" data-toggle="tab"><i class="fa fa-leaf"></i> 상세리뷰</a></li>
           </ul>
 
           <div class="tab-content">
-              <!-- Tab Content 1 : 별점 -->
+              <!-- Tab Content 1 : 별점 (추천) -->
 		      <div class="tab-pane fade in active" id="tab-1">
-	            <p><strong class="accent-color">별점 주기</strong> 점수주세요.</p>
+	            <p><strong class="accent-color">강사 스타일 기준</strong> <br>
+	            		상대적인 평가로써, 개인마다 다른 기준을 가지고 있습니다!
+           		</p>
 	            <ul class="icons-list">
-	            	  <li><i class="fa fa-check"></i> 작성 주의사항</li>
+                    <li><i class="fa fa-check"></i> 객관적인 평가가 아닌 무조건적인 비난은 안돼요! 예시) 1점 통일</li>
+                    <li><i class="fa fa-check"></i> 댓글 알바로 의심되는 경우에는 즉시 삭제처리 될 수 있습니다.</li>
 	            </ul>
-	            <hr />
-                <h4 class="classic-title"><span>별점 5개 Our Skills </span></h4>
+                <pre style="background: white;">                                                              </pre>
+                <h4 class="classic-title"><span>강사님 스타일 </span></h4>
 	            <div class="progress-bars">
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> 난이도 </div>
+				        <div class="progress-label"> 수업의 난이도 수준이 높나요? </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
-				                <span class="progress-bar-tooltip">3점</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+				            </div>
+				        </div>
+				     </div>
+	                 <div class="col-sm-6">
+	                    <input type="range" max="5" min="0" step="1" name="score6" onchange="changeProgress(this);"><br />
+	                 </div>   
+				    </div>
+				<div class="row">
+					<div class="col-sm-6">
+				        <div class="progress-label"> 유머를 많이 하시는 분인가요? </div>
+				        <div class="progress">
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+				            </div>
+				        </div> 
+				     </div> 
+	                 <div class="col-sm-6">
+	                    <input type="range" max="5" min="0" step="1"  name="score7" onchange="changeProgress(this);"  data-animation-delay="300"><br />
+	                 </div>   
+				    </div> 
+				<div class="row">
+					<div class="col-sm-6">
+				        <div class="progress-label"> 과제가 많은 편인가요? </div>
+				        <div class="progress">
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+				            </div>
+				        </div> 
+				     </div> 
+	                 <div class="col-sm-6">
+	                    <input type="range" max="5" min="0" step="1"  name="score8" onchange="changeProgress(this);"  data-animation-delay="600"><br />
+	                 </div>   
+				    </div> 
+				<div class="row">
+					<div class="col-sm-6">
+				        <div class="progress-label"> 교재가 많은 편인가요? </div>
+				        <div class="progress">
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+				            </div>
+				        </div> 
+				     </div>
+	                 <div class="col-sm-6">
+	                    <input type="range" max="5" min="0" step="1" name="score9" onchange="changeProgress(this);" data-animation-delay="900"><br />
+	                 </div>    
+				    </div> 
+				<div class="row"> 
+					<div class="col-sm-6">
+				        <div class="progress-label"> 강사님의 발음, 발성, 속도의 강도가 어떠한가요? (차분 ↔ 파워풀) </div>
+				        <div class="progress">
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+				            </div>
+				        </div> 
+				     </div> 
+	                 <div class="col-sm-6">
+	                    <input type="range" max="5" min="0" step="1" name="score10" onchange="changeProgress(this);" data-animation-delay="1200"><br />
+	                 </div>   
+				</div>
+	       		</div>
+              </div>
+		      <!-- 별점 5개 End -->
+		      
+		      
+		      
+		      
+              <!-- Tab Content 2 : 별점(스타일) -->
+		      <div class="tab-pane fade in" id="tab-2">
+	            <p><strong class="accent-color">추천 기준</strong> <br />
+	            	보편적인 기준으로써, 추천할 수 있는지 생각해봅니다!
+	            </p>
+	            <ul class="icons-list">
+                    <li><i class="fa fa-check"></i> 객관적인 평가가 아닌 무조건적인 비난은 안돼요! 예시) 1점 통일</li>
+                    <li><i class="fa fa-check"></i> 댓글 알바로 의심되는 경우에는 즉시 삭제처리 될 수 있습니다.</li>
+	            </ul>
+                <pre style="background: white;">                                                              </pre>
+                <h4 class="classic-title"><span>추천 별점 </span></h4>
+                <div class="progress-bars">
+				<div class="row">
+					<div class="col-sm-6">
+				        <div class="progress-label"> 당신의 동생이나 친한 후배에게 이 선생님을 추천하시겠습니까? </div>
+				        <div class="progress">
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
 				            </div>
 				        </div>
 				     </div>
@@ -518,10 +623,10 @@
 				    </div>
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> 유머 </div>
+				        <div class="progress-label"> 수업의 몰입도는 높은가요? </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
-				                <span class="progress-bar-tooltip">3점</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
 				            </div>
 				        </div> 
 				     </div> 
@@ -531,10 +636,10 @@
 				    </div> 
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> 과제양 </div>
+				        <div class="progress-label"> 질의 응답 등, 다양한 소통을 통해 학생들을 도와주시나요? </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
-				                <span class="progress-bar-tooltip">3점</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
 				            </div>
 				        </div> 
 				     </div> 
@@ -544,10 +649,10 @@
 				    </div> 
 				<div class="row">
 					<div class="col-sm-6">
-				        <div class="progress-label"> 교재수 </div>
+				        <div class="progress-label"> 수업 교재는 학습에 도움이 되었나요? </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
-				                <span class="progress-bar-tooltip">3점</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
 				            </div>
 				        </div> 
 				     </div>
@@ -557,10 +662,10 @@
 				    </div> 
 				<div class="row"> 
 					<div class="col-sm-6">
-				        <div class="progress-label"> 목소리톤(차분 ↔ 파워풀) </div>
+				        <div class="progress-label"> 수강 후 성적/실력이 원하는만큼 향상되었나요? </div>
 				        <div class="progress">
-				            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
-				                <span class="progress-bar-tooltip">3점</span>
+				            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
+				                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
 				            </div>
 				        </div> 
 				     </div> 
@@ -574,49 +679,50 @@
         
         
               <!-- Tab Content 2 : 리뷰 내용 -->
-              <div class="tab-pane fade" id="tab-2">
-                <p><strong class="accent-color">리뷰 내용 입력하기</strong> 점수주세요.</p>
+              <div class="tab-pane fade" id="tab-3">
+                <p><strong class="accent-color">리뷰 내용 입력하기</strong></p>
                 <ul class="icons-list">
-                    <li><i class="fa fa-check"></i> 작성 주의사항</li>
+                    <li><i class="fa fa-check"></i> 학원 관계자로 의심된다고 추정되는 글은 관리자가 삭제합니다.</li>
+                    <li><i class="fa fa-check"></i> 객관적인 평가가 아닌 ‘감사의 편지글’은 리뷰라고 할 수 없어요!</li>
+                    <li><i class="fa fa-check"></i> 강사와는 무관한 본인 성적에 대한 자랑은 삼가해주세요^^;</li>
                 </ul>
                 <hr />
                 
 		    	<!-- 작성자 확인 -->
 		        <div class="row">
-		            <div class="col-md-4"><!-- 강사 소속 -->
+		            <div class="col-sm-4"><!-- 강사 소속 -->
 				        <label for="recipient-name" class="col-form-label">소속:<span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${Teacher.company}">
+				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${Teacher.company}" style="width: 100%;">
 		            </div>
-		            <div class="col-md-4"><!-- 강사 이름 -->
+		            <div class="col-sm-4"><!-- 강사 이름 -->
 		            	<input type="hidden" name="tNo" value="${Teacher.tNo}"/>
 				        <label for="recipient-name" class="col-form-label">강사:<span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${Teacher.tName}">
+				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${Teacher.tName}" style="width: 100%;">
 		            </div>
-		            <div class="col-md-4"><!-- 작성자 이름 -->
+		            <div class="col-sm-4"><!-- 작성자 이름 -->
 		            	<input type="hidden" name="userNo" value="${member.userNo }"/>
 				        <label for="recipient-name" class="col-form-label">작성자:<span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${member.nickName}">
+				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${member.nickName}" style="width: 100%;">
 		            </div>
 		        </div>
 		    	<!-- 리뷰 -->
 		        <div class="row"><!-- 한줄 평 -->
 		            <div class="col-md-12">
-				         <label for="recipient-name" class="col-form-label">한줄 평:<span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" name="rtitle" value="rtitle"/>
+				         <label for="recipient-name" class="col-form-label">선생님에 대하여 한줄평을 입력해주세요. <span class="required">*</span></label>
+				        <input type="text" class="form-control" id="recipient-name" aria-required="true" name="rtitle" value="rtitle" style="width: 100%;"/>
 		            </div>
 		        </div>
-                <hr />
-                
+                <pre style="background: white;">                                                              </pre>
 		        <div class="row"><!-- 장점 -->
 		            <div class="col-md-12">
-				        <label for="message-text" class="col-form-label"><button class="btn btn-primary btn-sm" type="button">장점<span class="required">*</span></button></label>
-				        <textarea class="form-control" id="message-text" cols="45" rows="2" aria-required="true" name="gcontent">gcontent</textarea>
+				        <label for="message-text" class="col-form-label"><span class="jsx-3001902121 box primary">장점</span></label><label for="message-text"><span class="required">&nbsp;*</span></label>
+				        <textarea class="form-control" id="message-text" cols="45" rows="3" aria-required="true" name="gcontent" style="width: 100%;" placeholder="어떤 점이 좋았는지를 알려주세요. 내가 1년 전 필요했던 정보는 그 선생님의 “가장 큰 장점”에 대한 “이유”를 포함한 정보 입니다.">gcontent</textarea>
 		            </div>
 		        </div>
 		        <div class="row"><!-- 단점 -->
 		            <div class="col-md-12">
-				        <label for="message-text" class="col-form-label"><button class="btn btn-danger btn-sm" type="button">단점<span class="required">*</span></button></label>
-				        <textarea class="form-control" id="message-text" cols="45" rows="2" aria-required="true" name="bcontent">bcontent</textarea>
+				        <label for="message-text" class="col-form-label"><span class="jsx-3001902121 box point">단점</span></label><label for="message-text"><span class="required">&nbsp;*</span></label>
+				        <textarea class="form-control" id="message-text" cols="45" rows="3" aria-required="true" name="bcontent" style="width: 100%;" placeholder="어떤 점이 불만이었는지, 무엇이 부족하다고 생각하셨는지를 알려주세요. 우리가 알고 싶은 것은, “무엇이 좋냐”뿐 아니라 “무엇이 안 좋냐”를 포함한 정보 입니다.">bcontent</textarea>
 		            </div>
 		        </div>
               </div>
@@ -660,6 +766,26 @@
 		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 		
 		<script type="text/javascript">
+		function changeProgress(obj){
+			$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
+			$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');
+		}
+		
+		// 모달 (- 등록 기본값/수정값) 데이터 폼
+		function modalDataBtn(obj , isDefault) {
+			var objArray = ['score1', 'score2', 'score3', 'score4', 'score5', 'score6', 'score7', 'score8', 'score9', 'score10', 'rno', 'rtitle', 'gcontent', 'bcontent'];
+			
+			for (var i = 0; i < objArray.length; i++) {
+				var data;
+				if(isDefault && i<11) data = 5;  else if(isDefault) data = '';
+				else data = $(obj).parents('.comment-box.clearfix').find('input[name='+objArray[i]+']').val();
+				
+				if(i<12) $('#exampleModalCenter').find('input[name='+objArray[i]+']').val(data);
+				else $('#exampleModalCenter').find('textarea[name='+objArray[i]+']').val(data);
+			}
+		}
+		
+		
 		/* --------------- highchart 스크립트 영역 시작 ------------- */
 		var reviewStat = "${!empty reviewStat}";
 		var data1;
@@ -671,12 +797,12 @@
 		    }];
 		} else {
 			data1 = [{
-		        name: '${member.nickName}',
-		        data: [3, 3, 3, 3, 3],
-		        pointPlacement: 'on'
-		    }, {
 		        name: '${Teacher.tName}님의 스타일',
 		        data: [${reviewStat.chartStr}],
+		        pointPlacement: 'on'
+		    }, {
+		        name: '${member.nickName}',
+		        data: [3, 3, 3, 3, 3],
 		        pointPlacement: 'on'
 		    }];
 		}
@@ -686,12 +812,8 @@
 			        type: 'line'
 			    },
 			
-			    accessibility: {
-			        description: '${member.nickName}님에게 맞는 강의 스타일을 확인해보세요!'
-			    },
-			
 			    title: {
-			        text: '${Teacher.tName} 선생님의 강의 스타일',
+			        text: '',
 			        x: -80
 			    },
 			
@@ -753,7 +875,8 @@
 			        text: '강의평 분석',
 			        align: 'center',
 			        verticalAlign: 'middle',
-			        y: 60
+			        x: -23,
+			        y: 80
 			    },
 			    tooltip: {
 			        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -767,7 +890,7 @@
 			        pie: {
 			            dataLabels: {
 			                enabled: true,
-			                distance: -50,
+			                distance: -30,
 			                style: {
 			                    fontWeight: 'bold',
 			                    color: 'white'
@@ -775,8 +898,8 @@
 			            },
 			            startAngle: -90,
 			            endAngle: 90,
-			            center: ['50%', '75%'],
-			            size: '110%'
+			            center: ['40%', '75%'],
+			            size: '90%'
 			        }
 			    },
 			    series: [{
@@ -784,49 +907,24 @@
 			        name: '평가비율',
 			        innerSize: '50%',
 			        data: [
-			            ['긍정', Number('${reviewLevel.REVIEW_0}')],
+			            ['부정', Number('${reviewLevel.REVIEW_0}')],
 			            ['보통', Number('${reviewLevel.REVIEW_1}')],
-			            ['부정', Number('${reviewLevel.REVIEW_2}')]
+			            ['긍정', Number('${reviewLevel.REVIEW_2}')]
 			        ]
 			    }]
 			});
 
 		/* --------------- highchart 스크립트 영역 끝  ------------- */
 		
-			function changeProgress(obj){
-				console.log($(obj).val() * 20);
-				
-				$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
-				$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');
-			}
 			
-			// 수정 폼
-			function updateBtn(obj) {
-				$('#exampleModalCenter form').prepend($('<input>').attr('type','hidden').attr('name','rno'));
-				var objArray = ['rno', 'rtitle', 'gcontent', 'bcontent', 'score1', 'score2', 'score3', 'score4', 'score5'];
-				for (var i = 0; i < objArray.length; i++) {
-					if(i == 2 || i == 3) {
-						$('#exampleModalCenter').find('textarea[name='+objArray[i]+']').val($(obj).parents('.comment-box.clearfix').find('input[name='+objArray[i]+']').val());
-					}else {
-						$('#exampleModalCenter').find('input[name='+objArray[i]+']').val($(obj).parents('.comment-box.clearfix').find('input[name='+objArray[i]+']').val());
-					}
+			// 별점
+			$('.jsx-2318878368').each(function() {
+				for (var i = 0; i < 5; i++) {
+					if(i < Math.round($(this).text())) $(this).next().append('<div class="jsx-237548703 star star-2"></div>');
+					else $(this).next('').append('<div class="jsx-237548703 star star-0"></div>');
 				}
-			}
-			// 등록 reset
-			function resetModalForm(obj) {
-				var objArray = ['rno', 'rtitle', 'gcontent', 'bcontent', 'score1', 'score2', 'score3', 'score4', 'score5'];
-				for (var i = 0; i < objArray.length; i++) {
-					if(i == 2 || i == 3) {
-						$('#exampleModalCenter').find('textarea[name='+objArray[i]+']').val('');
-					}else if(i<4){
-						$('#exampleModalCenter').find('input[name='+objArray[i]+']').val('');
-					}else {
-						$('#exampleModalCenter').find('input[name='+objArray[i]+']').val('3');
-					}
-				}
-			}
-			
-			
+
+			});
 			// 시간
 			$('.dateForm').each(function() {
 				$(this).text(new Date($(this).text()).format('yyyy-MM-dd a/p hh:mm:ss'));

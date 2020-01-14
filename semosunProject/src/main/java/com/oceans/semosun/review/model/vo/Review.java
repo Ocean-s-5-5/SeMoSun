@@ -15,6 +15,11 @@ public class Review implements Serializable{
 	private int score3;
 	private int score4;
 	private int score5;
+	private int score6;
+	private int score7;
+	private int score8;
+	private int score9;
+	private int score10;
 	private String rstatus;
 	private Timestamp rdate;
 	
@@ -69,8 +74,9 @@ public class Review implements Serializable{
 
 	// 전체 용 (select 용)
 	public Review(int rno, int tNo, int userNo, String rtitle, String gcontent, String bcontent, int score1, int score2,
-			int score3, int score4, int score5, String rstatus, Timestamp rdate, String nickName, String profileName,
-			int likeCount) {
+			int score3, int score4, int score5, int score6, int score7, int score8, int score9, int score10,
+			String rstatus, Timestamp rdate, String nickName, String profileName, String tName, String subject,
+			String company, int likeCount) {
 		super();
 		this.rno = rno;
 		this.tNo = tNo;
@@ -83,30 +89,11 @@ public class Review implements Serializable{
 		this.score3 = score3;
 		this.score4 = score4;
 		this.score5 = score5;
-		this.rstatus = rstatus;
-		this.rdate = rdate;
-		this.nickName = nickName;
-		this.profileName = profileName;
-		this.likeCount = likeCount;
-	}
-	
-	
-
-	public Review(int rno, int tNo, int userNo, String rtitle, String gcontent, String bcontent, int score1, int score2,
-			int score3, int score4, int score5, String rstatus, Timestamp rdate, String nickName, String profileName,
-			String tName, String subject, String company, int likeCount) {
-		super();
-		this.rno = rno;
-		this.tNo = tNo;
-		this.userNo = userNo;
-		this.rtitle = rtitle;
-		this.gcontent = gcontent;
-		this.bcontent = bcontent;
-		this.score1 = score1;
-		this.score2 = score2;
-		this.score3 = score3;
-		this.score4 = score4;
-		this.score5 = score5;
+		this.score6 = score6;
+		this.score7 = score7;
+		this.score8 = score8;
+		this.score9 = score9;
+		this.score10 = score10;
 		this.rstatus = rstatus;
 		this.rdate = rdate;
 		this.nickName = nickName;
@@ -117,15 +104,14 @@ public class Review implements Serializable{
 		this.likeCount = likeCount;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Review [rno=" + rno + ", tNo=" + tNo + ", userNo=" + userNo + ", rtitle=" + rtitle + ", gcontent="
 				+ gcontent + ", bcontent=" + bcontent + ", score1=" + score1 + ", score2=" + score2 + ", score3="
-				+ score3 + ", score4=" + score4 + ", score5=" + score5 + ", rstatus=" + rstatus + ", rdate=" + rdate
-				+ ", nickName=" + nickName + ", profileName=" + profileName + ", tName=" + tName + ", subject="
-				+ subject + ", company=" + company + ", likeCount=" + likeCount + "]";
+				+ score3 + ", score4=" + score4 + ", score5=" + score5 + ", score6=" + score6 + ", score7=" + score7
+				+ ", score8=" + score8 + ", score9=" + score9 + ", score10=" + score10 + ", rstatus=" + rstatus
+				+ ", rdate=" + rdate + ", nickName=" + nickName + ", profileName=" + profileName + ", tName=" + tName
+				+ ", subject=" + subject + ", company=" + company + ", likeCount=" + likeCount + "]";
 	}
 
 	public int getRno() {
@@ -279,5 +265,45 @@ public class Review implements Serializable{
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	
+
+	public int getScore6() {
+		return score6;
+	}
+
+	public void setScore6(int score6) {
+		this.score6 = score6;
+	}
+
+	public int getScore7() {
+		return score7;
+	}
+
+	public void setScore7(int score7) {
+		this.score7 = score7;
+	}
+
+	public int getScore8() {
+		return score8;
+	}
+
+	public void setScore8(int score8) {
+		this.score8 = score8;
+	}
+
+	public int getScore9() {
+		return score9;
+	}
+
+	public void setScore9(int score9) {
+		this.score9 = score9;
+	}
+
+	public int getScore10() {
+		return score10;
+	}
+
+	public void setScore10(int score10) {
+		this.score10 = score10;
+	}
+
 }

@@ -739,8 +739,8 @@ input{
 											var JJ = $.noConflict();
 										</script>
 										<script>
-										
 										function signCheck(){
+											$('#signUpBtn').attr('disabled', true);
 											if($('#useAgree1').prop('checked') && 
 											   $('#useAgree2').prop('checked') &&
 											   $('#useAgree3').prop('checked')){

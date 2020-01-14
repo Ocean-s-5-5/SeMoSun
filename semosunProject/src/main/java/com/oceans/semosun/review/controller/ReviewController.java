@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.oceans.semosun.common.util.Utils;
 import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.review.model.service.ReviewService;
 import com.oceans.semosun.review.model.vo.Review;
@@ -22,28 +23,36 @@ public class ReviewController {
 	ReviewService reviewService;
 	
 	@RequestMapping("/review/selectListTeacherReview.do")
-	public String selectListTeacherReview( @RequestParam(value="tNo", required = false) String tNo, Model model) {
+	public String selectListTeacherReview( @RequestParam(value="cPage", defaultValue = "1", required = false) int cPage, @RequestParam(value="tNo", required = false) String tNo, Model model) {
 		if (tNo == null) {
 			model.addAttribute("msg", "강사가 선택되지 않았습니다.")
 		 		 .addAttribute("loc", "/");
 			return "common/msg";
 		}
 		Teacher t = reviewService.selectOneTeacher(Integer.parseInt(tNo));
-		List<Review> listTeacherReview = reviewService.selectListTeacherReview(Integer.parseInt(tNo));
-		int reviewCount = listTeacherReview.size();
 		
+		int numPerPage = 10;
+		HashMap<String, Float> tatalMap = reviewService.totalReviewPerTeacher(Integer.parseInt(tNo));
+		System.out.println(tatalMap.toString());
+		int reviewCount = Math.round(tatalMap.getOrDefault("A", 0.f));
+		List<Review> listTeacherReview = reviewService.selectListTeacherReview(Integer.parseInt(tNo), cPage, numPerPage);
+		String pageBar = Utils.getPageBar(1, cPage, numPerPage, "/review/selectListTeacherReview.do");
+//		Float reviewAvg = 0;
+//		if(reviewCount != 0) reviewAvg
+				
 		if (listTeacherReview.size() > 0) {
 			HashMap<String, String> map1 = reviewService.selectChartMap(Integer.parseInt(tNo));
 			HashMap<String, String> reviewLevel = reviewService.selectReviewLevel(Integer.parseInt(tNo));
-			
 			model.addAttribute("reviewStat", map1)
 				 .addAttribute("reviewLevel", reviewLevel);
 		}
 		
 		model.addAttribute("Teacher", t)
 			 .addAttribute("list", listTeacherReview)
-			 .addAttribute("reviewCount", reviewCount);
-			 
+			 .addAttribute("reviewCount", reviewCount)
+//			 .addAttribute("reviewAvg", reviewAvg)
+			 .addAttribute("pageBar", pageBar); 
+		
 		return "review/teacherReview";
 	}
 	

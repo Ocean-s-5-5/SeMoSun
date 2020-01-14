@@ -601,6 +601,9 @@ border-right:1px solid #fff
 	background-color: rgb(93, 126, 233);
 	color: rgb(255, 255, 255);
 }
+.numberDiv {
+	text-align: center;
+}
 </style>
 
 <!-- Basic -->
@@ -781,6 +784,7 @@ border-right:1px solid #fff
 			</div>
 		</section>
 		<!-- End Home Page Slider -->
+		
 		<!-- 검색창 -->
 
 			<a href="${pageContext.request.contextPath}/search/searchPage.do?userId=${member.userId}">
@@ -818,6 +822,60 @@ border-right:1px solid #fff
 
 		<!-- 검색창끝 -->
 
+		
+                        <!-- Divider -->
+                        <div class="hr5 margin-40"></div>
+					<div class="numberDiv">
+                        <!-- Start Milestone Block -->
+                        <div class="milestone-block">
+                            <div class="milestone-icon"><i class="fa fa-user"></i></div>
+                            <div class="milestone-right">
+                                <div class="milestone-number">482</div>
+                                <div class="milestone-text">Employees</div>
+                            </div>
+                        </div>
+
+                        <!-- Start Milestone Block -->
+                        <div class="milestone-block">
+                            <div class="milestone-icon"><i class="fa fa-briefcase"></i></div>
+                            <div class="milestone-right">
+                                <div class="milestone-number">964</div>
+                                <div class="milestone-text">Projects Completed</div>
+                            </div>
+                        </div>
+
+                        <!-- Start Milestone Block -->
+                        <div class="milestone-block">
+                            <div class="milestone-icon"><i class="fa fa-wordpress"></i></div>
+                            <div class="milestone-right">
+                                <div class="milestone-number">130</div>
+                                <div class="milestone-text">Wordpress Themes</div>
+                            </div>
+                        </div>
+
+                        <!-- Start Milestone Block -->
+                        <div class="milestone-block">
+                            <div class="milestone-icon"><i class="fa fa-upload"></i></div>
+                            <div class="milestone-right">
+                                <div class="milestone-number">144</div>
+                                <div class="milestone-text">New Updates</div>
+                            </div>
+                        </div>
+
+                        <!-- Start Milestone Block -->
+                        <div class="milestone-block">
+                            <div class="milestone-icon"><i class="fa fa-twitter"></i></div>
+                            <div class="milestone-right">
+                                <div class="milestone-number">4000</div>
+                                <div class="milestone-text">Twitter Update</div>
+                            </div>
+                        </div>
+        			</div>                
+                        <!-- Divider -->
+                        <div class="hr5 margin-40"></div>
+                        
+                        
+                        
 		<!-- 리뷰20 부분 -->
 
 

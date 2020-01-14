@@ -626,9 +626,7 @@ border-right:1px solid #fff
 	                            <div class="portfolio-border">
 	                                <!-- Start Portfolio Item Thumb -->
 	                                <div class="portfolio-thumb">
-	                                    <a class="lightbox" title="This is an image title" 
-	                                       href="${pageContext.request.contextPath }/resources/images/profileImage2/${teacher.profileName}">
-	                                        <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+	                                    <a href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo=${teacher.tNo}">
 	                                        <img alt="" src="${pageContext.request.contextPath }/resources/images/profileImage2/${teacher.profileName}">
 	                                    </a>
 	                                </div>
