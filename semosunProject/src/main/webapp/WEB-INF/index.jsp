@@ -1,3 +1,6 @@
+<%@page import="com.oceans.semosun.teacher.model.vo.Teacher"%>
+<%@page import="java.util.List"%>
+<%@page import="com.oceans.semosun.teacher.model.service.TeacherInsertService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -688,9 +691,12 @@ border-right:1px solid #fff
 							<!-- THE SECOND SLIDE -->
 						<li data-transition="papercut" data-slotamount="5"
 								data-masterspeed="500" data-delay="9400">
-								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE --> <img
-<%-- 								src="${pageContext.request.contextPath }/resources/images/slider1.png" --%>
-								data-fullwidthcentering="on" alt="background"> <!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
+								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE -->
+								
+						<%-- <img src="${pageContext.request.contextPath }/resources/images/slider1.png" 
+						data-fullwidthcentering="on" alt="background"> --%>
+								 
+							 <!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
 								<div class="caption medium-700-black lfr" data-x="825"
 									data-y="150" data-speed="300" data-start="400"
 									data-easing="easeOutExpo" style="font-size: 20px;">
@@ -821,17 +827,16 @@ border-right:1px solid #fff
 
 
 		<!-- 검색창끝 -->
-
 		
                         <!-- 선 -->
                         <div class="hr5 margin-40"></div>
-					<div class="numberDiv">
+					<div class="numberDiv numdiv">
                         <!-- Start 총 갯수 Div -->
-                        <div class="milestone-block">
-                            <div class="milestone-icon"><i class="fa fa-user"></i></div>
+                         <div class="milestone-block eq1">
+                            <div class="milestone-icon"><i class="fa fa-briefcase"></i></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">482</div>
-                                <div class="milestone-text">Employees</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text">전체 리뷰 수</div>
                             </div>
                         </div>
 
@@ -839,8 +844,8 @@ border-right:1px solid #fff
                         <div class="milestone-block">
                             <div class="milestone-icon"><i class="fa fa-briefcase"></i></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">964</div>
-                                <div class="milestone-text">Projects Completed</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text">전체 리뷰 수</div>
                             </div>
                         </div>
 
@@ -848,8 +853,8 @@ border-right:1px solid #fff
                         <div class="milestone-block">
                             <div class="milestone-icon"><i class="fa fa-wordpress"></i></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">130</div>
-                                <div class="milestone-text">Wordpress Themes</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text">전체 강사 수</div>
                             </div>
                         </div>
 
@@ -857,8 +862,8 @@ border-right:1px solid #fff
                         <div class="milestone-block">
                             <div class="milestone-icon"><i class="fa fa-upload"></i></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">144</div>
-                                <div class="milestone-text">New Updates</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text"></div>
                             </div>
                         </div>
 
@@ -866,7 +871,7 @@ border-right:1px solid #fff
                         <div class="milestone-block">
                             <div class="milestone-icon"><i class="fa fa-twitter"></i></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">4000</div>
+                                <div class="milestone-number"></div>
                                 <div class="milestone-text">Twitter Update</div>
                             </div>
                         </div>
@@ -875,10 +880,61 @@ border-right:1px solid #fff
                         <!-- 선 -->
                         <div class="hr5 margin-40"></div>
                         
-                        
-                        
-		<!-- 리뷰20 부분 -->
+                        <div class="container">
+                        <div class="row">
+                    <div class="col-md-3">
 
+                        <!-- Start Big Heading -->
+                        <div class="big-title">
+                            <h1>Our <span class="accent-color">Teachers</span></h1>
+                            <p class="title-desc">We Choice Your Teacher</p>
+                        </div>
+                        <!-- End Big Heading -->
+
+                        <!-- Some Text -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adi elit, sed do eiusmod tempor incididunt enim labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adi elit </p>
+                    </div>
+
+                    <!-- Start Icon Box -->
+                    <div class="col-md-3 service-box service-center">
+                        <div class="service-icon">
+                            <i class="fa fa-pencil icon-medium-effect icon-effect-1"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>High Quality Theme</h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p>
+                        </div>
+                    </div>
+                    <!-- End Icon Box -->
+
+                    <!-- Start Icon Box -->
+                    <div class="col-md-3 service-box service-center">
+                        <div class="service-icon">
+                            <i class="fa fa-eye icon-medium-effect icon-effect-1"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Retina Display Ready</h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p>
+                        </div>
+                    </div>
+                    <!-- End Icon Box -->
+
+                    <!-- Start Icon Box -->
+                    <div class="col-md-3 service-box service-center">
+                        <div class="service-icon">
+                            <i class="fa fa-code icon-medium-effect icon-effect-1"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Clean Modern Code</h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p>
+                        </div>
+                    </div>
+                    <!-- End Icon Box -->
+
+                </div>
+                </div>
+		<!-- 리뷰20 부분 -->
+	
 
 		<!-- Start Content -->
 	
@@ -969,176 +1025,34 @@ border-right:1px solid #fff
 					<!-- Start Portfolio Section -->
 					<div class="project">
 						<div class="container">
-
 							<!-- Start Recent Projects Carousel -->
 							<div class="recent-projects">
 								<h4 class="title">
 									<span>실시간 강사 정보</span>
 								</h4>
 								<div class="projects-carousel touch-carousel">
-
+								<c:forEach items="${teacherLiveList}" var="teacher">
 									<div class="portfolio-item item">
-<%-- 											<c:forEach items="${teacherList}" var="teacher"> --%>
-<%-- 											</c:forEach> --%>
-										<div class="portfolio-border">
+										<div class="portfolio-border teacher">
 											<div class="portfolio-thumb">
-											
-												<a class="lightbox" data-lightbox-type="ajax"
-													href="https://vimeo.com/78468485">
-													<div class="thumb-overlay">
-														<i class="fa fa-play"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/1.jpg" />
-												</a>
-												
-											</div>
-											
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>{teacherList.tName}</h4> <span>리뷰 평점 :
-														<h5>2.2</h5>
-												</span> <span>#심슨 #단어 #빠르다</span>
-												</a>
-											</div>
-											
-										
-									</div>
-								</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="별별별"
-													href="${pageContext.request.contextPath }/resources/images/teacher/simooo.jpg">
+												<a class="lightbox" href="${pageContext.request.contextPath }/resources/images/teacher/simooo.jpg">
 													<div class="thumb-overlay">
 														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/teacher/simooo_1.jpg" />
+													</div> 
+													<img src="${pageContext.request.contextPath }/resources/images/teacher/simooo_1.jpg" />
 												</a>
 											</div>
 											<div class="portfolio-details">
 												<a href="#">
-													<h4>심우철 강사</h4> <span>리뷰 평점 : <big>2.2</big></span> <br />
-													<span>#심슨 #단어 #빠르다</span>
+													<h4>${ teacher.tName }</h4>
+													 <span>${ teacher.total }</span>
+													  <br />
+													<span>#${ teacher.subject } #${ teacher.company }</span>
 												</a>
 											</div>
 										</div>
 									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_3@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/3.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Drawing</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_4@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/4.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Website</span> <span>Ilustration</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_5@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/5.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Logo</span> <span>Drawing</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_6@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/6.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Animation</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_7@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/7.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Website</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_8@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/8.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Ilustration</span> <span>Animation</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
+								</c:forEach>
 								</div>
 							</div>
 							<!-- End Recent Projects Carousel -->
@@ -1199,149 +1113,29 @@ border-right:1px solid #fff
 									</div>
 								</div>
 							</div>
-					<!-- 세모숲 -->
-							<div class="mainReview col-md-7" >
+			
+				<!-- 세모숲 -->
 
-					<div class="semo1" style="height:298px !important;">
-						<h3 class="jsx-4179964491">리뷰 Live</h3>
+				<div class="talkLive col-md-7">
 
-						<ul class="semo2" style="overflow-y: scroll;">
+					<div class="semo1" style="height: 298px !important;">
+						<h3 class="jsx-4179964491">수다방</h3>
 
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck ban">반려</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck stay">승인대기</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-
+						<ul class="semo2 semoTalk" style="overflow-y: scroll;">
 						</ul>
-						
+
 						<div class="jsx-4179964491 btn-more hide-on-desktop">
-							<button name="btnMore" type="button" class="jsx-334325833 btn btn-light">더보기</button>
+							<button name="btnMore" type="button"
+								class="jsx-334325833 btn btn-light">더보기</button>
 						</div>
 
 
 					</div>
 				</div>
-							
-						</div>
+
+			</div>
+			<!-- =========================세모숲 끝======================= -->
+			
 						<!-- .row -->
 				
 					<!-- .container -->
@@ -1648,9 +1442,39 @@ border-right:1px solid #fff
 						console.log("ajax 실패!!");
 					}
 				});
+	});
+				
+				
+
+	   $(function() {
+				$.ajax({ 
+					url : "${pageContext.request.contextPath}/search/searchCount.do",
+					dataType :"json",
+					success : function(data){
+						var list = [ data.memberCount , data.reviewCount , data.teacherCount , data.supCount , data.noticeCount ];
+						console.log(list);
+						jQuery('.milestone-block').each(function(i) {
+					        jQuery(this).appear(function() {
+					            var $endNum = parseInt(list[i]);
+					            jQuery(this).find('.milestone-number').countTo({
+					                from: 0,
+					                to: $endNum,
+					                speed: 900,
+					                refreshInterval: 60,
+					            });
+					        }, {
+					            accX: 0,
+					            accY: 0
+					        });
+					    });
+						
+					}, error : function(data) {
+						console.log(data);
+						console.log("ajax 실패");
+					}
+				});
 			
 			});
-	
 
 			</script>
 </body>

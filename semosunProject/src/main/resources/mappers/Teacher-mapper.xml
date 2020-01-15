@@ -45,8 +45,7 @@
 	JOIN REVIEW R ON(T.TNO=R.TNO)
 	WHERE T.TNO = #{tNo} ) TOTAL
 	FROM TEACHER TE
-	WHERE TE.TNO = #{tNo};
-	
+	WHERE TE.TNO = #{tNo}
 	</select>
 </mapper>
  

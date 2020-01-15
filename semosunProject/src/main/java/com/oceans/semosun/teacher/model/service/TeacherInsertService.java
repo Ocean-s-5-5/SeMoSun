@@ -37,5 +37,9 @@ public class TeacherInsertService {
 	public int selectTotalContents() {
 		return TeacherDAO.selectTotalContents();
 	}
+	public List<Teacher> selectTeacherLive() {
+		
+		return TeacherDAO.selectTeacherLive();
+	}
 }
 

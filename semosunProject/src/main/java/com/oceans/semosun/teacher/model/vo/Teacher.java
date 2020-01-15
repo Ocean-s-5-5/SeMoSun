@@ -13,6 +13,42 @@ public class Teacher implements Serializable{
 	private String profileName;
 	private String tStatus;
 	
+	
+	// 리뷰 토탈 점수
+	
+	private float toTal;
+	
+	
+	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
+			String profileName, String tStatus, float toTal) {
+		super();
+		this.tNo = tNo;
+		this.userNo = userNo;
+		this.tName = tName;
+		this.tGender = tGender;
+		this.company = company;
+		this.subject = subject;
+		this.profile = profile;
+		this.profileName = profileName;
+		this.tStatus = tStatus;
+		this.toTal = toTal;
+	}
+
+	public float getToTal() {
+		return toTal;
+	}
+
+	public void setToTal(float toTal) {
+		this.toTal = toTal;
+	}
+	
+	
+	
+	
+	
+	
+	
+
 	public Teacher() {
 		super();
 	}

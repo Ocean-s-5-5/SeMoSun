@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.oceans.semosun.common.util.Utils;
@@ -99,6 +100,7 @@ public class TeacherController {
 		
 	}
 	
+	
 	@RequestMapping("/teacher/selectTeacherList.do")
 	public String teacherList(@RequestParam(value="cPage", defaultValue = "1", required = false) int cPage, Model model) {
 		
@@ -115,6 +117,13 @@ public class TeacherController {
 				
 		
 		return "teacher/teacherList";
+	}
+	
+	@RequestMapping("/teacher/selectteacherLive.do")
+	@ResponseBody
+	public List<Teacher> teacherLive(){
+		List<Teacher> list = teacherService.selectTeacherLive();
+		return list;
 	}
 	
 }

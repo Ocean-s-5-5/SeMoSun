@@ -90,6 +90,11 @@ public class MemberService {
 		return memberDAO.selectOneTeacher(tNo);
 	}
 
+	public Member selectTotal() {
+		
+		return memberDAO.selectTotal();
+	}
+
 	
 
 

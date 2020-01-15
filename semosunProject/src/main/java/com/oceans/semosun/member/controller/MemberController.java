@@ -504,5 +504,15 @@ public class MemberController {
 		return "myPage/myPageSelectOne";
 		
 	}
+	@RequestMapping("/membertotal")
+	public String selectTotal(Model model, Member member) {
+		
+		Member m = memberService.selectTotal();
+		
+		model.addAttribute("m", m);
+		
+		System.out.println("회원 수 :" +m);
+		return"/";
+	}
 
 }

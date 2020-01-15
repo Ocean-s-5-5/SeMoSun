@@ -23,7 +23,7 @@ public class ReportController {
 
 	@Autowired
 	ReportService reportService; 
-	
+
 	@RequestMapping("/reportList.do")
 	public String selectReportList(
 			@RequestParam(
@@ -50,14 +50,16 @@ public class ReportController {
 		
 	}
 	@RequestMapping("/reportView.do")
-	public String selectOneReport(@RequestParam int rno,@RequestParam int userNo, Model model) {
+	public String selectOneReport(@RequestParam int rno,@RequestParam int userNo,
+			 Model model, HttpSession session) {
+		
 		
 		Report report = reportService.selectOne(rno, userNo);
 		
 		System.out.println("데이터 확인"+report);
 		
 		model.addAttribute("report", report);
-		
+			
 		return "report/reportView";
 		
 		
@@ -91,32 +93,53 @@ public class ReportController {
 
 		// 데이터베이스로 전달하기 위한 Service 호출
 		int result = reportService.insertReport(rno, userNo, ref_content);
+			
+			
+			return "redirect:/review/selectListTeacherReview.do?tNo=" + tNo;
 		
 		
-		String msg =  "";
-		String loc = "";
-		
-		if(result>0) {
-			msg ="신고 완료";
-		}else {
-			msg ="신고 실패";
-		}
-		
-		model.addAttribute("msg", msg)
-		.addAttribute("loc", loc);
-		
-		
-		return "redirect:/review/selectListTeacherReview.do?tNo=" + tNo;
 		
 	}
 	
+	@RequestMapping("/report/reportDelete.do")
+	public String reportDelete(@RequestParam int rno,
+			Report report, HttpSession session, Model model) {
+
+		
+		Member m=(Member)session.getAttribute("member");
+		
+		
+		String msg = "로그인한 사용자만 가능합니다.";
+		String loc = "";
+		if(m!=null) { 
+			System.out.println(m.getUserNo());
+			System.out.println(report.getUserNo());
+			if(m.getUserNo()==report.getUserNo()) {
+				int result = reportService.reportDelete(report);
+				if(result > 0) {
+					msg = "삭제 성공!";
+				} 
+				else {
+					msg = "삭제 실패!";
+				}
+			} else {
+				msg="자신이 쓴 글만 삭제가능합니다.";
+			}
+			loc = "/reportView.do?rno="+rno+"&userNo="+report.getUserNo();
+		} else {
+			loc = "/";
+		}
+		
+		
+		model.addAttribute("msg", msg)
+		.addAttribute("loc", loc)
+		.addAttribute("member", m);
+		
+		return "common/msg";
 	
 	
 	
-	
-	
-	
-	
+	}
 	
 	
 }

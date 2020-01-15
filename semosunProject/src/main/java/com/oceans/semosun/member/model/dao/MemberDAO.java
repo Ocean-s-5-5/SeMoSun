@@ -90,5 +90,10 @@ public class MemberDAO {
 		return sqlSession.selectOne("member-mapper.selectOneTeacher", tNo);
 	}
 
+	public Member selectTotal() {
+
+		return sqlSession.selectOne("member-mapper.selectTotal");
+	}
+
 
 }

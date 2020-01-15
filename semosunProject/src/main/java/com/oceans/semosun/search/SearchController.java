@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,4 +86,20 @@ public class SearchController {
 		
 		return "search/searchPage";
 		}
+	
+	//메인에 띄울 전체 리스트
+	@RequestMapping("/search/searchCount.do")
+	@ResponseBody
+	public Map<String, Object> AllList() {
+		System.out.println(1);
+		Map<String, Object> allList = new HashMap<String, Object>();
+		String[] countName = {"memberCount", "reviewCount", "teacherCount", "supCount", "noticeCount"}; 
+		int[] countArr = searchService.memberList(countName);
+		for (int i = 0; i < 5; i++) { allList.put(countName[i], countArr[i]); }
+
+		//		List<Integer>  allList = searchService.memberList();
+		return allList;
+	}
+	
+	
 }

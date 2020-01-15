@@ -92,6 +92,10 @@
 		SELECT * FROM TEACHER
 		WHERE TNO = #{tNo}
 	</select>
+	
+	<select id="selectTotal" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
 
 </mapper>
  
