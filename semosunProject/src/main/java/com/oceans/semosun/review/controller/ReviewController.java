@@ -71,6 +71,22 @@ public class ReviewController {
 		return "common/msg";
 	}
 	
+	
+	@RequestMapping("/review/updateReview.do")
+	public String updateReview(Review review, Model model) {
+		System.out.println(review);
+		int result = reviewService.updateReview(review);
+		
+		if (result > 0) {
+			model.addAttribute("msg", "리뷰가 수정되었습니다!")
+			.addAttribute("loc", "/review/selectListTeacherReview.do?tNo="+review.gettNo());
+		} else {
+			model.addAttribute("msg", "수정 중에 오류가 발생했습니다. 고쳐주세요!")
+			.addAttribute("loc", "/review/selectListTeacherReview.do?tNo="+review.gettNo());
+		}
+		return "common/msg";
+	}
+	
 	@RequestMapping("/review/deleteReview.do")
 	public String deleteReview(int tNo, int rno, Model model) {
 

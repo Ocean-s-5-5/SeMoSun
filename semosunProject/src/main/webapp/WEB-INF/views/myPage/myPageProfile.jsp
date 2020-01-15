@@ -709,7 +709,7 @@ li:hover {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body">
-					<div class="jsx-707316887 my-snb" style="height:500px; width:400px">
+					<div class="jsx-707316887 my-snb" style="height:650px; width:400px">
 						<h2 class="jsx-707316887">
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 								viewBox="0 0 24 24" fill="none" stroke="#dfdfdf"
@@ -757,7 +757,7 @@ li:hover {
 					<input type="text" name="userId" id="userId_" value="${member.userId}" 
 					style="display: none;"/>
 					<div class="jsx-2123435526 content">
-						<div class="jsx-1936111413 card" style="height: 500px;">
+						<div class="jsx-1936111413 card" style="height: 650px;">
 							<div class="jsx-1936111413 title">
 								<h2 class="jsx-1936111413">${member.nickName}님 환영합니다.</h2>
 								<p class="jsx-1936111413">별별선생에서 사용되는 대표 프로필 사진과 닉네임 입니다.</p>
@@ -783,7 +783,7 @@ li:hover {
 									<div class="jsx-3664481379 input">
 											<input  class="jsx-3664481379" name="nickName" id="nickName" value="${member.nickName}">
 										</div></label>
-									<div class="jsx-1936111413 line2">
+									<div class="jsx-1936111413">
 										<div class="jsx-1936111413 join-date">
 											<label class="jsx-3712571264 "><span
 												class="jsx-3712571264">가입일&nbsp;</span>
@@ -811,11 +811,105 @@ li:hover {
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
+				<div id="updateProgress">
+		            <p><strong class="accent-color">나의 강의 성향 스타일은?</strong> <br>
+	           		</p>
+		            <ul class="icons-list">
+	                    <li><i class="fa fa-check"></i> 마이페이지에서 수정할 수 있습니다.</li>
+	                    <li><i class="fa fa-check"></i> 올바르지 않은 정보를 입력 시, 정확한 서비스를 제공할 수 없습니다.</li>
+	                    <li><i class="fa fa-check"></i> 당신의 강의 선호 스타일과 선생님의 강의 스타일을 비교해보세요!</li>
+		            </ul>
+	                <pre style="background: white;">                                                              </pre>
+	               
+		            <div class="progress-bars">
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 찾으시는 수업의 난이도는 높은 편인가요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score1*2}0%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">${member.score1}점</span>
+					            </div>
+					        </div>
+					     </div>
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);"><br />
+		                 </div>   
+					    </div>
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 유머러스한 강의를 좋아하시나요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score2*2}0%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">${member.score2}점</span>
+					            </div>
+					        </div> 
+					     </div> 
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);"><br />
+		                 </div>   
+					    </div> 
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 과제가 많은 수업을 좋아하시나요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score3*2}0%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">${member.score3}점</span>
+					            </div>
+					        </div> 
+					     </div> 
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);"><br />
+		                 </div>   
+					    </div> 
+					<div class="row">
+						<div class="col-sm-6">
+					        <div class="progress-label"> 교재가 많은 수업이 좋으신가요? </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score4*2}0%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">${member.score4}점</span>
+					            </div>
+					        </div> 
+					     </div>
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);"><br />
+		                 </div>    
+					    </div> 
+					<div class="row"> 
+						<div class="col-sm-6">
+					        <div class="progress-label"> 발음, 발성, 속도의 강도가 어떤<br>강사님을 좋아하시나요? (차분 ↔ 파워풀)   </div>
+					        <div class="progress">
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score5*2}0%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">${member.score5}점</span>
+					            </div>
+					        </div> 
+					     </div> 
+		                 <div class="col-sm-6">
+		                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);"><br />
+		                 </div>   
+					</div>
+		       		</div>
+	              </div>
+	              <script type="text/javascript">
+	              function changeProgress(obj){
+	      			$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
+	      			$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');
+	      		}
+	              
+// 	      		$(function(){
+// 	      			var nameArray = ['score1', 'score2', 'score3', 'score4', 'score5'];
+// 	      			var valArray = ['${member.score1}', '${member.score2}', '${member.score3}', '${member.score4}', '${member.score5}'];
+	      			
+// 	      			for (var i = 0; i < 5; i++) {
+// 	      					$('#updateProgress').find('input[name='+valArray[i]+']').val(valArray[i]);
+// 	      			}
+// 	      		});
+	      		
+	              </script>
+					</div>
 						<div class="jsx-1936111413 btn-save">
 							<button type="submit" class="jsx-315148180" onclick="location.href='${pageContext.request.contextPath}/member/memberUpdate.do'">회원 수정</button>
 							<button type="button" class="jsx-315148180" onclick="location.href='${pageContext.request.contextPath}/member/memberDelete.do'">회원 탈퇴</button>
+						</div>
 					</form>
 						
 					

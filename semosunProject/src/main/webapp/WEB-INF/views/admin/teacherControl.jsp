@@ -172,7 +172,7 @@ textarea {
             	 <div class="col4">대기중</div>
             	 <div class="col5">
             	 	<button type="button" class="btn btn-success">승인</button>
-            	 	<button type="button" class="btn btn-secondary">반려</button>
+            	 	<button type="button" class="btn btn-secondary">삭제</button>
             	 </div>
             </div>
 
@@ -260,12 +260,13 @@ textarea {
             	 <div class="col4">등록</div>
             	 <div class="col5">
             	 	<!-- .addClass('btn-outline-warning') .text('완료') -->
-					<button type="button" class="btn btn-outline-warning">수정</button>
+					<button type="button" class="btn btn-outline-warning" onclick="update(this, false);">수정</button>
+					<button type="button" class="btn btn-outline-warning updateBtn" onclick="update(this, true);">완료</button>
 					<button type="button" class="btn btn-outline-danger">삭제</button>
             	 </div>
             </div>
             
-            <div class="slide">
+            <div class="slide updateBtn">
             <div class="semoRow td review open">
             	 <i class="glyphicon glyphicon-chevron-right"></i><strong>수정 하기</strong>
             </div>
@@ -277,13 +278,13 @@ textarea {
             	 	</div>
             	 	<div><input class="form-control" type="text" name="tname" value="다니엘 유" /></div>
             	 </div>
-            	 <div class="col2"><textarea class="form-control" rows="4" name="company">KH교육원</textarea></div>
-            	 <div class="col3"><textarea class="form-control" rows="4" name="subject">자바 종일반, 보충강사</textarea></div>
-            	 <div class="col4">등록</div>
+            	 <div class="col2"><textarea class="form-control" rows="4" name="company">${ t.company }</textarea></div>
+            	 <div class="col3"><textarea class="form-control" rows="4" name="subject">${ t. }</textarea></div>
+            	 <div class="col4"><c:if test="${ t.tStatus eq 'Y'}">등록</c:if><c:if test="${ t.tStatus eq 'N'}">대기</c:if></div>
             	 <div class="col5">
-					<button type="button" class="btn btn-outline-success">등록</button><br />
-					<button type="button" class="btn btn-outline-secondary">대기</button><br />
-					<button type="button" class="btn btn-outline-danger">반려</button>
+					<button type="button" class="btn btn-outline-success" onclick="updateY(this);">등록</button><br />
+					<button type="button" class="btn btn-outline-secondary" onclick="updateN(this);">대기</button><br />
+					<button type="button" class="btn btn-outline-danger" onclick="delete(this);">삭제</button>
             	 </div>
             </div>
         </div>
@@ -294,5 +295,23 @@ textarea {
         
     </div>
 	<c:import url="common/footer.jsp"/>
+	<script>
+	$('.updateBtn').hide();
+	function update(obj, isAjax) {
+			if(!isAjax) {
+				$(obj).hide();
+				$(obj).next().show();
+				$(obj).parents('.semoRow').next().show();
+			} else {
+				$(obj).hide();
+				$(obj).prev().show();
+				$(obj).parents('.semoRow').next().hide();
+				
+			}
+	}
+	function updateY(obj) {
+		$(obj).parents('.slide').prev().find('input[name=tNo]')
+	}
+	</script>
 </body>
 </html>

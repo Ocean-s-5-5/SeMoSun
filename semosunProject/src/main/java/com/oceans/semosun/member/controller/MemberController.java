@@ -206,6 +206,7 @@ public class MemberController {
 			// 로그인시 입력한 비밀번호, DB에 저장된 비밀번호 두개를 비교하는 코드
 			if (m != null && bcryptPasswordEncoder.matches(member.getPwd(), m.getPwd())) {
 				msg = "로그인 성공 !";
+				if(member.getUserId().equals("admin")) loc = "/adminMain.am";
 				session.setAttribute("member", m);
 				mv.addObject("member", m);
 

@@ -100,13 +100,18 @@ public class TeacherController {
 	}
 	
 	@RequestMapping("/teacher/selectTeacherList.do")
-	public String teacherList(@RequestParam(value="cPage", defaultValue = "1", required = false) int cPage, Model model) {
-		
+	public String teacherList(@RequestParam(value="cPage", defaultValue = "1", required = false) int cPage,
+//			@RequestParam(value="isStyleFirst", defaultValue = "ture", required = false) boolean isStyleFirst,
+							   Model model, HttpSession session) {
+		Member m = (Member) session.getAttribute("memeber");
+//		boolean isStyleFirst = true;
+//		m.setStyleFirst(isStyleFirst);
+//		if(m == null) m = new Member(0, null, null, null, null, null, null, null, null, null, 3, 3, 3, 3, 3, isStyleFirst);
 		int limit = 9;
 		int total = teacherService.getTeacherCount();
 		
 		String pagebar = Utils.getPageBar(total, cPage, limit, "/semosun/teacher/selectTeacherList.do");
-		List<Teacher> list = teacherService.selectList(cPage, limit);
+		List<Teacher> list = teacherService.selectList(cPage, limit, m);
 
 		model.addAttribute("teacherCount", teacherService.getTeacherCount())
 		     .addAttribute("reviewCount", teacherService.getReviewCount())

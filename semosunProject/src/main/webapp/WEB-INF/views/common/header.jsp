@@ -45,6 +45,15 @@
 					</li>
 					<li><a href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
 					</c:if>
+					<c:if test="${!empty member && member.userId eq 'admin'}">
+					<li><a href="${ pageContext.request.contextPath }/adminMain.am">관리자 페이지</a>
+						<ul class="dropdown">
+							<li><a href="${pageContext.request.contextPath }/memberControl.am">회원 관리</a></li>
+							<li><a href="${pageContext.request.contextPath }/teacherControl.am">강사님 관리</a></li>
+							<li><a href="${pageContext.request.contextPath }/reportControl.am">신고 관리</a></li>
+						</ul>
+					</li>
+					</c:if>
 					
 				</ul>
 				<!-- End Navigation List -->

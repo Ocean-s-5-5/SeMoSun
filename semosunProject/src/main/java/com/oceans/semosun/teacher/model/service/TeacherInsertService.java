@@ -30,9 +30,9 @@ public class TeacherInsertService {
 		
 		return TeacherDAO.getReviewCount();
 	}
-	public List<Teacher> selectList(int cPage, int limit) {
+	public List<Teacher> selectList(int cPage, int limit, Member m) {
 		
-		return TeacherDAO.selectList(cPage, limit);
+		return TeacherDAO.selectList(cPage, limit, m);
 	}
 	public int selectTotalContents() {
 		return TeacherDAO.selectTotalContents();

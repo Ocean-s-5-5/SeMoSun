@@ -97,75 +97,6 @@
     border: 0px;
 	
 }
-/* *************** highchart.js [통계 차트 관련 css] 시작 **************** */
-/* 참고 url : https://www.highcharts.com/demo */
-/* 참고 url : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/polar-spider/ */
-
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 320px; 
-    max-width: 660px;
-    margin: 1em auto;
-}
-
-.highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-
-.rating.jsx-2318878368 {
-	line-height: 42px;
-	font-size: 28px;
-	font-weight: 700;
-}
-
-.rating.jsx-2318878368>.stars {
-	display: inline-block;
-	margin-left: 4px;
-}
-
-.star-2.jsx-237548703 {
-	background-image:
-		url('https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png');
-}
-
-.star-0.jsx-237548703 {
-	background-image:
-		url('https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_off.png');
-}
-.star.jsx-237548703 {
-	float: left;
-	width: 12px;
-	height: 12px;
-	margin-right: 4px;
-	background-size: cover;
-	overflow: hidden;
-}
-
-/* *************** highchart.js [통계 차트 관련 css] 끝 **************** */
-
 </style>
 </head>
 <body>
@@ -505,7 +436,7 @@
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-    <form action="${pageContext.request.contextPath }/review/insertReview.do">
+    <form action="">
     <input type="hidden" name="rno" value=""/>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">리뷰 등록하기</h5>
@@ -547,7 +478,7 @@
 				        </div>
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score6" onchange="changeProgress(this);"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);"><br />
 	                 </div>   
 				    </div>
 				<div class="row">
@@ -560,7 +491,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score7" onchange="changeProgress(this);" ><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -573,7 +504,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score8" onchange="changeProgress(this);" ><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -586,7 +517,7 @@
 				        </div> 
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score9" onchange="changeProgress(this);"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);"><br />
 	                 </div>    
 				    </div> 
 				<div class="row"> 
@@ -599,7 +530,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score10" onchange="changeProgress(this);"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);"><br />
 	                 </div>   
 				</div>
 	       		</div>
@@ -631,7 +562,7 @@
 				        </div>
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score6" onchange="changeProgress(this);"><br />
 	                 </div>   
 				    </div>
 				<div class="row">
@@ -644,7 +575,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);" ><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score7" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -657,7 +588,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);" ><br />
+	                    <input type="range" max="5" min="0" step="1"  name="score8" onchange="changeProgress(this);" ><br />
 	                 </div>   
 				    </div> 
 				<div class="row">
@@ -670,7 +601,7 @@
 				        </div> 
 				     </div>
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score9" onchange="changeProgress(this);"><br />
 	                 </div>    
 				    </div> 
 				<div class="row"> 
@@ -683,7 +614,7 @@
 				        </div> 
 				     </div> 
 	                 <div class="col-sm-6">
-	                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);"><br />
+	                    <input type="range" max="5" min="0" step="1" name="score10" onchange="changeProgress(this);"><br />
 	                 </div>   
 				</div>
 	       		</div>
@@ -787,11 +718,18 @@
 		// 모달 (- 등록 기본값/수정값) 데이터 폼
 		function modalDataBtn(obj , isDefault) {
 			var objArray = ['score1', 'score2', 'score3', 'score4', 'score5', 'score6', 'score7', 'score8', 'score9', 'score10', 'rno', 'rtitle', 'gcontent', 'bcontent'];
+			$('.modal-content form').attr('action',"/semosun/review/insertReview.do").find('[type=submit]').text('등록하기');
+			$('#exampleModalCenterTitle').text('등록하기');
 			
 			for (var i = 0; i < objArray.length; i++) {
 				var data;
-				if(isDefault && i<11) data = 5;  else if(isDefault) data = '';
-				else data = $(obj).parents('.comment-box.clearfix').find('input[name='+objArray[i]+']').val();
+				if(isDefault && i<11) data = 5;  
+				else if(isDefault) data = '';
+				else {
+					data = $(obj).parents('.comment-box.clearfix').find('input[name='+objArray[i]+']').val();
+					$('.modal-content form').attr('action',"/semosun/review/updateReview.do").find('[type=submit]').text('수정하기');
+					$('#exampleModalCenterTitle').text('수정하기');
+				}
 				
 				if(i<10) {
 					var score = $('#exampleModalCenter').find('input[name='+objArray[i]+']')
@@ -853,7 +791,7 @@
 		        pointPlacement: 'on'
 		    }, {
 		        name: '${member.nickName}',
-		        data: [3, 3, 3, 3, 3],
+		        data: [${member.score1}, ${member.score2}, ${member.score3}, ${member.score4}, ${member.score5}],
 		        pointPlacement: 'on'
 		    }];
 		}

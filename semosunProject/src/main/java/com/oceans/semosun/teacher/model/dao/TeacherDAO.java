@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
 @Repository
@@ -34,11 +35,11 @@ public class TeacherDAO {
 		return sqlSession.selectOne("Teacher-mapper.getReviewCount");
 	}
 
-	public List<Teacher> selectList(int cPage, int limit) {
+	public List<Teacher> selectList(int cPage, int limit, Member m) {
 		
 		RowBounds rows = new RowBounds(((cPage - 1) * limit), limit);
 		
-		return sqlSession.selectList("Teacher-mapper.selectList", null, rows);
+		return sqlSession.selectList("Teacher-mapper.selectList", m, rows);
 	}
 
 	public int selectTotalContents() {
