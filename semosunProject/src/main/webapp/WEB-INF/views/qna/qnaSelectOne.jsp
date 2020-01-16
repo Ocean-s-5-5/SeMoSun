@@ -93,7 +93,7 @@ textarea, input[type="text"] {
                                     <div class="col-md-8" style="width: 760px;">
                                     <input id="qNo" name="qNo" type="hidden" size="30" aria-required="true" value="${qna.qNo} "/>
                                     <input id="author" name="userNo" type="hidden" size="30" value="${member.userNo}"aria-required="true"/>
-                                        <label for="author">제목<span class="required">*</span></label>
+                                        <label for="author">제목<span class="required"></span></label>
                                         <input id="qTitle" name="qTitle" type="text" size="30" aria-required="true" value="${qna.qTitle}" style="width:100% !important"/>
                                     </div>
                                     <div class="col-md-4" style="margin-right:10px;">
@@ -111,7 +111,7 @@ textarea, input[type="text"] {
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="comment">내용<span class="required">*</span></label>
+                                        <label for="comment">내용<span class="required"></span></label>
                                         <textarea id="qContent" name="qContent" cols="45" rows="9" aria-required="true" >${qna.qContent}</textarea>
                                         <br />
                                         

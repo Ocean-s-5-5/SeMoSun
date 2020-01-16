@@ -35,6 +35,7 @@ import com.oceans.semosun.member.TempKey;
 import com.oceans.semosun.member.exception.MemberException;
 import com.oceans.semosun.member.model.service.MemberService;
 import com.oceans.semosun.member.model.vo.Member;
+import com.oceans.semosun.review.model.vo.Review;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
 @Controller
@@ -505,5 +506,87 @@ public class MemberController {
 		return "myPage/myPageSelectOne";
 		
 	}
+	
+	/*
+	 * 	@RequestMapping("/member/teacherSelectList.do")
+	public String selectTeacherList(@RequestParam(value="cPage", required = false, defaultValue="1") int cPage,
+			Model model,HttpSession session) {
+		Member m = (Member) session.getAttribute("member");
+		
+		// 한 페이지당 보여줄 게시글 수
+		int numPerPage = 10;
+		
+		// 페이지 처리된 리스트 가져오기
+		List<Map<String, String>> list = memberService.selectList(cPage, numPerPage, m.getUserNo());
+//		System.out.println(list.get(0));
+
+		// 전체 게시글 수 가져오기
+		int totalContents = memberService.selectTotalContents(m.getUserNo());
+		System.out.println(totalContents);
+		// 페이지 계산 HTML을 추가하기
+		String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "teacherSelectList.do");
+		
+		System.out.println("페이지 바" + pageBar);
+		
+		model.addAttribute("list", list).addAttribute("totalContents", totalContents)
+				.addAttribute("numPerPage", numPerPage).addAttribute("pageBar", pageBar);
+	
+		System.out.println("mooooodellelelelel" + model);
+		return "myPage/myPageTeacher";
+	}
+	 * */
+	
+	@RequestMapping("/member/reviewSelectList.do")
+	public String selectReviewList(@RequestParam(value="cPage", required = false, defaultValue="1") int cPage,
+			Model model,HttpSession session) {
+		Member m = (Member) session.getAttribute("member");
+		
+		// 한 페이지당 보여줄 게시글 수
+			int numPerPage = 9;
+				
+			// 페이지 처리된 리스트 가져오기
+			List<Map<String, String>> list = memberService.selectListReview(cPage, numPerPage, m.getUserNo());
+			// System.out.println(list.get(0));
+			
+			// 전체 게시글 수 가져오기
+			int totalContents = memberService.selectTotalContents(m.getUserNo());
+			System.out.println(totalContents);
+			
+			// 페이지 계산 HTML을 추가하기
+			String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "reviewSelectList.do");
+			
+			System.out.println("페이지 바" + pageBar);
+			
+			model.addAttribute("list", list).addAttribute("totalContents", totalContents)
+			.addAttribute("numPerPage", numPerPage).addAttribute("pageBar", pageBar);
+		
+		return "myPage/myPageReview";
+	}
+	
+	@RequestMapping("/member/reviewView.do")
+	public String selectOneReview(@RequestParam("no") int rno, Model model) {
+		
+		Review r = memberService.selectOneReview(rno);
+		
+		model.addAttribute("review", r);
+		
+		return "myPage/myPageSelectOneReview";
+		
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

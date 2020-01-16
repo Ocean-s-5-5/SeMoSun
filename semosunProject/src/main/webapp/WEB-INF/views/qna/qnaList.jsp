@@ -709,11 +709,13 @@ th {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
-					style="background: white; width: 1000px; height: 850px;">
+					style="background: white; width: 1000px; height: 600px;">
 
 					<div id="container">
 						<section id="member-container" class="container">
+							<br />
 							<p>총 ${totalContents}건의 게시물이 있습니다.</p>
+							<br />
 							<table id="tbl-board" class="table table-striped table-hover" style="text-align:center;">
 								<tr>
 									<th></th>

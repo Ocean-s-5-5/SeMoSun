@@ -88,19 +88,17 @@ textarea, input[type="text"] {
                         <div id="respond">
                             <h2 class="respond-title"><b>글 작성하기</b></h2>
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-md-8" style="width: 760px;">
                                     <input id="author" name="userNo" type="hidden" size="30" value="${member.userNo}"aria-required="true"/>
                                         <label for="author">제목<span class="required">*</span></label>
-                                        <input id="qTitle" name="qTitle" type="text" size="30" aria-required="true"/>
+                                        <input id="qTitle" name="qTitle" type="text" size="30" aria-required="true" style="width:100% !important" />
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4" style="margin-right:10px;">
                                         <label for="email">작성일</label> <br />
                                         <!-- <input id="currnetDate" name="noticeDate" type="date" value="2020-01-05" size="30" aria-required="true" disabled> -->
                                         <!-- <input type='date' id='currnetDate' name="noticeDate"> -->
-                                        <!-- <input type='date' id='currentDate' name="qDate" style="height: 36px;" disabled/> -->
                                         <input type='text' id='currentDate' name="qDate" value="${qna.qDate} " style="height: 36px; width: 150px; background: white;" disabled/>
                                     </div>
-									  
 									
 									<script>
 									  document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
@@ -116,6 +114,12 @@ textarea, input[type="text"] {
                                     </div>
                                 </div>
                         </div>
+                        
+            
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                         <!-- End Respond Form -->
                        
                     </div>

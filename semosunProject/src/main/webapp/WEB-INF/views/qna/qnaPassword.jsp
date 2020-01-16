@@ -60,7 +60,7 @@ textarea, input[type="text"] {
             <div class="container">
                 <div class="blog-post-page">
                     <div class="blog-box">
-							<div style="height:70px;"></div>
+							<div style="height:70px;"></div> <br /><br /><br /><br /><br />
                         <!-- Start Respond Form -->
                         <div style="border: solid 1px #D0D4D7; margin: auto; width:500px; heigbt: 250px;">
                         <div id="respond" style="margin-left: 90px; margin-bottom: 20px;">

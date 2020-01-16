@@ -16,6 +16,7 @@ import com.oceans.semosun.member.MailHandler;
 import com.oceans.semosun.member.TempKey;
 import com.oceans.semosun.member.model.dao.MemberDAO;
 import com.oceans.semosun.member.model.vo.Member;
+import com.oceans.semosun.review.model.vo.Review;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
 
@@ -88,6 +89,14 @@ public class MemberService {
 
 	public Teacher selectOneTeacher(int tNo) {
 		return memberDAO.selectOneTeacher(tNo);
+	}
+
+	public List<Map<String, String>> selectListReview(int cPage, int numPerPage, int userNo) {
+		return memberDAO.selectReviewList(cPage, numPerPage, userNo);
+	}
+
+	public Review selectOneReview(int rno) {
+		return memberDAO.selectOneReview(rno);
 	}
 
 	

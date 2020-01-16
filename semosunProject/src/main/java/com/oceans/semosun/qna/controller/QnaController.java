@@ -166,26 +166,22 @@ public class QnaController {
 	}
 	
 	@RequestMapping("/qna/qnaSelectOnePwd.do")
-//	public String selectOneQnaPwd(@RequestParam("qNo") int qNo, Qna qna, Model model, Member member, HttpSession session) {
-		public String selectOneQnaPwd(Qna qna, @RequestParam("checkPwd") String checkPwd, Model model, HttpSession session) {
+	public String selectOneQnaPwd(Qna qna, @RequestParam("checkPwd") String checkPwd, Model model, HttpSession session) {
 		String msg = "";
 		String loc = "";
 		Qna q = qnaService.selectOne(qna.getqNo());
 
-//			String qp = qna.getPwd(); // member의 m값
 		System.out.println(session.getAttribute("member"));
 			Member m = (Member) session.getAttribute("member"); // session의 m값
 			if(qna.getUserNo() == m.getUserNo() && bcryptPasswordEncoder.matches(checkPwd, m.getPwd()) ) {
 
-//			System.out.println("dsdf" + qp);
 //			System.out.println("qweqwe" + m.getPwd());
 
-//			if (m != null && bcryptPasswordEncoder.matches(qp, m.getPwd())) {
 				msg = " 입력 성공!";
 				loc = "/qnaSelectOne.do?no="+q.getqNo();
 				
 //				System.out.println(m);
-//			} else if (qp != null) {
+				
 			} else if (checkPwd.trim().length() != 0) {
 				msg = "비밀번호가 틀렸습니다.";
 			} else {

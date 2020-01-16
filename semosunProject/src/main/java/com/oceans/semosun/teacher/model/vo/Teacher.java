@@ -1,6 +1,7 @@
 package com.oceans.semosun.teacher.model.vo;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Teacher implements Serializable{
 	private int tNo;
@@ -11,6 +12,7 @@ public class Teacher implements Serializable{
 	private String subject;
 	private String profile;
 	private String profileName;
+	private Date tDate;
 	private String tStatus;
 	
 	// 개인 맞춤 추천 통계용
@@ -94,6 +96,7 @@ public class Teacher implements Serializable{
 		this.subject = subject;
 		this.profile = profile;
 		this.profileName = profileName;
+		this.tDate = tDate;
 		this.tStatus = tStatus;
 		this.sqrt = sqrt;
 		this.avg = avg;
@@ -102,6 +105,14 @@ public class Teacher implements Serializable{
 		this.score3 = score3;
 		this.score4 = score4;
 		this.score5 = score5;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Teacher [tNo=" + tNo + ", userNo=" + userNo + ", tName=" + tName + ", tGender=" + tGender + ", company="
+				+ company + ", subject=" + subject + ", profile=" + profile + ", profileName=" + profileName
+				+ ", tDate=" + tDate + ", tStatus=" + tStatus + "]";
 	}
 
 	public int gettNo() {
@@ -166,6 +177,14 @@ public class Teacher implements Serializable{
 
 	public void setProfileName(String profileName) {
 		this.profileName = profileName;
+	}
+
+	public Date gettDate() {
+		return tDate;
+	}
+
+	public void settDate(Date tDate) {
+		this.tDate = tDate;
 	}
 
 	public String gettStatus() {

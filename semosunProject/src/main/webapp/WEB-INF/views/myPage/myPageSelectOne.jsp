@@ -736,7 +736,7 @@ body {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
-					style="background: white; width: 1257px; height: 850px;">
+					style="background: white; width: 1257px; height: 600px;">
 					<c:import url="mypageSidebar.jsp" />
 
 					<div id="contact-form" class="contatct-form" >
@@ -745,16 +745,20 @@ body {
 							onsubmit="return validate();" method="post"
 							enctype="multipart/form-data">
 							<input type="hidden" name="userNo" value="${ member.userNo }" />
-							<div class="jsx-1392383053 popup-box undefined">
+							<div class="jsx-1392383053 popup-box undefined" style="width: 300px;">
 								<div class="jsx-1392383053 title-box">
+								<br />
 									<div class="jsx-1422744987">
-										<h2 class="jsx-1422744987"  style="margin-left:110px;">강사정보</h2>
+										<h2 class="jsx-1422744987"  style="margin-left:110px; font-size: 30px;">강사정보</h2>
 									</div>
 								</div>
+								
+								<br /><br />
+									
 								<div class="jsx-3890274511 label-box" style="margin-left: 50px;">
 
 									<!-- 이름입력 -->
-									<label class="jsx-3712571264 "><span
+									<label class="jsx-3712571264 " style="width:100%;"><span
 										class="jsx-3712571264">이름&nbsp;</span>
 										<div class="jsx-3890274511 select-box">
 											<div class="jsx-3890274511 input-flex">
@@ -770,7 +774,7 @@ body {
 
 									<!-- 성별 -->
 									
-									<label class="jsx-3712571264 "><span
+									<label class="jsx-3712571264 " style="width:100%;"><span
 										class="jsx-3712571264">성별&nbsp;</span>
 										<div class="jsx-3890274511 select-box">
 											<div class="jsx-3890274511 input-flex">
@@ -784,7 +788,7 @@ body {
 									<!-- 성별 -->
 
 								<!-- 과목선택 -->
-								<label class="jsx-3712571264 "><span
+								<label class="jsx-3712571264 " style="width:100%;"><span
 										class="jsx-3712571264">과목&nbsp;</span>
 										<div class="jsx-3890274511 select-box">
 											<div class="jsx-3890274511 input-flex">
@@ -796,11 +800,11 @@ body {
 												</div>
 											</div>
 										</div></label>
-								</div>
+										
 								<!-- 과목선택 -->
-
-								<!-- 학원명 -->
-								<label class="jsx-3712571264 "
+										
+							    <!-- 학원명 -->
+								<label class="jsx-3712571264 " style="width:100%;"
 									style="margin-left: 50px; margin-top: 10px;"><span
 									class="jsx-3712571264">학원명&nbsp;</span>
 									<div class="jsx-3890274511 select-box">
@@ -813,9 +817,9 @@ body {
 										</div>
 									</div> </label>
 								<!-- 학원명 -->
-
 								</div>
-
+							</div>
+								<br />
 
 								<!-- 사진등록 -->
 								<div class="jsx-2014955477 photo-upload-preview">
@@ -846,9 +850,6 @@ body {
 								</div>
 								<!-- 사진등록 -->
 								<div class="jsx-4275940456 btn-box">
-								<div class="jsx-4275940456 btn-blue"  style="margin-left:50px;">
-									<button type="submit" class="jsx-2946748022 ">등록</button>
-								</div>
 							</div>
 							</div>
 							

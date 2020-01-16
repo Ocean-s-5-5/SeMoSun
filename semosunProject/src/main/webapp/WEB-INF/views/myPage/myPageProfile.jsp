@@ -616,7 +616,7 @@ input-box.jsx-1936111413 {
 
 .btn-save.jsx-1936111413 {
 	text-align: center;
-	margin-top: 32px;
+	margin-top: 100px;
 }
 
 button.jsx-315148180 {
@@ -688,8 +688,8 @@ li:hover {
 	<div style="height: 15px;"></div>
 	<div id="__next">
 	
-		<div class="jsx-2255473334 layout">
-			<div class="jsx-695160636 gnb">
+		<div class="jsx-2255473334 layout" style="margin-top: 50px;">
+			<div class="jsx-695160636 gnb" >
 				<div class="jsx-695160636 wrapper">
 					<ul class="jsx-695160636 menu-box">
 					</ul>
@@ -714,18 +714,22 @@ li:hover {
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 								viewBox="0 0 24 24" fill="none" stroke="#dfdfdf"
 								stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-								style="position: relative;">
+								style="position: relative; margin-bottom: 60px;">
 								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
 								<circle cx="12" cy="7" r="4"></circle></svg>
 							<span class="jsx-707316887">마이페이지</span>
 						</h2>
 						<ul class="jsx-707316887">
+							<!-- 프로필 -->
 							<li class="jsx-707316887 active">
-							<a class="jsx-707316887"
-								href="${pageContext.request.contextPath }/myPage/myPageProfile.do" 
-								style="text-decoration: none; margin-top: 10px; margin-left: 10px;">프로필
-							</a>
-								</li>
+								<a class="jsx-707316887"
+									href="${pageContext.request.contextPath }/myPage/myPageProfile.do" 
+									style="text-decoration: none; margin-top: 10px; margin-left: 10px;">프로필
+								</a>
+							</li>
+							<!-- 프로필 -->
+								
+								<!-- 강사정보 -->
 								<form action="${pageContext.request.contextPath }/member/teacherSelectList.do" method="post">
 								<br />
 								<input type="hidden" name="${teacher.tNo}"/>
@@ -734,10 +738,30 @@ li:hover {
 									style="background:white;">
 									<div style=""></div>
 										<a class="jsx-707316887"
-										style="text-decoration: none; margin-top: 20px; text-align:left; width:340px;"  >강사정보</a>
+										style="text-decoration: none; margin-top: 20px; text-align:left; width:205px;"  >강사정보</a>
 								</li>
 								</button>
 								</form>
+								<!-- 강사정보 -->
+								
+								<!-- 리뷰정보 -->
+								<form action="${pageContext.request.contextPath }/member/reviewSelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Review.rno}"/>
+								<input type="hidden" name="${Teacher.tNo}"/>
+									<button type="submit" style="border: 0;  background:white;">
+									<li class="jsx-707316887 " 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:205px;"  >
+											리뷰정보
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 리뷰정보 -->
+								
 						</ul>
 						<button type="button" class="jsx-707316887 btn-logout" style="height: 35px; margin-bottom: 50px; margin-left:25px;  background:white; border:none;" 
 						onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">

@@ -80,6 +80,7 @@
 			FROM TEACHER T
 			LEFT JOIN MEMBER M ON(T.USERNO = M.USERNO)
 			WHERE M.USERNO = #{userNo}
+			ORDER BY TDATE DESC
 	</select>
 	
 	<select id="selectTotalContents" resultType="int" parameterType="int">
@@ -92,6 +93,18 @@
 	<select id="selectOneTeacher" parameterType="int" resultType="Teacher">
 		SELECT * FROM TEACHER
 		WHERE TNO = #{tNo}
+	</select>
+	
+	
+	<select id="selectReviewList" parameterType="int" resultType="Teacher">
+		SELECT T.* FROM REVIEW R JOIN TEACHER T ON(R.TNO=T.TNO)
+		WHERE RNO = (SELECT MAX(RNO) FROM REVIEW WHERE TNO = R.TNO AND USERNO = #{userNo})
+		ORDER BY RNO DESC
+	</select>
+	
+	<select id="selectOneReview" parameterType="int" resultType="Review">
+		SELECT * FROM REVIEW
+		WHERE RNO = #{rno}
 	</select>
 
 </mapper>

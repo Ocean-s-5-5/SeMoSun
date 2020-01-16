@@ -19,6 +19,9 @@
 <meta charset="utf-8">
 
 <c:import url="../common/util.jsp" />
+<!-- headerCss CSS Styles  -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/highcharts.css" type="text/css"  media="screen" />
+
 <style type="text/css">
 .widget-teacherProfile {
     text-align: center;
@@ -56,7 +59,6 @@
 }
 .UDBtnDiv {
 	text-align-last: justify;
-	padding: 5px;
 }
 .UDBtnDiv div {
 	display: inline-block;
@@ -97,6 +99,7 @@
     border: 0px;
 	
 }
+
 </style>
 </head>
 <body>

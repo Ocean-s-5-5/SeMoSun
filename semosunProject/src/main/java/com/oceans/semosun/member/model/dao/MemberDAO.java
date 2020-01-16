@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.oceans.semosun.member.model.vo.Member;
+import com.oceans.semosun.review.model.vo.Review;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
 @Repository
@@ -88,6 +89,15 @@ public class MemberDAO {
 
 	public Teacher selectOneTeacher(int tNo) {
 		return sqlSession.selectOne("member-mapper.selectOneTeacher", tNo);
+	}
+
+	public List<Map<String, String>> selectReviewList(int cPage, int numPerPage, int userNo) {
+		RowBounds rows = new RowBounds((cPage-1) * numPerPage, numPerPage);
+		return sqlSession.selectList("member-mapper.selectReviewList", userNo, rows);
+	}
+
+	public Review selectOneReview(int rno) {
+		return sqlSession.selectOne("member-mapper.selectOneReview", rno);
 	}
 
 
