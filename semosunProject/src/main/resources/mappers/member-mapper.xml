@@ -7,15 +7,16 @@
 
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO MEMBER
-		VALUES (SEQ_UNO.nextval, #{userId}, #{pwd}, #{nickName}, #{gender}, 
-		#{email}, DEFAULT, DEFAULT, #{profile}, #{profileName}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5})
+		VALUES (SEQ_UNO.nextval, #{userId}, #{pwd}, #{nickName}, #{gender},
+		#{email}, DEFAULT, DEFAULT, #{profile}, #{profileName}, #{score1},
+		#{score2}, #{score3}, #{score4}, #{score5})
 	</insert>
-	
-<insert id="createAuthKey" parameterType="map">
-	insert into userAuth values(#{email}, #{authKey})
-</insert>
 
-<update id="userAuth">
+	<insert id="createAuthKey" parameterType="map">
+		insert into userAuth values(#{email}, #{authKey})
+	</insert>
+
+	<update id="userAuth">
 	<![CDATA[update MEMBER 
 			 set ERECIVE = 1 
 			 where (select count(*) 
@@ -23,7 +24,8 @@
 			 		where userEmail = #{email} 
 			 		  and authkey= #{authKey}) > 0
 			   and email = #{email} ]]>
-</update>
+	</update>
+
 
 	
 	<select parameterType="Member" resultType="Member" id="selectOneMember">
@@ -106,7 +108,33 @@
 		SELECT * FROM REVIEW
 		WHERE RNO = #{rno}
 	</select>
+	
+	<select parameterType="int" id="selectReportList"
+		resultType="Report">SELECT R.*, M.USERNO, M.NICKNAME FROM REPORT R LEFT JOIN
+		MEMBER M ON(R.USERNO = M.USERNO) WHERE M.USERNO = #{userNo}ORDER BY
+		REF_DATE DESC
+	</select>
 
+	<select parameterType="int" id="selectReportTotalContents"
+		resultType="int">
+		SELECT COUNT(*) FROM (SELECT R.*, M.USERNO, M.NICKNAME FROM
+		REPORT R LEFT JOIN MEMBER M ON(R.USERNO = M.USERNO)WHERE M.USERNO =
+		#{userNo})
+
+	</select>
+
+	<select parameterType="int" id="selectLikeyList"
+		resultType="Likey">SELECT L.*, T.TNAME, T.TNO FROM LIKEY L LEFT JOIN MEMBER M
+		ON(L.USERNO = M.USERNO)LEFT JOIN TEACHER T ON(L.RTNO = T.TNO)WHERE
+		M.USERNO = #{uesrNo}ORDER BY LDATE DESC
+	</select>
+
+	<select parameterType="int" id="selectLikeyTotalContents"
+		resultType="int">
+		SELECT COUNT(*) FROM (SELECT L.*, M.USERNO, M.NICKNAME FROM
+		LIKEY L
+		LEFT JOIN MEMBER M ON(L.USERNO = M.USERNO)WHERE M.USERNO = #{userNo})
+	</select>
 </mapper>
  
  

@@ -5,15 +5,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!doctype html>
-
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
 <html lang="ko">
   <head>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet"> 
 	
-	<!-- 페이지 이름-->
+	<!-- Basic -->
 	<title>세모선 숲</title>
 
+	<!-- Define Charset -->
 	<meta charset="utf-8">
 	<c:import url="../common/util.jsp"/>
 	
@@ -256,6 +258,7 @@
 		 	text-decoration: none;
 		  	display: inline;
 		  	border-radius: 4px;
+		  	cursor : pointer;
 		  	-webkit-transition: background-color 1s ease;
 		  	-moz-transition: background-color 1s ease;
 		  	transition: background-color 1s ease;

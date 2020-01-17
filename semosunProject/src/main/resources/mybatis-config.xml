@@ -36,6 +36,8 @@
 		
 		<!-- QNA -->
 		<typeAlias type="com.oceans.semosun.qna.model.vo.Qna" alias="Qna"/>
+		
+		<typeAlias type="com.oceans.semosun.like.model.vo.Likey" alias="Likey"/>
 	</typeAliases>
 	
 </configuration>

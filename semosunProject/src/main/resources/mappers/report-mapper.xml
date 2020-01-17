@@ -34,5 +34,9 @@
 				null,
 				#{rno} )
 	</insert>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM REPORT WHERE USERNO = #{userNo} and RNO = #{rno}
+	</delete>
 
 </mapper>

@@ -46,4 +46,10 @@ public class TeacherDAO {
 		return sqlSession.selectOne("Teacher-mapper.selectTotalContents");
 	}
 
+	public List<Teacher> selectTeacherLive() {
+		RowBounds rows = new RowBounds(0, 3);
+		
+		return sqlSession.selectList("Teacher-mapper.selectLive", null, rows);
+	}
+
 }

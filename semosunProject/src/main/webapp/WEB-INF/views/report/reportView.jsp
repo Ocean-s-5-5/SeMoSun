@@ -85,6 +85,9 @@
                                <p id="ref_content" style="font-size:20px;">${report.ref_content}
                                  <br /><br /><span style="font-size:small; color:red;">신고받은 리뷰 제목 : ${report.rtitle}</span><c:out value=""/></p>
                             
+                            	
+                            	
+                            	<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/report/reportDelete.do?rno=${report.rno}&userNo=${report.userNo}'">삭제하기</button>
                             
                             	
                             </div>

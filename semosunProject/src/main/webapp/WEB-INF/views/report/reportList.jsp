@@ -124,15 +124,12 @@ h3 b {
                                 <div class="post-meta">
                                     <p style="text-align: end;">작성일 : ${r.ref_date}</p>
                                 </div>
-                                <%-- <a class="main-button" href="${pageContext.request.contextPath}/noticeView.nt?no=${n.noticeNo}"> 상세보기 </a> --%>
+                               
                             </div>
                         </div>
                         </c:forEach>
                         <!-- End Post -->
-                        
-                        <div id="pagination" style="text-align: right;">
-							<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="noticeForm();" />
-                        </div>
+                       
 
                         <!-- Start Pagination -->
                         <!-- End Pagination -->

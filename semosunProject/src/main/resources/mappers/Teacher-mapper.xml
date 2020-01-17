@@ -6,7 +6,7 @@
 	<insert id="insertTeacher" parameterType="Teacher">
 		INSERT INTO TEACHER
 		VALUES (SEQ_TNO.nextval,#{userNo}, #{tName}, #{tGender}, #{company}, #{subject}, 
-		#{profile}, #{profileName}, DEFAULT)
+		#{profile}, #{profileName}, DEFAULT, DEFAULT)
 	</insert>
 	
 <!-- 	<select id="selectList" resultType="Teacher"> -->
@@ -57,15 +57,14 @@
 	</select>
 	
 	<select id="selectLive" resultType="Teacher">
-	SELECT TE.*, (SELECT TO_CHAR(ROUND(AVG((SCORE1 + SCORE2 + SCORE3 +
-	SCORE4 + SCORE5 + SCORE6
-	+ SCORE7 + SCORE8 + SCORE9 + SCORE10)/10), 2))Total
-	FROM TEACHER T
-	JOIN REVIEW R ON(T.TNO=R.TNO)
-	WHERE T.TNO = #{tNo} ) TOTAL
-	FROM TEACHER TE
-	WHERE TE.TNO = #{tNo};
-	
+	SELECT  T.TNO, T.TNAME,
+        NVL(ROUND((AVG(SCORE1)+AVG(SCORE2)+AVG(SCORE3)+AVG(SCORE4)+AVG(SCORE5))/5, 2), 0) AVG,		    
+        T.PROFILENAME, T.SUBJECT, T.COMPANY
+		FROM REVIEW R RIGHT OUTER JOIN teacher T ON(R.TNO=T.TNO)
+		WHERE (RSTATUS = 'N' OR RSTATUS IS NULL) AND T.TNO IN (SELECT TNO FROM TEACHER WHERE TSTATUS='Y')
+        GROUP BY T.TNO, T.TNAME, T.PROFILENAME, T.SUBJECT, T.COMPANY
+        ORDER BY T.TNO DESC
 	</select>
+	
 </mapper>
  

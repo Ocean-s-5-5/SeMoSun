@@ -690,6 +690,9 @@ li:hover {
 
 
 
+a.active-color {
+	color:#3f60cc;
+}
 </style>
 
 
@@ -722,7 +725,7 @@ li:hover {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
-					style="background: white; width: 1257px; height: 600px;">
+					style="background: white; width: 1257px; height: 800px;">
 					<c:import url="mypageSidebar.jsp" />
 					<div id="container">
 						<section id="member-container" class="container">
@@ -791,6 +794,12 @@ li:hover {
 	<!-- 끝  -->
 
 	<script>
+
+
+	$("a").click(function(){
+		toggleClass(".active-color");
+	});
+
 		function LoadImg(value) {
 			if (value.files && value.files[0]) {
 				var reader = new FileReader();

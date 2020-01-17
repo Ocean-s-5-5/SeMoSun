@@ -23,6 +23,29 @@ public class Teacher implements Serializable{
 	private float score3;
 	private float score4;
 	private float score5;
+
+	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
+			String profileName, Date tDate, String tStatus, float sqrt, float avg, float score1, float score2,
+			float score3, float score4, float score5) {
+		super();
+		this.tNo = tNo;
+		this.userNo = userNo;
+		this.tName = tName;
+		this.tGender = tGender;
+		this.company = company;
+		this.subject = subject;
+		this.profile = profile;
+		this.profileName = profileName;
+		this.tDate = tDate;
+		this.tStatus = tStatus;
+		this.sqrt = sqrt;
+		this.avg = avg;
+		this.score1 = score1;
+		this.score2 = score2;
+		this.score3 = score3;
+		this.score4 = score4;
+		this.score5 = score5;
+	}
 	
 	public Teacher() {
 		super();
@@ -43,6 +66,29 @@ public class Teacher implements Serializable{
 		this.tName = tName;
 		this.company = company;
 		this.subject = subject;
+	}
+
+	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
+			String profileName, String tStatus, float sqrt, float avg, float score1, float score2, float score3,
+			float score4, float score5) {
+		super();
+		this.tNo = tNo;
+		this.userNo = userNo;
+		this.tName = tName;
+		this.tGender = tGender;
+		this.company = company;
+		this.subject = subject;
+		this.profile = profile;
+		this.profileName = profileName;
+		this.tDate = tDate;
+		this.tStatus = tStatus;
+		this.sqrt = sqrt;
+		this.avg = avg;
+		this.score1 = score1;
+		this.score2 = score2;
+		this.score3 = score3;
+		this.score4 = score4;
+		this.score5 = score5;
 	}
 
 	public float getSqrt() {
@@ -99,37 +145,6 @@ public class Teacher implements Serializable{
 
 	public void setScore5(float score5) {
 		this.score5 = score5;
-	}
-
-	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
-			String profileName, String tStatus, float sqrt, float avg, float score1, float score2, float score3,
-			float score4, float score5) {
-		super();
-		this.tNo = tNo;
-		this.userNo = userNo;
-		this.tName = tName;
-		this.tGender = tGender;
-		this.company = company;
-		this.subject = subject;
-		this.profile = profile;
-		this.profileName = profileName;
-		this.tDate = tDate;
-		this.tStatus = tStatus;
-		this.sqrt = sqrt;
-		this.avg = avg;
-		this.score1 = score1;
-		this.score2 = score2;
-		this.score3 = score3;
-		this.score4 = score4;
-		this.score5 = score5;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Teacher [tNo=" + tNo + ", userNo=" + userNo + ", tName=" + tName + ", tGender=" + tGender + ", company="
-				+ company + ", subject=" + subject + ", profile=" + profile + ", profileName=" + profileName
-				+ ", tDate=" + tDate + ", tStatus=" + tStatus + "]";
 	}
 
 	public int gettNo() {
@@ -212,6 +227,10 @@ public class Teacher implements Serializable{
 		this.tStatus = tStatus;
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "Teacher [tNo=" + tNo + ", userNo=" + userNo + ", tName=" + tName + ", tGender=" + tGender + ", company="
+				+ company + ", subject=" + subject + ", profile=" + profile + ", profileName=" + profileName
+				+ ", tDate=" + tDate + ", tStatus=" + tStatus + "]";
+	}
 }

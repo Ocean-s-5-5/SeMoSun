@@ -4,8 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
+
+
 					<div class="jsx-707316887 my-snb"
-						style="bottom: 1px; height: 600px;">
+						style="bottom: 1px; height: 800px;">
 						<h2 class="jsx-707316887">
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 								viewBox="0 0 24 24" fill="none" stroke="#dfdfdf"
@@ -27,7 +29,7 @@
 								<br />
 								<input type="hidden" name="${teacher.tNo}"/>
 							<button type="submit" style="border: 0;  background:white;">
-							<li class="jsx-707316887 active"
+							<li class="jsx-707316887"
 									style="background:white;">
 									<div style=""></div>
 										<a class="jsx-707316887"
@@ -53,6 +55,40 @@
 								</button>
 								</form>
 								<!-- 리뷰정보 -->
+								
+								<!-- 신고정보 -->
+								<form action="${pageContext.request.contextPath }/member/reportSelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Review.rno}"/>
+									<button type="submit" style="border: 0;  background:white;">
+									<li class="jsx-707316887" 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:210px;"  >
+											신고정보
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 신고정보 -->
+								
+								<!-- 좋아요 정보 -->
+								<form action="${pageContext.request.contextPath }/member/likeySelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Review.rno}"/>
+									<button type="submit" style="border: 0;  background:white;">
+									<li class="jsx-707316887" 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:210px;"  >
+											좋아요
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 좋아요 정보 -->
 						</ul>
 						
 

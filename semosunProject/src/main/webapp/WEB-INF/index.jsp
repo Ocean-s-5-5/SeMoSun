@@ -1,3 +1,6 @@
+<%@page import="com.oceans.semosun.teacher.model.vo.Teacher"%>
+<%@page import="java.util.List"%>
+<%@page import="com.oceans.semosun.teacher.model.service.TeacherInsertService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,8 +19,16 @@
 <c:import url="views/common/util.jsp" />
 <style>
 .navbar-brand {
-    height: 70px !important;
-
+	height: 70px !important;
+}
+/*메인 실시간 선생님 */
+.iimmgg {
+	max-width: 200px !important;
+	width: 200px !important;
+	height: 200px !important;
+	border-radius: 130px !important;
+	border: 0px solid #eee;
+	filter: drop-shadow(2px 4px 5px black);
 }
 
 /*적페청산 신고게시판 css*/
@@ -43,16 +54,18 @@
 	background-position: center center;
 	overflow: hidden;
 }
+.progress-label{
 
-
-
+	font-family: S-CoreDream-4Regular !important;
+}
 /*-적페청산 끝-*/
 ol, ul {
 	list-style: none;
 }
-h3{
-text-align: center !important;
 
+h3 {
+	text-align: center !important;
+	font-family: S-CoreDream-4Regular !important;
 }
 
 .semo {
@@ -60,9 +73,8 @@ text-align: center !important;
 }
 /*리뷰 전체 공간*/
 .hide-on-desktop {
-    display: none;
+	display: none;
 }
-
 
 /* 미디어 태그 */
 @media ( min-width : 1200px) {
@@ -73,6 +85,7 @@ text-align: center !important;
 		width: 1250px;
 	}
 }
+
 @media ( max-width : 1199px) {
 	.content.jsx-2160661806>.banner {
 		margin-top: 24px;
@@ -82,25 +95,24 @@ text-align: center !important;
 		
 	}
 	.semo1 {
-		width: 100% ;
-		border-width: 0px ;
-		border-style: initial ;
-		border-color: initial ;
-		border-image: initial ;
+		width: 100%;
+		border-width: 0px;
+		border-style: initial;
+		border-color: initial;
+		border-image: initial;
 	}
-
 	h3.jsx-4179964491 {
 		padding: 0px 16px !important;
+		font-size: 18px !important;
 	}
-
 	.live-review-box.jsx-4179964491>.btn-more {
 		text-align: center;
 	}
-
 	.hide-on-desktop {
 		display: block;
 	}
 }
+
 @media ( max-width : 900px) {
 	.mainReview.container {
 		margin: 0;
@@ -109,11 +121,10 @@ text-align: center !important;
 	.mainReview.col-md-8, .mainReview.col-md-4 {
 		width: 100%;
 	}
-	
 }
+/*라이브 선생 이미지*/
+
 /* 미디어 태그 끝 */
-
-
 .semo1 {
 	/* width: 712px; */
 	background-color: rgb(255, 255, 255);
@@ -202,24 +213,25 @@ text-align: center !important;
 .ban {
 	background-color: rgb(255, 51, 102);
 	color: rgb(255, 255, 255);
-}	
+}
 /* div */
 .btn-more {
 	text-align: center;
-}	
+}
 /* btn */
 .jsx-334325833 {
-    font-size: small;
-    width: 20%;
-    height: 33px;
-    background-color: white;
-    border: 1px solid rgb(220, 220, 220);
-    border-radius: 25px;
-    margin-bottom: 15px;
-}			
+	font-size: small;
+	width: 20%;
+	height: 33px;
+	background-color: white;
+	border: 1px solid rgb(220, 220, 220);
+	border-radius: 25px;
+	margin-bottom: 15px;
+}
+
 .jsx-334325833:hover {
-    background-color: rgba(220, 220, 220, 0.3);
-}			
+	background-color: rgba(220, 220, 220, 0.3);
+}
 /*지금 뜨는 리뷰 */
 .division-line {
 	display: inline-block;
@@ -275,7 +287,7 @@ button.jsx-693606843 {
 	border-style: solid;
 	border-color: rgb(223, 223, 223);
 	border-image: initial;
-	height : 500px;
+	height: 500px;
 	overflow: auto;
 }
 
@@ -355,6 +367,7 @@ a.jsx-1976876495 {
 	align-items: center;
 	padding: 21px 0px 16px;
 	border-bottom: 1px solid rgb(236, 236, 236);
+	margin-bottom: 30px;
 }
 
 .avatar.jsx-1076345726 {
@@ -447,16 +460,21 @@ h4.jsx-2548577942 {
 	background-position: center center;
 	background-repeat: no-repeat;
 }
-::-webkit-scrollbar {width: 2px;   }
-::-webkit-scrollbar-size { height: 1px !important;}
-::-webkit-scrollbar-thumb {background: rgba(99, 59, 241);} /* 실질적 스크롤 바 */
+
+::-webkit-scrollbar {
+	width: 2px;
+}
+
+::-webkit-scrollbar-size {
+	height: 1px !important;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(99, 59, 241);
+} /* 실질적 스크롤 바 */
 /*지금뜨는리뷰 css 끝*/
 
-
 /*검색창 css*/
-
-   
-
 .bar-layout.jsx-2460799870 {
 	padding-top: 32px !important;
 	display: flex;
@@ -464,6 +482,8 @@ h4.jsx-2548577942 {
 	-webkit-box-align: center;
 	align-items: center;
 	padding-bottom: 32px !important;
+	margin-bottom : 95px;
+	margin-top : 70px;
 }
 
 .search-box.jsx-2460799870 {
@@ -513,7 +533,7 @@ svg[Attributes Style] {
 
 .bar-layout.jsx-2460799870>p.jsx-2460799870 {
 	font-size: 18px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .bar-layout.jsx-2460799870>p.jsx-2460799870>span.jsx-2460799870 {
@@ -563,7 +583,6 @@ svg[Attributes Style] {
 	}
 }
 
-
 /* 타이핑 css*/
 .typing-txt {
 	display: none;
@@ -581,19 +600,41 @@ svg[Attributes Style] {
 	animation-iteration-count: infinite;
 }
 
-@keyframes cursor { 
-0%{border-right: 1px solid #fff}50%{border-right:1px solid #000}
+@
+keyframes cursor { 0%{
+	border-right: 1px solid #fff
+}
+
+50%{
+border-right
+:
+1px
+ 
+solid
+ 
+#000
+}
 100%{
-border-right:1px solid #fff
-}}
+border-right
+:
+1px
+ 
+solid
+ 
+#fff
+
+
+}
+}
 /*선생님 이미지 사진 크기*/
 .lig {
 	width: 422px;
 	height: 278.99px;
 }
+
 #content {
-    padding: 40px 0;
-    background: #ffff !important;
+	padding: 40px 0;
+	background: #ffff !important;
 }
 
 /* 리뷰 라이브 배경색 변경 */
@@ -601,13 +642,42 @@ border-right:1px solid #fff
 	background-color: rgb(93, 126, 233);
 	color: rgb(255, 255, 255);
 }
+
 .numberDiv {
 	text-align: center;
+	margin-bottom: 25px;
+	margin-top: 25px;
+}
+
+.stardiv {
+	display: inline-block;
+}
+
+@font-face {
+	font-family: 'S-CoreDream-4Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+/* .container {
+ 
+    margin-top: 25px;
+} */
+
+html, body{
+font-family:S-CoreDream-4Regular !important;
+}
+.milestone-block {
+    display: inline-block;
+    margin-bottom: 25px;
+    margin-right: 80px;
 }
 </style>
 
 <!-- Basic -->
-<title>Venue | Home</title>
+<title>SeMoSun | Home</title>
 
 <!-- Define Charset -->
 <meta charset="utf-8">
@@ -616,9 +686,15 @@ border-right:1px solid #fff
 <link rel="icon" href="http://localhost:8088/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath }/resources/images/icons/semosunpabefon.png">
 
+
 </head>
 
-<body>
+
+<body style="font-family:S-CoreDream-4Regular;">
+
+<!-- <script> -->
+<!--  window.open('404.jsp', 'popup01', 'fullscreen , scrollbars= 0, toolbar=0, menubar=no'); -->
+<!-- </script> -->
 
 	<!-- Full Body Container -->
 	<div id="container">
@@ -626,6 +702,7 @@ border-right:1px solid #fff
 		<%@ include file="views/common/header.jsp"%>
 
 		<!-- End Header Section -->
+		
 
 		<!-- Start Home Page Slider -->
 		<section id="home">
@@ -640,25 +717,26 @@ border-right:1px solid #fff
 								src="${pageContext.request.contextPath }/resources/images/slider11.png"
 								data-fullwidthcentering="on" alt="background"> <!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
 								<div class="caption medium-700-black lfr" data-x="58"
-									data-y="150" data-speed="300" data-start="1600"
+									data-y="110" data-speed="300" data-start="1600"
 									data-easing="easeOutExpo">
-								<span style=" font-size:10px; ">대한민국 No1 강사리뷰사이트</span>
+									
+									
+								<span style=" font-size:16px; font-family:S-CoreDream-4Regular;  ">대한민국 No1 강사리뷰사이트</span>
 								
-								<p style=" font-size:20px;">비싼 강의료</p>
+								<p style=" font-size:20px; font-family:S-CoreDream-4Regular;">비싼 강의료</p>
 								
-								<p style=" font-size:20px;">강의 신청 하기전에 </p>
+								<p style=" font-size:20px; font-family:S-CoreDream-4Regular;">강의 신청 하기전에 </p>
 								
-								<p style=" font-size:20px;">나한태 맞는 강사를 알수없을까 ??</p>
+								<p style=" font-size:20px; font-family:S-CoreDream-4Regular;">나한테 맞는 강사를 알수없을까 ??</p>
 								
 								<br />
 								</div>
 								<div class="caption small-600-black lfr" data-x="58"
-									data-y="300" data-speed="300" data-start="2000"
+									data-y="250" data-speed="300" data-start="2000"
 									data-easing="easeOutExpo">
 									<br />
 									<strong>
-									
-									<p style="font-size:30px; color:rgb(68,115,197);">세모선</p>									
+									<p style="font-size:30px; color:rgb(68,115,197); font-family:S-CoreDream-4Regular;">세모선</p>									
 									</strong>
 								</div>
 <!-- 								<div class="caption randomrotate" data-x="80" data-y="385"  -->
@@ -688,9 +766,12 @@ border-right:1px solid #fff
 							<!-- THE SECOND SLIDE -->
 						<li data-transition="papercut" data-slotamount="5"
 								data-masterspeed="500" data-delay="9400">
-								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE --> <img
-<%-- 								src="${pageContext.request.contextPath }/resources/images/slider1.png" --%>
-								data-fullwidthcentering="on" alt="background"> <!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
+								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE -->
+								
+						<%-- <img src="${pageContext.request.contextPath }/resources/images/slider1.png" 
+						data-fullwidthcentering="on" alt="background"> --%>
+								 
+							 <!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
 								<div class="caption medium-700-black lfr" data-x="825"
 									data-y="150" data-speed="300" data-start="400"
 									data-easing="easeOutExpo" style="font-size: 20px;">
@@ -698,18 +779,17 @@ border-right:1px solid #fff
 								</div>
 								<div class="caption small-600-black lfr" data-x="825"
 									data-y="225" data-speed="300" data-start="800"
-									data-easing="easeOutExpo" style="font-size: 30px;">
-									<strong style="color: rgb(68,115,197);">세모선</strong>은 여러분이 만들어갑니다. 
+									data-easing="easeOutExpo" style="font-size: 30px; font-family:S-CoreDream-4Regular;">
+									<strong style="color: rgb(68,115,197); font-family:S-CoreDream-4Regular;">세모선</strong>은 여러분이 만들어갑니다. 
 								</div>
 								<div class="caption randomrotate" data-x="825" data-y="300"
 									data-speed="300" data-start="1200" data-easing="easeOutExpo">
-									<a href="#" class="btn-custom btn-medium border-btn">리뷰 등록</a>
+									<a href="${pageContext.request.contextPath}/teacher/selectTeacherList.do" class="btn-custom btn-medium border-btn" style="font-family:S-CoreDream-4Regular;">강사 보러 가기</a>
 								</div>
 								<div class="tp-caption sfl start" data-x="30" data-y="bottom"
 									data-speed="1000" data-start="1000" data-easing="easeOutExpo">
-									<img
-										src="${pageContext.request.contextPath }/resources/images/slide-3.png"
-										alt="" />
+									<img src="${pageContext.request.contextPath }/resources/images/slide-3.png"
+										 />
 								</div>
 							</li>
 
@@ -717,33 +797,29 @@ border-right:1px solid #fff
 						<li data-transition="turnoff" data-slotamount="5"
 								data-masterspeed="300">
 								<!-- THE MAIN BACKGROUND IMAGE IN THIS FIRST SLIDE --> <img
-								src="${pageContext.request.contextPath }/resources/images/slider_3_bg.jpg"
+								src="${pageContext.request.contextPath }/resources/images/sliderlist.png"
 								alt="background" data-fullwidthcentering="on" data-bgfit="cover"
-								data-bgposition="center center" data-bgrepeat="no-repeat">
+								data-bgposition="center center" data-bgrepeat="no-repeat" style="align:right;">
 
 								<!-- THE CAPTIONS/LAYERS IN THIS SLIDE -->
-								<div class="caption medium-700-black lfr" data-x="58"
-									data-y="138" data-speed="300" data-start="800"
-									data-easing="easeOutExpo">
+								<div class="caption medium-700-black lfr" data-x="1"
+									data-y="238" data-speed="300" data-start="800"
+									data-easing="easeOutExpo" style="font-family:S-CoreDream-4Regular;">
 									실시간으로 <br /> 올라오는 청정 리뷰 !!
 								</div>
-								<div class="caption small-600-black lfr" data-x="58"
-									data-y="214" data-speed="300" data-start="1200"
+								<div class="caption small-600-black lfr" data-x="1"
+									data-y="294" data-speed="300" data-start="1200"
 									data-easing="easeOutExpo">
-									<p style="font-size:30px; color:rgb(68,115,197);">세상의 모든 선생님</p>
+									<p style="font-size:30px; color:rgb(68,115,197); font-family:S-CoreDream-4Regular;">세상의 모든 선생님</p>
 								
 									 <br /> 
 								</div>
-<!-- 								<div class="caption randomrotate" data-x="58" data-y="275" -->
-<!-- 									data-speed="300" data-start="1600" data-easing="easeOutExpo"> -->
-<!-- 									<a href="#" class="btn-custom btn-medium border-btn">Explore -->
-<!-- 										More Features</a> -->
-<!-- 								</div> -->
+								
 								<div class="caption lfb" data-x="620" data-y="40"
 									data-speed="300" data-start="400" data-easing="easeOutExpo">
-									<img
-										src="${pageContext.request.contextPath }/resources/images/slider1_browser.png"
-										alt="tablet" />
+<!-- 									<img -->
+<%-- 										src="${pageContext.request.contextPath }/resources/images/slider1_browser.png" --%>
+<!-- 										alt="tablet" /> -->
 								</div>
 							</li>
 
@@ -790,15 +866,15 @@ border-right:1px solid #fff
 			<a href="${pageContext.request.contextPath}/search/searchPage.do?userId=${member.userId}">
 		<div class="jsx-2160661806 search-bar">
 			<div class="jsx-2460799870 bar-layout">
-				<p class="jsx-2460799870">
-					어떤  <span class="jsx-2460799870">선생님</span>을 찾으세요?
+				<p class="jsx-2460799870" style="font-family:S-CoreDream-4Regular; font-size: 25px;">
+					어떤  <span class="jsx-2460799870" style="font-family:S-CoreDream-4Regular; font-size: 25px;">선생님</span>을 찾으세요?
 				</p>
 		<div class="jsx-2460799870 search-box" >
 					<div class="jsx-2460799870 search-bar">
 						
 					
 						
-						<div class="typing-txt">
+						<div class="typing-txt" style="font-family:S-CoreDream-4Regular;">
 							<ul>
 								<li>어떤 선생님을 찾으세요 ?</li>
 								<li>세상의 모든 선생님을 여러분이 만들어주세요 !!</li>
@@ -807,12 +883,7 @@ border-right:1px solid #fff
 							
 						</div>
 						<p class="typing"></p>
-<!-- 						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" -->
-<!-- 							viewBox="0 0 24 24" fill="none" stroke="#3f60cc" stroke-width="2" -->
-<!-- 							stroke-linecap="round" stroke-linejoin="round" -->
-<!-- 							style="position: relative; margin-left: auto;"> -->
-<%-- 							<circle cx="11" cy="11" r="8"></circle> --%>
-<!-- 							<line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> -->
+
 					</div>
 				</div>
 			</div>
@@ -821,64 +892,106 @@ border-right:1px solid #fff
 
 
 		<!-- 검색창끝 -->
-
 		
-                        <!-- 선 -->
+                        <!-- 총 게시물 수 메인 화면  -->
                         <div class="hr5 margin-40"></div>
-					<div class="numberDiv">
+					<div class="numberDiv numdiv">
                         <!-- Start 총 갯수 Div -->
-                        <div class="milestone-block">
-                            <div class="milestone-icon"><i class="fa fa-user"></i></div>
+                         <div class="milestone-block eq1">
+                            <div class="milestone-icon"><img src="${pageContext.request.contextPath}/resources/images/icons/membericon.png"/></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">482</div>
-                                <div class="milestone-text">Employees</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text" style="font-family:S-CoreDream-4Regular;">전체 회원수</div>
                             </div>
                         </div>
 
                         <!-- Start Milestone Block -->
                         <div class="milestone-block">
-                            <div class="milestone-icon"><i class="fa fa-briefcase"></i></div>
+                            <div class="milestone-icon"><img src="${pageContext.request.contextPath}/resources/images/icons/reviewicon.png"/></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">964</div>
-                                <div class="milestone-text">Projects Completed</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text" style="font-family:S-CoreDream-4Regular;">전체 리뷰 수</div>
                             </div>
                         </div>
 
                         <!-- Start Milestone Block -->
                         <div class="milestone-block">
-                            <div class="milestone-icon"><i class="fa fa-wordpress"></i></div>
+                            <div class="milestone-icon"><img src="${pageContext.request.contextPath}/resources/images/icons/teachericon.png"/></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">130</div>
-                                <div class="milestone-text">Wordpress Themes</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text" style="font-family:S-CoreDream-4Regular;">전체 강사 수</div>
                             </div>
                         </div>
 
                         <!-- Start Milestone Block -->
                         <div class="milestone-block">
-                            <div class="milestone-icon"><i class="fa fa-upload"></i></div>
+                            <div class="milestone-icon"><img src="${pageContext.request.contextPath}/resources/images/icons/talkicon.png"/></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">144</div>
-                                <div class="milestone-text">New Updates</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text" style="font-family:S-CoreDream-4Regular;">전체 수다방 수</div>
                             </div>
                         </div>
 
                         <!-- Start Milestone Block -->
                         <div class="milestone-block">
-                            <div class="milestone-icon"><i class="fa fa-twitter"></i></div>
+                            <div class="milestone-icon"><img src="${pageContext.request.contextPath}/resources/images/icons/postpp.png"/></div>
                             <div class="milestone-right">
-                                <div class="milestone-number">4000</div>
-                                <div class="milestone-text">Twitter Update</div>
+                                <div class="milestone-number"></div>
+                                <div class="milestone-text" style="font-family:S-CoreDream-4Regular;">전체 공지사항 수</div>
                             </div>
                         </div>
         			</div>    
-        			<!-- End 총 갯수 Div -->            
-                        <!-- 선 -->
+        			<!-- End 총 갯수 Div -->        
+        			
+        			    
+                        <!--실시간  강사정보 --===========-->
                         <div class="hr5 margin-40"></div>
                         
+                        <br /><br /><br />
                         
+                        <div class="container" >
+                        <div class="rowww"  >
                         
-		<!-- 리뷰20 부분 -->
+                    	<div class="col-md-3" >
 
+                        <!-- Start Big Heading -->
+                        <div class="big-title" style="font-family:S-CoreDream-4Regular;">
+                            <h1 style="font-family:S-CoreDream-4Regular;">Our <span class="accent-color" >Teachers</span></h1>
+                            <p class="title-desc">We Choice Your Teacher</p>
+                        </div>
+                        <!-- End Big Heading -->
+
+                        <!-- Some Text -->
+                        <p style="font-family:S-CoreDream-4Regular;">실시간으로 올라오는  강사님들을 확인해 보세요 </p>
+                    </div>
+
+                    <!-- Start Icon Box -->
+                   
+       
+                    <!-- End Icon Box -->
+
+                    <!-- Start Icon Box -->
+                    
+                    <!-- End Icon Box -->
+				
+				<!-- Start Icon Box -->
+<!--                     <div class="col-md-3 service-box service-center"> -->
+<!--                         <div class="service-icon"> -->
+<!--                             <i class="fa fa-code icon-medium-effect icon-effect-1"></i> -->
+<!--                         </div> -->
+<!--                         <div class="service-content"> -->
+<!--                             <h4>Clean Modern Code</h4> -->
+<!--                             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor.</p> -->
+<!--                         </div> -->
+<!--                     </div> -->
+                    <!-- End Icon Box -->
+
+                </div>
+                
+                </div>
+                <br /><br /><br />
+		<!-- 리뷰20 부분 -->
+	
 
 		<!-- Start Content -->
 	
@@ -890,8 +1003,8 @@ border-right:1px solid #fff
 				<div class="mainReview col-md-8">
 
 					<div class="semo1">
-						<h3 class="jsx-4179964491">리뷰 Live</h3>
-
+						<h3 class="jsx-4179964491" style="font-family:S-CoreDream-4Regular; font-size:18px;  margin-top: 20px;" >리뷰 Live</h3>
+						
 						<ul class="semo2 reviewLive" style="overflow-y: scroll;">
 
 
@@ -913,7 +1026,7 @@ border-right:1px solid #fff
 					
 					<div class="jsx-1976876495 hot-review-box bestReview">
 						<div class="jsx-1976876495 title ">
-							<h3 class="jsx-4179964491">지금 뜨는 리뷰</h3>
+							<h3 class="jsx-4179964491" style="font-family:S-CoreDream-4Regular;  font-size:18px;">지금 뜨는 리뷰</h3>
 							<div class="jsx-1976876495 btn-box">
 								<button type="button" class="jsx-1976876495 prevReview">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -945,6 +1058,8 @@ border-right:1px solid #fff
 
 				</div>
 				
+				<br /><br /><br />
+				
 					<!-- 지금뜨는 리뷰 끝 -->
 					
 					
@@ -954,7 +1069,7 @@ border-right:1px solid #fff
 						<a
 							href="${pageContext.request.contextPath }/reportList.do"
 							target="_self" class="jsx-2849469776"> <span
-							class="jsx-2849469776 alt-text"> 적폐청산 // 
+							class="jsx-2849469776 alt-text" style="font-family:S-CoreDream-4Regular;"> 적폐청산 // 
 							보다 가치있고 투명한 정보를전달하기 위해 제보게시판을 운영합니다 </span></a>
 					</div>
 					<!-- 적페 청산 끝 -->
@@ -969,176 +1084,34 @@ border-right:1px solid #fff
 					<!-- Start Portfolio Section -->
 					<div class="project">
 						<div class="container">
-
 							<!-- Start Recent Projects Carousel -->
 							<div class="recent-projects">
 								<h4 class="title">
-									<span>실시간 강사 정보</span>
+								
 								</h4>
 								<div class="projects-carousel touch-carousel">
-
+								<c:forEach items="${teacherLiveList}" var="teacher">
 									<div class="portfolio-item item">
-<%-- 											<c:forEach items="${teacherList}" var="teacher"> --%>
-<%-- 											</c:forEach> --%>
-										<div class="portfolio-border">
+										<div class="portfolio-border teacher">
 											<div class="portfolio-thumb">
-											
-												<a class="lightbox" data-lightbox-type="ajax"
-													href="https://vimeo.com/78468485">
-													<div class="thumb-overlay">
-														<i class="fa fa-play"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/1.jpg" />
-												</a>
-												
-											</div>
-											
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>{teacherList.tName}</h4> <span>리뷰 평점 :
-														<h5>2.2</h5>
-												</span> <span>#심슨 #단어 #빠르다</span>
-												</a>
-											</div>
-											
-										
-									</div>
-								</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="별별별"
-													href="${pageContext.request.contextPath }/resources/images/teacher/simooo.jpg">
+												<a class="lightbox" href="${pageContext.request.contextPath }/resources/images/teacher/simooo.jpg">
 													<div class="thumb-overlay">
 														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/teacher/simooo_1.jpg" />
+													</div> 
+													<img src="${pageContext.request.contextPath }/resources/images/teacher/simooo_1.jpg" />
 												</a>
 											</div>
 											<div class="portfolio-details">
 												<a href="#">
-													<h4>심우철 강사</h4> <span>리뷰 평점 : <big>2.2</big></span> <br />
-													<span>#심슨 #단어 #빠르다</span>
+													<h4>${ teacher.tName }</h4>
+													 <span>${ teacher.total }</span>
+													  <br />
+													<span>#${ teacher.subject } #${ teacher.company }</span>
 												</a>
 											</div>
 										</div>
 									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_3@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/3.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Drawing</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_4@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/4.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Website</span> <span>Ilustration</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_5@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/5.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Logo</span> <span>Drawing</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_6@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/6.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Animation</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_7@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/7.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Website</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="portfolio-item item">
-										<div class="portfolio-border">
-											<div class="portfolio-thumb">
-												<a class="lightbox" title="This is an image title"
-													href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_8@2x.jpg">
-													<div class="thumb-overlay">
-														<i class="fa fa-arrows-alt"></i>
-													</div> <img alt=""
-													src="${pageContext.request.contextPath }/resources/images/portfolio/8.jpg" />
-												</a>
-											</div>
-											<div class="portfolio-details">
-												<a href="#">
-													<h4>Lorem Ipsum Dolor</h4> <span>Ilustration</span> <span>Animation</span>
-												</a>
-											</div>
-										</div>
-									</div>
-
+								</c:forEach>
 								</div>
 							</div>
 							<!-- End Recent Projects Carousel -->
@@ -1158,10 +1131,10 @@ border-right:1px solid #fff
 
 								<!-- Classic Heading -->
 								<h4 class="classic-title">
-									<span>우리들의 이용률</span>
+									<span style="font-family:S-CoreDream-4Regular;  font-size:18px;">우리들의 이용률</span>
 								</h4>
 								<div class="progress-bars">
-									<div class="progress-label">강사 승인 완료률</div>
+									<div class="progress-label" style="font-family:S-CoreDream-4Regular;">강사 승인 완료률</div>
 									<div class="progress">
 										<div class="progress-bar progress-bar-primary"
 											data-progress-animation="95%">
@@ -1199,149 +1172,33 @@ border-right:1px solid #fff
 									</div>
 								</div>
 							</div>
-					<!-- 세모숲 -->
-							<div class="mainReview col-md-7" >
+							
+							
+			
+				<!-- 세모숲 -->
 
-					<div class="semo1" style="height:298px !important;">
-						<h3 class="jsx-4179964491">리뷰 Live</h3>
-
-						<ul class="semo2" style="overflow-y: scroll;">
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck ban">반려</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck stay">승인대기</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-							<li class="semo3">
-								<div class="semoimg"
-									style="background-image: url('https://ifh.cc/g/F2Fxh.png');">
-								</div>
-								<div>
-									<p class="semo4">지금까지 이런 강사는 없었다</p>
-									<ul class="semo">
-
-										<li class="semo5">#강사리뷰</li>
-										<li class="semo5">#대치동</li>
-										<li class="semo5">#수능</li>
-									</ul>
-								</div>
-								<div class="semocheck complete">0</div>
-							</li>
-
+				<div class="talkLive col-md-7">
+					
+					<div class="semo1 sseemo" style="height: 298px !important;">
+					<a href="${pageContext.request.contextPath }/talk/talkList.do">
+						<h3 class="jsx-4179964491" style=" font-size:18px; margin-top: 10px;">수다방</h3>
+				
+						<ul class="semo2 semoTalk" style="overflow-y: scroll;">
 						</ul>
-						
-						<div class="jsx-4179964491 btn-more hide-on-desktop">
-							<button name="btnMore" type="button" class="jsx-334325833 btn btn-light">더보기</button>
-						</div>
 
+					</a>
+						<div class="jsx-4179964491 btn-more hide-on-desktop">
+							<button name="btnMore" type="button"
+								class="jsx-334325833 btn btn-light">더보기</button>
+						</div>
+						
 
 					</div>
 				</div>
-							
-						</div>
+
+			</div>
+			<!-- =========================세모숲 끝======================= -->
+			
 						<!-- .row -->
 				
 					<!-- .container -->
@@ -1378,8 +1235,8 @@ border-right:1px solid #fff
 				<!-- End Content -->
 
 
-
-
+<div></div>
+<div></div>
 				<%@ include file="views/common/footer.jsp"%>
 
 			<script>
@@ -1460,11 +1317,11 @@ border-right:1px solid #fff
 													'style="background-image: url(\'${pageContext.request.contextPath}/resources/images/profileImage2/'+ data[i].profileName  + '\');">' +
 												'</div></div></div>' +
 										'<div class="jsx-2548577942 name-box">' +
-											'<h4 class="jsx-2548577942">' + data[i].tName + '선생님</h4>' +
+											'<h4 class="jsx-2548577942 style="font-family:S-CoreDream-4Regular;">' + data[i].tName + '선생님</h4>' +
 											'<div class="jsx-2548577942 tutor-info">' +
-												'<span class="jsx-2548577942">' + data[i].company + '</span>' + 
+												'<span class="jsx-2548577942" style="font-family:S-CoreDream-4Regular;">' + data[i].company + '</span>' + 
 												'<span class="jsx-2548577942 division-line"></span>' +
-												'<span class="jsx-2548577942 subject">' + data[i].subject + '</span>' +
+												'<span class="jsx-2548577942 subject" style="font-family:S-CoreDream-4Regular;">' + data[i].subject + '</span>' +
 											'</div></div></div></div>' +
 								'<div class="jsx-1976876495 content">' +
 									'<div class="jsx-2318878368 content">' +
@@ -1472,16 +1329,16 @@ border-right:1px solid #fff
 										'	“ <span class="jsx-2318878368">' + data[i].rtitle + '</span> ”'+
 										'</h4> '+
 										'<div class="jsx-2318878368 positive"> '+
-										'	<div class="jsx-3001902121 badges-box">'+
-										'		<span class="jsx-3001902121 box primary">장점</span>'+
+										'	<div class="jsx-3001902121 badges-box" style="margin-top: 15px;">'+
+										'		<span class="jsx-3001902121 box primary" style="font-family:S-CoreDream-4Regular;">장점</span>'+
 										'	</div> '+
-										'	<p class="jsx-2318878368">' + data[i].gcontent + '</p> '+
+										'	<p class="jsx-2318878368" style="font-family:S-CoreDream-4Regular;">' + data[i].gcontent + '</p> '+
 										'</div> '+
 										'<div class="jsx-2318878368 negative"> '+
-										'	<div class="jsx-3001902121 badges-box"> '+
-										'		<span class="jsx-3001902121 box point">단점</span> '+
+										'	<div class="jsx-3001902121 badges-box" > '+
+										'		<span class="jsx-3001902121 box point" style="font-family:S-CoreDream-4Regular;">단점</span> '+
 										'	</div> '+
-										'	<p class="jsx-2318878368">' + data[i].bcontent + '</p>' +
+										'	<p class="jsx-2318878368" style="font-family:S-CoreDream-4Regular;">' + data[i].bcontent + '</p>' +
 										'</div> '+
 										'<div class="jsx-2318878368 rating-box"> '+
 										'	<div class="jsx-2318878368 rating">'+
@@ -1489,7 +1346,7 @@ border-right:1px solid #fff
 										'		<div class="jsx-237548703 stars">'+ starText +
 										'		</div>'+
 										'	</div>'+
-											'<div class="jsx-2318878368 buttons">' +
+											'<div class="jsx-2318878368 buttons" style="margin-top: 15px;">' +
 												'<button type="button" class="jsx-693606843 button--voteup">' +
 													'<i class="glyphicon glyphicon-thumbs-up" width="20" height="20" viewBox="0 0 24 24" fill="none"' +
 														'stroke="#8f8f8f" stroke-width="2" stroke-linecap="round"' +
@@ -1572,16 +1429,19 @@ border-right:1px solid #fff
 										'</div>');
 								
 								var contentDiv = $('<div>');
-								var titleP = $('<p class="semo4">');
+								var titleP = $('<p class="semo4" style="font-family:S-CoreDream-4Regular;">');
 								titleP.text(data[i].rtitle);
-								var innerUl = $('<ul class="semo">');
-								var innerLi1 = $('<li class="semo5">');
-								var innerLi2 = $('<li class="semo5">');
-								var innerLi3 = $('<li class="semo5">');
+								var hrf = $('<a href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo=' + data[i].tNo + '">')
+								var innerUl = $('<ul class="semo" style="font-family:S-CoreDream-4Regular;">');
+								var innerLi1 = $('<li class="semo5" style="font-family:S-CoreDream-4Regular;">');
+								var innerLi2 = $('<li class="semo5" style="font-family:S-CoreDream-4Regular;">');
+								var innerLi3 = $('<li class="semo5" style="font-family:S-CoreDream-4Regular;">');
 								innerLi1.text("#"+data[i].tName);
 								innerLi2.text("#"+data[i].subject);
 								innerLi3.text("#"+data[i].company);
 								innerUl.append(innerLi1).append(innerLi2).append(innerLi3);
+								
+								hrf.append(innerUl);
 								var scoreDiv = $('<div class="semocheck">');
 								var score = (data[i].score1 + data[i].score2 + data[i].score3 + data[i].score4 + data[i].score5) / 5;
 								
@@ -1598,8 +1458,8 @@ border-right:1px solid #fff
 									scoreDiv.addClass("stay");
 									scoreDiv.text('보통');
 								}
-								
-								contentDiv.append(titleP).append(innerUl);
+								hrf.append(titleP).append(innerUl);
+								contentDiv.append(hrf);
 								semo3.append(semoimgDiv).append(contentDiv).append(scoreDiv);
 								
 								semo2.append(semo3);
@@ -1611,6 +1471,7 @@ border-right:1px solid #fff
 					});
 				
 				/*수다방 화면*/
+			
 				$.ajax({ 
 					url : "${pageContext.request.contextPath}/talk/talkLive.do",
 					dataType: "json",
@@ -1620,17 +1481,19 @@ border-right:1px solid #fff
 						var semo2 = $('.semoTalk');
 						
 						for(var i in data){
+							
+							
 							var semo3 = $('<li class="semo3">');
-							var semoimgDiv = $('<div class="semoimg"' +
-									'style="background-image: url(\'${pageContext.request.contextPath}/resources/images/profileImage/'+ data[i].profileName +'\');">' +
-									'</div>');
+							var semoimgDiv = $(' <div class="semoimg" ' +
+									' style="background-image: url(\'${pageContext.request.contextPath}/resources/images/profileImage/'+ data[i].profileName +'\');"> ' +
+									' </div> ');
 							
 							var contentDiv = $('<div>');
-							var titleP = $('<p class="semo4">');
+							var titleP = $('<p class="semo4" style="font-family:S-CoreDream-4Regular;">');
 							titleP.text(data[i].talkcontent);
-							var innerUl = $('<ul class="semo">');
-							var innerLi1 = $('<li class="semo5">');
-							var innerLi2 = $('<li class="semo5">');
+							var innerUl = $('<ul class="semo" style="font-family:S-CoreDream-4Regular;">');
+							var innerLi1 = $('<li class="semo5" style="font-family:S-CoreDream-4Regular;">');
+							var innerLi2 = $('<li class="semo5" style="font-family:S-CoreDream-4Regular;">');
 
 							innerLi1.text("이름 : "+data[i].nickName);
 							innerLi2.text("#"+data[i].talkdate);
@@ -1638,9 +1501,8 @@ border-right:1px solid #fff
 							
 							contentDiv.append(titleP).append(innerUl);
 							semo3.append(semoimgDiv).append(contentDiv)
-							
 							semo2.append(semo3);
-							
+	
 							
 						}
 					}, error : function(data){
@@ -1648,9 +1510,93 @@ border-right:1px solid #fff
 						console.log("ajax 실패!!");
 					}
 				});
+		
+				   	$.ajax({
+				
+				   		url :"${pageContext.request.contextPath}/teacher/selectteacherLive.do",
+				   		dataType : "json",
+				   		success : function (data) {
+				   			console.log(data);
+				   			
+				   				var row = $('.rowww');
+				   			
+				   			for(var i in data){
+				   				// 별점 HTML 
+								var starText = '';   // 1.2
+								for(var j = 0; j < 5; j++){
+									if(j < Math.round(data[i].avg)){
+										starText += '<div class="jsx-237548703 star star-2"></div>';
+									} else {
+										starText += '<div class="jsx-237548703 star star-0"></div>';
+									}
+								}
+								var stardiv = $('<div class="stardiv">');
+				   				var col = $('<div class="col-md-3 service-box service-center" >');
+				   				var href = $('<a href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo='+ data[i].tNo +'">')
+				   				
+				   				var sericon = $('<div class="service-icon">');
+				   				var fafa = $('<div class="teachrimg">');
+				   				var fa = $(
+				   						'<img class="iimmgg" src="${pageContext.request.contextPath}/resources/images/profileImage2/'+ data[i].profileName+'">'
+				   				);
+				   				fafa.append(fa);
+				   				var sercontent = $('<div class="service-content" >');
+				   				var h4 = $('<h4 style="font-family:S-CoreDream-4Regular;">');
+				   				h4.text(data[i].tName);
+				   				
+				   				var p = $('<p style="font-family:S-CoreDream-4Regular;">');
+				   				p.html(data[i].company+data[i].subject);
+				   				
+				   				sericon.append(fafa);
+				   				stardiv.append(starText);
+				   				sercontent.append(h4).append(p).append(stardiv);
+				   				href.append(sericon).append(sercontent);
+				   				col.append(href);
+				   				
+				   				row.append(col);
+				   			}
+				   		
+						}, error : function(data) {
+							console.log(data);
+							console.log("ajax 실패");
+						}
+
+				  });
+
+	});
+				
+				
+
+	   $(function() {
+				$.ajax({ 
+					url : "${pageContext.request.contextPath}/search/searchCount.do",
+					dataType :"json",
+					success : function(data){
+						var list = [ data.memberCount , data.reviewCount , data.teacherCount , data.supCount , data.noticeCount ];
+						console.log(list);
+						jQuery('.milestone-block').each(function(i) {
+					        jQuery(this).appear(function() {
+					            var $endNum = parseInt(list[i]);
+					            jQuery(this).find('.milestone-number').countTo({
+					                from: 0,
+					                to: $endNum,
+					                speed: 900,
+					                refreshInterval: 60,
+					            });
+					        }, {
+					            accX: 0,
+					            accY: 0
+					        });
+					    });
+						
+					}, error : function(data) {
+						console.log(data);
+						console.log("ajax 실패");
+					}
+				});
 			
 			});
-	
+	  
 
 			</script>
 </body>

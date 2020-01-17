@@ -65,11 +65,12 @@ public class ReviewDAO {
 		return sqlSession.selectOne("review-mapper.averagePerTeacher", tNo);
 	}
 
-	public int likeReview(Boolean isLike, int rno, int userNo) {
+	public int likeReview(Boolean isLike, int rno, int userNo, int tNo) {
 		// Likey 객체
 		HashMap<String, Integer> Likey = new HashMap<String, Integer>();
 		Likey.put("rno", rno);
 		Likey.put("userNo", userNo);
+		Likey.put("tNo", tNo);
 		
 		if(isLike) return sqlSession.insert("review-mapper.insertLikeReview", Likey);
 		else return sqlSession.insert("review-mapper.deleteLikeReview", Likey);

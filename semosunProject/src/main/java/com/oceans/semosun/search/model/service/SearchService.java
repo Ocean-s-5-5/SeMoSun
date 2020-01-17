@@ -53,4 +53,11 @@ public class SearchService {
 	}
 
 	
+
+	public int[] memberList(String[] countName) {
+		return searchDAO.memberList(countName);
+	}
+
+
+	
 }
