@@ -55,16 +55,6 @@ public class TalkDAO {
 
 
 
-//
-//
-//	public int updateTalk(Talk originSup) {
-//		
-//		return sqlSession.update("Talk-mapper.updateTalk", originSup);
-//	}
-//
-//
-
-
 
 
 

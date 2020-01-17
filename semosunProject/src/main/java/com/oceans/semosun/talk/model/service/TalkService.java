@@ -63,28 +63,7 @@ public class TalkService {
 		
 		return talkDAO.selectTalkLive();
 	}
-	
-	
-	/*
-	 * @Transactional(propagation=Propagation.REQUIRED,
-	 * isolation=Isolation.READ_COMMITTED)
-	 */
-	 
 
-//	public Talk selectOne(int talkNo) {
-//		return talkDAO.selectOne(talkNo);
-//	}
-//
-//
-//	public int updateTalk(Talk originTalk) {
-//		int result = 0;
-//		
-//		result = talkDAO.updateTalk(originTalk);
-//		
-//		
-//		return result;
-//	}
-//
 	
 
 }
