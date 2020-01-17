@@ -4,7 +4,11 @@ import org.springframework.stereotype.Component;
 
 public class Utils {
 	
-	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url ){
+	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url){
+		 return getPageBar(totalContents, cPage, numPerPage, url , "");
+	}
+	
+	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword){
 		String pageBar = "";
 		int pageBarSize = 5;
 		cPage = cPage==0?1:cPage;
@@ -60,13 +64,18 @@ public class Utils {
 			pageBar += "</li>";
 		}
 		
+		
 		pageBar += "</ul>";
 		
 		//2.스크립트 태그 작성
 		//fn_paging함수
 		pageBar += "<script>";
 		pageBar += "function fn_paging(cPage,numPerPage){";
-		pageBar += "location.href='"+url+"?cPage='+cPage;";
+		if(keyword.trim().length() == 0){
+			pageBar += "location.href='"+url+"?cPage='+cPage;";
+		} else {
+			pageBar += "location.href='"+url+"?keyword="+keyword+"&cPage='+cPage;";
+		}
 		pageBar += "}";
 		pageBar += "</script>";
 		

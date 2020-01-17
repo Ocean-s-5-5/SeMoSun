@@ -56,4 +56,12 @@ public class NoticeService {
 		return noticeDAO.selectOneCurrent();
 	}
 
+	public int searchTotalContents(String keyword) {
+		return noticeDAO.searchTotalContents(keyword);
+	}
+
+	public List<Map<String, String>> searchNotice(int cPage, int numPerPage, String keyword) {
+		return noticeDAO.searchNotice(cPage, numPerPage, keyword);
+	}
+
 }

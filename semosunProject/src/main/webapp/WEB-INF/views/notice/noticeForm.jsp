@@ -91,13 +91,14 @@ textarea, input[type="text"] {
                                 <div class="row">
                                     <div class="col-md-8">
                                         <label for="author">제목<span class="required">*</span></label>
-                                        <input id="author" name="noticeTitle" type="text" size="30" aria-required="true"/>
+                                        <input id="author" name="noticeTitle" type="text" size="30" aria-required="true" style="width: 100%"/>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="email">작성일</label> <br />
                                         <!-- <input id="currnetDate" name="noticeDate" type="date" value="2020-01-05" size="30" aria-required="true" disabled> -->
                                         <!-- <input type='date' id='currnetDate' name="noticeDate"> -->
-                                        <input type='date' id='currentDate' name="noticeDate" style="height: 36px;" disabled/>
+                                        <!-- <input type='date' id='currentDate' name="noticeDate" style="height: 36px;" disabled/> -->
+                                        <input id="currentDate" name="noticeDate" type="text" size="30" aria-required="true" style="width: 130px; " disabled/>
                                     </div>
 									  
 									

@@ -72,7 +72,7 @@
 
                             <div class="post-time-section">
                                 <div class="post-date">
-                                    <span class="day">${notice.noticeNo}</span>
+                                    <span class="day" style="color: white;">${nNumber  + 1}</span>
                                 </div>
                                 <div class="post-month">
                                     <span class="month"></span>

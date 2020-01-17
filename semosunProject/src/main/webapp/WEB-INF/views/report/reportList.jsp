@@ -91,8 +91,8 @@ h3 b {
 
                         <!-- Search Widget -->
                         <div class="widget widget-search">
-                            <form action="#">
-                                <input type="search" placeholder="Enter Keywords..." />
+                            <form action="${ pageContext.request.contextPath }/reportSearch.do">
+                                <input type="search" name="keyword" placeholder="Enter Keywords..." />
                                 <button class="search-btn" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>

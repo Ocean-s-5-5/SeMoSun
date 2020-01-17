@@ -48,5 +48,15 @@ public class NoticeDAO {
 	public Notice selectOneCurrent() {
 		return sqlSession.selectOne("notice-mapper.selectOneCurrent");
 	}
+
+	public int searchTotalContents(String keyword) {
+		return sqlSession.selectOne("notice-mapper.searchTotalContents", keyword);
+	}
+
+	public List<Map<String, String>> searchNotice(int cPage, int numPerPage, String keyword) {
+		RowBounds rows = new RowBounds((cPage-1) * numPerPage, numPerPage);
+		//                    "매퍼의 실행할 SQL 명", 파라미터로 받을 값, RowBounds 전용 공간
+		return sqlSession.selectList("notice-mapper.searchNotice", keyword, rows);
+	}
 	
 }

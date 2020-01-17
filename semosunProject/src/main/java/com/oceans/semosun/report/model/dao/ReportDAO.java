@@ -39,4 +39,10 @@ public class ReportDAO {
 		return sqlsession.insert("report-mapper.insert", re);
 	}
 
+	public List<Map<String, String>> searchReport(int cPage, int numPerPage, String keyword) {
+		RowBounds rows = new RowBounds((cPage-1) * numPerPage, numPerPage);
+		
+		return sqlsession.selectList("report-mapper.searchReport", keyword, rows);
+	}
+
 }

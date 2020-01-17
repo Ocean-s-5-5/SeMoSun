@@ -47,6 +47,10 @@ public class ReportService {
 		return reportDAO.insertReport(re);
 	}
 
+	public List<Map<String, String>> searchReport(int cPage, int numPerPage, String keyword) {
+		return reportDAO.searchReport(cPage, numPerPage, keyword);
+	}
+
 
 
 
