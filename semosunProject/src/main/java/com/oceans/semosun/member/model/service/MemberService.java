@@ -12,10 +12,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.oceans.semosun.like.model.vo.Likey;
 import com.oceans.semosun.member.MailHandler;
 import com.oceans.semosun.member.TempKey;
 import com.oceans.semosun.member.model.dao.MemberDAO;
 import com.oceans.semosun.member.model.vo.Member;
+import com.oceans.semosun.report.model.vo.Report;
+import com.oceans.semosun.review.model.vo.Review;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
 
@@ -89,7 +92,33 @@ public class MemberService {
 	public Teacher selectOneTeacher(int tNo) {
 		return memberDAO.selectOneTeacher(tNo);
 	}
+	public List<Map<String, String>> selectListReview(int cPage, int numPerPage, int userNo) {
+		return memberDAO.selectReviewList(cPage, numPerPage, userNo);
+	}
 
+	public Review selectOneReview(int rno) {
+		return memberDAO.selectOneReview(rno);
+	}
+
+	public List<Map<String, String>> selectListReport(int cPage, int numPerPage, int userNo) {
+		return memberDAO.selectReportList(cPage, numPerPage, userNo);
+	}
+
+	public int selectReportTotalContents(int userNo) {
+		return memberDAO.selectReportTotalContents(userNo);
+	}
+
+	public Report selectOneReport(int rNo) {
+		return memberDAO.selectReportList(rNo);
+	}
+
+	public List<Likey> selectListLikey(int cPage, int numPerPage, int userNo) {
+		return memberDAO.selectLikeyList(cPage, numPerPage, userNo);
+	}
+
+	public int selectLikeyTotalContents(int userNo) {
+		return memberDAO.selectLikeyTotalContents(userNo);
+	}
 	
 
 

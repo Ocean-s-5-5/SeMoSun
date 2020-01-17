@@ -118,8 +118,8 @@ public class ReviewController {
 	
 	@RequestMapping("/review/likeReview.do")
 	@ResponseBody
-	public int likeReview(@RequestParam Boolean isLike, @RequestParam int rno, @RequestParam int userNo){
-		return reviewService.likeReview(isLike, rno, userNo); 
+	public int likeReview(@RequestParam Boolean isLike, @RequestParam int rno, @RequestParam int userNo, @RequestParam int tNo){
+		return reviewService.likeReview(isLike, rno, userNo, tNo); 
 	}
 	
 }

@@ -19,6 +19,9 @@
 <meta charset="utf-8">
 
 <c:import url="../common/util.jsp" />
+<!-- headerCss CSS Styles  -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/highcharts.css" type="text/css"  media="screen" />
+
 <style type="text/css">
 .widget-teacherProfile {
     text-align: center;
@@ -56,7 +59,6 @@
 }
 .UDBtnDiv {
 	text-align-last: justify;
-	padding: 5px;
 }
 .UDBtnDiv div {
 	display: inline-block;
@@ -97,6 +99,7 @@
     border: 0px;
 	
 }
+
 </style>
 </head>
 <body>
@@ -389,9 +392,9 @@
                                     <!-- 좋아요, 신고 -->
                                    <div class="divBtn">
                                    <c:if test="${r.checkLike == 1}">
-	                                  <button class="btn btn-default btn-md myLike" type="button" onclick="like(this, ${r.rno}, ${member.userNo });"><i class="fa fa-heart"></i> ${r.likeCount}</button>
+	                                  <button class="btn btn-default btn-md myLike" type="button" onclick="like(this, ${r.rno}, ${member.userNo }, ${Teacher.tNo});"><i class="fa fa-heart"></i> ${r.likeCount}</button>
                                    </c:if><c:if test="${r.checkLike == 0}">
-	                                  <button class="btn btn-default btn-md" type="button" onclick="like(this, ${r.rno}, ${member.userNo });"><i class="fa fa-heart"></i> ${r.likeCount}</button>
+	                                  <button class="btn btn-default btn-md" type="button" onclick="like(this, ${r.rno}, ${member.userNo }, ${Teacher.tNo});"><i class="fa fa-heart"></i> ${r.likeCount}</button>
                                    </c:if> 
 	                                  <button class="btn btn-default btn-md reportBtn" type="button" onclick="fn_reportView(${r.rno});"><i class="fa fa-home"></i> 신고</button>
                                    </div>
@@ -742,7 +745,7 @@
 			}
 		}
 		
-		function like(Btn, rno, userNo) {
+		function like(Btn, rno, userNo, tNo) {
 			if(userNo == null) { alert("로그인을 해주세요!"); return; }
 			
 			var isLike;
@@ -760,7 +763,7 @@
 			}
 			$.ajax({
 				url : "${pageContext.request.contextPath }/review/likeReview.do",
-				data : { isLike : isLike , rno : rno , userNo : userNo },
+				data : { isLike : isLike , rno : rno , userNo : userNo, tNo : tNo},
 				dataType: "json",
 				success : function(data) {
 					$(Btn).html('<i class="fa fa-heart"></i> '+count);

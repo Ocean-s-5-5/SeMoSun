@@ -39,4 +39,9 @@ public class ReportDAO {
 		return sqlsession.insert("report-mapper.insert", re);
 	}
 
+	public int deleteReport(Report report) {
+		
+		return sqlsession.delete("report-mapper.delete", report);
+	}
+
 }

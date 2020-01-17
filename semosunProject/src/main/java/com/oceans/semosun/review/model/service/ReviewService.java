@@ -77,8 +77,8 @@ public class ReviewService {
 	public float averagePerTeacher(int tNo) {
 		return rDao.averagePerTeacher(tNo);
 	}
-	public int likeReview(Boolean isLike, int rno, int userNo) {
-		return rDao.likeReview(isLike, rno, userNo); 
+	public int likeReview(Boolean isLike, int rno, int userNo, int tNo) {
+		return rDao.likeReview(isLike, rno, userNo, tNo); 
 	}
 
 	public int updateReview(Review review) {

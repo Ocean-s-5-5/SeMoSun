@@ -389,26 +389,26 @@ $(document).ready(function($) {
         });
     });
 
-
-    /*----------------------------------------------------*/
-    /*	Milestone Counter
-	/*----------------------------------------------------*/
-
-    jQuery('.milestone-block').each(function() {
-        jQuery(this).appear(function() {
-            var $endNum = parseInt(jQuery(this).find('.milestone-number').text());
-            jQuery(this).find('.milestone-number').countTo({
-                from: 0,
-                to: $endNum,
-                speed: 4000,
-                refreshInterval: 60,
-            });
-        }, {
-            accX: 0,
-            accY: 0
-        });
-    });
-
+//
+//    /*----------------------------------------------------*/
+//    /*	Milestone Counter
+//	/*----------------------------------------------------*/
+//
+//    jQuery('.milestone-block').each(function() {
+//        jQuery(this).appear(function() {
+//            var $endNum = parseInt(jQuery(this).find('.milestone-number').text());
+//            jQuery(this).find('.milestone-number').countTo({
+//                from: 0,
+//                to: $endNum,
+//                speed: 4000,
+//                refreshInterval: 60,
+//            });
+//        }, {
+//            accX: 0,
+//            accY: 0
+//        });
+//    });
+//
 
 
 

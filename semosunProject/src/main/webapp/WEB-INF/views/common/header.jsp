@@ -27,30 +27,30 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="${pageContext.request.contextPath }">Home</a>
 						<ul class="dropdown">
-							<li> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
-						</ul></li>
-					<li><a href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">강사리뷰</a></li>
-					<li> <a href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
-					<li><a href="${pageContext.request.contextPath }/qnaList.do">문의사항</a>
+							<li style="font-family:S-CoreDream-4Regular;"> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
+						</ul style="font-family:S-CoreDream-4Regular;"></li>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">강사리뷰</a></li>
+					<li> <a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/qnaList.do">문의사항</a>
 					<c:if test="${empty member}">
-					<li><a href="${ pageContext.request.contextPath }/login/login.do">로그인</a></li>
-					<li><a href="${ pageContext.request.contextPath }/signUp.sg">회원가입</a></li>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${ pageContext.request.contextPath }/login/login.do">로그인</a></li>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${ pageContext.request.contextPath }/signUp.sg">회원가입</a></li>
 					</c:if>
 					<c:if test="${!empty member}">
-					<li><a href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a>
 					<ul class="dropdown">
-							<li><a href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a></li>
-							<li><a href="#" data-toggle="modal" data-target="#exampleModalCenter1">강사등록</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="#" data-toggle="modal" data-target="#exampleModalCenter1">강사등록</a></li>
 						</ul>
 					</li>
-					<li><a href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
 					</c:if>
 					<c:if test="${!empty member && member.userId eq 'admin'}">
-					<li><a href="${ pageContext.request.contextPath }/adminMain.am">관리자 페이지</a>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${ pageContext.request.contextPath }/adminMain.am">관리자 페이지</a>
 						<ul class="dropdown">
-							<li><a href="${pageContext.request.contextPath }/memberControl.am">회원 관리</a></li>
-							<li><a href="${pageContext.request.contextPath }/teacherControl.am">강사님 관리</a></li>
-							<li><a href="${pageContext.request.contextPath }/reportControl.am">신고 관리</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/memberControl.am">회원 관리</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacherControl.am">강사님 관리</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/reportControl.am">신고 관리</a></li>
 						</ul>
 					</li>
 					</c:if>

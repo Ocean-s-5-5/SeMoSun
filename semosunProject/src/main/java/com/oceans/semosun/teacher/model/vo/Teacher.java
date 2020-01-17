@@ -1,6 +1,7 @@
 package com.oceans.semosun.teacher.model.vo;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Teacher implements Serializable{
 	private int tNo;
@@ -11,6 +12,7 @@ public class Teacher implements Serializable{
 	private String subject;
 	private String profile;
 	private String profileName;
+	private Date tDate;
 	private String tStatus;
 	
 	// 개인 맞춤 추천 통계용
@@ -19,9 +21,56 @@ public class Teacher implements Serializable{
 	private float score1;
 	private float score2;
 	private float score3;
+	
+	
+	
+	
+	
+	public Date gettDate() {
+		return tDate;
+	}
+
+	public void settDate(Date tDate) {
+		this.tDate = tDate;
+	}
+
+	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
+			String profileName, Date tDate, String tStatus, float sqrt, float avg, float score1, float score2,
+			float score3, float score4, float score5) {
+		super();
+		this.tNo = tNo;
+		this.userNo = userNo;
+		this.tName = tName;
+		this.tGender = tGender;
+		this.company = company;
+		this.subject = subject;
+		this.profile = profile;
+		this.profileName = profileName;
+		this.tDate = tDate;
+		this.tStatus = tStatus;
+		this.sqrt = sqrt;
+		this.avg = avg;
+		this.score1 = score1;
+		this.score2 = score2;
+		this.score3 = score3;
+		this.score4 = score4;
+		this.score5 = score5;
+	}
+
 	private float score4;
 	private float score5;
 	
+	
+	// 리뷰 토탈 점수
+	
+
+	
+	
+	
+	
+	
+	
+
 	public Teacher() {
 		super();
 	}
@@ -82,27 +131,7 @@ public class Teacher implements Serializable{
 		this.score5 = score5;
 	}
 
-	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
-			String profileName, String tStatus, float sqrt, float avg, float score1, float score2, float score3,
-			float score4, float score5) {
-		super();
-		this.tNo = tNo;
-		this.userNo = userNo;
-		this.tName = tName;
-		this.tGender = tGender;
-		this.company = company;
-		this.subject = subject;
-		this.profile = profile;
-		this.profileName = profileName;
-		this.tStatus = tStatus;
-		this.sqrt = sqrt;
-		this.avg = avg;
-		this.score1 = score1;
-		this.score2 = score2;
-		this.score3 = score3;
-		this.score4 = score4;
-		this.score5 = score5;
-	}
+	
 
 	public int gettNo() {
 		return tNo;

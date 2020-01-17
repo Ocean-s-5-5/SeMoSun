@@ -5,7 +5,9 @@
 <mapper namespace="review-mapper">
 
 	<insert id="insertReview" parameterType="Review">
-		INSERT INTO REVIEW VALUES(SEQ_RNO.NEXTVAL, #{tNo}, #{userNo}, #{rtitle}, #{gcontent}, #{bcontent}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{score10}, DEFAULT, DEFAULT)
+		INSERT INTO REVIEW VALUES(SEQ_RNO.NEXTVAL, #{tNo}, #{userNo}, #{rtitle}, #{gcontent}, 
+		#{bcontent}, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, 
+		#{score8}, #{score9}, #{score10}, DEFAULT, DEFAULT)
 	</insert>
 
 	<update id="updateReview" parameterType="Review">
@@ -72,9 +74,8 @@
 	</select>
 	
 	<!-- like -->
-	<insert id="insertLikeReview" parameterType="hashmap">
-		INSERT INTO LIKEY VALUES(#{rno}, #{userNo}, DEFAULT)
-	</insert>
+	<insert parameterType="hashmap" id="insertLikeReview">
+	INSERT INTO LIKEY VALUES(#{rno}, #{tNo}, #{userNo}, DEFAULT, DEFAULT) </insert>
 	
 	<delete id="deleteLikeReview" parameterType="hashmap">
 		DELETE FROM LIKEY WHERE RNO = #{rno} AND USERNO = #{userNo}

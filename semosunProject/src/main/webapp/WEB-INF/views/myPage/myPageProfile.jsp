@@ -616,7 +616,7 @@ input-box.jsx-1936111413 {
 
 .btn-save.jsx-1936111413 {
 	text-align: center;
-	margin-top: 32px;
+	margin-top: 100px;
 }
 
 button.jsx-315148180 {
@@ -676,6 +676,7 @@ li:hover {
     -ms-transform: scale(1.1,1.1);
     transform: scale(1.1,1.1);
 }
+
 </style>
 <!-- 파비콘 -->
 <link rel=" shortcut icon" href="${pageContext.request.contextPath}/resources/images/icons/semosun1.png">
@@ -688,8 +689,8 @@ li:hover {
 	<div style="height: 15px;"></div>
 	<div id="__next">
 	
-		<div class="jsx-2255473334 layout">
-			<div class="jsx-695160636 gnb">
+		<div class="jsx-2255473334 layout" style="margin-top: 50px;">
+			<div class="jsx-695160636 gnb" >
 				<div class="jsx-695160636 wrapper">
 					<ul class="jsx-695160636 menu-box">
 					</ul>
@@ -709,35 +710,93 @@ li:hover {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body">
-					<div class="jsx-707316887 my-snb" style="height:650px; width:400px">
+					<div class="jsx-707316887 my-snb" style="height:800px; width:400px">
 						<h2 class="jsx-707316887">
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 								viewBox="0 0 24 24" fill="none" stroke="#dfdfdf"
 								stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-								style="position: relative;">
+								style="position: relative; margin-bottom: 60px;">
 								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
 								<circle cx="12" cy="7" r="4"></circle></svg>
 							<span class="jsx-707316887">마이페이지</span>
 						</h2>
 						<ul class="jsx-707316887">
+							<!-- 프로필 -->
 							<li class="jsx-707316887 active">
-							<a class="jsx-707316887"
-								href="${pageContext.request.contextPath }/myPage/myPageProfile.do" 
-								style="text-decoration: none; margin-top: 10px; margin-left: 10px;">프로필
-							</a>
-								</li>
+								<a class="jsx-707316887"
+									href="${pageContext.request.contextPath }/myPage/myPageProfile.do" 
+									style="text-decoration: none; margin-top: 10px; margin-left: 10px;">프로필
+								</a>
+							</li>
+							<!-- 프로필 -->
+								
+								<!-- 강사정보 -->
 								<form action="${pageContext.request.contextPath }/member/teacherSelectList.do" method="post">
 								<br />
-								<input type="hidden" name="${teacher.tNo}"/>
+								<input class="jsx-707316887 active" type="hidden" name="${teacher.tNo}"/>
 							<button type="submit" style="border: 0;  background:white;">
 							<li class="jsx-707316887 " 
 									style="background:white;">
 									<div style=""></div>
 										<a class="jsx-707316887"
-										style="text-decoration: none; margin-top: 20px; text-align:left; width:340px;"  >강사정보</a>
+										style="text-decoration: none; margin-top: 20px; text-align:left; width:205px;"  >강사정보</a>
 								</li>
 								</button>
 								</form>
+								<!-- 강사정보 -->
+								
+								<!-- 리뷰정보 -->
+								<form action="${pageContext.request.contextPath }/member/reviewSelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Review.rno}"/>
+								<input type="hidden" name="${Teacher.tNo}"/>
+									<button type="submit" style="border: 0;  background:white;">
+									<li class="jsx-707316887 " 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:205px;"  >
+											리뷰정보
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 리뷰정보 -->
+								
+								<!-- 신고정보 -->
+								<form action="${pageContext.request.contextPath }/member/reportSelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Report.rno}"/>
+								<input type="hidden" name="${Teacher.tNo}"/>
+									<button type="submit" style="border: 0;  background:white;">
+									<li class="jsx-707316887 " 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:205px;"  >
+											신고정보
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 신고 -->
+								
+								<!-- 좋아요 -->
+								<form action="${pageContext.request.contextPath }/member/likeySelectList.do" method="post">
+								<br />
+									<button type="submit" style="border: 0;  background:white;">
+									<li class="jsx-707316887 " 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:205px;"  >
+											좋아요
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 좋아요 -->
+								
 						</ul>
 						<button type="button" class="jsx-707316887 btn-logout" style="height: 35px; margin-bottom: 50px; margin-left:25px;  background:white; border:none;" 
 						onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">
@@ -757,7 +816,7 @@ li:hover {
 					<input type="text" name="userId" id="userId_" value="${member.userId}" 
 					style="display: none;"/>
 					<div class="jsx-2123435526 content">
-						<div class="jsx-1936111413 card" style="height: 650px;">
+						<div class="jsx-1936111413 card" style="height: 800px;">
 							<div class="jsx-1936111413 title">
 								<h2 class="jsx-1936111413">${member.nickName}님 환영합니다.</h2>
 								<p class="jsx-1936111413">별별선생에서 사용되는 대표 프로필 사진과 닉네임 입니다.</p>
@@ -766,8 +825,8 @@ li:hover {
 								<div class="jsx-1936111413 profile-img">
 									<div class="jsx-2014955477 photo-upload-preview">
 										<div class="jsx-3815033897 avatar">
-											<div class="jsx-3815033897 circle">
-											<img style="height: 100%;" src="${pageContext.request.contextPath}/resources/images/profileImage/${member.profileName}" id="profileImg"/></div>
+											<div class="jsx-3815033897 circle" style="filter: drop-shadow(2px 4px 5px black);">
+											<img style="height: 100%; " src="${pageContext.request.contextPath}/resources/images/profileImage/${member.profileName}" id="profileImg"/></div>
 											
 											<input type="file" id="206fe538-b5a2-41b7-8e8c-b2e02db8b307" name="upFile"
 												accept="image/*" class="jsx-2014955477"  onchange="LoadImg(this)"  multiple><label

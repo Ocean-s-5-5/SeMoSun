@@ -52,6 +52,36 @@
  	 		 OR NOTICECONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
 		</select>
 	
+	
+	
+	<!-- 메인화면에서 쓸거 -->
+<!-- 	<select id="teacherList" parameterType="string" resultType="Teacher"></select> -->
+<!-- 	<select id="talkList"   parameterType="string" resultType="TalknMember"></select> -->
+<!-- 	<select id="noticeList" parameterType="string" resultType="Notice"></select> -->
+<!-- 	<select id="reviewList" parameterType="string" resultType="Review"></select> -->
+		<select id="memberCount" resultType="int">
+			SELECT count(*) FROM MEMBER
+		</select>
+		<select id="reviewCount" resultType="int">
+			SELECT count(*) FROM review
+		</select>
+		<select id="teacherCount" resultType="int">
+			SELECT count(*) FROM teacher
+		</select>
+		<select id="supCount" resultType="int">
+			SELECT count(*) FROM TALK
+		</select>
+		<select id="noticeCount" resultType="int">
+			SELECT count(*) FROM notice
+		</select>
+<!-- 		<select id="totalCount" resultType="int"> -->
+<!-- 			SELECT (SELECT count(*) FROM MEMBER), -->
+<!-- 			       (SELECT count(*) FROM review), -->
+<!-- 			       (SELECT count(*) FROM teacher), -->
+<!-- 			       (SELECT count(*) FROM TALK), -->
+<!-- 			       (SELECT count(*) FROM notice) -->
+<!-- 			FROM DUAL -->
+<!-- 		</select> -->
 
 
 

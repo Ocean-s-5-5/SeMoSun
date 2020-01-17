@@ -149,7 +149,7 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 li.active.jsx-707316887 a.jsx-707316887 {
-	color: #3f60cc;
+	color: #3f60cc !important;
 }
 
 li.jsx-707316887 a.jsx-707316887 {
@@ -687,9 +687,11 @@ li:hover {
     -o-transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     transform: scale(1.1,1.1);
-}
-th {
-	text-align:center !important;
+
+
+
+a.active-color {
+	color:#3f60cc;
 }
 </style>
 
@@ -723,32 +725,45 @@ th {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
-					style="background: white; width: 1257px; height: 850px;">
+					style="background: white; width: 1257px; height: 800px;">
 					<c:import url="mypageSidebar.jsp" />
 					<div id="container">
 						<section id="member-container" class="container">
+						<br />
 							<p>총 ${totalContents}건의 게시물이 있습니다.</p>
 							<table id="tbl-board" class="table table-striped table-hover" style="text-align:center;">
 								<tr>
 									<th></th>
-									<th>번호</th>
-									<th>강사이름</th>
-									<th>소속</th>
-									<th>과목</th>
+									<th style="text-align:center">번호</th>
+									<th style="text-align:center">강사이름</th>
+									<th style="text-align:center">소속</th>
+									<th style="text-align:center">과목</th>
 									<th></th>
-									<th>파일</th>
 								</tr>
-
 								<c:forEach items="${list}" var="t">
 									<tr id="${t.tNo}">
-
+									
 										<td><input type="hidden" value="${t.tNo}" /></td>
 										<td onclick="selectOne(${t.tNo});">${t.tNo}</td>
 										<td onclick="selectOne(${t.tNo});">${t.tName}</td>
 										<td onclick="selectOne(${t.tNo});">${t.company}</td>
 										<td onclick="selectOne(${t.tNo});">${t.subject}</td>
-										<td align="center" />
-										<td onclick="selectOne(${t.tNo});">${t.profile}</td>
+										<td onclick="selectOne(${t.tNo});"></td>
+										
+											<%-- <c:if test=" ${t.profile == 'defaultFmember'}">
+												<td onclick="selectOne(${t.tNo});">X</td>
+											</c:if>
+											${!empty qna.answer}
+											<c:if test=" ${t.profile == 'defaultMmember'}">
+												<td onclick="selectOne(${t.tNo});">X</td>
+											</c:if> --%>
+											
+										<%-- <c:if test=" ${!empty t.profile}">
+										
+											<td onclick="selectOne(${t.tNo});">${ please(${t.profile}})</td>
+										</c:if> --%>
+										<%-- <td onclick="selectOne(${t.tNo});">${ please(t.profile})</td> --%>
+										
 									</tr>
 								</c:forEach>
 							</table>
@@ -761,10 +776,6 @@ th {
 				</div>
 
 				</div>
-				<div class="jsx-3888259898 btn-save">
-					<button type="button" class="jsx-315148180 "
-						style="margin-left: 600px; margin-top: 40px;">수정 저장</button>
-				</div>
 			</div>
 
 		</div>
@@ -772,12 +783,23 @@ th {
 		<div id="topmost" class="jsx-2567582721"></div>
 	</div>
 	<!-- 시작 -->
-
+<!-- <script>
+		function please(inputStr)
+		{
+		    return new RegExp(/^defaultFmember.png$/i).test(inputStr);
+		}
+</script> -->
 
 
 	<!-- 끝  -->
 
 	<script>
+
+
+	$("a").click(function(){
+		toggleClass(".active-color");
+	});
+
 		function LoadImg(value) {
 			if (value.files && value.files[0]) {
 				var reader = new FileReader();

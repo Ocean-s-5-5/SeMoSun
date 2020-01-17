@@ -259,6 +259,7 @@ font-size: 1.5vmin;
   text-decoration: none;
   display: inline;
   border-radius: 4px;
+  cursor : pointer;
   -webkit-transition: background-color 1s ease;
   -moz-transition: background-color 1s ease;
   transition: background-color 1s ease;

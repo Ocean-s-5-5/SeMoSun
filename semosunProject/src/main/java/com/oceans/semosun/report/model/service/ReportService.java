@@ -47,6 +47,12 @@ public class ReportService {
 		return reportDAO.insertReport(re);
 	}
 
+	public int reportDelete(Report report) {
+
+		
+		return reportDAO.deleteReport(report);
+	}
+
 
 
 
