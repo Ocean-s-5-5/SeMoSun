@@ -32,6 +32,11 @@
 		SELECT * FROM TEACHER WHERE TNO = #{tNo} AND TSTATUS = 'Y'
 	</select>
 	
+	<select id="selectOneReview" parameterType="int" resultType="Review">
+		SELECT * FROM REVIEW join member using (userno) 
+		WHERE RNO = #{rno} AND RSTATUS = 'W'
+	</select>
+	
 	<select id="reviewLevel" parameterType="int" resultType="hashmap">
 	<![CDATA[
 		SELECT COUNT(CASE WHEN TOTAL < 3 THEN 1 END) REVIEW_0,

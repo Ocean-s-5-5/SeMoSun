@@ -85,5 +85,9 @@ public class ReviewService {
 		return rDao.updateReview(review);
 	}
 
+	public Review selectOneReview(int rno) {
+		return rDao.selectOneReview(rno);
+	}
+
 
 }

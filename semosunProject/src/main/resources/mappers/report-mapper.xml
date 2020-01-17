@@ -26,10 +26,13 @@
 	
 	<insert id="insert" parameterType="Report">
 		INSERT INTO REPORT
-		VALUES(#{userNo},
-			   #{rno},
-			   #{ref_content},
-			   DEFAULT)
+		VALUES(	#{userNo},
+				SEQ_REF_NO.NEXTVAL,
+				#{ref_content},
+				DEFAULT,
+				DEFAULT,
+				null,
+				#{rno} )
 	</insert>
 
 </mapper>

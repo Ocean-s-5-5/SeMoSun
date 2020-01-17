@@ -122,4 +122,11 @@ public class ReviewController {
 		return reviewService.likeReview(isLike, rno, userNo); 
 	}
 	
+	@RequestMapping("/review/selectOneReview.do")
+	@ResponseBody
+	public Review selectOneReview(int rno){
+		Review review = reviewService.selectOneReview(rno); 
+		return review;
+	}
+	
 }

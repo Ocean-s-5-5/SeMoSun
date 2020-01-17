@@ -78,5 +78,11 @@ public class ReviewDAO {
 	public int updateReview(Review review) {
 		return sqlSession.update("review-mapper.updateReview", review);
 	}
+
+	public Review selectOneReview(int rno) {
+		Review r = sqlSession.selectOne("review-mapper.selectOneReview", rno);
+		System.out.println(r);
+		return r;
+	}
 	
 }

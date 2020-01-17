@@ -28,6 +28,23 @@ public class Teacher implements Serializable{
 		super();
 	}
 
+	public Teacher(int tNo, String tName, String company, String subject, String profileName) {
+		super();
+		this.tNo = tNo;
+		this.tName = tName;
+		this.company = company;
+		this.subject = subject;
+		this.profileName = profileName;
+	}
+
+	public Teacher(int tNo, String tName, String company, String subject) {
+		super();
+		this.tNo = tNo;
+		this.tName = tName;
+		this.company = company;
+		this.subject = subject;
+	}
+
 	public float getSqrt() {
 		return sqrt;
 	}
