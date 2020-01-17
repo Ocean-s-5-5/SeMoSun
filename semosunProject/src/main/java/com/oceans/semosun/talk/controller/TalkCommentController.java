@@ -76,8 +76,7 @@ public class TalkCommentController {
 		List<Talk> data = null;
 	
 		int result = talkCommentService.deleteTalkComment(commentno);
-		
-		if(result>0) {
+			if(result>0) {
 			// selectList
 			data = talkCommentService.selectListTalkComment(talkno);
 		}
