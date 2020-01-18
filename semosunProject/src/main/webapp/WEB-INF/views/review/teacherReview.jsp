@@ -388,15 +388,14 @@
 	                                            </div>
 	                                        </li>
 	                                    </ul>
-                                    ${r.checkLike}
                                     <!-- 좋아요, 신고 -->
                                    <div class="divBtn">
                                    <c:if test="${r.checkLike == 1}">
-	                                  <button class="btn btn-default btn-md myLike" type="button" onclick="like(this, ${r.rno}, ${member.userNo }, ${Teacher.tNo});"><i class="fa fa-heart"></i> ${r.likeCount}</button>
+	                                  <button class="btn btn-default btn-md myLike" type="button" onclick="like(this, ${r.rno},  ${empty member? 0:member.userNo }, ${Teacher.tNo});"><i class="fa fa-heart"></i> ${r.likeCount}</button>
                                    </c:if><c:if test="${r.checkLike == 0}">
-	                                  <button class="btn btn-default btn-md" type="button" onclick="like(this, ${r.rno}, ${member.userNo }, ${Teacher.tNo});"><i class="fa fa-heart"></i> ${r.likeCount}</button>
+	                                  <button class="btn btn-default btn-md" type="button" onclick="like(this, ${r.rno}, ${empty member? 0:member.userNo }, ${Teacher.tNo});"><i class="fa fa-heart"></i> ${r.likeCount}</button>
                                    </c:if> 
-	                                  <button class="btn btn-default btn-md reportBtn" type="button" onclick="fn_reportView(${r.rno});"><i class="fa fa-home"></i> 신고</button>
+	                                  <button class="btn btn-default btn-md reportBtn" type="button" onclick="fn_reportView(${r.rno});" ><i class="fa fa-home"></i> 신고</button>
                                    </div>
 									<!-- 좋아요, 신고 End -->
 									
@@ -746,7 +745,7 @@
 		}
 		
 		function like(Btn, rno, userNo, tNo) {
-			if(userNo == null) { alert("로그인을 해주세요!"); return; }
+			if(userNo == 0) { alert("로그인을 해주세요!"); return; }
 			
 			var isLike;
 			var count;
@@ -920,6 +919,7 @@
 		
 			// 신고 버튼 함수
 			function fn_reportView(rno) {
+				if(${empty member}) { alert("로그인을 해주세요!"); return; }
 				location.href="${pageContext.request.contextPath}/report/reportForm.do?rno="+rno+"&tNo=${Teacher.tNo}";
 			}
 		

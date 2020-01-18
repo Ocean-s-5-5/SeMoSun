@@ -782,6 +782,9 @@ th {
 		}); */
 		
  		function selectOne(qNo){
+			if(${member.userId eq 'admin'})
+			location.href = '${pageContext.request.contextPath}/qna/qnaSelectOneAdmin.do?no=' + qNo;
+			else
 			location.href = '${pageContext.request.contextPath}/qna/qnaPwd.do?no=' + qNo;
 		};
 /* 		<h3>

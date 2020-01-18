@@ -5,9 +5,10 @@
 
 <mapper namespace="report-mapper">
 	<select id="selectList" resultType="Report">
-		 select * from report r join member m on
-  		 (r.userno = m.userno)
-         order by REF_DATE DESC
+		 SELECT * FROM REPORT REP JOIN MEMBER M ON (REP.USERNO = M.USERNO) 
+								  JOIN REVIEW R ON (REP.RNO=R.RNO) 
+         WHERE R.RSTATUS='R'
+         ORDER BY REP.REF_DATE DESC
 	</select>
 
 	<select id="selectTotalContents" resultType="int">
@@ -27,12 +28,9 @@
 	<insert id="insert" parameterType="Report">
 		INSERT INTO REPORT
 		VALUES(	#{userNo},
-				SEQ_REF_NO.NEXTVAL,
+				#{rno},
 				#{ref_content},
-				DEFAULT,
-				DEFAULT,
-				null,
-				#{rno} )
+				DEFAULT)
 	</insert>
 	
 	<delete id="delete" parameterType="int">

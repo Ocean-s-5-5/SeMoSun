@@ -325,7 +325,7 @@
 							         	</div>
 							     	</div>
 										<div class="testimonial_author clearfix">
-							         		<img class="testimonial_photo" src="${pageContext.request.contextPath}/resources/images/mini-profile.png" >
+							         		<img class="testimonial_photo" src="${pageContext.request.contextPath}/resources/images/profileImage/${data.profileName}" >
 							         		<input type="hidden" value="${data.talkno}" />
 							         		<h3 class="testimonial_name">${data.nickName} </h3>
 							         		<div class="testimonial_position">${data.talkdate}</div>
@@ -346,10 +346,7 @@
 								});
 								// '게시글등록' 버튼 클릭 시 게시글 등록
 								function insert(){
-									if("${empty member}"){
-										alert("로그인후 이용 가능 합니다.");
-										return;
-									}
+									
 							        var contentt = $('#contentt').val().trim();
 							        var userno = Number($('#userno').val());
 							        
@@ -370,7 +367,7 @@
 													$('.appendReady').empty();
 													
 								            		$('.appendReady').append($formGroup);
-								            		
+								            	
 								            		for ( var tt in data) {
 								            		var $testimonial = $('<div>').addClass('testimonial');
 								            		
@@ -379,15 +376,16 @@
 								            		var $author = $('<div>').addClass('testimonial_author clearfix');
 
 								            		var $inner = $('<div>').addClass('testimonial_content_inner').attr("data-toggle", "modal").attr("data-target","#loginModal");
+								            		var $inputUserno = $('<input>').attr('type','hidden').val(data[tt].userno);
 								            										            		
-								            		var $img = $('<img>').addClass('testimonial_photo').attr("src", "${pageContext.request.contextPath}/resources/images/mini-profile.png");
+								            		var $img = $('<img>').addClass('testimonial_photo').attr("src", "${pageContext.request.contextPath}/resources/images/profileImage/"+data[tt].profileName);
 								            		var $input = $('<input>').attr('type','hidden').val(data[tt].talkno);
 								            		var $h3 = $('<h3>').addClass('testimonial_name').text(data[tt].nickName);
 								            		var $position = $('<div>').addClass('testimonial_position').text(new Date(data[tt].talkdate).format('yyyy-MM-dd a/p hh:mm:ss'));
 								            		
 								            		
 								            		$testimonial.append($content).append($author);
-								            		$content.append(  $inner.append(  $('<p>').text(data[tt].talkcontent)  )  );
+								            		$content.append(  $inner.append(  $('<p>').text(data[tt].talkcontent)  ).append($inputUserno)  );
 								            		$author.append($img).append($input).append($h3).append($position);
 								            		
 								            		$('.appendReady').append($testimonial);

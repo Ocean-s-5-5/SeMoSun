@@ -10,8 +10,10 @@
 	</select>
 
 	<select id="reportList" parameterType="boolean" resultType="Report">
-		SELECT * FROM Report join member using(userNo) join review using(rno) join teacher using(tno) 
-		<if test="isWating"> WHERE STATUS='W' </if>
+		SELECT * FROM Report REP join member M ON(REP.userNo=M.userNo) 
+								 join review R ON(REP.RNO=R.rno) 
+								 join teacher T ON(R.TNO=T.tno)
+		WHERE R.RSTATUS='R'
 	</select>
 
 
@@ -22,17 +24,10 @@
 		WHERE TNO = #{tNo}
 	</update>
 
-	<update id="statusR" parameterType="hashMap">
-		update report set status = 
-		<if test="isR"> 'R' </if>
-		<if test="!isR"> 'N' </if>
-		WHERE ref_no = #{ref_no}
-	</update>
-
 	<update id="RSTATUS" parameterType="hashMap">
 		update review set RSTATUS = 
-		<if test="isR"> 'R' </if>
-		<if test="!isR"> 'N' </if>
+		<if test="isY"> 'Y' </if>
+		<if test="!isY"> 'N' </if>
 		WHERE RNO = #{rno}
 	</update>
 

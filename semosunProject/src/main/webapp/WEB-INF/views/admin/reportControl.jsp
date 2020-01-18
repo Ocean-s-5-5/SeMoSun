@@ -184,8 +184,7 @@ height: 30px;padding: 0px;
     <div class="page-sections">
     
         <div id="start">
-       	<div class="title"><h2><i class="glyphicon glyphicon-send"></i> 최근 신고된 리뷰</h2><span>아직 처리하지 않은 리뷰는 총 <b>${Count }</b>개입니다.</span></div>
-       	
+       	<div class="title"><h2><i class="glyphicon glyphicon-send"></i> 최근 신고된 리뷰</h2><span>아직 처리하지 않은 리뷰는 총 <b>${totalCount }</b>개입니다.</span></div>
         <div class="section">
     	<div id="table">
             
@@ -197,7 +196,7 @@ height: 30px;padding: 0px;
             	 <div class="col5"><strong>승인하기</strong></div>
             </div>
             
-           <c:forEach items="${reportWatingList }" var="w"> 
+           <c:forEach items="${reportList }" var="w"> 
            <div class="semoRow td">
             	 <div class="col1">
             	 	<div><img src="${pageContext.request.contextPath }/resources/images/profileImage/${w.profileName}" width="60%"></div>
@@ -205,10 +204,10 @@ height: 30px;padding: 0px;
             	 </div>
             	 <div class="col2">${w.ref_date }</div>
             	 <div class="col3">${w.ref_content }</div>
-            	 <div class="col4">${w.status eq 'W'? '승인대기' : (w.status eq 'R'? '신고처리완료' : '신고해당없음')}</div>
+            	 <div class="col4">'승인대기'</div>
             	 <div class="col5">
-            	 	<button type="button" class="btn btn-danger" onclick="statusR(${w.ref_no}, ${w.rno}, true);">승인</button>
-            	 	<button type="button" class="btn btn-secondary" onclick="statusR(${w.ref_no}, ${w.rno}, false);">반려</button>
+            	 	<button type="button" class="btn btn-danger" onclick="statusY(${w.rno}, true);">승인</button>
+            	 	<button type="button" class="btn btn-secondary" onclick="statusY(${w.rno}, false);">반려</button>
             	 </div>
             </div>
             <div class="semoRow td review open" onclick="openReview(this, ${w.rno});">
@@ -219,52 +218,13 @@ height: 30px;padding: 0px;
         </div>
         </div>
         </div>
-        <hr/>
-    
-        <div id="installing">
-       	<div class="title"><h2><i class="glyphicon glyphicon-list-alt"></i> 신고리뷰 검색하기</h2><span>신고리뷰는 총 <b>${totalCount }</b>개입니다.</span></div>
-       	
-        <div class="section">
-        
-        
-        
-    	<div id="table">
-            
-            <div class="semoRow th">
-            	 <div class="col1"><strong>신고한 사람</strong></div>
-            	 <div class="col2"><strong>신고일</strong></div>
-            	 <div class="col3"><strong>신고 내용</strong></div>
-            	 <div class="col4"><strong>강사이름</strong></div>
-            	 <div class="col5"><strong>강사소속</strong></div>
-            </div>
-            
-         <c:forEach items="${reportList }" var="r" varStatus="i">
-           <div class="semoRow td search">
-            	  <div class="col1">
-            	 	<div>${r.nickName }</div>
-            	 </div>
-            	 <div class="col2">${r.ref_date }</div>
-            	 <div class="col3">${r.ref_content }</div>
-            	 <div class="col4">${r.tName }</div>
-            	 <div class="col5">${r.company }</div>
-            </div>
-            <div class="semoRow td review open searchHover"  onclick="openReview(this, ${r.rno});">
-            	 <i class="glyphicon glyphicon-chevron-right"></i><strong>리뷰 보기</strong>
-            </div>
-            </c:forEach>
-      
-		   </div>
-        </div>
-        </div>
-        </div>
-        <hr/>
-        
     </div>
 	<c:import url="common/footer.jsp"/>
 	<script type="text/javascript">
-		function statusR(ref_no, rno, isR) {
-			location.href = "${pageContext.request.contextPath }/review/statusR.am?ref_no="+ref_no+"&rno="+rno+"&isR="+isR;
+		function statusY(rno, isY) {
+			location.href = "${pageContext.request.contextPath }/review/statusY.am?rno="+rno+"&isY="+isY;
 		}
+		
 		function openReview(BtnDiv, rno) {
 			var isCurrent = $(BtnDiv).next().hasClass('wowCurrent');
 				$('.wow+div').remove();

@@ -104,7 +104,7 @@ textarea, input[type="text"] {
                                     </div>
 									
 									<script>
-									  document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+									  document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
 									</script>
                                     <!-- <div class="col-md-4">
                                     </div> -->
@@ -123,7 +123,6 @@ textarea, input[type="text"] {
 	                                    	</div>
 	                                	</div>
 	                                </c:if>
-                                        
                                         
                                         
                                         <input name="submit" type="submit" id="submitU" value="수정">

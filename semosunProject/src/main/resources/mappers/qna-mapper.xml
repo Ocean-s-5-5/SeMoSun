@@ -34,8 +34,17 @@
 	
 	<update id="updateQna" parameterType="Qna">
 		UPDATE QNA
-		SET QTITLE = #{qTitle},
-			QCONTENT = #{qContent}
+		<set>
+			<if test="qTitle != null">
+				QTITLE = #{qTitle},
+			</if>
+			<if test="qContent != null">
+				QCONTENT = #{qContent},
+			</if>
+			<if test="answer != null">
+				answer = #{answer},
+			</if>
+		</set>
 		WHERE QNO = #{qNo}
 		
 	</update>

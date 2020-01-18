@@ -104,28 +104,27 @@ public class QnaController {
 		Qna q = qnaService.selectOne(qNo);
 		System.out.println("테스트 :" + q);
 		
-		
-		
 		model.addAttribute("qna", q);
 		return "qna/qnaSelectOne";
 	}
 	
 	@RequestMapping("/qna/qnaUpdate.do")
-	public String qnaUpdate(Qna qna, Model model, HttpServletRequest request) {
+	public String qnaUpdate(Qna qna, Model model, HttpServletRequest request, HttpSession session) {
 		
 		int qNo = qna.getqNo();
 		System.out.println("번호야 왔니?? : " + qNo);
 		Qna originQna = qnaService.selectOne(qNo);
 		originQna.setqTitle(qna.getqTitle());
 		originQna.setqContent(qna.getqContent());
+		originQna.setAnswer(qna.getAnswer());
 		
 		int result = qnaService.updateQna(originQna);
+		qna = qnaService.selectOne(qna.getqNo());
 		
-		String msg = "";
-		String loc = "/qnaSelectOne.do";
-		
-				
-		return "qna/qnaSelectOne";
+		String loc = "qna/qnaSelectOne";
+		if(((Member) session.getAttribute("member")).getUserId().equals("admin")) loc = "qna/qnaSelectOneAdmin";
+		model.addAttribute("qna", qna);
+		return loc;
 	}
 	
 	/*
@@ -173,7 +172,7 @@ public class QnaController {
 
 		System.out.println(session.getAttribute("member"));
 			Member m = (Member) session.getAttribute("member"); // session의 m값
-			if(qna.getUserNo() == m.getUserNo() && bcryptPasswordEncoder.matches(checkPwd, m.getPwd()) ) {
+			if(qna.getUserNo() == m.getUserNo() && bcryptPasswordEncoder.matches(checkPwd, q.getPwd()) ) {
 
 //			System.out.println("qweqwe" + m.getPwd());
 
@@ -181,7 +180,7 @@ public class QnaController {
 				loc = "/qnaSelectOne.do?no="+q.getqNo();
 				
 //				System.out.println(m);
-				
+			
 			} else if (checkPwd.trim().length() != 0) {
 				msg = "비밀번호가 틀렸습니다.";
 			} else {
@@ -193,5 +192,13 @@ public class QnaController {
 			model.addAttribute("qna", q);
 
 		return "common/msg";
+	}
+	
+	@RequestMapping("/qna/qnaSelectOneAdmin.do")
+	public String qnaSelectOneAdmin(@RequestParam("no") int qNo, Model model) {
+		Qna q = qnaService.selectOne(qNo);
+		
+		model.addAttribute("qna", q);
+		return "qna/qnaSelectOneAdmin";
 	}
 }

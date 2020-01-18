@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.oceans.semosun.admin.model.dao.AdminDAO;
 import com.oceans.semosun.report.model.vo.Report;
@@ -30,12 +31,11 @@ public class AdminService {
 		return adminDAO.deleteT(tNo);
 	}
 
-	public List<Report> reportList(boolean isWating) {
-		return adminDAO.reportList(isWating);
+	public List<Report> reportList() {
+		return adminDAO.reportList();
 	}
-
-	public int statusR(int ref_no, int rno, Boolean isR) {
-		return adminDAO.statusR(ref_no, rno, isR);
+	public int statusY(int rno, Boolean isY) {
+		return adminDAO.statusY(rno, isY);
 		
 	}
 

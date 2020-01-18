@@ -833,15 +833,15 @@ input[type=range] {
 											var JJ = $.noConflict();
 										</script>
 										<script>
-// 										function signCheck(){
-// 											$('#signUpBtn').attr('disabled', true).text("먼저 모든 약관에 동의해주세요");
-// 											if($('#useAgree1').prop('checked') && 
-// 											   $('#useAgree2').prop('checked') &&
-// 											   $('#useAgree3').prop('checked')){
-// 											   $('#signUpBtn').removeAttr('disabled').text("이제 회원가입이 가능합니다!");
-// 											}
+										function signCheck(){
+											$('#signUpBtn').attr('disabled', true).text("먼저 모든 약관에 동의해주세요");
+											if($('#useAgree1').prop('checked') && 
+											   $('#useAgree2').prop('checked') &&
+											   $('#useAgree3').prop('checked')){
+											   $('#signUpBtn').removeAttr('disabled').text("이제 회원가입이 가능합니다!");
+											}
 												
-// 										} 
+										} 
 										function LoadImg(value) {
 										    if (value.files && value.files[0]) {
 										        var reader = new FileReader();
@@ -1015,7 +1015,7 @@ input[type=range] {
 											    alert("사용가능한 아이디를 입력해주세요.");
 											    return false;
 											}
-	
+											
 											alert("회원가입이 완료되었습니다.");
 
 											return true;

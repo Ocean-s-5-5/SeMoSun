@@ -46,7 +46,7 @@
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
 					</c:if>
 					<c:if test="${!empty member && member.userId eq 'admin'}">
-					<li><a style="font-family:S-CoreDream-4Regular;" href="${ pageContext.request.contextPath }/adminMain.am">관리자 페이지</a>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${ pageContext.request.contextPath }/memberControl.am">관리자 페이지</a>
 						<ul class="dropdown">
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/memberControl.am">회원 관리</a></li>
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacherControl.am">강사님 관리</a></li>

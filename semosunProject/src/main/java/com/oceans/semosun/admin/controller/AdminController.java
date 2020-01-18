@@ -48,13 +48,10 @@ public class AdminController {
 	
 	@RequestMapping("/reportControl.am")
 	public String reportControl(Model model) {
-		List<Report> reportList = adminService.reportList(false);
-		List<Report> reportWatingList = adminService.reportList(true);
+		List<Report> reportList = adminService.reportList();
 		
 		model.addAttribute("reportList", reportList)
-			.addAttribute("reportWatingList", reportWatingList)
-			.addAttribute("totalCount", reportList.size())
-			.addAttribute("Count", reportWatingList.size());
+			.addAttribute("totalCount", reportList.size());
 		
 		return "admin/reportControl";
 	}
@@ -65,9 +62,9 @@ public class AdminController {
 		return adminService.tstatusY(tNo, isUpdateY);
 	}
 	
-	@RequestMapping("/review/statusR.am")
-	public String statusR(int ref_no, int rno, Boolean isR, Model model) {
-		adminService.statusR(ref_no, rno, isR);
+	@RequestMapping("/review/statusY.am")
+	public String statusY(int rno, Boolean isY, Model model) {
+		adminService.statusY(rno, isY);
 		return reportControl(model);
 	}
 	

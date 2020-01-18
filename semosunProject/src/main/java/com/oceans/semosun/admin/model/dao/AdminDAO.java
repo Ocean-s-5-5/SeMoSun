@@ -20,8 +20,8 @@ public class AdminDAO {
 		return sqlSessionTemplate.selectList("admin-mapper.teacherList", b);
 	}
 	
-	public List<Report> reportList(boolean isWating) {
-		return sqlSessionTemplate.selectList("admin-mapper.reportList", isWating);
+	public List<Report> reportList() {
+		return sqlSessionTemplate.selectList("admin-mapper.reportList");
 	}
 	
 
@@ -40,14 +40,12 @@ public class AdminDAO {
 		return sqlSessionTemplate.delete("admin-mapper.deleteT", tNo);
 	}
 
-	public int statusR(int ref_no, int rno, Boolean isR) {
-		Map<String, Object> statusR = new HashMap<>();
-		statusR.put("ref_no", ref_no);
-		statusR.put("rno", rno);
-		statusR.put("isR", isR);
-		int result = sqlSessionTemplate.update("admin-mapper.statusR", statusR);
-		result += sqlSessionTemplate.update("admin-mapper.RSTATUS", statusR);
-		return result;
+	public int statusY(int rno, Boolean isY) {
+		Map<String, Object> statusY = new HashMap<>();
+		statusY.put("rno", rno);
+		statusY.put("isY", isY);
+		
+		return sqlSessionTemplate.update("admin-mapper.RSTATUS", statusY);
 	}
 	
 }
