@@ -14,6 +14,16 @@
 	<select id="selectTotalContents" resultType="int">
 		SELECT COUNT(*) FROM REPORT
 	</select>
+	
+	<select id="searchReport" parameterType="String" resultType="Report">
+		SELECT *
+		FROM REPORT
+		
+		<if test="keyword != null">
+			WHERE REF_CONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+		</if>
+		ORDER BY REF_DATE DESC
+	</select>
 
 <!-- 받아오는 값이 있을때는 parameterType이 필요하다 -->
 	<select id="selectOne" parameterType="Report" resultType="Report">

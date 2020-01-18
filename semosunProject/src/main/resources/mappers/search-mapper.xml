@@ -17,9 +17,10 @@
 	<select id="selectTeacherList" parameterType="string" resultType="Teacher">
 	<!-- concat을 쓰는 이유는 %||#{keyword}||%이렇게 하는 ||기호는 오라클 봐께 못써서 concat을 써줘야한다. -->
 		SELECT * FROM TEACHER
-		WHERE TNAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+		WHERE (TNAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
   		   OR COMPANY LIKE CONCAT(CONCAT('%', #{keyword}), '%')
-  		   OR SUBJECT LIKE CONCAT(CONCAT('%', #{keyword}), '%')		
+  		   OR SUBJECT LIKE CONCAT(CONCAT('%', #{keyword}), '%')		)
+  		   AND TSTATUS = 'Y'
 	</select>
 
 
@@ -29,12 +30,13 @@
 	 JOIN  MEMBER M ON(R.USERNO=M.USERNO)
      JOIN TEACHER T ON(R.TNO=T.TNO)
      ORDER BY RDATE DESC)RR
-	 WHERE RTITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+	 WHERE (RTITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
  	   OR GCONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
  	   OR PROFILENAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
  	   OR TNAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
        OR COMPANY LIKE CONCAT(CONCAT('%', #{keyword}), '%')
-  	   OR SUBJECT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+  	   OR SUBJECT LIKE CONCAT(CONCAT('%', #{keyword}), '%'))
+  		AND RSTATUS != 'Y'
 	</select>
 
 	<select id="selectTalkList" parameterType="string" resultType="TalknMember">

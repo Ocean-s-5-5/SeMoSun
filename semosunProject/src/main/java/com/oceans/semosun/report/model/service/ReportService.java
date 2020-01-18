@@ -53,6 +53,10 @@ public class ReportService {
 		return reportDAO.deleteReport(report);
 	}
 
+	public List<Map<String, String>> searchReport(int cPage, int numPerPage, String keyword) {
+		return reportDAO.searchReport(cPage, numPerPage, keyword);
+	}
+
 
 
 

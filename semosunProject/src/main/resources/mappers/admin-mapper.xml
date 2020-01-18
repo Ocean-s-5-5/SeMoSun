@@ -25,10 +25,8 @@
 	</update>
 
 	<update id="RSTATUS" parameterType="hashMap">
-		update review set RSTATUS = 
-		<if test="isY"> 'Y' </if>
-		<if test="!isY"> 'N' </if>
-		WHERE RNO = #{rno}
+		<if test="isY"> update review set RSTATUS = 'Y' WHERE RNO = #{rno} </if>
+		<if test="!isY"> DELETE FROM REPORT WHERE RNO = #{rno} </if>
 	</update>
 
 	<update id="updateT" parameterType="Teacher">

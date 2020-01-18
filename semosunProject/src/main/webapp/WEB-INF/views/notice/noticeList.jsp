@@ -65,8 +65,15 @@ h3 b {
         <!-- End Page Banner -->
 
         <!-- Start Content -->
-        <div id="content">
+        
             <div class="container">
+            
+            	<br />
+            
+                <p><b>총 ${totalContents}건의 게시물이 있습니다.</b></p>
+                
+                <br />
+                
                 <div class="row blog-page">
 
                     <!-- Start Blog Posts -->
@@ -78,7 +85,7 @@ h3 b {
                             <!-- Post Content Date -->
                             <div class="post-time-section">
                                 <div class="post-date">
-                                    <span class="day">${n.noticeNo}</span>
+                                    <span class="day" style="color: white;">${totalContents - (cPage - 1) * numPerPage - status.index}</span>
                                 </div>
                                 <div class="post-month">
                                     <span class="month"></span>
@@ -87,7 +94,7 @@ h3 b {
                             <!-- End Post Content Date -->
                             <!-- Post Content -->
                             <div class="post-content">
-                                <h3><a href="${pageContext.request.contextPath}/noticeView.nt?no=${n.noticeNo}"><b>${n.noticeTitle}</b></a>
+                                <h3><a href="${pageContext.request.contextPath}/noticeView.nt?no=${n.noticeNo}&nNumber=${totalContents - (cPage - 1) * numPerPage - status.count}"><b>${n.noticeTitle}</b></a>
                             </h3>
                                 <div class="post-meta">
                                     <p>작성일 : ${n.noticeDate}</p>
@@ -109,17 +116,29 @@ h3 b {
                     <!-- End Blog Posts -->
 
                     <!--Sidebar-->
-                    <div class="col-md-3 sidebar right-sidebar">
+                    <div class="col-md-3 sidebar right-sidebar" style="width: 400px;
+                    position: absolute; margin-left: 40%;">
 
                         <!-- Search Widget -->
-                        <div class="widget widget-search">
-                            <form action="#">
-                                <input type="search" placeholder="Enter Keywords..." />
+                        <div>
+                       
+                        	<select style="width: 110px; float:left;"  >
+							    <option selected>제목</option>
+							    <option>내용</option>
+							    <option>제목+내용</option>
+							    <option>작성자</option>
+							</select>
+							
+                        </div>
+                         <div class="widget widget-search" style="position:absolute; margin-left:140px;">
+                            <form action="${ pageContext.request.contextPath }/noticeSearch.nt">
+                                <input type="search" name="keyword" placeholder="Enter Keywords..." />
                                 <button class="search-btn" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </form>
                         </div>
+                        
                     </div>
                     <!--End sidebar-->
 
@@ -130,8 +149,14 @@ h3 b {
 	        	</div>    
 	        	<!-- 페이징처리 끝 -->
         	
+        	<br /><br />
+        	<br />
+        	<br />
+        	<br />
+        	<br /><br />
+        	
             </div>
-        </div>
+        
         <!-- End Content -->
 	<c:import url="../common/footer.jsp"/>
 	

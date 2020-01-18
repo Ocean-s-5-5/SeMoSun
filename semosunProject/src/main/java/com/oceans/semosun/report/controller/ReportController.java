@@ -49,6 +49,34 @@ public class ReportController {
 		return "report/reportList";
 		
 	}
+	
+	@RequestMapping("/reportSearch.do")
+	public String searchReport(
+			@RequestParam(value="cPage", 
+            			  required=false, 
+            			  defaultValue="1") int cPage,
+			Model model, @RequestParam(value="keyword", required = false) String keyword) {
+		
+		int numPerPage = 10;
+		if(keyword != null) {
+			model.addAttribute("keyword", keyword);
+			/* keyword = "%"+keyword+"%"; */
+		}
+		
+		List<Map<String, String>> list = reportService.searchReport(cPage, numPerPage, keyword);
+		
+		int totalContents = reportService.selectTotalContents();
+		
+		String pageBar
+		  = Utils.getPageBar(totalContents, cPage, numPerPage, "reportList.do");
+		
+		model.addAttribute("list", list)
+	     	 .addAttribute("totalContents", totalContents)
+	     	 .addAttribute("numPerPage", numPerPage);
+		System.out.println(list);
+		return "report/reportList";
+	}
+	
 	@RequestMapping("/reportView.do")
 	public String selectOneReport(@RequestParam int rno,@RequestParam int userNo,
 			 Model model, HttpSession session) {

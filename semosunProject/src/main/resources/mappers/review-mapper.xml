@@ -25,7 +25,7 @@
                                         , (SELECT COUNT(*) FROM likey WHERE RNO = r.rno AND USERNO = #{userNo}) checkLike
                                         </if>
 		FROM review r JOIN member m on(r.USERNO = m.USERNO) 
-		WHERE TNO = #{tNo} AND r.RSTATUS = 'N' ORDER BY RDATE DESC
+		WHERE TNO = #{tNo} AND r.RSTATUS != 'Y' ORDER BY RDATE DESC
 	</select>
 	
 	<select id="selectOneTeacher" parameterType="int" resultType="Teacher">
@@ -34,7 +34,7 @@
 	
 	<select id="selectOneReview" parameterType="int" resultType="Review">
 		SELECT * FROM REVIEW join member using (userno) 
-		WHERE RNO = #{rno} AND RSTATUS = 'W'
+		WHERE RNO = #{rno} AND RSTATUS = 'R'
 	</select>
 	
 	<select id="reviewLevel" parameterType="int" resultType="hashmap">

@@ -17,7 +17,9 @@
 	</select>
 	
 	<select id="selectOneQna" parameterType="_int" resultType="Qna">
-		SELECT * FROM QNA JOIN MEMBER USING(USERNO) WHERE QNO = #{qNo}
+		SELECT * FROM QNA JOIN MEMBER USING(USERNO) WHERE QNO = 
+		<if test="qNo != 0"> #{qNo} </if>
+		<if test="qNo == 0"> (SELECT MAX(QNO) FROM QNA) </if>
 	</select>
 	
 	<insert id="insertQna" parameterType="Qna">

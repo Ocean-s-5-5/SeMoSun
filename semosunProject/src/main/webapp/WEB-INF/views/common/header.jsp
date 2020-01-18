@@ -43,8 +43,6 @@
 							<li><a style="font-family:S-CoreDream-4Regular;" href="#" data-toggle="modal" data-target="#exampleModalCenter1">강사등록</a></li>
 						</ul>
 					</li>
-					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
-					</c:if>
 					<c:if test="${!empty member && member.userId eq 'admin'}">
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${ pageContext.request.contextPath }/memberControl.am">관리자 페이지</a>
 						<ul class="dropdown">
@@ -53,6 +51,8 @@
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/reportControl.am">신고 관리</a></li>
 						</ul>
 					</li>
+					</c:if>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a></li>
 					</c:if>
 					
 				</ul>

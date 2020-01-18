@@ -92,7 +92,8 @@ public class QnaController {
 			msg = "게시글 추가 실패!";
 		}
 		
-		model.addAttribute("msg", msg)
+		model.addAttribute("qna", qnaService.selectOne(qna.getqNo()))
+			 .addAttribute("msg", msg)
 			 .addAttribute("loc", loc);
 		
 		return "qna/qnaSelectOne";

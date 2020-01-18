@@ -33,7 +33,6 @@ public class NoticeController {
 
 		// 한 페이지당 보여줄 게시글 수
 		int numPerPage = 10;
-		
 		// 페이지 처리된 리스트 가져오기
 		List<Map<String,String>> list = noticeService.selectList(cPage, numPerPage);
 		
@@ -49,18 +48,48 @@ public class NoticeController {
 		model.addAttribute("list", list)
 		     .addAttribute("totalContents", totalContents)
 		     .addAttribute("numPerPage", numPerPage)
+		     .addAttribute("cPage", cPage)
 		     .addAttribute("pageBar", pageBar);
 		System.out.println(list);
 		return "notice/noticeList";
 		
 	}
 	
+	@RequestMapping("/noticeSearch.nt")
+	public String searchNotice(
+			@RequestParam(value="cPage", 
+            			  required=false, 
+            			  defaultValue="1") int cPage,
+			Model model, @RequestParam(value="keyword", defaultValue = "", required = false) String keyword) {
+		
+		int numPerPage = 10;
+		if(keyword.trim().length() != 0) {
+			model.addAttribute("keyword", keyword);
+			/* keyword = "%"+keyword+"%"; */
+		}
+		
+		List<Map<String, String>> list = noticeService.searchNotice(cPage, numPerPage, keyword);
+		
+		int totalContents = noticeService.searchTotalContents(keyword);
+		
+		String pageBar
+		  = Utils.getPageBar(totalContents, cPage, numPerPage, "noticeSearch.nt", keyword);
+		
+		model.addAttribute("list", list)
+	     .addAttribute("totalContents", totalContents)
+	     .addAttribute("numPerPage", numPerPage)
+	     .addAttribute("pageBar", pageBar);
+		System.out.println(list);
+		return "notice/noticeList";
+	}
+	
 	@RequestMapping("/noticeView.nt")
-	public String selectOneNotice(@RequestParam("no") int noticeNo, Model model) {
+	public String selectOneNotice(@RequestParam("no") int noticeNo,  int nNumber, Model model) {
 		Notice n = noticeService.selectOne(noticeNo);
 		System.out.println("테스트 :" + n);
 		
-		model.addAttribute("notice", n);
+		model.addAttribute("notice", n)
+			.addAttribute("nNumber", nNumber);
 		return "notice/noticeView";
 	}
 	
@@ -74,7 +103,7 @@ public class NoticeController {
 			Notice notice, Model model) throws Exception {
 		
 		System.out.println("인설트 : " + notice + model);
-		
+		int totalContents = 0;
 		int result = 0; 
 		
 		try {
@@ -89,6 +118,7 @@ public class NoticeController {
 		
 		if(result > 0 ) {
 			msg = "게시글 추가 성공!";
+			totalContents = noticeService.selectTotalContents();
 			n = noticeService.selectOneCurrent();
 		} else {
 			msg = "게시글 추가 실패!";
@@ -96,6 +126,7 @@ public class NoticeController {
 			
 		model.addAttribute("msg", msg)
 		 	 .addAttribute("loc", loc)
+		 	 .addAttribute("nNumber", totalContents-1)
 		 	 .addAttribute("notice", n);
 		
 		return "notice/noticeView";
