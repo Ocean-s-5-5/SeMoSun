@@ -436,7 +436,7 @@ label.jsx-2014955477 {
 }
 
 label.jsx-3712571264>span.jsx-3712571264 {
-	font-size: 14px;
+	font-size: 20px !important;
 	font-weight: bold;
 }
 
@@ -447,7 +447,7 @@ label.jsx-3712571264>span.jsx-3712571264 {
 
 input.jsx-3664481379 {
 	display: block;
-	font-size: 16px;
+	font-size: 20px !important;
 	width: 100%;
 	height: 52px;
 	border-bottom: solid 1px #dfdfdf;
@@ -686,6 +686,10 @@ a, a:hover, a:active, a:visited, a:focus {
 body {
 	background: #F8F8F8 !important;
 }
+jsx-3712571264{
+	margin-top: 20px !important;
+} 
+
 </style>
 
 
@@ -736,8 +740,113 @@ body {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
-					style="background: white; width: 1257px; height: 600px;">
-					<c:import url="mypageSidebar.jsp" />
+					style="background: white; width: 1257px; height: 799px;">
+					
+					
+<!-- sideBar -->
+
+					<div class="jsx-707316887 my-snb"
+						style="bottom: 1px; height: 800px;">
+						<h2 class="jsx-707316887">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+								viewBox="0 0 24 24" fill="none" stroke="#dfdfdf"
+								stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+								style="position: relative; margin-bottom: 60px;">
+								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+								<circle cx="12" cy="7" r="4"></circle></svg>
+							<span class="jsx-707316887">마이페이지</span>
+						</h2>
+						<ul class="jsx-707316887">
+							<!-- 프로필 -->
+							<li class="jsx-707316887 "><a class="jsx-707316887"
+								href="${pageContext.request.contextPath }/myPage/myPageProfile.do"
+								style="text-decoration: none; margin-top: 20px;">프로필</a></li>
+							<!-- 프로필 -->
+							
+							<!-- 강사정보 -->
+								<form action="${pageContext.request.contextPath }/member/teacherSelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${teacher.tNo}"/>
+							<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
+							<li class="jsx-707316887"
+									style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+										style="text-decoration: none; margin-top: 20px; text-align:left; width:210px; color:#3f60cc;"  >강사정보</a>
+								</li>
+								</button>
+								</form>
+								<!-- 강사정보 -->
+							
+							<!-- 리뷰정보 -->
+								<form action="${pageContext.request.contextPath }/member/reviewSelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Review.rno}"/>
+									<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
+									<li class="jsx-707316887 " 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:210px;"  >
+											리뷰정보
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 리뷰정보 -->
+								
+								<!-- 신고정보 -->
+								<form action="${pageContext.request.contextPath }/member/reportSelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Review.rno}"/>
+									<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
+									<li class="jsx-707316887" 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:210px;"  >
+											신고정보
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 신고정보 -->
+								
+								<!-- 좋아요 정보 -->
+								<form action="${pageContext.request.contextPath }/member/likeySelectList.do" method="post">
+								<br />
+								<input type="hidden" name="${Review.rno}"/>
+									<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
+									<li class="jsx-707316887" 
+										style="background:white;">
+									<div style=""></div>
+										<a class="jsx-707316887"
+											style="text-decoration: none; margin-top: 20px; text-align:left; width:210px;"  >
+											좋아요
+										</a>
+									</li>
+								</button>
+								</form>
+								<!-- 좋아요 정보 -->
+						</ul>
+						
+
+						<button type="button" class="jsx-707316887 btn-logout"
+							style="height: 35px; margin-bottom: 50px; margin-left: 25px; background: white; border-style: none;"
+							onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">
+							<span class="jsx-707316887 power-icon"><svg
+									xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+									viewBox="0 0 24 24" fill="none" stroke="#666666"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									style="position: relative;">
+									<path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+									<line x1="12" y1="2" x2="12" y2="12"></line></svg></span><span
+								class="jsx-7073168871" style="font-size: 16px;"><b>로그아웃</b></span>
+						</button>
+					</div>
+					
+<!-- sideBar -->
+					
 
 					<div id="contact-form" class="contatct-form" >
 						<div class="loader"></div>
@@ -745,27 +854,27 @@ body {
 							onsubmit="return validate();" method="post"
 							enctype="multipart/form-data">
 							<input type="hidden" name="userNo" value="${ member.userNo }" />
-							<div class="jsx-1392383053 popup-box undefined" style="width: 300px;">
+							<div class="jsx-1392383053 popup-box undefined" style="width: 400px; height: 500px;">
 								<div class="jsx-1392383053 title-box">
 								<br />
 									<div class="jsx-1422744987">
-										<h2 class="jsx-1422744987"  style="margin-left:110px; font-size: 30px;">강사정보</h2>
+										<h2 class="jsx-1422744987"  style="margin-left:130px; font-size: 40px; margin-top:20px;">강사정보</h2>
 									</div>
 								</div>
 								
 								<br /><br />
 									
-								<div class="jsx-3890274511 label-box" style="margin-left: 50px;">
+								<div class="jsx-3890274511 label-box" style="margin-left: 50px; margin-top:20px;">
 
 									<!-- 이름입력 -->
 									<label class="jsx-3712571264 " style="width:100%;"><span
 										class="jsx-3712571264">이름&nbsp;</span>
 										<div class="jsx-3890274511 select-box">
-											<div class="jsx-3890274511 input-flex">
-												<div class="jsx-3664481379 input">
+											<div class="jsx-3890274511 input-flex" >
+												<div class="jsx-3664481379 input" >
 													<input required="" placeholder="이름을 입력해 주세요."
 														class="jsx-3664481379 " name="tName"
-														value="${teacher.tName}">
+														value="${teacher.tName}" disabled>
 
 												</div>
 											</div>
@@ -774,7 +883,7 @@ body {
 
 									<!-- 성별 -->
 									
-									<label class="jsx-3712571264 " style="width:100%;"><span
+									<label class="jsx-3712571264 " style="width:100%; margin-top:20px;"><span
 										class="jsx-3712571264">성별&nbsp;</span>
 										<div class="jsx-3890274511 select-box">
 											<div class="jsx-3890274511 input-flex">
@@ -788,14 +897,14 @@ body {
 									<!-- 성별 -->
 
 								<!-- 과목선택 -->
-								<label class="jsx-3712571264 " style="width:100%;"><span
+								<label class="jsx-3712571264 " style="width:100%; margin-top:20px;"><span
 										class="jsx-3712571264">과목&nbsp;</span>
 										<div class="jsx-3890274511 select-box">
 											<div class="jsx-3890274511 input-flex">
 												<div class="jsx-3664481379 input">
 													<input required="" placeholder="과목을 입력해 주세요."
 														class="jsx-3664481379 " name="subject"
-														value="${teacher.subject}">
+														value="${teacher.subject}" disabled>
 
 												</div>
 											</div>
@@ -804,7 +913,7 @@ body {
 								<!-- 과목선택 -->
 										
 							    <!-- 학원명 -->
-								<label class="jsx-3712571264 " style="width:100%;"
+								<label class="jsx-3712571264 " style="width:100%; margin-top:20px;"
 									style="margin-left: 50px; margin-top: 10px;"><span
 									class="jsx-3712571264">학원명&nbsp;</span>
 									<div class="jsx-3890274511 select-box">
@@ -812,7 +921,7 @@ body {
 											<div class="jsx-3664481379 input">
 												<input required="" placeholder="학원명을 입력해 주세요."
 													class="jsx-3664481379 " name="company"
-													value="${teacher.company}">
+													value="${teacher.company}" disabled>
 											</div>
 										</div>
 									</div> </label>
@@ -822,18 +931,18 @@ body {
 								<br />
 
 								<!-- 사진등록 -->
-								<div class="jsx-2014955477 photo-upload-preview">
+								<div class="jsx-2014955477 photo-upload-preview" style="margin-top:30px;">
 									<div class="jsx-3815033897 avatar">
 										<%-- <div class="jsx-3815033897 circle"
 													style="background-image: url(&quot;${pageContext.request.contextPath}/resources/images/teacher/default.png&quot;);">
 													<!-- &quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot -->
 												</div> --%>
-										<div id="profileImgArea"  style="margin-left:50px;">
+										<div id="profileImgArea"  style="margin-left:20px; width: 200px; hegiht: 200px;">
 											<img id="profileImg"
 												src="${pageContext.request.contextPath }/resources/images/profileImage/defaultMmember.png"
 												onclick="$('#profile').click();"
-												style="width: 150px; hegiht: 150px; display: block; margin-left: auto; margin-right: auto;"
-												align="center">
+												style=" display: block; margin-left: auto; margin-right: auto;"
+												align="center"/>
 										</div>
 
 										<!-- <input style="visibility: hidden;" type="file"
@@ -844,7 +953,7 @@ body {
 													class="jsx-2014955477 alt-text">사진 첨부</span></label> -->
 										<div id="fileArea">
 											<input type="file" id="profile" name="upFile"
-												onchange="LoadImg(this)" style="display: none;" multiple>
+												onchange="LoadImg(this)" style="display: none;" multiple disabled/>
 										</div>
 									</div>
 								</div>

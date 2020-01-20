@@ -734,7 +734,7 @@ li:hover {
 								<form action="${pageContext.request.contextPath }/member/teacherSelectList.do" method="post">
 								<br />
 								<input class="jsx-707316887 active" type="hidden" name="${teacher.tNo}"/>
-							<button type="submit" style="border: 0;  background:white;">
+							<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
 							<li class="jsx-707316887 " 
 									style="background:white;">
 									<div style=""></div>
@@ -750,7 +750,7 @@ li:hover {
 								<br />
 								<input type="hidden" name="${Review.rno}"/>
 								<input type="hidden" name="${Teacher.tNo}"/>
-									<button type="submit" style="border: 0;  background:white;">
+									<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
 									<li class="jsx-707316887 " 
 										style="background:white;">
 									<div style=""></div>
@@ -768,7 +768,7 @@ li:hover {
 								<br />
 								<input type="hidden" name="${Report.rno}"/>
 								<input type="hidden" name="${Teacher.tNo}"/>
-									<button type="submit" style="border: 0;  background:white;">
+									<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
 									<li class="jsx-707316887 " 
 										style="background:white;">
 									<div style=""></div>
@@ -784,7 +784,7 @@ li:hover {
 								<!-- 좋아요 -->
 								<form action="${pageContext.request.contextPath }/member/likeySelectList.do" method="post">
 								<br />
-									<button type="submit" style="border: 0;  background:white;">
+									<button type="submit" style="border: 0;  background:white; border:0 !important; outline:0 !important;">
 									<li class="jsx-707316887 " 
 										style="background:white;">
 									<div style=""></div>
