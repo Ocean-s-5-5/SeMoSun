@@ -66,7 +66,6 @@
 #table {    
 	max-height: 500px;
     padding-top: 3px;
-    overflow: auto;
 }
 /* 상세 설정 */
 .semoRow.td div, .review{
@@ -150,6 +149,9 @@ img {
     height: 75%;
 /*     width: auto; */
 }
+#overflow {
+	overflow: overlay;
+}
 </style>
 </head>
 
@@ -171,6 +173,7 @@ img {
             	 <div class="col5"><strong>승인하기</strong></div>
             </div>
             
+    	<div id="overflow">
          <c:forEach items="${teacherTstatusList }" var="tsl">   
            <div class="semoRow td tslRow">
             	 <div class="col1">
@@ -188,6 +191,7 @@ img {
             	 </div>
             </div>
 		</c:forEach>
+       </div>
 		
         </div>
         </div>
@@ -262,6 +266,7 @@ img {
             	 <div class="col5"><strong>편집하기</strong></div>
             </div>
             
+        <div id="overflow">
          <c:forEach items="${ teacherList }" var="tl">
          <div class="updateArea">
            <div class="semoRow td upView">
@@ -303,12 +308,16 @@ img {
         </div>
          </div>
         </c:forEach>
+       </div>
             <script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 			<script>
 		  		var JJ = $.noConflict(); 
 		  	</script>  
 		  	
         <script>
+		JJ('nav li:gt(0)').removeClass('current');
+		JJ('nav li:eq(2)').addClass('current');
+		
 			function updateT(obj, isAjax, tNo) {
 					if(!isAjax) {
 						$(obj).hide();
@@ -400,6 +409,7 @@ img {
 					});
 				}
 			}
+
 		</script>
         </div>
         </div>

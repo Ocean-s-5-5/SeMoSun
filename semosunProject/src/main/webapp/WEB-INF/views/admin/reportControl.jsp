@@ -176,6 +176,9 @@ height: 30px;padding: 0px;
 .wow div {
 	border: 0px !important;
 }
+#overflow {
+	overflow: overlay;
+}
 </style>
 </head>
 
@@ -196,6 +199,7 @@ height: 30px;padding: 0px;
             	 <div class="col5"><strong>승인하기</strong></div>
             </div>
             
+          <div id="overflow">  
            <c:forEach items="${reportList }" var="w"> 
            <div class="semoRow td">
             	 <div class="col1">
@@ -214,6 +218,7 @@ height: 30px;padding: 0px;
             	 <i class="glyphicon glyphicon-chevron-right"></i><strong>리뷰 보기</strong>
             </div>
             </c:forEach>
+           </div>
           
         </div>
         </div>
@@ -221,6 +226,9 @@ height: 30px;padding: 0px;
     </div>
 	<c:import url="common/footer.jsp"/>
 	<script type="text/javascript">
+		$('nav li:gt(0)').removeClass('current');
+		$('nav li:eq(3)').addClass('current');
+	
 		function statusY(rno, isY) {
 			location.href = "${pageContext.request.contextPath }/review/statusY.am?rno="+rno+"&isY="+isY;
 		}

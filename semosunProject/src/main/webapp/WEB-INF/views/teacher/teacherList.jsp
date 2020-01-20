@@ -580,9 +580,11 @@ border-right:1px solid #fff
 	width: 422px;
 	height: 278.99px;
 }
+.progress-bar-sub {
+    background-color: #ed7d31ff;
+}
 </style>
 
-</style>
 <title>강사리뷰</title>
 
 <!-- Define Charset -->
@@ -623,8 +625,30 @@ border-right:1px solid #fff
                             
 		<section id="content"> <!-- 시멘틱 웹 : HTML5 -->
             <div class="container">
+               
                 <div class="row portfolio-page">
-                
+                <div style="text-align-last: justify;">
+				  <strong><div style="display: inline-block; color:#4473c5ff">스타일 추천 기준</div></strong>
+				  <strong><div style="display: inline-block; color: #ed7d31ff">평점 추천 기준</div></strong>
+				</div>
+                <div class="progress" style="height: 25px;">
+				  <div class="progress-bar" id="percent" style="width: ${percent}%">${percent}%</div>
+				  <div class="progress-bar progress-bar-sub" style="width: ${100-percent}%">${100-percent}%</div>
+				</div>
+                <input type="range" max="100" min="0" step="1" onchange="changePercent(this);" value="${percent}"/>
+                <div style="padding: 10px; text-align-last: center;">
+                	<a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" onclick="percentBnt();">검색하기</a>
+				</div>
+                <script type="text/javascript">
+	                function changePercent(obj){
+	        			$('#percent').css('width', $(obj).val()+'%').text($(obj).val()+'%');
+	        			$('#percent').next().css('width', (100-$(obj).val())+'%').text((100-$(obj).val())+'%');
+	        		}
+	                function percentBnt() {
+	                	var str = $('#percent').text();
+	                	location.href='${pageContext.request.contextPath}/teacher/selectTeacherList.do?percent='+str.substr(0,str.lastIndexOf('%'));
+					}
+                </script>
                    <!-- list -->
                    <div id="portfolio" class="portfolio-3" style="position: relative; height: 986.109px;">
 					<c:forEach items="${list }" var="teacher">
@@ -661,7 +685,7 @@ border-right:1px solid #fff
 						<div></div>
 						<c:forEach items="${list }" var="teacher">
 	                        <!-- Start Portfolio Item -->
-	                        <div class="portfolio-item col-md-4" style="position: absolute; left: 0px; top: -100px; width:200px; height: 200px;">
+	                        <div class="portfolio-item col-md-4" style="position: absolute; left: 0px; top: -50px; width:250px; height: 100px;">
 	                            <div class="portfolio-border">
 	                                <!-- Start Portfolio Item Thumb -->
 	                                <div class="portfolio-thumb">
@@ -740,20 +764,23 @@ border-right:1px solid #fff
 			    series: [{
 		<c:if test="${empty member}">
 			        name: '당신의 강의 스타일 기준',
+			        lineWidth: 70,
+			        opacity : 0.2,
+			        data: [ 5, 5, 5, 5, 5]
+			    }
 		</c:if>
 		<c:if test="${!empty member}">
 			        name: '${member.nickName}',
-		</c:if>
-			        lineWidth: 20,
-			        opacity : 1,
+			        lineWidth: 70,
+			        opacity : 0.2,
 			        data: [${member.score1}, ${member.score2}, ${member.score3}, ${member.score4}, ${member.score5}]
 			    }
-			    
+		</c:if>
 		<c:forEach items="${list }" var="teacher">
 				, {
 			        name: '${teacher.tName}'+'${teacher.avg}',
 			        lineWidth: 20,
-			        opacity : 0.4,
+			        opacity : 0.7,
 			        data: [${teacher.score1}, ${teacher.score2}, ${teacher.score3}, ${teacher.score4}, ${teacher.score5}]
 			    }
 		</c:forEach>

@@ -1,5 +1,6 @@
 package com.oceans.semosun.talk.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,22 @@ public class TalkService {
 	public List<Talk> selectTalkLive() {
 		
 		return talkDAO.selectTalkLive();
+	}
+
+	public List<Object> searchingRank() {
+		return talkDAO.searchingRank();
+	}
+	
+	public List<Object> totalSearchingRank() {
+		return talkDAO.totalSearchingRank();
+	}
+
+	public int keywordCookiesDelete() {
+		return talkDAO.keywordCookiesDelete();
+	}
+
+	public List<Object> talkWordcloud() {
+		return talkDAO.talkWordcloud();
 	}
 
 	

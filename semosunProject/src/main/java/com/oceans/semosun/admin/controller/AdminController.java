@@ -33,15 +33,25 @@ public class AdminController {
 	@Autowired
 	ReviewService reviewService;
 	
+	@RequestMapping("/memberControl.am")
+	public String memberControl(Model model) {
+		List<Member> memberList = adminService.memberList();
+		
+		model.addAttribute("memberList", memberList)
+			 .addAttribute("totalCount", memberList.size());
+		
+		return "admin/memberControl";
+	}
+	
 	@RequestMapping("/teacherControl.am")
 	public String teacherControl(Model model) {
 		List<Teacher> teacherList = adminService.teacherList(false);
 		List<Teacher> teacherTstatusList = adminService.teacherList(true);
 		
 		model.addAttribute("teacherList", teacherList)
-			 .addAttribute("teacherTstatusList", teacherTstatusList)
-			 .addAttribute("totalCount", teacherList.size())
-			 .addAttribute("tslCount", teacherTstatusList.size());
+		.addAttribute("teacherTstatusList", teacherTstatusList)
+		.addAttribute("totalCount", teacherList.size())
+		.addAttribute("tslCount", teacherTstatusList.size());
 		
 		return "admin/teacherControl";
 	}
@@ -115,6 +125,14 @@ public class AdminController {
 	@ResponseBody
 	public int deleteT(int tNo, Model model) {
 		return adminService.deleteT(tNo);
+	}
+	
+	@RequestMapping("/deleteM.am")
+	public String deleteM(String userId, Model model) {
+		Member m = new Member();
+		m.setUserId(userId);
+		memberService.DeleteOneMember(m);
+		return memberControl(model);
 	}
 	
 }

@@ -66,7 +66,6 @@
 #table {    
 	max-height: 700px;
     padding-top: 3px;
-    overflow: auto;
 }
 /* 상세 설정 */
 .semoRow.td div, .review{
@@ -143,6 +142,9 @@ textarea {
 	resize: none;
 	text-align-last: center;
 }
+#overflow {
+	overflow: overlay;
+}
 </style>
 </head>
 
@@ -151,7 +153,7 @@ textarea {
     <div class="page-sections">
     
         <div id="start">
-       	<div class="title"><h2><i class="glyphicon glyphicon-list-alt"></i> 회원 검색하기</h2><span>회원 수는 총 <b>121</b>명입니다.</span></div>
+       	<div class="title"><h2><i class="glyphicon glyphicon-list-alt"></i> 회원 검색하기</h2><span>회원 수는 총 <b>${totalCount }</b>명입니다.</span></div>
        	
         <div class="section">
     	<div id="table">
@@ -214,75 +216,41 @@ textarea {
 		<!-- 테이블 -->
             <div class="semoRow th">
             	 <div class="col4"><strong>회원번호</strong></div>
-            	 <div class="col1"><strong>아이디</strong></div>
             	 <div class="col1"><strong>닉네임</strong></div>
-            	 <div class="col4"><strong>성별</div>
-            	 <div class="col6"><strong>이메일</strong></div>
-            	 <div class="col4"><strong>수신여부</strong></div>
-            	 <div class="col5"><strong>편집하기</strong></div>
+            	 <div class="col1"><strong>아이디</strong></div>
+            	 <div class="col4"><strong>성별</strong></div>
+            	 <div class="col6"><strong>이메일 / 인증여부</strong></div>
+            	 <div class="col4"><strong>활동</strong></div>
+            	 <div class="col5"><strong>가입일</strong></div>
             </div>
-            
-            
+        <div id="overflow">    
+         <c:forEach items="${memberList}" var="m">
            <div class="semoRow td">
-            	 <div class="col2">1</div>
-            	 <div class="col1">
-            	 	<div><img src="${pageContext.request.contextPath }/resources/images/blog/blog-mini-02.jpg" width="60%"></div>
-            	 	<div>다니엘 유</div>
+            	 <div class="col4">${m.userNo}</div>
+            	 <div class="col1" style="padding:0px;">
+            	 	<div><img src="${pageContext.request.contextPath }/resources/images/profileImage/${m.profileName}" style="width:50%;"></div>
+            	 	<div>${m.nickName}</div>
             	 </div>
-            	 <div class="col3">자바 종일반, 보충강사</div>
-            	 <div class="col4">등록</div>
+            	 <div class="col1">${m.userId}</div>
+            	 <div class="col4">${m.gender eq 'M'? '남':'여'}</div>
+            	 <div class="col6">${m.email} <br /><br />인증 : ${m.erecive eq 0? 'X':'O'}</div>
+            	 <div class="col4">리뷰 : <br /> 신고 받은 리뷰: <br /> 숲 : </div>
             	 <div class="col5">
-            	 	<!-- .addClass('btn-outline-warning') .text('완료') -->
-					<button type="button" class="btn btn-outline-warning" onclick="update(this, false);">수정</button>
-					<button type="button" class="btn btn-outline-warning updateBtn" onclick="update(this, true);">완료</button>
-					<button type="button" class="btn btn-outline-danger">삭제</button>
+            	 	${m.enrolldate} <br />
+            	 	<button type="button" class="btn btn-outline-danger" onclick="if(confirm('정말 강제 탈퇴 처리 하시겠습니까? \n되돌릴 수 없습니다!')) 
+            	 								 location.href='${pageContext.request.contextPath }/deleteM.am?userId=${m.userId}';">탈퇴</button>
             	 </div>
             </div>
-            
-            <div class="slide updateBtn">
-            <div class="semoRow td review open">
-            	 <i class="glyphicon glyphicon-chevron-right"></i><strong>수정 하기</strong>
-            </div>
-            <div class="semoRow td update">
-            	 <div class="col2">1</div>
-            	 <div class="col1">
-            	 	<div>
-            	 		<img src="${pageContext.request.contextPath }/resources/images/blog/blog-mini-02.jpg" width="60%">
-            	 		<input type="file" style="display:none;"/>
-            	 	</div>
-            	 	<div><input class="form-control" type="text" name="tname" value="다니엘 유" /></div>
-            	 </div>
-            	 <div class="col3"><textarea class="form-control" rows="4" name="subject">자바 종일반, 보충강사</textarea></div>
-            	 <div class="col4">등록</div>
-            	 <div class="col5">
-					<button type="button" class="btn btn-outline-success" onclick="">등록</button><br />
-					<button type="button" class="btn btn-outline-secondary">대기</button><br />
-					<button type="button" class="btn btn-outline-danger">반려</button>
-            	 </div>
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
+           </c:forEach>
+          </div>
         <hr/>
-        
     </div>
     
 	<c:import url="common/footer.jsp"/>
 	<script type="text/javascript">
-		$('.updateBtn').hide();
-		function update(obj, isAjax) {
-				if(!isAjax) {
-					$(obj).hide();
-					$(obj).next().show();
-					$(obj).parents('.semoRow').next().show();
-				} else {
-					$(obj).hide();
-					$(obj).prev().show();
-					$(obj).parents('.semoRow').next().hide();
-					
-				}
-		}
+		$('nav li:gt(0)').removeClass('current');
+		$('nav li:eq(1)').addClass('current');
+		
 	</script>
 </body>
 </html>

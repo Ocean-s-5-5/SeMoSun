@@ -258,6 +258,11 @@ public class MemberController {
 		System.out.println("test : " + member);
 		String nickName = member.getNickName();
 		originMember.setNickName(nickName);
+		originMember.setScore1(member.getScore1());
+		originMember.setScore2(member.getScore2());
+		originMember.setScore3(member.getScore3());
+		originMember.setScore4(member.getScore4());
+		originMember.setScore5(member.getScore5());
 
 		if (member.getPwd() != null && member.getPwd().length() > 0) {
 

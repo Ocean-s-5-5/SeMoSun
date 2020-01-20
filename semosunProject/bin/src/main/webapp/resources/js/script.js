@@ -67,7 +67,7 @@ $(document).ready(function($) {
     /*----------------------------------------------------*/
     /*	Nice-Scroll
 	/*----------------------------------------------------*/
-
+/*
     $("html").niceScroll({
         scrollspeed: 100,
         mousescrollstep: 38,
@@ -79,6 +79,7 @@ $(document).ready(function($) {
         horizrailenabled: false,
         cursorborderradius: 0,
     });
+*/
 
 
 
@@ -408,7 +409,27 @@ $(document).ready(function($) {
 //        });
 //    });
 //
-//
+
+    /*----------------------------------------------------*/
+    /*	Milestone Counter
+	/*----------------------------------------------------*/
+
+    jQuery('.milestone-block').each(function() {
+        jQuery(this).appear(function() {
+            var $endNum = parseInt(jQuery(this).find('.milestone-number').text());
+            jQuery(this).find('.milestone-number').countTo({
+                from: 0,
+                to: $endNum,
+                speed: 4000,
+                refreshInterval: 60,
+            });
+        }, {
+            accX: 0,
+            accY: 0
+        });
+    });
+
+
 
 
     /*----------------------------------------------------*/
@@ -501,7 +522,7 @@ $(document).ready(function($) {
                     'padding-top': 19 + "px",
                     'padding-bottom': 19 + "px"
                 });
-
+                $('#logologologo').width('50px');
                 if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || $(window).width() < 479) {
                     $('.navbar-default .navbar-nav > li > a').css({
                         'padding-top': 0 + "px",
@@ -524,7 +545,7 @@ $(document).ready(function($) {
                     'padding-top': 27 + "px",
                     'padding-bottom': 27 + "px"
                 });
-
+                $('#logologologo').width('');
                 if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || $(window).width() < 479) {
                     $('.navbar-default .navbar-nav > li > a').css({
                         'padding-top': 0 + "px",

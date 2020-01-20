@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.oceans.semosun.admin.model.dao.AdminDAO;
+import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.report.model.vo.Report;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
@@ -37,6 +38,10 @@ public class AdminService {
 	public int statusY(int rno, Boolean isY) {
 		return adminDAO.statusY(rno, isY);
 		
+	}
+
+	public List<Member> memberList() {
+		return adminDAO.memberList();
 	}
 
 }

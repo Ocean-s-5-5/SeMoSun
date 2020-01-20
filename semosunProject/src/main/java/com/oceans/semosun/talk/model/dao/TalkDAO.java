@@ -1,5 +1,7 @@
 package com.oceans.semosun.talk.model.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +21,10 @@ public class TalkDAO {
 	public List<Talk> selectList(int cPage, int numPerPage, String keyword) {
 		RowBounds rows = new RowBounds((cPage-1) * numPerPage, numPerPage);
 		//                    "매퍼의 실행할 SQL 명", 파라미터로 받을 값, RowBounds 전용 공간
+		if (keyword != null) {
+			sqlSession.update("Talk-mapper.mergeKeyword", keyword);
+			keyword = "%"+keyword+"%";
+		}
 		return sqlSession.selectList("Talk-mapper.selectList", keyword, rows);
 	}
 	
@@ -50,6 +56,24 @@ public class TalkDAO {
 	public List<Talk> selectTalkLive() {
 		RowBounds rows = new RowBounds(0, 10);
 		return sqlSession.selectList("Talk-mapper.selectLive", null, rows);
+	}
+
+	public List<Object> searchingRank() {
+		RowBounds rows = new RowBounds(0, 10);
+		return sqlSession.selectList("Talk-mapper.searchingRank", null, rows);
+	}
+	
+	public List<Object> totalSearchingRank() {
+		RowBounds rows = new RowBounds(0, 10);
+		return sqlSession.selectList("Talk-mapper.totalSearchingRank", null, rows);
+	}
+
+	public int keywordCookiesDelete() {
+		return sqlSession.delete("Talk-mapper.keywordCookiesDelete");
+	}
+
+	public List<Object> talkWordcloud() {
+		return sqlSession.selectList("Talk-mapper.talkWordcloud");
 	}
 }
 

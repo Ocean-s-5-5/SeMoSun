@@ -126,6 +126,7 @@
 			</div>
 
 			<!-- Venue JS  -->
+			
 			<script type="text/javascript"
 				src="${pageContext.request.contextPath }/resources/js/jquery.min.js"></script>
 			<script type="text/javascript"
@@ -152,8 +153,9 @@
 				src="${pageContext.request.contextPath }/resources/js/jquery.textillate.js"></script>
 			<script type="text/javascript"
 				src="${pageContext.request.contextPath }/resources/js/jquery.lettering.js"></script>
-			<script type="text/javascript"
-				src="${pageContext.request.contextPath }/resources/js/jquery.nicescroll.min.js"></script>
+<!-- 				만약에 현빈씨, 상호씨, 서영이 부분에 스크롤이벤트 관련 에러가 나면 주석 풀어보기~ -->
+<!-- 			<script type="text/javascript" -->
+<%-- 				src="${pageContext.request.contextPath }/resources/js/jquery.nicescroll.min.js"></script> --%>
 			<script type="text/javascript"
 				src="${pageContext.request.contextPath }/resources/js/jquery.themepunch.plugins.min.js"></script>
 			<script type="text/javascript"
@@ -162,4 +164,4 @@
 				src="${pageContext.request.contextPath }/resources/js/custom-revslider.js"></script>
 			<script type="text/javascript"
 				src="${pageContext.request.contextPath }/resources/js/script.js"></script>
-    
+		

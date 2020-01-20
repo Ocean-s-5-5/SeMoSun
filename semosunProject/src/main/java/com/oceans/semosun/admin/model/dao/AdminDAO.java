@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.oceans.semosun.member.model.vo.Member;
 import com.oceans.semosun.report.model.vo.Report;
 import com.oceans.semosun.teacher.model.vo.Teacher;
 
@@ -46,6 +47,10 @@ public class AdminDAO {
 		statusY.put("isY", isY);
 		
 		return sqlSessionTemplate.update("admin-mapper.RSTATUS", statusY);
+	}
+
+	public List<Member> memberList() {
+		return sqlSessionTemplate.selectList("admin-mapper.memberList");
 	}
 	
 }

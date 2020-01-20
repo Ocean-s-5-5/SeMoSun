@@ -630,7 +630,7 @@ input[type=range] {
 		<div class="container">
 			<div>
 				<button type="button" class="btn btn-primary" id="signUpBtn" data-toggle="modal"
-					data-target="#exampleModalCenter">먼저 모든 약관에 동의해주세요</button>
+					data-target="#exampleModalCenter" disabled>먼저 모든 약관에 동의해주세요</button>
 			</div>
 		</div>
 	</div>

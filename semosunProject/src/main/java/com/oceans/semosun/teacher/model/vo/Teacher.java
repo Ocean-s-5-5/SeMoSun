@@ -24,6 +24,40 @@ public class Teacher implements Serializable{
 	private float score4;
 	private float score5;
 
+	private int percent;
+	
+	public int getPercent() {
+		return percent;
+	}
+
+	public void setPercent(int percent) {
+		this.percent = percent;
+	}
+
+	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
+			String profileName, Date tDate, String tStatus, float sqrt, float avg, float score1, float score2,
+			float score3, float score4, float score5, int percent) {
+		super();
+		this.tNo = tNo;
+		this.userNo = userNo;
+		this.tName = tName;
+		this.tGender = tGender;
+		this.company = company;
+		this.subject = subject;
+		this.profile = profile;
+		this.profileName = profileName;
+		this.tDate = tDate;
+		this.tStatus = tStatus;
+		this.sqrt = sqrt;
+		this.avg = avg;
+		this.score1 = score1;
+		this.score2 = score2;
+		this.score3 = score3;
+		this.score4 = score4;
+		this.score5 = score5;
+		this.percent = percent;
+	}
+
 	public Teacher(int tNo, int userNo, String tName, String tGender, String company, String subject, String profile,
 			String profileName, Date tDate, String tStatus, float sqrt, float avg, float score1, float score2,
 			float score3, float score4, float score5) {
@@ -231,6 +265,8 @@ public class Teacher implements Serializable{
 	public String toString() {
 		return "Teacher [tNo=" + tNo + ", userNo=" + userNo + ", tName=" + tName + ", tGender=" + tGender + ", company="
 				+ company + ", subject=" + subject + ", profile=" + profile + ", profileName=" + profileName
-				+ ", tDate=" + tDate + ", tStatus=" + tStatus + "]";
+				+ ", tDate=" + tDate + ", tStatus=" + tStatus + ", sqrt=" + sqrt + ", avg=" + avg + ", score1=" + score1
+				+ ", score2=" + score2 + ", score3=" + score3 + ", score4=" + score4 + ", score5=" + score5
+				+ ", percent=" + percent + "]";
 	}
 }

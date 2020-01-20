@@ -102,21 +102,19 @@ public class TeacherController {
 	
 	@RequestMapping("/teacher/selectTeacherList.do")
 	public String teacherList(@RequestParam(value="cPage", defaultValue = "1", required = false) int cPage,
-//			@RequestParam(value="isStyleFirst", defaultValue = "ture", required = false) boolean isStyleFirst,
-							   Model model, HttpSession session) {
-		Member m = (Member) session.getAttribute("memeber");
-//		boolean isStyleFirst = true;
-//		m.setStyleFirst(isStyleFirst);
-//		if(m == null) m = new Member(0, null, null, null, null, null, null, null, null, null, 3, 3, 3, 3, 3, isStyleFirst);
+							  @RequestParam(value="percent", defaultValue = "50", required = false) String percent, Model model, HttpSession session) {
+		Member m = new Member();
+		if((Member) session.getAttribute("memeber") != null) m = (Member) session.getAttribute("memeber");
+		m.setPercent(Integer.parseInt(percent));
 		int limit = 9;
 		int total = teacherService.getTeacherCount();
-		
 		String pagebar = Utils.getPageBar(total, cPage, limit, "/semosun/teacher/selectTeacherList.do");
 		List<Teacher> list = teacherService.selectList(cPage, limit, m);
-
+		System.out.println(list);
 		model.addAttribute("teacherCount", teacherService.getTeacherCount())
 		     .addAttribute("reviewCount", teacherService.getReviewCount())
 		     .addAttribute("pageBar", pagebar)
+		     .addAttribute("percent", percent)
 		     .addAttribute("list", list);
 				
 		

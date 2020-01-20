@@ -438,15 +438,16 @@
 									            		var $author = $('<div>').addClass('testimonial_author clearfix');
 	
 									            		var $inner = $('<div>').addClass('testimonial_content_inner').attr("data-toggle", "modal").attr("data-target","#loginModal");
-									            		
-									            		var $img = $('<img>').addClass('testimonial_photo').attr("src", "${pageContext.request.contextPath}/resources/images/mini-profile.png");
+									            		var $inputUserno = $('<input>').attr('type','hidden').val(data[tt].userno);
+									            										            		
+									            		var $img = $('<img>').addClass('testimonial_photo').attr("src", "${pageContext.request.contextPath}/resources/images/profileImage/"+data[tt].profileName);
 									            		var $input = $('<input>').attr('type','hidden').val(data[tt].talkno);
 									            		var $h3 = $('<h3>').addClass('testimonial_name').text(data[tt].nickName);
 									            		var $position = $('<div>').addClass('testimonial_position').text(new Date(data[tt].talkdate).format('yyyy-MM-dd a/p hh:mm:ss'));
 									            		
 									            		
 									            		$testimonial.append($content).append($author);
-									            		$content.append(  $inner.append(  $('<p>').text(data[tt].talkcontent)  )  );
+									            		$content.append(  $inner.append(  $('<p>').text(data[tt].talkcontent)  ).append($inputUserno)  );
 									            		$author.append($img).append($input).append($h3).append($position);
 									            		
 									            		$('.appendReady').append($testimonial);
@@ -478,32 +479,162 @@
             <div class="col-md-3 sidebar right-sidebar">
             	<!-- 검색 틀 -->
                 <div class="widget widget-search">
-                	<form action="${ pageContext.request.contextPath }/talk/talkList.do">
-                    	<input type="search" name="keyword" placeholder="Enter Keywords..."/>
+                	<form action="${ pageContext.request.contextPath }/talk/talkList.do" onsubmit="return nokeyword(this);">
+                    	<input type="search" name="keyword" placeholder="검색어를 입력하세요..."/>
                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                     </form>
+                    <script>
+                    	function nokeyword(searchForm) {
+                    		if($(searchForm).find('input').val().length == 0  ){
+                    			alert("검색어를 입력해주세요.");
+                    			return false;
+                    		}else{
+								return true;
+                    		}
+						}
+                    </script>
                 </div>
 				<!-- 태그 틀-->
                 <div class="widget widget-tags">
-                	<h4>Tags <span class="head-line"></span></h4>
+                	<h4>실시간 검색어 (하루 단위) <span class="head-line"></span></h4>
+                   	<div class="previewRank"></div>
+                    <div class="tagcloud searchingRank">
+	                	<c:forEach items="${searchingRank}" var="rank" varStatus="i">
+	                		${i.count}위 <a>${rank}</a><br />
+	                	</c:forEach>
+					</div>
+				<c:if test="${member.userId eq 'admin'}">
+				<button type="button" class="btn btn-primary btn-sm" onclick="location.href='${pageContext.request.contextPath}/talk/keywordCookiesDelete.do';">어제 이전 검색 기록 캐시 삭제하기</button>
+				</c:if>
+				</div>
+				<!-- 태그 틀-->
+                <div class="widget widget-tags">
+                	<h4>누적 검색 순위 <span class="head-line"></span></h4>
+                   	<div class="previewRank"></div>
+                    <div class="tagcloud totalSearchingRank">
+	                	<c:forEach items="${totalSearchingRank}" var="rank" varStatus="i">
+	                		${i.count}위 <a>${rank}</a><br />
+	                	</c:forEach>
+					</div>
+				</div>
+				<script type="text/javascript">
+				$('.tagcloud.searchingRank').hide();
+				$('.tagcloud.totalSearchingRank').hide();
+				
+            	$('.searchingRank').prev().text(1+"위  "+$('.searchingRank').find('a').eq(0).text());
+				var i = 2;
+				setInterval(function(){
+					if(i>10) i = 1;
+					$('.searchingRank').prev().text(i+"위  "+$('.searchingRank').find('a').eq(i-1).text());
+	            	i++;
+	            }, 1000);
+				
+            	$('.totalSearchingRank').prev().text(1+"위  "+$('.totalSearchingRank').find('a').eq(0).text());
+				var j = 2;
+				setInterval(function(){
+					if(j>10) j = 1;
+					$('.totalSearchingRank').prev().text(j+"위  "+$('.totalSearchingRank').find('a').eq(j-1).text());
+	            	j++;
+	            }, 1000);
+				
+				$('.previewRank').mouseenter(function() {
+					$(this).hide('slow');
+					$(this).next().show('slow');
+				});
+				$('.searchingRank').parent().mouseleave(function() {
+					$('.searchingRank').hide('slow');
+					$(this).find('.previewRank').show('slow');
+				});
+				$('.totalSearchingRank').parent().mouseleave(function() {
+					$('.totalSearchingRank').hide('slow');
+					$(this).find('.previewRank').show('slow');
+				});
+			</script>
+				<!-- 태그 틀-->
+                <div class="widget widget-tags">
+                	<h4>현재 숲에서 가장 핫한 단어! <span class="head-line"></span></h4>
+                    <div class="tagcloud" id="talkWordcloud">
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+	                	<a></a>
+					</div>
+				</div>
+				<script src="https://code.highcharts.com/highcharts.js"></script>
+				<script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+				<script src="https://code.highcharts.com/modules/exporting.js"></script>
+				<script src="https://code.highcharts.com/modules/export-data.js"></script>
+				<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+				
+				<script type="text/javascript">
+				$(document).ready(function(){
+					$.ajax({
+						url : "${pageContext.request.contextPath }/talk/talkWordcloud.do",
+						dataType: "json",
+						success : function(talkWordcloud){
+//						var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum erat ac justo sollicitudin, quis lacinia ligula fringilla. Pellentesque hendrerit, nisi vitae posuere condimentum, lectus urna accumsan libero, rutrum commodo mi lacus pretium erat. Phasellus pretium ultrices mi sed semper. Praesent ut tristique magna. Donec nisl tellus, sagittis ut tempus sit amet, consectetur eget erat. Sed ornare gravida lacinia. Curabitur iaculis metus purus, eget pretium est laoreet ut. Quisque tristique augue ac eros malesuada, vitae facilisis mauris sollicitudin. Mauris ac molestie nulla, vitae facilisis quam. Curabitur placerat ornare sem, in mattis purus posuere eget. Praesent non condimentum odio. Nunc aliquet, odio nec auctor congue, sapien justo dictum massa, nec fermentum massa sapien non tellus. Praesent luctus eros et nunc pretium hendrerit. In consequat et eros nec interdum. Ut neque dui, maximus id elit ac, consequat pretium tellus. Nullam vel accumsan lorem.';
+								var text = talkWordcloud.join(" ");
+								var lines = text.split(/[,\. ]+/g),
+								    data = Highcharts.reduce(lines, function (arr, word) {
+								        var obj = Highcharts.find(arr, function (obj) {
+								            return obj.name === word;
+								        });
+								        
+								        if (obj) {
+								            obj.weight += 1;
+								        } else {
+								            obj = {
+								                name: word,
+								                weight: 1
+								            };
+								            arr.push(obj);
+								        }
+								        return arr;
+								    }, []);
+								$('#talkWordcloud a').hide();
+								$('#talkWordcloud').find('a').each(function(i) {
+									if(data[i].name.legth != 0) {
+										$(this).show();
+										$(this).text(data[i].name);
+									}
+								});
+						}, error : function(talkWordcloud) {
+							console.log("ajax 실패!");
+						}
+					});
+				});
+				</script>
+				<!-- 태그 틀-->
+                <div class="widget widget-tags">
+                	<h4>추천 검색어 <span class="head-line"></span></h4>
                     <div class="tagcloud">
-	                	<a href="#">인강</a>
-	                	<a href="#">선생님</a>
-	                	<a href="#">선생님추천</a>
-	                	<a href="#">인터넷강의</a>
-	                	<a href="#">강의순위</a>
-	                    <a href="#">선생님순위</a>
-	                    <a href="#">인기강의</a>
-	                    <a href="#">스타강사</a>
-	                    <a href="#">강사</a>
-	                    <a href="#">강사순위</a>
+	                	<a>인강</a>
+	                	<a>선생님</a>
+	                	<a>선생님추천</a>
+	                	<a>인터넷강의</a>
+	                	<a>강의순위</a>
+	                    <a>선생님순위</a>
+	                    <a>인기강의</a>
+	                    <a>스타강사</a>
+	                    <a>강사</a>
+	                    <a>강사순위</a>
 					</div>
 				</div>
 			<!-- 좌측 사이드 바 끝 -->	
 			</div>
 		<!-- END container -->	
 		</div>
-
+		<script type="text/javascript">
+		$('.sidebar.right-sidebar a').click(function() {
+			location.href='${ pageContext.request.contextPath }/talk/talkList.do?keyword='+$(this).text();
+		});
+		</script>
 		<!-- 모달 시작 -->
 		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
 	  		<div class="modal-dialog" role="document">
@@ -529,7 +660,7 @@
 	
 							<div class="row header">
 	        					<div class="avatar">
-	          						<img src="${pageContext.request.contextPath}/resources/images/mini-profile.png" alt="" />
+	          						<img src="${pageContext.request.contextPath}/resources/images/profileImage/${data.profileName}" alt="" />
 	        					</div>
 	        					<div class="name">
 	        						<input type="hidden" id="talkno" name="talkno" value="" />
@@ -573,6 +704,7 @@
 					 	 		 	  			$('.sub').text(new Date(data.Talk.talkdate).format('yyyy-MM-dd a/p hh:mm:ss'));
 					 	 		 	  			$('.name>h5>a').text(data.Talk.nickName);
 					 	 		 	  			$('#talkno').val(data.Talk.talkno);
+					 	 		 	  			$('#talkno').parents('.header').find('img').attr('src',"${pageContext.request.contextPath}/resources/images/profileImage/"+data.Talk.profileName);
 					 	 		 	  	// 모달 내용 부분 폼
 	//				 	 						<div class="replySelectArea">
 	//				 	 				   			<table class="replySelectTable replyList">
@@ -692,7 +824,7 @@
 						
 						//   <div class="row header">
 						//     <div class="avatar">
-						//       <img src="${pageContext.request.contextPath}/resources/images/mini-profile.png" alt="" />
+						//       <img src="$${pageContext.request.contextPath}/resources/images/profileImage/${data.profileName}" alt="" />
 						//     </div>
 						//     <div class="name">
 						//     	<input type="hidden" id="talkno" name="talkno" value="" />
@@ -780,7 +912,7 @@
 						    <a href="#"></a> 
 						    <div class="row">
 	      						<div class="small-avatar">
-	        						<img src="http://placehold.it/32x32" alt="" />
+	        						<img src="${pageContext.request.contextPath}/resources/images/profileImage/${data.profileName}" alt="" />
 	      						</div>
 	      						<div class="write-comment">
 	        						<input type="text" name="ccontent" id="ccontent" placeholder="댓글을 입력하세요.">
@@ -898,6 +1030,8 @@
 								$(obj).parent().parent().parent().find("textarea").attr("readonly", false);
 								$(obj).css("display", 'none');
 								$(obj).next().css("display", 'inline-block');
+								
+								
 								
 							}
 							// 수정을 완료 실행

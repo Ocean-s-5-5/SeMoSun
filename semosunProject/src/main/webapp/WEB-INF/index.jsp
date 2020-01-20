@@ -685,6 +685,7 @@ font-family:S-CoreDream-4Regular !important;
 <link rel="shortcut icon" href="http://localhost:8088/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="http://localhost:8088/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath }/resources/images/icons/semosunpabefon.png">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/highcharts.css" type="text/css"  media="screen" />
 
 
 </head>
@@ -1131,46 +1132,50 @@ font-family:S-CoreDream-4Regular !important;
 
 								<!-- Classic Heading -->
 								<h4 class="classic-title">
-									<span style="font-family:S-CoreDream-4Regular;  font-size:18px;">우리들의 이용률</span>
+									<span style="font-family:S-CoreDream-4Regular;  font-size:18px;">현재 세모선숲에서 가장 핫한 단어!</span>
 								</h4>
-								<div class="progress-bars">
-									<div class="progress-label" style="font-family:S-CoreDream-4Regular;">강사 승인 완료률</div>
-									<div class="progress">
-										<div class="progress-bar progress-bar-primary"
-											data-progress-animation="95%">
-											<span class="progress-bar-tooltip">95%</span>
-										</div>
-									</div>
-									<div class="progress-label">리뷰 승인률</div>
-									<div class="progress">
-										<div class="progress-bar progress-bar-primary"
-											data-progress-animation="85%" data-animation-delay="300">
-											<span class="progress-bar-tooltip">85%</span>
-										</div>
-									</div>
-									<div class="progress-label">댓글 신고률</div>
-									<div class="progress">
-										<div class="progress-bar progress-bar-primary"
-											data-progress-animation="20%" data-animation-delay="600">
-											<span class="progress-bar-tooltip">20%</span>
-										</div>
-									</div>
-									<div class="progress-label">세모숲 이용률</div>
-									<div class="progress">
-										<div class="progress-bar progress-bar-primary"
-											data-progress-animation="85%" data-animation-delay="900">
-											<span class="progress-bar-tooltip">85%</span>
-										</div>
-									</div>
+<!-- 								<div class="progress-bars"> -->
+<!-- 									<div class="progress-label" style="font-family:S-CoreDream-4Regular;">강사 승인 완료률</div> -->
+<!-- 									<div class="progress"> -->
+<!-- 										<div class="progress-bar progress-bar-primary" -->
+<!-- 											data-progress-animation="95%"> -->
+<!-- 											<span class="progress-bar-tooltip">95%</span> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 									<div class="progress-label">리뷰 승인률</div> -->
+<!-- 									<div class="progress"> -->
+<!-- 										<div class="progress-bar progress-bar-primary" -->
+<!-- 											data-progress-animation="85%" data-animation-delay="300"> -->
+<!-- 											<span class="progress-bar-tooltip">85%</span> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 									<div class="progress-label">댓글 신고률</div> -->
+<!-- 									<div class="progress"> -->
+<!-- 										<div class="progress-bar progress-bar-primary" -->
+<!-- 											data-progress-animation="20%" data-animation-delay="600"> -->
+<!-- 											<span class="progress-bar-tooltip">20%</span> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 									<div class="progress-label">세모숲 이용률</div> -->
+<!-- 									<div class="progress"> -->
+<!-- 										<div class="progress-bar progress-bar-primary" -->
+<!-- 											data-progress-animation="85%" data-animation-delay="900"> -->
+<!-- 											<span class="progress-bar-tooltip">85%</span> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
 
-									<div class="progress-label">사이트 만족도</div>
-									<div class="progress">
-										<div class="progress-bar progress-bar-primary"
-											data-progress-animation="85%" data-animation-delay="900">
-											<span class="progress-bar-tooltip">85%</span>
-										</div>
-									</div>
-								</div>
+<!-- 									<div class="progress-label">사이트 만족도</div> -->
+<!-- 									<div class="progress"> -->
+<!-- 										<div class="progress-bar progress-bar-primary" -->
+<!-- 											data-progress-animation="85%" data-animation-delay="900"> -->
+<!-- 											<span class="progress-bar-tooltip">85%</span> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+								<figure class="highcharts-figure" onclick="location.href='${pageContext.request.contextPath }/talk/talkList.do'">
+								    <div id="container_wordcloud"></div>
+								    <p class="highcharts-description"></p>
+								</figure>
 							</div>
 							
 							
@@ -1238,7 +1243,12 @@ font-family:S-CoreDream-4Regular !important;
 <div></div>
 <div></div>
 				<%@ include file="views/common/footer.jsp"%>
-
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+								
 			<script>
 			/* 자바스크립트 난독화 */
 			/* https://javascript-minifier.com/ */
@@ -1286,6 +1296,51 @@ font-family:S-CoreDream-4Regular !important;
 				
 				/*지금 뜨는 리뷰*/
 				$(document).ready(function(){
+					$.ajax({
+						url : "${pageContext.request.contextPath }/talk/talkWordcloud.do",
+						dataType: "json",
+						success : function(talkWordcloud){
+//						var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum erat ac justo sollicitudin, quis lacinia ligula fringilla. Pellentesque hendrerit, nisi vitae posuere condimentum, lectus urna accumsan libero, rutrum commodo mi lacus pretium erat. Phasellus pretium ultrices mi sed semper. Praesent ut tristique magna. Donec nisl tellus, sagittis ut tempus sit amet, consectetur eget erat. Sed ornare gravida lacinia. Curabitur iaculis metus purus, eget pretium est laoreet ut. Quisque tristique augue ac eros malesuada, vitae facilisis mauris sollicitudin. Mauris ac molestie nulla, vitae facilisis quam. Curabitur placerat ornare sem, in mattis purus posuere eget. Praesent non condimentum odio. Nunc aliquet, odio nec auctor congue, sapien justo dictum massa, nec fermentum massa sapien non tellus. Praesent luctus eros et nunc pretium hendrerit. In consequat et eros nec interdum. Ut neque dui, maximus id elit ac, consequat pretium tellus. Nullam vel accumsan lorem.';
+								var text = talkWordcloud.join(" ");
+								var lines = text.split(/[,\. ]+/g),
+								    data = Highcharts.reduce(lines, function (arr, word) {
+								        var obj = Highcharts.find(arr, function (obj) {
+								            return obj.name === word;
+								        });
+								        
+								        if (obj) {
+								            obj.weight += 1;
+								        } else {
+								            obj = {
+								                name: word,
+								                weight: 1
+								            };
+								            arr.push(obj);
+								        }
+								        return arr;
+								    }, []);
+								Highcharts.chart('container_wordcloud', {
+								    accessibility: {
+								        screenReaderSection: {
+								            beforeChartFormat: '<h5>{chartTitle}</h5>' +
+								                '<div>{chartSubtitle}</div>' +
+								                '<div>{chartLongdesc}</div>' +
+								                '<div>{viewTableButton}</div>'
+								        }
+								    },
+								    series: [{
+								        type: 'wordcloud',
+								        data: data,
+								        name: 'Occurrences'
+								    }],
+								    title: {
+								        text: '세모선숲으로 놀러오세요!'
+								    }
+								});		
+						}, error : function(data) {
+							console.log("ajax 실패!");
+						}
+					});
 					$.ajax({
 						url : "${pageContext.request.contextPath }/review/selectBestReview.do",
 						dataType: "json",
@@ -1599,5 +1654,6 @@ font-family:S-CoreDream-4Regular !important;
 	  
 
 			</script>
+			
 </body>
 </html>

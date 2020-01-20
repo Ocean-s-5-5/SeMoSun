@@ -32,9 +32,5 @@ public class IndexController {
 		return "admin/adminMain";
 	}
 	
-	@RequestMapping("/memberControl.am")
-	public String memberControl() {
-		return "admin/memberControl";
-	}
 	
 }

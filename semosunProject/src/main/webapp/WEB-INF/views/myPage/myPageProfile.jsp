@@ -891,7 +891,7 @@ li:hover {
 					        </div>
 					     </div>
 		                 <div class="col-sm-6">
-		                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);"><br />
+		                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);" value="${member.score1}"><br />
 		                 </div>   
 					    </div>
 					<div class="row">
@@ -904,7 +904,7 @@ li:hover {
 					        </div> 
 					     </div> 
 		                 <div class="col-sm-6">
-		                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);"><br />
+		                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);" value="${member.score2}"><br />
 		                 </div>   
 					    </div> 
 					<div class="row">
@@ -917,7 +917,7 @@ li:hover {
 					        </div> 
 					     </div> 
 		                 <div class="col-sm-6">
-		                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);"><br />
+		                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);" value="${member.score3}"><br />
 		                 </div>   
 					    </div> 
 					<div class="row">
@@ -930,7 +930,7 @@ li:hover {
 					        </div> 
 					     </div>
 		                 <div class="col-sm-6">
-		                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);"><br />
+		                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);" value="${member.score4}"><br />
 		                 </div>    
 					    </div> 
 					<div class="row"> 
@@ -943,7 +943,7 @@ li:hover {
 					        </div> 
 					     </div> 
 		                 <div class="col-sm-6">
-		                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);"><br />
+		                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);" value="${member.score5}"><br />
 		                 </div>   
 					</div>
 		       		</div>
@@ -952,17 +952,7 @@ li:hover {
 	              function changeProgress(obj){
 	      			$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
 	      			$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');
-	      		}
-	              
-// 	      		$(function(){
-// 	      			var nameArray = ['score1', 'score2', 'score3', 'score4', 'score5'];
-// 	      			var valArray = ['${member.score1}', '${member.score2}', '${member.score3}', '${member.score4}', '${member.score5}'];
-	      			
-// 	      			for (var i = 0; i < 5; i++) {
-// 	      					$('#updateProgress').find('input[name='+valArray[i]+']').val(valArray[i]);
-// 	      			}
-// 	      		});
-	      		
+	      		  }
 	              </script>
 					</div>
 						<div class="jsx-1936111413 btn-save">

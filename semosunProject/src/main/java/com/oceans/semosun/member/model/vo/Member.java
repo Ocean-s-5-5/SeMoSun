@@ -20,7 +20,7 @@ public class Member implements Serializable{
 	private int score5;
 	
 	// 강사검색 정렬 전달용
-	private boolean isStyleFirst;
+	private int percent;
 
 	
 	
@@ -34,7 +34,7 @@ public class Member implements Serializable{
 
 	public Member(int userNo, String userId, String pwd, String nickName, String gender, String email,
 			String enrolldate, String erecive, String profile, String profileName, int score1, int score2, int score3,
-			int score4, int score5, boolean isStyleFirst) {
+			int score4, int score5, int percent) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
@@ -51,7 +51,7 @@ public class Member implements Serializable{
 		this.score3 = score3;
 		this.score4 = score4;
 		this.score5 = score5;
-		this.isStyleFirst = isStyleFirst;
+		this.percent = percent;
 	}
 
 
@@ -62,8 +62,7 @@ public class Member implements Serializable{
 		return "Member [userNo=" + userNo + ", userId=" + userId + ", pwd=" + pwd + ", nickName=" + nickName
 				+ ", gender=" + gender + ", email=" + email + ", enrolldate=" + enrolldate + ", erecive=" + erecive
 				+ ", profile=" + profile + ", profileName=" + profileName + ", score1=" + score1 + ", score2=" + score2
-				+ ", score3=" + score3 + ", score4=" + score4 + ", score5=" + score5 + ", isStyleFirst=" + isStyleFirst
-				+ "]";
+				+ ", score3=" + score3 + ", score4=" + score4 + ", score5=" + score5 + ", percent=" + percent + "]";
 	}
 
 
@@ -257,21 +256,21 @@ public class Member implements Serializable{
 	public void setProfileName(String profileName) {
 		this.profileName = profileName;
 	}
-	
-	
-	
-	public boolean isStyleFirst() {
-		return isStyleFirst;
-	}
-	
-	
-	
-	
-	public void setStyleFirst(boolean isStyleFirst) {
-		this.isStyleFirst = isStyleFirst;
+
+
+
+
+	public int getPercent() {
+		return percent;
 	}
 
 
 
+
+	public void setPercent(int percent) {
+		this.percent = percent;
+	}
+	
+	
 	
 }

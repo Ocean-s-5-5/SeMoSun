@@ -63,7 +63,6 @@ public class TalkController {
 		int numPerPage = 10;
 		if( keyword != null ) {
 			model.addAttribute("keyword", keyword);
-			keyword = "%"+keyword+"%";
 		}
 		// 페이지 처리된 리스트 가져오기
 		List<Talk> list = talkService.selectList(cPage, numPerPage, keyword);
@@ -78,6 +77,8 @@ public class TalkController {
 		// System.out.println(pageBar);
 		
 		model.addAttribute("list", list)
+			 .addAttribute("searchingRank", talkService.searchingRank())
+			 .addAttribute("totalSearchingRank", talkService.totalSearchingRank())
 		     .addAttribute("totalContents", totalContents)
 		     .addAttribute("numPerPage", numPerPage);
 //		     .addAttribute("pageBar", pageBar);
@@ -129,6 +130,22 @@ public class TalkController {
 		List<Talk> list = talkService.selectTalkLive();
 		
 		return list;
+	}
+	
+	@RequestMapping("/talk/keywordCookiesDelete.do")
+	public String keywordCookiesDelete(Model model){
+		int result = talkService.keywordCookiesDelete();
+		
+		model.addAttribute("msg", "검색어 캐시 "+ result +"개 삭제가 완료 되었습니다!")
+			 .addAttribute("loc", "/talk/talkList.do");
+		return "common/msg";
+	}
+	
+	@RequestMapping("/talk/talkWordcloud.do")
+	@ResponseBody
+	public List<Object> talkWordcloud(){
+		List<Object> talkWordcloud = talkService.talkWordcloud();
+		return talkWordcloud;
 	}
 	
 }

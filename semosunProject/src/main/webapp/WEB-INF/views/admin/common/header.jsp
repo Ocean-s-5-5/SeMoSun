@@ -13,8 +13,8 @@
     
     <nav>
     	<ul>
-            <li><a href="${pageContext.request.contextPath }/"><i class="glyphicon glyphicon-chevron-right"></i> 홈페이지 이동하기</a></li>
-            <li class="current"><a href="${pageContext.request.contextPath }/memberControl.am"><i class="glyphicon glyphicon-chevron-right"></i> 회원 관리</a></li>
+            <li class="current"><a href="${pageContext.request.contextPath }/"><i class="glyphicon glyphicon-chevron-right"></i> 홈페이지 이동하기</a></li>
+            <li><a href="${pageContext.request.contextPath }/memberControl.am"><i class="glyphicon glyphicon-chevron-right"></i> 회원 관리</a></li>
             <li><a href="${pageContext.request.contextPath }/teacherControl.am"><i class="glyphicon glyphicon-chevron-right"></i> 강사님 관리</a></li>
             <li><a href="${pageContext.request.contextPath }/reportControl.am"><i class="glyphicon glyphicon-chevron-right"></i> 신고 관리</a></li>
         </ul>

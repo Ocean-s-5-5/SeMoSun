@@ -1157,8 +1157,9 @@ input[type="submit"] {
 
 .widget-search input[type="search"],
 #contact-form input[type="text"],
+#contact-form input[type="password"] ,
 #contact-form textarea,
-#respond input[type="text"],
+#respond input[type="text"], #respond input[type="password"],
 #respond textarea, .email {
     color: #666fb5;
     font-size: 13px;
@@ -1169,7 +1170,7 @@ input[type="submit"] {
     -moz-border-radius: 2px;
     -o-border-radius: 2px;
     outline: none;
-    width: 100%;
+    width: 80%;
     padding: 7px 14px;
     display: block;
     margin-bottom: 10px;  
@@ -1183,6 +1184,7 @@ input[type="submit"] {
 #contact-form input[type="text"]:focus,
 #contact-form textarea:focus,
 #respond input[type="text"]:focus,
+#respond input[type="password"]:focus,
 #respond textarea:focus {
 	border-color: #ddd;
 	box-shadow: 0 0 3px #eee;
@@ -3055,8 +3057,10 @@ span.progress-bar-tooltip:after {
 }
 
 .custom-testimonial-img {
-  width: 91px;
-  height: 91px; 
+    width: 160px;
+    height: 160px;
+    border: none;
+    box-shadow: 0px 0px 20px 0px lightgrey;
 }
 
 
