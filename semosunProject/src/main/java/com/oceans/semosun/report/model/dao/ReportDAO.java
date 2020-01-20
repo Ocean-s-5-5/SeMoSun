@@ -40,8 +40,10 @@ public class ReportDAO {
 	}
 
 	public int deleteReport(Report report) {
-		
-		return sqlsession.delete("report-mapper.delete", report);
+
+		int result = sqlsession.delete("report-mapper.delete", report);
+		result += sqlsession.update("report-mapper.updateReview", report);
+		return result;
 	}
 
 	public List<Map<String, String>> searchReport(int cPage, int numPerPage, String keyword) {

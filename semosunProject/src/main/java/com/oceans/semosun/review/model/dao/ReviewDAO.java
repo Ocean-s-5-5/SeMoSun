@@ -34,7 +34,10 @@ public class ReviewDAO {
 	}
 
 	public int deleteReview(int rno) {
-		return sqlSession.delete("review-mapper.deleteReview", rno);
+		int result = sqlSession.update("review-mapper.deleteReview", rno);
+		result += sqlSession.delete("review-mapper.deleteReport", rno);
+		return result;
+		
 	}
 
 	public HashMap<String, String> selectChart(int tNo) {

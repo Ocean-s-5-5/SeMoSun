@@ -653,14 +653,7 @@ solid
 	display: inline-block;
 }
 
-@font-face {
-	font-family: 'S-CoreDream-4Regular';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
+
 /* .container {
  
     margin-top: 25px;
@@ -818,43 +811,10 @@ font-family:S-CoreDream-4Regular !important;
 								
 								<div class="caption lfb" data-x="620" data-y="40"
 									data-speed="300" data-start="400" data-easing="easeOutExpo">
-<!-- 									<img -->
-<%-- 										src="${pageContext.request.contextPath }/resources/images/slider1_browser.png" --%>
-<!-- 										alt="tablet" /> -->
+
 								</div>
 							</li>
 
-							<!-- THE FOURTH SLIDE -->
-<!-- 							<li data-transition="papercut" data-slotamount="7" -->
-<!-- 								data-masterspeed="300"> -->
-<!-- 								MAIN IMAGE <img -->
-<%-- 								src="${pageContext.request.contextPath }/resources/images/slider_4_bg.jpg" --%>
-<!-- 								data-fullwidthcentering="on" alt="background"> LAYER NR. 1 -->
-<!-- 								<div class="caption medium-700-black lfr" data-x="540" -->
-<!-- 									data-y="125" data-speed="300" data-start="1600" -->
-<!-- 									data-easing="easeOutExpo"> -->
-<!-- 									<span class="accent-color">Solutions</span> that you need! <br> -->
-<!-- 									The best template to get you started -->
-<!-- 								</div> LAYER NR. 3 -->
-<!-- 								<div class="caption small-600-black lfr" data-x="540" -->
-<!-- 									data-y="200" data-speed="300" data-start="2000" -->
-<!-- 									data-easing="easeOutExpo"> -->
-<!-- 									Venue is best solution for your business, Responsive & -->
-<!-- 									Flexible, <br> You can present your business and services -->
-<!-- 									properly. -->
-<!-- 								</div> LAYER NR. 4 -->
-<!-- 								<div class="tp-caption sfb start" data-x="540" data-y="265" -->
-<!-- 									data-speed="300" data-start="2500" data-easing="easeOutExpo"> -->
-<!-- 									<a href="#" class="btn-custom btn-medium border-btn">Purchase -->
-<!-- 										This Now</a> -->
-<!-- 								</div> LAYER NR. 5 -->
-<!-- 								<div class="tp-caption sfl start" data-x="180" data-y="bottom" -->
-<!-- 									data-speed="1000" data-start="1000" data-easing="easeOutExpo"> -->
-<!-- 									<img -->
-<%-- 										src="${pageContext.request.contextPath }/resources/images/slide-02-image-01.png" --%>
-<!-- 										alt="" /> -->
-<!-- 								</div> -->
-<!-- 							</li> -->
 						</ul>
 					</div>
 				</div>

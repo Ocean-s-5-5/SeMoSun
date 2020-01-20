@@ -77,7 +77,7 @@
 
                             <!-- Start Single Post Content -->
                             <div class="post-content" style="width: 1000px;">
-                                <h2><b>하하하됬다.</b></h2>
+                                <h2><b></b></h2>
                                 <ul class="post-meta" style="text-align:end;">
                                     <p>작성일 : ${report.ref_date}</p>
                                     <p>작성자 :${report.nickName}</p>

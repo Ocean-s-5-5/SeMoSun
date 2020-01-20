@@ -143,18 +143,18 @@ public class ReportController {
 				int result = reportService.reportDelete(report);
 				if(result > 0) {
 					msg = "삭제 성공!";
+					loc= "/reportList.do";
 				} 
 				else {
 					msg = "삭제 실패!";
+					loc = "/reportView.do?rno="+rno+"&userNo="+report.getUserNo();
+
 				}
 			} else {
 				msg="자신이 쓴 글만 삭제가능합니다.";
+				loc = "/reportView.do?rno="+rno+"&userNo="+report.getUserNo();
 			}
-			loc = "/reportView.do?rno="+rno+"&userNo="+report.getUserNo();
-		} else {
-			loc = "/";
-		}
-		
+		} 
 		
 		model.addAttribute("msg", msg)
 		.addAttribute("loc", loc)

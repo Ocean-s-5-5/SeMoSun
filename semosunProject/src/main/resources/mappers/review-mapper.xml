@@ -19,6 +19,12 @@
 		UPDATE REVIEW SET RSTATUS = 'Y' WHERE RNO = #{rno}
 	</update>
 	
+	<delete id="deleteReport" parameterType="int">
+		DELETE FROM REPORT WHERE RNO = #{rno}
+	</delete>
+	
+	
+	
 	<select id="selectListTeacherReview" parameterType="hashmap" resultType="Review">
 		SELECT r.*, m.nickname, m.profilename , (SELECT COUNT(*) FROM likey where rno = r.rno) likeCount
                                         <if test="userNo != 0">

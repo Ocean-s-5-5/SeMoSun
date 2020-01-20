@@ -100,7 +100,7 @@
 	
 	<select id="selectReviewList" parameterType="int" resultType="Teacher">
 		SELECT T.* FROM REVIEW R JOIN TEACHER T ON(R.TNO=T.TNO)
-		WHERE RNO = (SELECT MAX(RNO) FROM REVIEW WHERE TNO = R.TNO AND USERNO = #{userNo})
+		WHERE RNO = (SELECT MAX(RNO) FROM REVIEW WHERE TNO = R.TNO AND USERNO = #{userNo} AND RSTATUS != 'Y') 
 		ORDER BY RNO DESC
 	</select>
 	

@@ -920,7 +920,7 @@
 			// 신고 버튼 함수
 			function fn_reportView(rno) {
 				if(${empty member}) { alert("로그인을 해주세요!"); return; }
-				if(${r.rstatus eq R}) { alert("이미 신고되었습니다!"); return; }
+				if(${r.rstatus eq 'R'}) { alert("이미 신고되었습니다!"); return; }
 				location.href="${pageContext.request.contextPath}/report/reportForm.do?rno="+rno+"&tNo=${Teacher.tNo}";
 			}
 		

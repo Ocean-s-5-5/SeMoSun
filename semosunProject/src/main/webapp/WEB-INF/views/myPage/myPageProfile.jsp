@@ -811,7 +811,8 @@ li:hover {
 						</button>
 					</div>
 					
-					<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/member/memberUpdate.do" method="post" enctype="multipart/form-data">
+					<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/member/memberUpdate.do" method="post" 
+					 onsubmit="return validate(this);" enctype="multipart/form-data">
 					<c:url var="File" value="/resources/images/profileImage/"/>
 					<input type="text" name="userId" id="userId_" value="${member.userId}" 
 					style="display: none;"/>
@@ -956,7 +957,7 @@ li:hover {
 	              </script>
 					</div>
 						<div class="jsx-1936111413 btn-save">
-							<button type="submit" class="jsx-315148180" onclick="location.href='${pageContext.request.contextPath}/member/memberUpdate.do'">회원 수정</button>
+							<button type="submit" class="jsx-315148180">회원 수정</button>
 							<button type="button" class="jsx-315148180" onclick="location.href='${pageContext.request.contextPath}/member/memberDelete.do'">회원 탈퇴</button>
 						</div>
 					</form>
@@ -978,6 +979,19 @@ li:hover {
 						}
 						reader.readAsDataURL(value.files[0]);
 					}
+				}
+				
+				function validate(object){
+					var re = new RegExp(
+		    		/^(?!(?:[a-z]+)$)(?!(?:[A-Z]+)$)(?!(?:[0-9]+)$)([A-Z]|[a-z]|[0-9]){6,12}$/);
+					
+					var pw = $("#pwd");
+					if(!re.test(pw.val())){
+						alert("패스워드는 6~18자의 영문 대문자와 소문자 숫자를 포함하여 입력하세요");
+						pw.focus();
+						return false;
+					}
+				
 				}
 			</script>
 		<div style="height:200px;"></div>

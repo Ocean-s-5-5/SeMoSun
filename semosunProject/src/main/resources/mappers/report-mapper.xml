@@ -7,7 +7,7 @@
 	<select id="selectList" resultType="Report">
 		 SELECT * FROM REPORT REP JOIN MEMBER M ON (REP.USERNO = M.USERNO) 
 								  JOIN REVIEW R ON (REP.RNO=R.RNO) 
-         WHERE R.RSTATUS='R'
+         WHERE R.RSTATUS IN ('R','N')
          ORDER BY REP.REF_DATE DESC
 	</select>
 
@@ -46,5 +46,11 @@
 	<delete id="delete" parameterType="int">
 		DELETE FROM REPORT WHERE USERNO = #{userNo} and RNO = #{rno}
 	</delete>
+	
+	<update id="updateReview" parameterType="int">
+		UPDATE REVIEW SET RSTATUS = 'N' WHERE RNO = #{rno}
+	</update>
+	
+	
 
 </mapper>
