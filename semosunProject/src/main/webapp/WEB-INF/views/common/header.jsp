@@ -25,7 +25,7 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath }"> <img id="logologologo" alt="" src="${pageContext.request.contextPath }/resources/images/semosunlogo.png"> </a> </div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a style="font-family:S-CoreDream-4Regular;" href="#"><strong>앱 다운로드</strong></a></li>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath}/resources/app/semosunApp.apk" type="application/vnd.android.package-archive"><strong>앱 다운로드</strong></a></li>
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">강사리뷰</a></li>
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
 					<li><a style="font-family:S-CoreDream-4Regular;">게시판</a>
