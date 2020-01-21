@@ -188,7 +188,7 @@
 			margin: 0;
 			padding: 9px 12px 7px 12px;
 			font-size: 12px;
-			background-color: #f6f7f8;
+			background-color: #ebebebff;
 			border-radius: 0 0 3px 3px;
 			color: #141823;
 			overflow: hidden;
@@ -212,7 +212,7 @@
 			border: 1px solid #dcdee3;
 			padding: 7px 7px 7px 5px;
 			min-height: 16px;
-			width: calc(95% - 32px - 22px);
+			width: calc(95% - 0px - 17px);
 			float: left;
 		}
 	
@@ -282,6 +282,9 @@
 		    border-style: none;
 		    resize: none;
 		}
+		pre {
+    white-space: pre-wrap;
+}
 	</style>
 </head>
 <body>
@@ -301,7 +304,8 @@
 			<!-- 게시글 목록 틀 시작 -->
 			<div class="col-md-9 page-content"> 
 	            <!-- 게시판 제목 -->
-	            <h4 class="classic-title"><span>세모선 숲</span></h4>
+	            <h4 class="classic-title"><span style="font-size: x-large;">세모선 숲</span></h4>
+	            <br />
                 <div data-appeared-items="1" class="appendReady">
 	                
 	                <!-- 게시글 작성 폼 -->
@@ -319,7 +323,7 @@
 							<c:forEach items="${list }" var="data">
 								<div class="testimonial">
 							    	<div class="testimonial_content">
-							        	<div class="testimonial_content_inner" data-toggle="modal" data-target="#loginModal">
+							        	<div class="testimonial_content_inner" data-toggle="modal" data-target="#loginModal" style="margin-top: 20px; margin-bottom: 20px;">
 							         		<input type="hidden" value="${data.userno}" />
 							            	<p> ${data.talkcontent}  </p>
 							         	</div>
@@ -350,7 +354,7 @@
 							        var contentt = $('#contentt').val().trim();
 							        var userno = Number($('#userno').val());
 							        
-
+							        if(userno == 0) { alert("로그인 후 등록 가능합니다."); return; }
 							        if(contentt.length == 0) {
 							        	alert("내용을 입력하세요.");
 							        	return;
@@ -375,7 +379,7 @@
 								            		var $content = $('<div>').addClass('testimonial_content');
 								            		var $author = $('<div>').addClass('testimonial_author clearfix');
 
-								            		var $inner = $('<div>').addClass('testimonial_content_inner').attr("data-toggle", "modal").attr("data-target","#loginModal");
+								            		var $inner = $('<div>').addClass('testimonial_content_inner').attr("data-toggle", "modal").attr("data-target","#loginModal").css("margin-top","20px").css("margin-bottom","20px");
 								            		var $inputUserno = $('<input>').attr('type','hidden').val(data[tt].userno);
 								            										            		
 								            		var $img = $('<img>').addClass('testimonial_photo').attr("src", "${pageContext.request.contextPath}/resources/images/profileImage/"+data[tt].profileName);
@@ -437,7 +441,7 @@
 									            		var $content = $('<div>').addClass('testimonial_content');
 									            		var $author = $('<div>').addClass('testimonial_author clearfix');
 	
-									            		var $inner = $('<div>').addClass('testimonial_content_inner').attr("data-toggle", "modal").attr("data-target","#loginModal");
+									            		var $inner = $('<div>').addClass('testimonial_content_inner').attr("data-toggle", "modal").attr("data-target","#loginModal").css("margin-top","20px").css("margin-bottom","20px");
 									            		var $inputUserno = $('<input>').attr('type','hidden').val(data[tt].userno);
 									            										            		
 									            		var $img = $('<img>').addClass('testimonial_photo').attr("src", "${pageContext.request.contextPath}/resources/images/profileImage/"+data[tt].profileName);
@@ -476,7 +480,7 @@
 			</div>
 			
             <!-- 좌측 사이드 바 시작 -->
-            <div class="col-md-3 sidebar right-sidebar">
+            <div class="col-md-3 sidebar right-sidebar" style="margin-top:36px;">
             	<!-- 검색 틀 -->
                 <div class="widget widget-search">
                 	<form action="${ pageContext.request.contextPath }/talk/talkList.do" onsubmit="return nokeyword(this);">
@@ -496,7 +500,7 @@
                 </div>
 				<!-- 태그 틀-->
                 <div class="widget widget-tags">
-                	<h4>실시간 검색어 (하루 단위) <span class="head-line"></span></h4>
+                	<h4>TODAY 실시간 검색어 순위<span class="head-line"></span></h4>
                    	<div class="previewRank"></div>
                     <div class="tagcloud searchingRank">
 	                	<c:forEach items="${searchingRank}" var="rank" varStatus="i">
@@ -552,7 +556,7 @@
 			</script>
 				<!-- 태그 틀-->
                 <div class="widget widget-tags">
-                	<h4>현재 숲에서 가장 핫한 단어! <span class="head-line"></span></h4>
+                	<h4>숲 속 HOT KEYWORD ! <span class="head-line"></span></h4>
                     <div class="tagcloud" id="talkWordcloud">
 	                	<a></a>
 	                	<a></a>
@@ -597,6 +601,12 @@
 								        }
 								        return arr;
 								    }, []);
+								
+								data.sort(function(a, b) { // 내림차순
+								    return b.weight - a.weight;
+								    // 44, 25, 21, 13
+								});
+								
 								$('#talkWordcloud a').hide();
 								$('#talkWordcloud').find('a').each(function(i) {
 									if(data[i].name.legth != 0) {
@@ -615,14 +625,14 @@
                 	<h4>추천 검색어 <span class="head-line"></span></h4>
                     <div class="tagcloud">
 	                	<a>인강</a>
-	                	<a>선생님</a>
+	                	<a>스터디그룹</a>
 	                	<a>선생님추천</a>
 	                	<a>인터넷강의</a>
 	                	<a>강의순위</a>
 	                    <a>선생님순위</a>
 	                    <a>인기강의</a>
 	                    <a>스타강사</a>
-	                    <a>강사</a>
+	                    <a>스터디모집</a>
 	                    <a>강사순위</a>
 					</div>
 				</div>
@@ -660,7 +670,7 @@
 	
 							<div class="row header">
 	        					<div class="avatar">
-	          						<img src="${pageContext.request.contextPath}/resources/images/profileImage/${data.profileName}" alt="" />
+	          						<img src="${pageContext.request.contextPath}/resources/images/profileImage/${data.profileName}" onclick="location.href='${pageContext.request.contextPath}/myPage/myPageProfile.do';" />
 	        					</div>
 	        					<div class="name">
 	        						<input type="hidden" id="talkno" name="talkno" value="" />
@@ -669,7 +679,7 @@
 	        					</div>
 	      					</div>
 	      					
-	      					<pre id="textArea" class="row text reply-content" style="width:100%;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></pre>
+	      					<pre id="textArea" class="row text reply-content" style="width:100%; margin-right: auto; margin-left: auto;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></pre>
 	      					<textarea id="textArea_" class="row text reply-content" style="width:100%; display:none;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
 		  					
 		  					<!-- 모달 스크립트 -->
@@ -679,12 +689,14 @@
 								$('.testimonial_content').each(function(){
 									$(this).click(function() {
 						 				var talkNo = Number($(this).next().find('input').val().trim());
+						 				
 						 				if('${member.userNo}' != Number($(this).find('input').val().trim())){
 // 							 				$('#modalUD').css("display","none");
 // 							 				$('#modalUD').css("visibility","hidden");
 							 				$('#modalUD').hide();
+							 				
 						 				}
-
+						 				
 						 				$('#upBtn').parent().find('br').remove();
 						 				$('#upBtn').css("display", 'inline-block').after($('<br>'));
 						 				$('#upBtn').next().next().css("display", 'none');
@@ -714,7 +726,7 @@
 	//				 	 									<td>bco.cdate</td>
 	//				 	 									<td align="right">
 	//				 	 										<input type="hidden" name="cno" value=""/>
-					 	 										  
+	//				 	 										<input type="hidden" name="userno" value=""/>
 	//				 	 										<button type="button" class="updateBtn" 
 	//				 	 											onclick="updateReply(this);">수정하기</button>
 					 	 										
@@ -746,9 +758,10 @@
 						 		            		var $td1 = $('<td>').attr("rowspan","2");
 						 		            		var $td2 = $('<td>').append(  $('<b>').text(data.list[tt].nickname)  );
 						 		            		var $td3 = $('<td>').text(new Date(data.list[tt].cdate).format('yyyy-MM-dd a/p hh:mm:ss'));
-						 		            		var $td4 = $('<td>').attr("align","right");
+						 		            		var $td4 = $('<td>').addClass("replyUD").attr("align","right");
 						
 						 		            		var $input = $('<input>').attr("type","hidden").attr("name","cno").val(data.list[tt].commentno);
+						 		            		var $input2 = $('<input>').attr("type","hidden").attr("name","userno").val(data.list[tt].userno);
 						 		            		var $button1 = $('<button>').attr("type", "button").addClass("updateBtn").attr("onclick", "updateReply(this);").text("수정하기");
 						 		            		var $button2 = $('<button>').attr("type", "button").addClass("updateConfirm").attr("onclick", "updateConfirm(this);").css("display","none").text("수정완료");
 						 		            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
@@ -759,7 +772,7 @@
 						 		            		$replySelectArea.append($table);
 						 		            		$table.append($tr1).append($tr2);
 						 		            		$tr1.append($td1).append($td2).append($td3).append($td4);
-						 		            		$td4.append($input).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
+						 		            		$td4.append($input).append($input2).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
 						 		            		
 						 		            		$tr2.append($td5)
 						 		            		$td5.append($textarea);
@@ -767,6 +780,15 @@
 						 		            		$('.footer').append($replySelectArea);
 						 		            		
 						 		            		}
+						 		            		
+						 		            		$('.replyUD').each(function() {
+							 			 				if('${member.userNo}' != Number($(this).find('input').eq(1).val().trim())){
+							 			 					// $('.replyUD').css("display","none");
+							 			 					// $('.replyUD').css("visibility","hidden");
+							 			 					   $(this).hide();  
+							 			 				}
+													});
+						 		            		
 						 		            		
 						 			            }, error : function(jqxhr, textStatus, errorThrown){
 						 			                console.log("ajax 처리 실패");
@@ -858,7 +880,7 @@
 									var contentPre = $('#textArea').text($('#textArea_').val());
 							        var talkno = Number($('#talkno').val().trim());
 							        // var userno = Number($('#userno').val());
-
+	
 							        if(contentt.length == 0) {
 							        	alert("내용을 입력하세요.");
 							        	return;
@@ -911,9 +933,7 @@
 	  					<div class="footer">
 						    <a href="#"></a> 
 						    <div class="row">
-	      						<div class="small-avatar">
-	        						<img src="${pageContext.request.contextPath}/resources/images/profileImage/${data.profileName}" alt="" />
-	      						</div>
+	      						
 	      						<div class="write-comment">
 	        						<input type="text" name="ccontent" id="ccontent" placeholder="댓글을 입력하세요.">
 	        						<button type="button" id="addReply" onclick="insertConmment();"><i class="fa fa-pencil"></i></button>
@@ -924,6 +944,7 @@
 	  					
 	  					<!-- 댓글 스크립트 -->
 						<script>
+							
 							$('#ccontent').keyup(function(e) {
 								console.log(e.key);
 								if(e.key == 'Enter'){
@@ -932,10 +953,11 @@
 							});
 							
 							function insertConmment(){
-						        var contentt = $('#ccontent').val().trim();
+								var contentt = $('#ccontent').val().trim();
 						        var talkno = Number($('#talkno').val().trim());
 						        var userno = Number($('#userno').val());
 						        
+						        if(userno == 0) { alert("로그인 후 등록 가능합니다."); return; }
 						        if(contentt.length == 0) {
 						        	alert("내용을 입력하세요.");
 						        	return;
@@ -990,20 +1012,21 @@
 							            		var $td1 = $('<td>').attr("rowspan","2");
 							            		var $td2 = $('<td>').append(  $('<b>').text(data[tt].nickname)  );
 							            		var $td3 = $('<td>').text(new Date(data[tt].cdate).format('yyyy-MM-dd a/p hh:mm:ss'));
-							            		var $td4 = $('<td>').attr("align","right");
+							            		var $td4 = $('<td>').addClass("replyUD").attr("align","right");
 						
 							            		var $input = $('<input>').attr("type","hidden").attr("name","cno").val(data[tt].commentno);
+					 		            		var $input2 = $('<input>').attr("type","hidden").attr("name","userno").val(data[tt].userno);
 							            		var $button1 = $('<button>').attr("type", "button").addClass("updateBtn").attr("onclick", "updateReply(this);").text("수정하기");
 							            		var $button2 = $('<button>').attr("type", "button").addClass("updateConfirm").attr("onclick", "updateConfirm(this);").css("display","none").text("수정완료");
 							            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
 							            		
 							            		var $td5 = $('<td>').attr("colspan","3").css("background", "transparent")
-							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','71%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
+							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','90%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
 							            		
 							            		$replySelectArea.append($table);
 							            		$table.append($tr1).append($tr2);
 							            		$tr1.append($td1).append($td2).append($td3).append($td4);
-							            		$td4.append($input).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
+							            		$td4.append($input).append($input2).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
 							            		
 							            		$tr2.append($td5)
 							            		$td5.append($textarea);
@@ -1011,6 +1034,15 @@
 							            		$('.footer').append($replySelectArea);
 							            		
 							            		}
+							            		
+					 		            		$('.replyUD').each(function() {
+						 			 				if('${member.userNo}' != Number($(this).find('input').eq(1).val().trim())){
+						 			 					// $('.replyUD').css("display","none");
+						 			 					// $('.replyUD').css("visibility","hidden");
+						 			 					   $(this).hide();  
+						 			 				}
+												});
+					 		            		
 							            		
 							            		cilckEvent();
 							            }, error : function(jqxhr, textStatus, errorThrown){
@@ -1095,20 +1127,21 @@
 							            		var $td1 = $('<td>').attr("rowspan","2");
 							            		var $td2 = $('<td>').append(  $('<b>').text(data[tt].nickname)  );
 							            		var $td3 = $('<td>').text(new Date(data[tt].cdate).format('yyyy-MM-dd a/p hh:mm:ss'));
-							            		var $td4 = $('<td>').attr("align","right");
+							            		var $td4 = $('<td>').addClass("replyUD").attr("align","right");
 						
 							            		var $input = $('<input>').attr("type","hidden").attr("name","cno").val(data[tt].commentno);
+					 		            		var $input2 = $('<input>').attr("type","hidden").attr("name","userno").val(data[tt].userno);
 							            		var $button1 = $('<button>').attr("type", "button").addClass("updateBtn").attr("onclick", "updateReply(this);").text("수정하기");
 							            		var $button2 = $('<button>').attr("type", "button").addClass("updateConfirm").attr("onclick", "updateConfirm(this);").css("display","none").text("수정완료");
 							            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
 							            		
 							            		var $td5 = $('<td>').attr("colspan","3").css("background", "transparent")
-							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','71%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
+							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','90%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
 							            		
 							            		$replySelectArea.append($table);
 							            		$table.append($tr1).append($tr2);
 							            		$tr1.append($td1).append($td2).append($td3).append($td4);
-							            		$td4.append($input).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
+							            		$td4.append($input).append($input2).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
 							            		
 							            		$tr2.append($td5)
 							            		$td5.append($textarea);
@@ -1117,6 +1150,13 @@
 							            		
 							            		}
 							            		
+					 		            		$('.replyUD').each(function() {
+						 			 				if('${member.userNo}' != Number($(this).find('input').eq(1).val().trim())){
+						 			 					// $('.replyUD').css("display","none");
+						 			 					// $('.replyUD').css("visibility","hidden");
+						 			 					   $(this).hide();  
+						 			 				}
+												});
 							            		cilckEvent();
 							            }, error : function(jqxhr, textStatus, errorThrown){
 							                console.log("ajax 처리 실패");
@@ -1183,9 +1223,10 @@
 							            		var $td1 = $('<td>').attr("rowspan","2");
 							            		var $td2 = $('<td>').append(  $('<b>').text(data[tt].nickname)  );
 							            		var $td3 = $('<td>').text(new Date(data[tt].cdate).format('yyyy-MM-dd a/p hh:mm:ss'));
-							            		var $td4 = $('<td>').attr("align","right");
+							            		var $td4 = $('<td>').addClass("replyUD").attr("align","right");
 						
 							            		var $input = $('<input>').attr("type","hidden").attr("name","cno").val(data[tt].commentno);
+					 		            		var $input2 = $('<input>').attr("type","hidden").attr("name","userno").val(data[tt].userno);
 							            		var $button1 = $('<button>').attr("type", "button").addClass("updateBtn").attr("onclick", "updateReply(this);").text("수정하기");
 							            		var $button2 = $('<button>').attr("type", "button").addClass("updateConfirm").attr("onclick", "updateConfirm(this);").css("display","none").text("수정완료");
 							            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
@@ -1196,7 +1237,7 @@
 							            		$replySelectArea.append($table);
 							            		$table.append($tr1).append($tr2);
 							            		$tr1.append($td1).append($td2).append($td3).append($td4);
-							            		$td4.append($input).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
+							            		$td4.append($input).append($input2).append($button1).append($button2).append('&nbsp;&nbsp;').append($button3);
 							            		
 							            		$tr2.append($td5)
 							            		$td5.append($textarea);
@@ -1204,6 +1245,14 @@
 							            		$('.footer').append($replySelectArea);
 							            		
 							            		}
+							            		
+					 		            		$('.replyUD').each(function() {
+						 			 				if('${member.userNo}' != Number($(this).find('input').eq(1).val().trim())){
+						 			 					// $('.replyUD').css("display","none");
+						 			 					// $('.replyUD').css("visibility","hidden");
+						 			 					   $(this).hide();  
+						 			 				}
+												});
 							            		
 							            		cilckEvent();
 							            }, error : function(jqxhr, textStatus, errorThrown){
@@ -1285,7 +1334,7 @@
 		</div>
 
 	<c:import url="../common/footer.jsp"/>
-	
+
 	<!-- 세모선숲 (글 목록 + 사이드 바) 전체 틀 끝 -->
 	</div>
 	
