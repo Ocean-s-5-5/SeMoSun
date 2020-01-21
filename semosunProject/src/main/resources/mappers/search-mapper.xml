@@ -25,7 +25,7 @@
 
 
 	<select id="selectReviewList" parameterType="string" resultType="Review">
-     SELECT RR.company,RR.subject,RR.tname,RR.PROFILENAME,RR.RTITLE,RR.NICKNAME 
+     SELECT RR.company,RR.subject,RR.tname,RR.PROFILENAME,RR.RTITLE,RR.NICKNAME,RR.TNO
      FROM (SELECT M.*,R.*,t.company,t.subject,t.tname FROM REVIEW R
 	 JOIN  MEMBER M ON(R.USERNO=M.USERNO)
      JOIN TEACHER T ON(R.TNO=T.TNO)

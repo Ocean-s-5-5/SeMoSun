@@ -687,7 +687,14 @@ li:hover {
     -o-transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     transform: scale(1.1,1.1);
+}
+@media (min-width: 351px) and (max-width: 767px){
+#member-container{
+width : 200px;
 
+}
+
+}
 
 
 </style>

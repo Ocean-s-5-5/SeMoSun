@@ -85,6 +85,19 @@ h3 {
 		width: 1250px;
 	}
 }
+@media (min-width: 351px) and (max-width: 767px){
+
+	.caption.small-600-black.lfr{
+	display:none;
+	}
+	.caption.medium-700-black.lfr.tp-caption.start{
+	display : none;
+	}
+	.numberDiv.numdiv{
+	display:flex;
+	flex-direction: column;
+	}
+}
 
 @media ( max-width : 1199px) {
 	.content.jsx-2160661806>.banner {
@@ -1088,57 +1101,21 @@ font-family:S-CoreDream-4Regular !important;
 					<!-- Start News & Skill Section -->
 					<div class="container">
 						<div class="row">
-						<div class="col-md-5">
-
+						<!-- 실시간 검색어 표현  -->
+						<div class="col-md-5" id="wordSpace">
+					
 								<!-- Classic Heading -->
 								<h4 class="classic-title">
 									<span style="font-family:S-CoreDream-4Regular;  font-size:18px;">현재 세모선숲에서 가장 핫한 단어!</span>
 								</h4>
-<!-- 								<div class="progress-bars"> -->
-<!-- 									<div class="progress-label" style="font-family:S-CoreDream-4Regular;">강사 승인 완료률</div> -->
-<!-- 									<div class="progress"> -->
-<!-- 										<div class="progress-bar progress-bar-primary" -->
-<!-- 											data-progress-animation="95%"> -->
-<!-- 											<span class="progress-bar-tooltip">95%</span> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="progress-label">리뷰 승인률</div> -->
-<!-- 									<div class="progress"> -->
-<!-- 										<div class="progress-bar progress-bar-primary" -->
-<!-- 											data-progress-animation="85%" data-animation-delay="300"> -->
-<!-- 											<span class="progress-bar-tooltip">85%</span> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="progress-label">댓글 신고률</div> -->
-<!-- 									<div class="progress"> -->
-<!-- 										<div class="progress-bar progress-bar-primary" -->
-<!-- 											data-progress-animation="20%" data-animation-delay="600"> -->
-<!-- 											<span class="progress-bar-tooltip">20%</span> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="progress-label">세모숲 이용률</div> -->
-<!-- 									<div class="progress"> -->
-<!-- 										<div class="progress-bar progress-bar-primary" -->
-<!-- 											data-progress-animation="85%" data-animation-delay="900"> -->
-<!-- 											<span class="progress-bar-tooltip">85%</span> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
 
-<!-- 									<div class="progress-label">사이트 만족도</div> -->
-<!-- 									<div class="progress"> -->
-<!-- 										<div class="progress-bar progress-bar-primary" -->
-<!-- 											data-progress-animation="85%" data-animation-delay="900"> -->
-<!-- 											<span class="progress-bar-tooltip">85%</span> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
 								<figure class="highcharts-figure" onclick="location.href='${pageContext.request.contextPath }/talk/talkList.do'">
 								    <div id="container_wordcloud"></div>
 								    <p class="highcharts-description"></p>
 								</figure>
-							</div>
-							
-							
+				
+						</div>
+					
 			
 				<!-- 세모숲 -->
 
@@ -1200,8 +1177,6 @@ font-family:S-CoreDream-4Regular !important;
 				<!-- End Content -->
 
 
-<div></div>
-<div></div>
 				<%@ include file="views/common/footer.jsp"%>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/wordcloud.js"></script>

@@ -48,7 +48,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
-	display: flex;
+	
 }
 
 .my-snb.jsx-707316887 {
@@ -616,7 +616,7 @@ input-box.jsx-1936111413 {
 
 .btn-save.jsx-1936111413 {
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 40px;
 }
 
 button.jsx-315148180 {
@@ -676,8 +676,131 @@ li:hover {
     -ms-transform: scale(1.1,1.1);
     transform: scale(1.1,1.1);
 }
+.progress-label {
+    font-size: 15px !important;
+    color: #666;
+    font-weight: 600;  
+    margin-bottom: 13px !important;
+}
+}
+
+/*
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+##Device = 저해상도 태블릿, 모바일(가로)
+##Screen = 481px에서 767px 사이
+*/
+
+
+.col-sm-6 {
+    width: 100% !important;
+    margin-top: -3px !important;
+	font-size : 15px;
+}
+
+
+@media (min-width: 351px) and (max-width: 767px) {
+
+#updateProgress{
+	display:block;
+	}
+	.jsx-707316887.my-snb{
+	width : 100%;
+	display:block;
+	}
+	.jsx-1936111413.card{
+    width: 370px;
+    height: auto !important;
+    display: table-caption;
+	}
+	.jsx-1936111413.profile{
+	width:100%;
+	display: contents;
+	}
+	.jsx-3712571264{
+	display:contents;
+	}
+	.content.jsx-2255473334 {
+	position: relative;
+	-webkit-flex: auto;
+	-ms-flex: auto;
+	flex: auto;
+	width: 100%;
+	
+	padding: 0 0px !important;
+	margin: 32px auto 64px;
+}
+.body.jsx-2123435526 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+}
+
+
+/*
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+##Device = 저해상도 태블릿, 모바일(가로)
+##Screen = 481px에서 767px 사이
+*/
+
+
+.col-sm-6 {
+    width: 100% !important;
+    margin-top: -3px !important;
+	font-size : 15px;
+}
+
+
+@media (min-width: 351px) and (max-width: 767px) {
+
+#updateProgress{
+	display:block;
+	}
+	.jsx-707316887.my-snb{
+	width : 100%;
+	display:block;
+	}
+	.jsx-1936111413.card{
+    width: 370px;
+    height: auto !important;
+    display: table-caption;
+	}
+	.jsx-1936111413.profile{
+	width:100%;
+	display: contents;
+	}
+	.jsx-3712571264{
+	display:contents;
+	}
+	.content.jsx-2255473334 {
+	position: relative;
+	-webkit-flex: auto;
+	-ms-flex: auto;
+	flex: auto;
+	width: 100%;
+	
+	padding: 0 0px !important;
+	margin: 32px auto 64px;
+}
+.body.jsx-2123435526 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+}
+
 
 </style>
+	
+
 <!-- 파비콘 -->
 <link rel=" shortcut icon" href="${pageContext.request.contextPath}/resources/images/icons/semosun1.png">
 <link rel="icon" href="${pageContext.request.contextPath}/resources/images/icons/semosun1.png">
@@ -710,7 +833,7 @@ li:hover {
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body">
-					<div class="jsx-707316887 my-snb" style="height:800px; width:400px">
+					<div class="jsx-707316887 my-snb" style="height:900px; width:400px">
 						<h2 class="jsx-707316887">
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 								viewBox="0 0 24 24" fill="none" stroke="#dfdfdf"
@@ -817,7 +940,7 @@ li:hover {
 					<input type="text" name="userId" id="userId_" value="${member.userId}" 
 					style="display: none;"/>
 					<div class="jsx-2123435526 content">
-						<div class="jsx-1936111413 card" style="height: 800px;">
+						<div class="jsx-1936111413 card" style="height: 900px;">
 							<div class="jsx-1936111413 title">
 								<h2 class="jsx-1936111413">${member.nickName}님 환영합니다.</h2>
 								<p class="jsx-1936111413">별별선생에서 사용되는 대표 프로필 사진과 닉네임 입니다.</p>
@@ -883,7 +1006,7 @@ li:hover {
 	               
 		            <div class="progress-bars">
 					<div class="row">
-						<div class="col-sm-6">
+						<div>
 					        <div class="progress-label"> 찾으시는 수업의 난이도는 높은 편인가요? </div>
 					        <div class="progress">
 					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score1*2}0%">
@@ -891,12 +1014,12 @@ li:hover {
 					            </div>
 					        </div>
 					     </div>
-		                 <div class="col-sm-6">
+		                 <div>
 		                    <input type="range" max="5" min="0" step="1" name="score1" onchange="changeProgress(this);" value="${member.score1}"><br />
 		                 </div>   
 					    </div>
 					<div class="row">
-						<div class="col-sm-6">
+						<div>
 					        <div class="progress-label"> 유머러스한 강의를 좋아하시나요? </div>
 					        <div class="progress">
 					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score2*2}0%">
@@ -904,12 +1027,12 @@ li:hover {
 					            </div>
 					        </div> 
 					     </div> 
-		                 <div class="col-sm-6">
+		                 <div>
 		                    <input type="range" max="5" min="0" step="1"  name="score2" onchange="changeProgress(this);" value="${member.score2}"><br />
 		                 </div>   
 					    </div> 
 					<div class="row">
-						<div class="col-sm-6">
+						<div>
 					        <div class="progress-label"> 과제가 많은 수업을 좋아하시나요? </div>
 					        <div class="progress">
 					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score3*2}0%">
@@ -917,12 +1040,12 @@ li:hover {
 					            </div>
 					        </div> 
 					     </div> 
-		                 <div class="col-sm-6">
+		                 <div>
 		                    <input type="range" max="5" min="0" step="1"  name="score3" onchange="changeProgress(this);" value="${member.score3}"><br />
 		                 </div>   
 					    </div> 
 					<div class="row">
-						<div class="col-sm-6">
+						<div>
 					        <div class="progress-label"> 교재가 많은 수업이 좋으신가요? </div>
 					        <div class="progress">
 					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score4*2}0%">
@@ -930,12 +1053,12 @@ li:hover {
 					            </div>
 					        </div> 
 					     </div>
-		                 <div class="col-sm-6">
+		                 <div>
 		                    <input type="range" max="5" min="0" step="1" name="score4" onchange="changeProgress(this);" value="${member.score4}"><br />
 		                 </div>    
 					    </div> 
 					<div class="row"> 
-						<div class="col-sm-6">
+						<div>
 					        <div class="progress-label"> 발음, 발성, 속도의 강도가 어떤<br>강사님을 좋아하시나요? (차분 ↔ 파워풀)   </div>
 					        <div class="progress">
 					            <div class="progress-bar progress-bar-primary" data-progress-animation="${member.score5*2}0%">
@@ -943,13 +1066,30 @@ li:hover {
 					            </div>
 					        </div> 
 					     </div> 
-		                 <div class="col-sm-6">
+		                 <div>
 		                    <input type="range" max="5" min="0" step="1" name="score5" onchange="changeProgress(this);" value="${member.score5}"><br />
 		                 </div>   
 					</div>
 		       		</div>
 	              </div>
 	              <script type="text/javascript">
+	              function validate(object){
+						var re = new RegExp(
+			    		/^(?!(?:[a-z]+)$)(?!(?:[A-Z]+)$)(?!(?:[0-9]+)$)([A-Z]|[a-z]|[0-9]){6,12}$/);
+						
+						var pw = $("#pwd");
+						if(pw.val()==null){
+						if(!re.test(pw.val())){
+							alert("패스워드는 6~18자의 영문 대문자와 소문자 숫자를 포함하여 입력하세요");
+							pw.focus();
+							return false;
+						}
+						return true;							
+						}
+						
+					
+					}
+	              
 	              function changeProgress(obj){
 	      			$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
 	      			$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');
@@ -981,18 +1121,7 @@ li:hover {
 					}
 				}
 				
-				function validate(object){
-					var re = new RegExp(
-		    		/^(?!(?:[a-z]+)$)(?!(?:[A-Z]+)$)(?!(?:[0-9]+)$)([A-Z]|[a-z]|[0-9]){6,12}$/);
-					
-					var pw = $("#pwd");
-					if(!re.test(pw.val())){
-						alert("패스워드는 6~18자의 영문 대문자와 소문자 숫자를 포함하여 입력하세요");
-						pw.focus();
-						return false;
-					}
 				
-				}
 			</script>
 		<div style="height:200px;"></div>
 		<c:import url="../common/footer.jsp"/>
@@ -1026,6 +1155,7 @@ li:hover {
 			id="shareButton"
 			style="z-index: 100000 !important; position: fixed !important; right: 13px !important; bottom: 80px !important; height: 60px !important; width: auto !important; cursor: pointer !important;">
 	</div>
+	
 	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1985263945087188");fbq("track","PageView");</script>
 	<noscript>
 		<img height="1" width="1" style="display: none"

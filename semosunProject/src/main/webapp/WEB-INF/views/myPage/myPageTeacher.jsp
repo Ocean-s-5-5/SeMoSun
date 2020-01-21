@@ -8,6 +8,27 @@
 <head>
 
 <style>
+
+@media (min-width: 351px) and (max-width: 767px){
+.my-snb.jsx-707316887 {
+    position: relative;
+    background-color: #ffffff !important;
+    border: 1px solid #dfdfdf !important;
+    height: 100% !important;
+    min-width: 260px !important ;
+    padding: 32px 24px 8px !important;
+    display: table !important;
+}
+.body.jsx-2123435526 {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+
+}
 <!--
 여기부터 카드 -->* {
 	box-sizing: border-box;

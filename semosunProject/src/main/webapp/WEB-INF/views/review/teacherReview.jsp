@@ -148,62 +148,62 @@
                         
                     	<c:if test="${Teacher.tStatus eq 'Y'}">
                         <!-- Popular Posts widget -->
-                        <div class="widget widget-popular-posts">
-                            <h4>Popular Post <span class="head-line"></span></h4>
-                            <ul>
-                                <li>
-                                    <div class="widget-thumb">
-                                        <a href="#"><img src="" alt="" /></a>
-                                    </div>
-                                    <div class="widget-content">
-                                        <h5>
-                                        <a href="#">How To Download The Google Fonts Catalog</a>
-                                    </h5>
-                                        <span></span>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <ul>
-                                    <h4></h4>
-		                                <li>
-		                                    <a href="#">Brandign</a>
-		                                </li>
-		                                <li>
-		                                    <a href="#">Design</a>
-		                                </li>
-		                                <li>
-		                                    <a href="#">Development</a>
-		                                </li>
-		                                <li>
-		                                    <a href="#">Graphic</a>
-		                                </li>
-		                            </ul>
-                                </li>
-                                <li>
-                                    <div class="widget-thumb">
-                                        <a href="#"><img src="" alt="" /></a>
-                                    </div>
-                                    <div class="widget-content">
-                                        <h5>
-                                        <a href="#">How To Download The Google Fonts Catalog</a>
-                                    </h5>
-                                        <span>Jul 29 2013</span>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="widget-thumb">
-                                        <a href="#"><img src="" alt="" /></a>
-                                    </div>
-                                    <div class="widget-content">
-                                        <h5>
-                                        <a href="#">How To Download The Google Fonts Catalog</a>
-                                    </h5>
-                                        <span>Jul 29 2013</span>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </li>
-                            </ul>
-                        </div>
+<!--                         <div class="widget widget-popular-posts"> -->
+<!--                             <h4>Popular Post <span class="head-line"></span></h4> -->
+<!--                             <ul> -->
+<!--                                 <li> -->
+<!--                                     <div class="widget-thumb"> -->
+<!--                                         <a href="#"><img src="" alt="" /></a> -->
+<!--                                     </div> -->
+<!--                                     <div class="widget-content"> -->
+<!--                                         <h5> -->
+<!--                                         <a href="#">How To Download The Google Fonts Catalog</a> -->
+<!--                                     </h5> -->
+<!--                                         <span></span> -->
+<!--                                     </div> -->
+<!--                                     <div class="clearfix"></div> -->
+<!--                                     <ul> -->
+<!--                                     <h4></h4> -->
+<!-- 		                                <li> -->
+<!-- 		                                    <a href="#">Brandign</a> -->
+<!-- 		                                </li> -->
+<!-- 		                                <li> -->
+<!-- 		                                    <a href="#">Design</a> -->
+<!-- 		                                </li> -->
+<!-- 		                                <li> -->
+<!-- 		                                    <a href="#">Development</a> -->
+<!-- 		                                </li> -->
+<!-- 		                                <li> -->
+<!-- 		                                    <a href="#">Graphic</a> -->
+<!-- 		                                </li> -->
+<!-- 		                            </ul> -->
+<!--                                 </li> -->
+<!--                                 <li> -->
+<!--                                     <div class="widget-thumb"> -->
+<!--                                         <a href="#"><img src="" alt="" /></a> -->
+<!--                                     </div> -->
+<!--                                     <div class="widget-content"> -->
+<!--                                         <h5> -->
+<!--                                         <a href="#">How To Download The Google Fonts Catalog</a> -->
+<!--                                     </h5> -->
+<!--                                         <span>Jul 29 2013</span> -->
+<!--                                     </div> -->
+<!--                                     <div class="clearfix"></div> -->
+<!--                                 </li> -->
+<!--                                 <li> -->
+<!--                                     <div class="widget-thumb"> -->
+<!--                                         <a href="#"><img src="" alt="" /></a> -->
+<!--                                     </div> -->
+<!--                                     <div class="widget-content"> -->
+<!--                                         <h5> -->
+<!--                                         <a href="#">How To Download The Google Fonts Catalog</a> -->
+<!--                                     </h5> -->
+<!--                                         <span>Jul 29 2013</span> -->
+<!--                                     </div> -->
+<!--                                     <div class="clearfix"></div> -->
+<!--                                 </li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
                         
                         
 						<!-- 등록하기 button -->

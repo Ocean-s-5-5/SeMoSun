@@ -49,7 +49,7 @@
                             </li>
                             <li><a href="#">Blog</a>
                             </li>
-                            <li>Gallery Post With Nice Lightbox</li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -66,14 +66,7 @@
                         <!-- Start Single Post Area -->
                         <div class="blog-post gallery-post">
 
-                            <div class="post-time-section">
-                                <div class="post-date">
-                                    <span class="day"></span>
-                                </div>
-                                <div class="post-month">
-                                    <span class="month"></span>
-                                </div>
-                            </div>
+                      
 
                             <!-- Start Single Post Content -->
                             <div class="post-content" style="width: 1000px;">

@@ -28,6 +28,7 @@
 .blog-post .post-time-section .post-date {
     
     background-color: #12312311 !important;
+    width: 105px !important;
   
 }
 h3 b {
@@ -65,13 +66,13 @@ h3 b {
                 <div class="row">
                     <div class="col-md-6">
                         <h1><b>신고게시판</b></h1>
-                        <p>Blog Page With Right Sidebar</p>
+                      
                     </div>
                     <div class="col-md-6">
                         <ul class="breadcrumbs">
-                            <li><a href="#">Home</a>
+                            <li><a href="/semosun">Home</a>
                             </li>
-                            <li>Report</li>
+                            <li><a href="#">Report</a></li>
                         </ul>
                     </div>
                 </div>

@@ -585,6 +585,29 @@ svg[Attributes Style] {
 		line-height: normal;
 	}
 }
+
+@media(max-width:800px){
+.mon{
+	width : 300px !important;
+	hegiht: 50px !important;
+	border-radius: 40px !important;
+	border: solid 0px !important;
+	height: 50px !important;
+	font-size: 20pt !important;
+}
+.jsx-2460799870.search-bar{
+	width : 350px !important;
+	hegiht: 50px !important;
+}
+.search-box.jsx-2460799870{
+	width : 350px !important;
+	hegiht: 50px !important;
+    border-radius: 40px !important;
+    
+}
+}
+
+
 /* 타이핑 css*/
 .typing-txt {
 	display: none;
@@ -685,7 +708,7 @@ solid
 							<div class="jsx-2460799870 search-box">
 								<div class="jsx-2460799870 search-bar">
 									<div class="jsx-3664481379 input">
-										<input type="text" title="검색어 입력"
+										<input class="mon" type="text" title="검색어 입력"
 											style="border-radius: 30px; border: solid 0px; width:800px; height: 50px; font-size: 20pt;"
 											id="keyword" name="keyword">
 									</div>
@@ -737,7 +760,7 @@ solid
 											</a>
 										</div>
 										<div class="portfolio-details">
-											<a href="#">
+											<a href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">
 													<h4>${ teacher.tName }</h4> <span>${ teacher.company},
 											</span> <span>${ teacher.subject }</span>
 											</a>
@@ -759,16 +782,16 @@ solid
 								<div class="portfolio-item item">
 									<div class="portfolio-border">
 										<div class="portfolio-thumb">
-											<a class="lightbox" title="This is an image title"
-												href="${pageContext.request.contextPath }/resources/images/portfolio/portfolio_2_10@2x.jpg">
+											<a href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo=${review.tNo}">
 												<div class="thumb-overlay">
 													<i class="fa fa-arrows-alt"></i>
 												</div> <img style="width: 265px; height: 270px;"
+												
 									src="${pageContext.request.contextPath }/resources/images/profileImage/${review.profileName}" />
 											</a>
 										</div>
 										<div class="portfolio-details">
-											<a href="#"> 
+											<a href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo=${review.tNo}"> 
 											<h4>작성자 : ${review.nickName }</h4>
 											<h4>강사명 : ${ review.tName }</h4>
 											<span>${ review.company }, </span>
@@ -798,17 +821,20 @@ solid
 
 							<!-- Single Testimonial -->
 							<div class="testimonial">
-								<div class="testimonial_content">
+								<a href="${pageContext.request.contextPath}/talk/talkList.do">
+							
+									<div class="testimonial_content">
 
-									<div class="testimonial_content_inner">
-										<p>${talk.talkContent}</p>
+										<div class="testimonial_content_inner">
+											<p>${talk.talkContent}</p>
+										</div>
 									</div>
-								</div>
-								<div class="testimonial_author clearfix">
-									<img class="testimonial_photo" style="width:20%; height: auto;" src="${pageContext.request.contextPath }/resources/images/profileImage/${talk.profileName}"
+									<div class="testimonial_author clearfix">
+										<img class="testimonial_photo" style="width:20%; height: auto;" src="${pageContext.request.contextPath }/resources/images/profileImage/${talk.profileName}"
 										alt="">
-									<div class="testimonial_position">&nbsp&nbsp&nbsp<b>닉네임</b> : ${talk.nickName}</div>
-								</div>
+										<div class="testimonial_position">&nbsp&nbsp&nbsp<b>닉네임</b> : ${talk.nickName}</div>
+									</div>
+								</a>
 							</div>
 							<!-- End Single Testimonial -->
 					</c:forEach>
@@ -835,6 +861,7 @@ solid
 							
 							<!-- Single Testimonial -->
 							<div class="testimonial">
+								<a href="${pageContext.request.contextPath}/noticeView.nt?no=${notice.noticeNo}&nNumber=${totalContents - (cPage - 1) * numPerPage - status.count}">						
 								<div class="testimonial_content">
 
 									<div class="testimonial_content_inner">
@@ -847,6 +874,7 @@ solid
 									<div class="testimonial_name"><b>제목</b> : ${notice.noticeTitle}</div>
 									<div class="testimonial_position"></div>
 								</div>
+								</a>
 							</div>
 							<!-- End Single Testimonial -->
 					</c:forEach>

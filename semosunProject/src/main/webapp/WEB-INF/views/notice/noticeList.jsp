@@ -50,13 +50,13 @@ h3 b {
                 <div class="row">
                     <div class="col-md-6">
                         <h1><b>공지사항</b></h1>
-                        <p>Blog Page With Right Sidebar</p>
+                        
                     </div>
                     <div class="col-md-6">
                         <ul class="breadcrumbs">
-                            <li><a href="#">Home</a>
+                            <li><a href="/semosun">Home</a>
                             </li>
-                            <li>Notice</li>
+                            <li><a href="#"></a>Notice</li>
                         </ul>
                     </div>
                 </div>
