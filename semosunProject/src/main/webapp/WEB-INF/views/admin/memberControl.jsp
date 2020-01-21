@@ -145,6 +145,9 @@ textarea {
 #overflow {
 	overflow: overlay;
 }
+.detail.wow {
+	height: auto;
+}
 </style>
 </head>
 
@@ -220,8 +223,8 @@ textarea {
             	 <div class="col1"><strong>아이디</strong></div>
             	 <div class="col4"><strong>성별</strong></div>
             	 <div class="col6"><strong>이메일 / 인증여부</strong></div>
-            	 <div class="col4"><strong>활동</strong></div>
-            	 <div class="col5"><strong>가입일</strong></div>
+            	 <div class="col4"><strong>가입일</strong></div>
+            	 <div class="col5"><strong>관리</strong></div>
             </div>
         <div id="overflow">    
          <c:forEach items="${memberList}" var="m">
@@ -234,12 +237,14 @@ textarea {
             	 <div class="col1">${m.userId}</div>
             	 <div class="col4">${m.gender eq 'M'? '남':'여'}</div>
             	 <div class="col6">${m.email} <br /><br />인증 : ${m.erecive eq 0? 'X':'O'}</div>
-            	 <div class="col4">리뷰 : <br /> 신고 받은 리뷰: <br /> 숲 : </div>
+            	 <div class="col4">${m.enrolldate}</div>
             	 <div class="col5">
-            	 	${m.enrolldate} <br />
             	 	<button type="button" class="btn btn-outline-danger" onclick="if(confirm('정말 강제 탈퇴 처리 하시겠습니까? \n되돌릴 수 없습니다!')) 
             	 								 location.href='${pageContext.request.contextPath }/deleteM.am?userId=${m.userId}';">탈퇴</button>
             	 </div>
+            </div>
+             <div class="semoRow td review open" onclick="openGraph(this, ${m.userNo});">
+            	 <i class="glyphicon glyphicon-chevron-right"></i><strong>${m.nickName }님의 활동 보기</strong>
             </div>
            </c:forEach>
           </div>
@@ -247,10 +252,111 @@ textarea {
     </div>
     
 	<c:import url="common/footer.jsp"/>
+	
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 	<script type="text/javascript">
 		$('nav li:gt(0)').removeClass('current');
 		$('nav li:eq(1)').addClass('current');
 		
+		function openGraph(BtnDiv, userNo) {
+			if($(BtnDiv).next().hasClass('wowCurrent')){
+				$('.wow').remove();				
+				return;
+			}else {
+				$('.wow').remove();				
+				var Str = '<div class="semoRow td review detail wow">' +							 
+					      '  <figure class="highcharts-figure">      ' +                                
+					      '	   <p class="highcharts-description"></p>' +                                                                
+					      '	   <div id="container_selectOneMemberGraph"></div> ' +               
+					      '	</figure>                                ' +                                
+					      '</div>                                    ';
+				$(BtnDiv).after(Str);
+				$.ajax({
+					url : "${pageContext.request.contextPath }/admin/selectOneMemberGraph.am",
+					data : { userNo : userNo },
+					dataType : "json",
+					success : function(selectOne) {
+						console.log(selectOne);
+							Highcharts.chart('container_selectOneMemberGraph', {
+							    chart: {
+							        type: 'column',
+							        options3d: {
+							            alpha: 8,
+							            enabled: true,
+							            viewDistance: 10,
+							            depth: 40
+							        }
+							    },
+	
+							    title: {
+							        text: '회원 평균대비 활동'
+							    },
+	
+							    xAxis: {
+							        categories: ['강사 등록', '리뷰 등록', '좋아요 받은 수', '신고받는 중인 리뷰', '세모숲글 등록'],
+							        labels: {
+							            skew3d: true,
+							            style: {
+							                fontSize: '16px'
+							            }
+							        }
+							    },
+	
+							    yAxis: {
+							        allowDecimals: false,
+							        min: 0,
+							        title: {
+							            text: ' ',
+							            skew3d: true
+							        }
+							    },
+	
+							    tooltip: {
+							        headerFormat: '<b>{point.key}</b><br>',
+							        pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y}'
+							    },
+	
+							    plotOptions: {
+							        column: {
+							            stacking: 'normal',
+							            depth: 40
+							        }
+							    },
+	
+							    series: [{
+							        name: '회원',
+							        data: [selectOne.M_TEACHER, selectOne.M_REVIEW, selectOne.M_LIKEY, selectOne.M_REPORT, selectOne.M_TALK],
+							        stack: 'member'
+							    }, {
+							        name: '평균',
+							        data: [selectOne.AVG_TEACHER, selectOne.AVG_REVIEW, selectOne.AVG_LIKEY, selectOne.AVG_REPORT, selectOne.AVG_TALK],
+							        stack: 'memberAvg'
+							    }]
+							});
+					}, error : function(selectOne) {
+						console.log("ajax 실패!");
+						console.log(selectOne);
+					}
+					
+				});
+				$(BtnDiv).next().addClass('wowCurrent').show('slow');
+			}
+		}
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
