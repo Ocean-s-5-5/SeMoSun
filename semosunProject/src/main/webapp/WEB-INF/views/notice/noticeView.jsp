@@ -18,7 +18,7 @@
 	
 <style>
 .button {
-	margin-left: 1000px;
+	margin-left: 52%;
 }
 
 .btn {
@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Blog</h2>
+                        <h1 style="font-size: 27px;"><b>공지사항</b></h1>
                         <p>Blog Subtitle</p>
                     </div>
                     <div class="col-md-6">
@@ -62,9 +62,10 @@
         <!-- End Page Banner -->
 
         <!-- Start Content -->
-        <div id="content">
+        <div id="content" style="margin-left: 20%;">
             <div class="container">
                 <div class="row blog-post-page">
+                
                     <div class="col-md-9 blog-box">
 
                         <!-- Start Single Post Area -->
@@ -97,11 +98,11 @@
                 </div>
             </div>
             <div class="button">
-	            <button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/noticeList.nt'">리스트로</button>
-			    <%-- <c:if test="${member.userId eq board.boardWriter}"> --%>
-			    &nbsp;
-				<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/notice/noticeUpdateView.nt?noticeNo=${notice.noticeNo}'">수정하기</button>
-				<%-- </c:if> --%>
+			    <c:if test="${!empty admin}">
+					<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/notice/noticeUpdateView.nt?noticeNo=${notice.noticeNo}'">수정하기</button>
+				</c:if>
+					&nbsp;
+	            	<button class="btn btn-outline-info" type="button" onclick="location.href='${pageContext.request.contextPath}/noticeList.nt'">리스트로</button>
 			</div>
         </div>
         <div style="height: 200px;"></div>

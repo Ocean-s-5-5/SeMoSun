@@ -9,12 +9,20 @@
 		ORDER BY NOTICEDATE DESC
 	</select>
 	
-	<select id="searchNotice" parameterType="String" resultType="Notice">
+	<select id="searchNotice" parameterType="hashmap" resultType="Notice">
 		SELECT *
 		FROM NOTICE
-		
 		<if test="keyword != null">
-			WHERE NOTICECONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			<if test="option == 0">
+				WHERE NOTICETITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			</if>
+			<if test="option == 1">
+				WHERE NOTICECONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			</if>
+			<if test="option == 2">
+				WHERE NOTICETITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+					OR NOTICECONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			</if>
 		</if>
 		ORDER BY NOTICEDATE DESC
 	</select>
@@ -23,10 +31,21 @@
 		SELECT COUNT(*) FROM NOTICE
 	</select>
 	
-	<select id="searchTotalContents" resultType="int">
+	<select id="searchTotalContents" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*) 
 		FROM NOTICE
-		WHERE NOTICECONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+		<if test="keyword != null">
+			<if test="option == 0">
+				WHERE NOTICETITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			</if>
+			<if test="option == 1">
+				WHERE NOTICECONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			</if>
+			<if test="option == 2">
+				WHERE NOTICETITLE LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+					OR NOTICECONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			</if>
+		</if>
 	</select>
 	
 	<select id="selectOnenotice" parameterType="_int" resultType="Notice">

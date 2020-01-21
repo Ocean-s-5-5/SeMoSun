@@ -5,10 +5,17 @@ import org.springframework.stereotype.Component;
 public class Utils {
 	
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url){
-		 return getPageBar(totalContents, cPage, numPerPage, url , "");
+		 return getPageBar(totalContents, cPage, numPerPage, url , "", -1);
 	}
 	
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword){
+		return getPageBar(totalContents, cPage, numPerPage, url , "", -1);
+	}
+	
+	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url ,  int option){
+		return getPageBar(totalContents, cPage, numPerPage, url , "", -1);
+	}
+	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword, int option){
 		String pageBar = "";
 		int pageBarSize = 5;
 		cPage = cPage==0?1:cPage;
@@ -71,10 +78,13 @@ public class Utils {
 		//fn_paging함수
 		pageBar += "<script>";
 		pageBar += "function fn_paging(cPage,numPerPage){";
-		if(keyword.trim().length() == 0){
+		
+		if(keyword.trim().length() == 0 && option == -1) {
 			pageBar += "location.href='"+url+"?cPage='+cPage;";
-		} else {
+		} else if (option == -1) {
 			pageBar += "location.href='"+url+"?keyword="+keyword+"&cPage='+cPage;";
+		} else {
+			pageBar += "location.href='"+url+"?keyword="+keyword+"&option="+option+"&cPage='+cPage;";
 		}
 		pageBar += "}";
 		pageBar += "</script>";

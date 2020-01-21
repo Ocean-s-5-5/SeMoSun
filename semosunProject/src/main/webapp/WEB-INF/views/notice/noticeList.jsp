@@ -29,6 +29,14 @@ h3 b {
 .main-button{
 	background: #1E385D !important;	
 }
+
+/* .container {
+	width: 1000px;
+} */
+
+select{
+	width: 110px; height: 37px; float:left; border: 1px solid #eee; line-height: 13px; font-size: 13px; margin-left: 26px;
+}
 </style>
 
 <script>
@@ -49,7 +57,7 @@ h3 b {
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1><b>공지사항</b></h1>
+                        <h1 style="font-size: 27px;"><b>공지사항</b></h1>
                         <p>Blog Page With Right Sidebar</p>
                     </div>
                     <div class="col-md-6">
@@ -85,7 +93,8 @@ h3 b {
                             <!-- Post Content Date -->
                             <div class="post-time-section">
                                 <div class="post-date">
-                                    <span class="day" style="color: white;">${totalContents - (cPage - 1) * numPerPage - status.index}</span>
+                                    <span class="day" style="color: white;"><c:if test="${keyword eq null}">${totalContents - (cPage - 1) * numPerPage - status.index}</c:if>
+                                    										<c:if test="${!empty keyword}">${n.noticeNo}</c:if></span>
                                 </div>
                                 <div class="post-month">
                                     <span class="month"></span>
@@ -105,9 +114,12 @@ h3 b {
                         </c:forEach>
                         <!-- End Post -->
                         
-                        <div id="pagination" style="text-align: right;">
-							<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="noticeForm();" />
-                        </div>
+                        
+                        <c:if test="${!empty admin}">
+	                        <div id="pagination" style="text-align: right;">
+								<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="noticeForm();" />
+	                        </div>
+                        </c:if>
 
                         <!-- Start Pagination -->
                         <!-- End Pagination -->
@@ -117,34 +129,37 @@ h3 b {
 
                     <!--Sidebar-->
                     <div class="col-md-3 sidebar right-sidebar" style="width: 400px;
-                    position: absolute; margin-left: 40%;">
+                    position: absolute; margin-left: 45%; ">
 
                         <!-- Search Widget -->
+                     <form action="${ pageContext.request.contextPath }/noticeSearch.nt">
                         <div>
                        
-                        	<select style="width: 110px; float:left;"  >
-							    <option selected>제목</option>
-							    <option>내용</option>
-							    <option>제목+내용</option>
-							    <option>작성자</option>
+                        	<select name="option">
+							    <option selected value="0">제목</option>
+							    <option value="1">내용</option>
+							    <option value="2">제목+내용</option>
 							</select>
 							
                         </div>
                          <div class="widget widget-search" style="position:absolute; margin-left:140px;">
-                            <form action="${ pageContext.request.contextPath }/noticeSearch.nt">
                                 <input type="search" name="keyword" placeholder="Enter Keywords..." />
                                 <button class="search-btn" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
-                            </form>
                         </div>
                         
+                     </form>
                     </div>
                     <!--End sidebar-->
 
                 </div>
+                
+                <br />
+                
+                
 	            <!-- 페이징처리 시작 -->
-	            <div style="margin-left: 350px">
+	            <div style="margin-left: 300px;">
 	        		<c:out value="${pageBar}" escapeXml="false"/>
 	        	</div>    
 	        	<!-- 페이징처리 끝 -->
