@@ -32,5 +32,4 @@ public class IndexController {
 		return "admin/adminMain";
 	}
 	
-	
 }

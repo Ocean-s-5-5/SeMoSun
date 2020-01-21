@@ -28,6 +28,7 @@
 					<li><a href="${pageContext.request.contextPath }">Home</a>
 						<ul class="dropdown">
 							<li style="font-family:S-CoreDream-4Regular;"> <a href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a> </li>
+							<li style="font-family:S-CoreDream-4Regular;"> <a href="${pageContext.request.contextPath}/resources/app/semosunApp.apk" type="application/vnd.android.package-archive">app 다운로드</a> </li>
 						</ul style="font-family:S-CoreDream-4Regular;"></li>
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">강사리뷰</a></li>
 					<li> <a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>

@@ -702,6 +702,7 @@ button{
 	border:0 !important;
 	outline:0 !important;
 }
+
 </style>
 
 
@@ -734,7 +735,7 @@ button{
 			<div class="jsx-695160636 fix-layout"></div>
 			<div class="jsx-2255473334 content">
 				<div class="jsx-2123435526 body"
-					style="background: white; width: 1257px; height: 800px;">
+					style="background: white; ">
 					
 			
 <!-- sideBar -->

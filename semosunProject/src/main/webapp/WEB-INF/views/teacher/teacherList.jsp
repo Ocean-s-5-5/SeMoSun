@@ -598,6 +598,8 @@ border-right:1px solid #fff
 	#content {
 		background-color: #fff;
 	}
+
+			
 </style>
 </head>
 <body>
@@ -776,7 +778,7 @@ border-right:1px solid #fff
 			        data: [${member.score1}, ${member.score2}, ${member.score3}, ${member.score4}, ${member.score5}]
 			    }
 		</c:if>
-		<c:forEach items="${list }" var="teacher">
+		<c:forEach items="${list}" var="teacher">
 				, {
 			        name: '${teacher.tName}'+'${teacher.avg}',
 			        lineWidth: 20,
