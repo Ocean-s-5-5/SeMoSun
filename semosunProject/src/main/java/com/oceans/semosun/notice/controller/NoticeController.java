@@ -25,11 +25,9 @@ public class NoticeController {
 	NoticeService noticeService;
 	
 	@RequestMapping("/noticeList.nt")
-	public String selectNoticeList(
-			@RequestParam(value="cPage", 
-			              required=false, 
-			              defaultValue="1") int cPage,
-			Model model) {
+	public String selectNoticeList(Model model,
+			@RequestParam(value="cPage", required=false, defaultValue="1") int cPage,
+			@RequestParam(value="option", defaultValue = "1", required = false) int option) {
 
 		// 한 페이지당 보여줄 게시글 수
 		int numPerPage = 10;
@@ -41,7 +39,7 @@ public class NoticeController {
 		
 		// 페이지 계산 HTML을 추가하기
 		String pageBar 
-		  = Utils.getPageBar(totalContents, cPage, numPerPage, "noticeList.nt");
+		  = Utils.getPageBar(totalContents, cPage, numPerPage, "noticeList.nt", option);
 		
 		// System.out.println(pageBar);
 		
@@ -56,11 +54,10 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/noticeSearch.nt")
-	public String searchNotice(
-			@RequestParam(value="cPage", 
-            			  required=false, 
-            			  defaultValue="1") int cPage,
-			Model model, @RequestParam(value="keyword", defaultValue = "", required = false) String keyword) {
+	public String searchNotice(Model model,
+				 @RequestParam(value="cPage", required=false, defaultValue="1") int cPage,
+				 @RequestParam(value="keyword", defaultValue = "", required = false) String keyword,
+				 @RequestParam(value="option", defaultValue = "1", required = false) int option) {
 		
 		int numPerPage = 10;
 		if(keyword.trim().length() != 0) {
@@ -68,12 +65,12 @@ public class NoticeController {
 			/* keyword = "%"+keyword+"%"; */
 		}
 		
-		List<Map<String, String>> list = noticeService.searchNotice(cPage, numPerPage, keyword);
+		List<Map<String, String>> list = noticeService.searchNotice(cPage, numPerPage, keyword, option);
 		
-		int totalContents = noticeService.searchTotalContents(keyword);
+		int totalContents = noticeService.searchTotalContents(keyword, option);
 		
 		String pageBar
-		  = Utils.getPageBar(totalContents, cPage, numPerPage, "noticeSearch.nt", keyword);
+		  = Utils.getPageBar(totalContents, cPage, numPerPage, "noticeSearch.nt", keyword, option);
 		
 		model.addAttribute("list", list)
 	     .addAttribute("totalContents", totalContents)
