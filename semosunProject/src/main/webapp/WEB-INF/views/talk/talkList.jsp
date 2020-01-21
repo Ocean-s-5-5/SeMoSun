@@ -741,7 +741,7 @@
 	//				 	 								</tr>
 	//				 	 								<tr class="search">
 	//				 	 									<td colspan="3" style="background : transparent;">
-	//				 	 										<textarea class="reply-content" cols="90%" rows="3"
+	//				 	 										<textarea class="reply-content" cols="76%" rows="3"
 	//				 	 										 readonly="readonly">bco.ccontent</textarea>
 	//				 	 									</td>
 	//				 	 								</tr>
@@ -767,7 +767,7 @@
 						 		            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
 						 		            		
 						 		            		var $td5 = $('<td>').attr("colspan","3").css("background", "transparent")
-						 		            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','90%').attr('rows','3').attr('readonly','readonly').text(data.list[tt].ccontent);
+						 		            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','76%').attr('rows','3').attr('readonly','readonly').text(data.list[tt].ccontent);
 						 		            		
 						 		            		$replySelectArea.append($table);
 						 		            		$table.append($tr1).append($tr2);
@@ -1021,7 +1021,7 @@
 							            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
 							            		
 							            		var $td5 = $('<td>').attr("colspan","3").css("background", "transparent")
-							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','90%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
+							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','76%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
 							            		
 							            		$replySelectArea.append($table);
 							            		$table.append($tr1).append($tr2);
@@ -1136,7 +1136,7 @@
 							            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
 							            		
 							            		var $td5 = $('<td>').attr("colspan","3").css("background", "transparent")
-							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','90%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
+							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','76%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
 							            		
 							            		$replySelectArea.append($table);
 							            		$table.append($tr1).append($tr2);
@@ -1206,7 +1206,7 @@
 						// 						</tr>
 						// 						<tr class="search">
 						// 							<td colspan="3" style="background : transparent;">
-						// 							<textarea class="reply-content" cols="90%" rows="3"
+						// 							<textarea class="reply-content" cols="76%" rows="3"
 						// 							 readonly="readonly">bco.ccontent</textarea>
 						// 							</td>
 						// 						</tr>
@@ -1232,7 +1232,7 @@
 							            		var $button3 = $('<button>').attr("type", "button").addClass("deleteBtn").attr("onclick", "deleteReply(this);").text("삭제하기");
 							            		
 							            		var $td5 = $('<td>').attr("colspan","3").css("background", "transparent")
-							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','90%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
+							            		var $textarea = $('<textarea>').addClass("reply-content").attr('cols','76%').attr('rows','3').attr('readonly','readonly').text(data[tt].ccontent);
 							            		
 							            		$replySelectArea.append($table);
 							            		$table.append($tr1).append($tr2);
