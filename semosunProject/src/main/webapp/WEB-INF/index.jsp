@@ -937,6 +937,14 @@ font-family:S-CoreDream-4Regular !important;
 
                         <!-- Some Text -->
                         <p style="font-family:S-CoreDream-4Regular;">실시간으로 올라오는  강사님들을 확인해 보세요 </p>
+                    	
+                    	<!-- 등록하기 button -->
+						<button id="insert" type="button" class="btn btn-primary" 
+							data-toggle="modal" data-target="#exampleModalCenter1" <c:if test="${empty member}"> disabled </c:if>>
+							강사 등록하기
+						</button>
+						<!-- 등록하기 button -->
+						
                     </div>
 
                     <!-- Start Icon Box -->

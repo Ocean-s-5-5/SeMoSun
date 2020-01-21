@@ -42,7 +42,7 @@
 					<li><a style="font-family:S-CoreDream-4Regular;">마이페이지</a>
 					<ul class="dropdown">
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a></li>
-							<li><a style="font-family:S-CoreDream-4Regular;" href="#" data-toggle="modal" data-target="#exampleModalCenter1">강사등록</a></li>
+<!-- 							<li><a style="font-family:S-CoreDream-4Regular;" href="#" data-toggle="modal" data-target="#exampleModalCenter1">강사등록</a></li> -->
 						</ul>
 					</li>
 					<c:if test="${!empty member && member.userId eq 'admin'}">
