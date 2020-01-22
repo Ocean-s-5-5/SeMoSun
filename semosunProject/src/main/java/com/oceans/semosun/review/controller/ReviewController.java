@@ -38,7 +38,7 @@ public class ReviewController {
 		int userNo = 0;
 		if (session.getAttribute("member") != null) userNo = ((Member) session.getAttribute("member")).getUserNo();
 		List<Review> listTeacherReview = reviewService.selectListTeacherReview(Integer.parseInt(tNo), userNo, cPage, numPerPage);
-		String pageBar = Utils.getPageBar(reviewCount, cPage, numPerPage, "selectListTeacherReview.do?tNo="+tNo + "&");
+		String pageBar = Utils.getPageBar(reviewCount, cPage, numPerPage, Integer.parseInt(tNo), "selectListTeacherReview.do");
 //											  http://localhost:8088/semosun/review/selectListTeacherReview.do?tNo=61&?cPage=2
 		if (listTeacherReview.size() > 0) {
 			HashMap<String, String> map1 = reviewService.selectChartMap(Integer.parseInt(tNo));

@@ -41,8 +41,8 @@
 
 	<select id="selectTalkList" parameterType="string" resultType="TalknMember">
 		SELECT TT.* FROM(SELECT T.*, m.nickname, m.profilename FROM TALK T
-		JOIN MEMBER M ON(M.USERNO=T.USERNO)
-		ORDER BY t.talkdate) TT
+		JOIN MEMBER M ON(M.USERNO=T.USERNO) WHERE TSTATUS = 'N'
+		ORDER BY t.talkdate) TT 
 	WHERE TALKCONTENT LIKE CONCAT(CONCAT('%', #{keyword}), '%')
  	   OR NICKNAME LIKE CONCAT(CONCAT('%', #{keyword}), '%')
 	

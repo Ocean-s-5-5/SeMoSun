@@ -395,7 +395,7 @@
                                    </c:if><c:if test="${r.checkLike == 0}">
 	                                  <button class="btn btn-default btn-md" type="button" onclick="like(this, ${r.rno}, ${empty member? 0:member.userNo }, ${Teacher.tNo});"><i class="fa fa-heart"></i> ${r.likeCount}</button>
                                    </c:if> 
-	                                  <button class="btn btn-default btn-md reportBtn" type="button" onclick="fn_reportView(${r.rno});"><i class="fa fa-home"></i> 신고</button>
+	                                  <button class="btn btn-default btn-md reportBtn" type="button" onclick="fn_reportView(${r.rno}, '${ r.rstatus }');"><i class="fa fa-home"></i> 신고</button>
                                    </div>
 									<!-- 좋아요, 신고 End -->
 									
@@ -918,9 +918,9 @@
 			});
 		
 			// 신고 버튼 함수
-			function fn_reportView(rno) {
-				if(${empty member}) { alert("로그인을 해주세요!"); return; }
-				if(${r.rstatus eq 'R'}) { alert("이미 신고되었습니다!"); return; }
+			function fn_reportView(rno, status) {
+				if('${empty member}' == 'true') { alert("로그인을 해주세요!"); return; }
+				if(status == 'R') { alert("이미 신고되었습니다!"); return; }
 				location.href="${pageContext.request.contextPath}/report/reportForm.do?rno="+rno+"&tNo=${Teacher.tNo}";
 			}
 		

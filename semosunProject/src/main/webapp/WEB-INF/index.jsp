@@ -1237,7 +1237,7 @@ font-family:S-CoreDream-4Regular !important;
 				/*타이핑 끝*/
 				
 				
-				/*지금 뜨는 리뷰*/
+				/*세모숲 가장 핫한 단어*/
 				$(document).ready(function(){
 					$.ajax({
 						url : "${pageContext.request.contextPath }/talk/talkWordcloud.do",
@@ -1284,6 +1284,9 @@ font-family:S-CoreDream-4Regular !important;
 							console.log("ajax 실패!");
 						}
 					});
+					
+					
+					/*지금뜨는 리뷰*/
 					$.ajax({
 						url : "${pageContext.request.contextPath }/review/selectBestReview.do",
 						dataType: "json",
@@ -1396,6 +1399,7 @@ font-family:S-CoreDream-4Regular !important;
 						}
 					});
 					
+					/*리뷰 라이브*/
 					$.ajax({
 						url : "${pageContext.request.contextPath }/review/selectReviewLive.do",
 						dataType: "json",

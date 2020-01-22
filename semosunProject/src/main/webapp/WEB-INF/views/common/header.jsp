@@ -42,7 +42,7 @@
 					<li><a style="font-family:S-CoreDream-4Regular;">마이페이지</a>
 					<ul class="dropdown">
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a></li>
-<!-- 							<li><a style="font-family:S-CoreDream-4Regular;" href="#" data-toggle="modal" data-target="#exampleModalCenter1">강사등록</a></li> -->
+							
 						</ul>
 					</li>
 					<c:if test="${!empty member && member.userId eq 'admin'}">
@@ -134,7 +134,7 @@
 												<div class="jsx-3890274511 input-flex">
 													<div class="jsx-3664481379 input">
 														<input required="" placeholder="이름을 입력해 주세요."
-															class="jsx-3664481379 " name="tName">
+															class="jsx-3664481379 " name="tName" maxlength="10">
 													</div>
 												</div>
 											</div></div> <br />
@@ -167,7 +167,7 @@
 												<div class="jsx-3890274511 input-flex">
 													<div class="jsx-3664481379 input">
 														<input required="" placeholder="과목을 입력해 주세요."
-															class="jsx-3664481379 " name="subject">
+															class="jsx-3664481379 " name="subject" maxlength="10">
 													</div>
 												</div>
 											</div></div>
@@ -183,7 +183,7 @@
 											<div class="jsx-3890274511 input-flex">
 												<div class="jsx-3664481379 input">
 													<input required="" placeholder="학원명을 입력해 주세요."
-														class="jsx-3664481379 " name="company">
+														class="jsx-3664481379 " name="company" maxlength="10">
 												</div>
 											</div>
 										</div> </div>

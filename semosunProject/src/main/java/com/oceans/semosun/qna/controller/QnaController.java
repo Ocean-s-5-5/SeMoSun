@@ -96,7 +96,7 @@ public class QnaController {
 			 .addAttribute("msg", msg)
 			 .addAttribute("loc", loc);
 		
-		return "qna/qnaSelectOne";
+		return "redirect:/qnaList.do";
 		
 	}
 	
@@ -122,8 +122,9 @@ public class QnaController {
 		int result = qnaService.updateQna(originQna);
 		qna = qnaService.selectOne(qna.getqNo());
 		
-		String loc = "qna/qnaSelectOne";
-		if(((Member) session.getAttribute("member")).getUserId().equals("admin")) loc = "qna/qnaSelectOneAdmin";
+		String loc = "redirect:/qnaList.do";
+		// if(((Member) session.getAttribute("member")).getUserId().equals("admin")) loc = "qna/qnaSelectOneAdmin";
+		if(((Member) session.getAttribute("member")).getUserId().equals("admin")) loc = "redirect:/qnaList.do";
 		model.addAttribute("qna", qna);
 		return loc;
 	}
@@ -184,8 +185,11 @@ public class QnaController {
 			
 			} else if (checkPwd.trim().length() != 0) {
 				msg = "비밀번호가 틀렸습니다.";
+				loc="/qnaList.do";
 			} else {
+			
 				msg = "입력 실패!";
+				loc="/qnaList.do";
 			}
 
 			model.addAttribute("msg", msg);

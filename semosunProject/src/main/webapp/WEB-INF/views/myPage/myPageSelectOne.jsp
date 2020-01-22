@@ -939,10 +939,12 @@ jsx-3712571264{
 												</div> --%>
 										<div id="profileImgArea"  style="margin-left:20px; width: 200px; hegiht: 200px;">
 											<img id="profileImg"
-												src="${pageContext.request.contextPath }/resources/images/profileImage/defaultMmember.png"
+												src="${pageContext.request.contextPath}/resources/images/profileImage2/${teacher.profileName}"
 												onclick="$('#profile').click();"
-												style=" display: block; margin-left: auto; margin-right: auto;"
+												style=" display: block; margin-left: auto; margin-right: auto;  "
 												align="center"/>
+												
+												<%-- <img  src="${pageContext.request.contextPath}/resources/images/profileImage2/${Teacher.profileName}" id="profileImg"/> --%>
 										</div>
 
 										<!-- <input style="visibility: hidden;" type="file"
@@ -952,7 +954,7 @@ jsx-3712571264{
 													class="jsx-2014955477"><span
 													class="jsx-2014955477 alt-text">사진 첨부</span></label> -->
 										<div id="fileArea">
-											<input type="file" id="profile" name="upFile"
+											<input type="file" id="profile" name="upFile"  accept="image/*"
 												onchange="LoadImg(this)" style="display: none;" multiple disabled/>
 										</div>
 									</div>

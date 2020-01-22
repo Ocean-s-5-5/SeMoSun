@@ -58,13 +58,13 @@ select{
                 <div class="row">
                     <div class="col-md-6">
                         <h1 style="font-size: 27px;"><b>공지사항</b></h1>
-                        <p>Blog Page With Right Sidebar</p>
+                        <p></p>
                     </div>
                     <div class="col-md-6">
                         <ul class="breadcrumbs">
-                            <li><a href="#">Home</a>
+                            <li><a href="/semosun/">Home</a>
                             </li>
-                            <li>Notice</li>
+                            <li><a href="#">Notice</a></li>
                         </ul>
                     </div>
                 </div>

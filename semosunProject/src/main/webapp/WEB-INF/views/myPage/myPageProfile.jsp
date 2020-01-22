@@ -1074,17 +1074,16 @@ li:hover {
 	              </div>
 	              <script type="text/javascript">
 	              function validate(object){
-						var re = new RegExp(
-			    		/^(?!(?:[a-z]+)$)(?!(?:[A-Z]+)$)(?!(?:[0-9]+)$)([A-Z]|[a-z]|[0-9]){6,12}$/);
+						var re = new RegExp(/^(?!(?:[a-z]+)$)(?!(?:[A-Z]+)$)(?!(?:[0-9]+)$)([A-Z]|[a-z]|[0-9]){6,12}$/);
 						
 						var pw = $("#pwd");
-						if(pw.val()==null){
-						if(!re.test(pw.val())){
-							alert("패스워드는 6~18자의 영문 대문자와 소문자 숫자를 포함하여 입력하세요");
-							pw.focus();
-							return false;
-						}
-						return true;							
+						if(pw.val() != ""){
+							if(!re.test(pw.val())){
+								alert("패스워드는 6~18자의 영문 대문자와 소문자 숫자를 포함하여 입력하세요");
+								pw.focus();
+								return false;
+							}
+							return true;							
 						}
 						
 					

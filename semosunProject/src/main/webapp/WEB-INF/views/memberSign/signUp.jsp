@@ -18,6 +18,9 @@
 
 
 <style>
+.sign{
+	margin-left: 25px;
+}
 /*중복아이디체크관련*/
 div#userId-container {
 	position: relative;
@@ -224,7 +227,7 @@ label {
 
 .join_agreement {
 	overflow-y: auto;
-	height: 200px;
+	height: 400px;
 	padding: 10px 10px 10px 0;
 	border: 1px solid #d8d8d8;
 }
@@ -233,7 +236,7 @@ body {
 	background: white;
 }
 
-label {
+.gBtn {
 	margin-left: 90px !important;
 }
 
@@ -265,7 +268,7 @@ input[type=range] {
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<h2>Tabs</h2>
+						<h2></h2>
 					</div>
 					<div class="col-md-6">
 						<ul class="breadcrumbs">
@@ -320,14 +323,16 @@ input[type=range] {
 			<div class="row sidebar-page">
 				<!-- Page Content -->
 				<!-- Divider -->
-				<div class="hr5" style="margin-top: 45px; margin-bottom: 45px;"></div>
+				<div class="hr5" style="margin-top: 45px; margin-bottom: 45px;">
+					<p style="text-align:center; margin-top: 5px; color:red;">※회원가입시 이메일 인증이 필요합니다.</p>
+				</div>
 				<!-- tabs Left -->
 				<div class="tabs-left">
 					<!-- Nav Tabs -->
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tableft" data-toggle="tab"> Tab Title 1 </a></li>
-						<li><a href="#tableft2" data-toggle="tab" > Tab Title 2 </a></li>
-						<li><a href="#tableft3" data-toggle="tab" > Tab Title 3 </a></li>
+						<li class="active"><a href="#tableft" data-toggle="tab"> 1 장 </a></li>
+						<li><a href="#tableft2" data-toggle="tab" > 2 장  </a></li>
+						<li><a href="#tableft3" data-toggle="tab" > 3 장  </a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane fade active in" id="tableft">
@@ -478,8 +483,8 @@ input[type=range] {
 
 							</div>
 							<p class="join_check">
-								<input id="useAgree1" name="useAgree1" type="checkbox" onchange="signCheck();"><label 
-									for="useAgree1" class="MAL5" style="margin-left: 10px !important;">이용약관에 동의합니다.(필수)</label>
+								<input id="useAgree1"  style="cursor: pointer;" name="useAgree1" type="checkbox" onchange="signCheck();"><label 
+									for="useAgree1" class="MAL5" style="margin-left: 10px !important; cursor: pointer;">이용약관에 동의합니다.(필수)</label>
 							</p>
 							<!-- 끝 -->
 						</div>
@@ -568,8 +573,8 @@ input[type=range] {
 								<!-- //personal_wrap -->
 							</div>
 							<p class="join_check">
-								<input id="useAgree2" type="checkbox" name="useAgree2" onchange="signCheck();"><label
-									for="useAgree2" class="MAL5" style="margin-left: 10px !important;">이용약관에 동의합니다.(필수)</label>
+								<input id="useAgree2" type="checkbox" name="useAgree2" style="cursor: pointer;" onchange="signCheck();"><label
+									for="useAgree2" class="MAL5" style="margin-left: 10px !important; cursor: pointer;">이용약관에 동의합니다.(필수)</label>
 							</p>
 							<!-- 2 끝 -->
 						</div>
@@ -577,7 +582,7 @@ input[type=range] {
 							<!-- 3 시작 -->
 							<div class="join_agreement MAB10">
 								<!-- personal_wrap -->
-								<div class="personal_wrap" tabindex="3">
+								<div class="personal_wrap" tabindex="3" id="list">
 									<h2 class="MAT0">마케팅/홍보의 수집의 이용 동의</h2>
 									<ol>
 										<li>1. 개인정보의 수집 및 이용 목적
@@ -609,10 +614,13 @@ input[type=range] {
 								</div>
 								<!-- //personal_wrap -->
 							</div>
+							
 							<p class="join_check">
-								<input id="useAgree3" type="checkbox" name="useAgree3" onchange="signCheck();"><label
-									for="useAgree3" class="MAL5" style="margin-left: 10px !important;">이용약관에 동의합니다.(필수)</label>
+								<input id="useAgree3" type="checkbox" name="useAgree3" style="cursor: pointer;" onchange="signCheck();"><label
+									for="useAgree3" class="MAL5" style="margin-left: 10px !important; cursor: pointer;">이용약관에 동의합니다.(필수)</label>
 							</p>
+
+						
 							<!-- 3끝 -->
 						</div>
 					</div>
@@ -752,8 +760,8 @@ input[type=range] {
 						<div id="contact-form" class="contatct-form ">
 							<div class="loader"></div>
 								<div class="row">
-									<div id="userId-container" >
-										<label for="name">아이디<span class="required">※</span></label> <input
+										<div id="userId-container" >
+										<label for="name" class="sign">아이디<span class="required ">※</span></label> <input
 											type="text" class="form-control" placeholder="4글자이상"
 											name="userId" id="userId_" required> <span
 											class="guide ok" style="right:20px;">사용 가능</span> <span class="guide error" style="right:20px;">사용불가</span>
@@ -762,25 +770,25 @@ input[type=range] {
 									</div>
 									<br />
 									<div>
-										<label for="name">비밀번호<span class="required">*</span></label>
+										<label for="name" class="sign">비밀번호<span class="required " >*</span></label>
 										<span class="name-missing">비밀번호</span> <input id="password_"
 											name="pwd" type="password" value="" size="30" />
 									</div>
 									<br />
 									<div>
-										<label for="name">비밀번호 확인<span class="required">*</span></label>
+										<label for="name" class="sign">비밀번호 확인<span class="required">*</span></label>
 										<span class="name-missing">비밀번호</span> <input id="password2"
 											name="pwdCheck" type="password" value="" size="30" />
 									</div>
 									<br />
 									<div>
-										<label for="name">닉네임<span class="required">*</span></label> <span
+										<label for="name" class="sign">닉네임<span class="required">*</span></label> <span
 											class="name-missing">Please enter your nickname</span> <input
 											id="name" name="nickName" type="text" value="" size="30" />
 									</div>
 									<br />
 									<div>
-										<label for="name" >성별<span class="required">*</span></label><br />
+										<label for="name" class="sign" >성별<span class="required">*</span></label><br />
 										<div class="col-xs-12">
 											<div style="padding-left: 30px"
 												class="btn-group btn-group-vertical" data-toggle="buttons">
@@ -802,7 +810,7 @@ input[type=range] {
 										
 										</div>
 										<div id="email-container" >
-											<label for="name">이메일<span class="required">*</span></label>
+											<label for="name" class="sign">이메일<span class="required">*</span></label>
 											<span class="name-missing">Please enter your email</span> <span
 												class="guide ok" style="right:20px;">사용 가능</span> <span class="guide error" style="right:20px;">사용불가</span>
 											<input id="email" name="email" type="text" size="30" /> <input
@@ -811,7 +819,7 @@ input[type=range] {
 										</div>
 										<br />
 										<div>
-											<label for="name">프로필사진</label> <span class="name-missing"></span>
+											<label for="name" class="sign">프로필사진</label> <span class="name-missing"></span>
 											<div id="profileImgArea">
 												<img id="profileImg"
 													src="${pageContext.request.contextPath }/resources/images/profileImage/defaultMmember.png"
@@ -961,7 +969,8 @@ input[type=range] {
 
 										function validate() {
 										    var re = new RegExp(
-										        /^[A-Za-z0-9_-]{6,18}$/);
+										    /^(?!(?:[a-z]+)$)(?!(?:[A-Z]+)$)(?!(?:[0-9]+)$)([A-Z]|[a-z]|[0-9]){6,12}$/
+										        );
 										    // 패스워드가 적합한지 검사할 정규식
 										    // 이메일이 적합한지 검사할 정규식
 										    var re2 = new RegExp(
@@ -1003,17 +1012,21 @@ input[type=range] {
 											    name.focus();
 											    return false;
 											}
-											if (email.val() == "") {
-											    alert("이메일을 입력해 주세요");
-											    email.focus();
-											    return false;
-											}
+// 											if (email.val() == "") {
+// 											    alert("이메일을 입력해 주세요");
+// 											    email.focus();
+// 											    return false;
+// 											}
 	
 											//아이디중복체크여부
 											if (JJ("#idDuplicateCheck")
 											    .val() == 0) {
 											    alert("사용가능한 아이디를 입력해주세요.");
 											    return false;
+											}
+											if(JJ("#checkEmailDup").val()==0){
+												alert("사용가능한 이메일을 입력해주세요.");
+												return false;
 											}
 											
 											alert("회원가입이 완료되었습니다.");

@@ -322,7 +322,8 @@
 							
 							<c:forEach items="${list }" var="data">
 								<div class="testimonial">
-							    	<div class="testimonial_content">
+							    	<div class="testimonial_content"style="cursor: pointer;">
+							    	
 							        	<div class="testimonial_content_inner" data-toggle="modal" data-target="#loginModal" style="margin-top: 20px; margin-bottom: 20px;">
 							         		<input type="hidden" value="${data.userno}" />
 							            	<p> ${data.talkcontent}  </p>

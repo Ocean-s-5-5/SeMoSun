@@ -137,7 +137,7 @@ public class MemberController {
 				MailHandler sendMail = new MailHandler(mailSender);
 				sendMail.setSubject("[홈페이지 이메일 인증]"); // 메일제목
 				sendMail.setText( // 메일내용
-						"<h1>메일인증</h1>" + "<a href='http://localhost:8088/semosun/emailConfirm?email="
+						"<h1>메일인증</h1>" + "<a href='http://192.168.20.91:8088/semosun/emailConfirm?email="
 								+ member.getEmail() + "&authKey=" + authKey + "' target='_blenk'>이메일 인증 확인</a>");
 				sendMail.setFrom("semosun123@gmail.com", "세모선관리자"); // 보낸이
 				sendMail.setTo(member.getEmail()); // 받는이

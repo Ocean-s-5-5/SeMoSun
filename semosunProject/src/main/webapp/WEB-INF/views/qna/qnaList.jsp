@@ -723,6 +723,7 @@ th {
 									<th>제목</th>
 									<th>작성자</th>
 									<th>등록일</th>
+									<th>답변여부</th>
 								</tr>
 
 								<c:forEach items="${list}" var="q">
@@ -733,6 +734,17 @@ th {
 										<td onclick="selectOne(${q.qNo});">${q.qTitle}</td>
 										<td onclick="selectOne(${q.qNo});">${q.nickName}</td>
 										<td onclick="selectOne(${q.qNo});">${q.qDate}</td>
+										
+										<c:if test="${!empty q.answer}">
+											<td onclick="selectOne(${q.qNo});"
+												style="color: red;">완료</td>
+										</c:if>
+										
+										<c:if test="${empty q.answer}">
+											<td onclick="selectOne(${q.qNo});"
+												style="color: black;">대기중</td>
+										</c:if>
+										
 									</tr>
 								</c:forEach>
 							</table>
@@ -742,8 +754,10 @@ th {
 							</div>
 						</section>
 						<div>
-							<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="qnaForm();"
-							style="position:absolute; bottom:20px; right: 100px;"/>
+							<c:if test="${!empty member && member.userId ne 'admin' }">
+								<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="qnaForm();"
+								style="position:absolute; bottom:20px; right: 100px;"/>
+							</c:if>
 						</div>
 					</div>
 				</div>

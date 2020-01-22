@@ -727,13 +727,13 @@ solid
 							<br /><br /><br />
 						
 						<span><b>전체 게시글 수 : <font id="totalCnt"
-								style="color: red;">${ teacherList.size() + memberList.size() + talkList.size() +noticeList.size() }</font>
+								style="color: red;">${ teacherList.size() + reviewList.size() + talkList.size() +noticeList.size() }</font>
 								건
 						</b></span style>
 
 					</c:if>
 				
-					<c:if test="${ empty teacherList and empty memberList and empty talkList and empty noticeList }">
+					<c:if test="${ empty teacherList and empty reviewList and empty talkList and empty noticeList }">
 						<br>
 						<br>
 						<h1>입력하신 내용으로 검색한 내용은 없습니다</h1>
@@ -752,7 +752,7 @@ solid
 									<div class="portfolio-border">
 										<div class="portfolio-thumb">
 											<a class="lightbox" title="This is an image title"
-												href="#">
+												href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo=${teacher.tNo}">
 												<div class="thumb-overlay">
 													<i class="fa fa-arrows-alt"></i>
 												</div> <img style="width: 265px; height: 270px;"
@@ -760,7 +760,7 @@ solid
 											</a>
 										</div>
 										<div class="portfolio-details">
-											<a href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">
+											<a href="${pageContext.request.contextPath }/review/selectListTeacherReview.do?tNo=${teacher.tNo}">
 													<h4>${ teacher.tName }</h4> <span>${ teacher.company},
 											</span> <span>${ teacher.subject }</span>
 											</a>
