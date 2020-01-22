@@ -5,17 +5,21 @@ import org.springframework.stereotype.Component;
 public class Utils {
 	
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url){
-		 return getPageBar(totalContents, cPage, numPerPage, url , "", -1);
+		 return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
 	}
 	
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword){
-		return getPageBar(totalContents, cPage, numPerPage, url , "", -1);
+		return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
 	}
 	
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url ,  int option){
-		return getPageBar(totalContents, cPage, numPerPage, url , "", -1);
+		return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
 	}
-	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword, int option){
+	
+	public static String getPageBar(int totalContents, int cPage, int numPerPage, int tNo, String url){
+		return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
+	}
+	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword, int option, int tNo){
 		String pageBar = "";
 		int pageBarSize = 5;
 		cPage = cPage==0?1:cPage;
@@ -79,8 +83,10 @@ public class Utils {
 		pageBar += "<script>";
 		pageBar += "function fn_paging(cPage,numPerPage){";
 		
-		if(keyword.trim().length() == 0 && option == -1) {
+		if(keyword.trim().length() == 0 && option == -1 && tNo == 0) {
 			pageBar += "location.href='"+url+"?cPage='+cPage;";
+		} else if (tNo != 0) {
+			pageBar += "location.href='"+url+"?tNo="+tNo+"&cPage='+cPage;";
 		} else if (option == -1) {
 			pageBar += "location.href='"+url+"?keyword="+keyword+"&cPage='+cPage;";
 		} else {

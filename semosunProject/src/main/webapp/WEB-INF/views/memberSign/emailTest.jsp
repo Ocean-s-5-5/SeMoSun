@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>세모선 | 이메일 확인</title>
 </head>
 <body>
 	<script type="text/javascript">

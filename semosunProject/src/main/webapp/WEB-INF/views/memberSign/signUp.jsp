@@ -10,7 +10,7 @@
 
 <head>
 <!-- Basic -->
-<title>Venue | Contact</title>
+<title>세모선 | 회원가입</title>
 <!-- Define Charset -->
 <meta charset="utf-8" />
 <c:import url="../common/util.jsp" />
@@ -684,8 +684,8 @@ input[type=range] {
 						<div class="col-sm-6">
 					        <div class="progress-label"> 찾으시는 수업의 난이도는 높은 편인가요? </div>
 					        <div class="progress">
-					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
-					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">3점</span>
 					            </div>
 					        </div>
 					     </div>
@@ -697,8 +697,8 @@ input[type=range] {
 						<div class="col-sm-6">
 					        <div class="progress-label"> 유머러스한 강의를 좋아하시나요? </div>
 					        <div class="progress">
-					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
-					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">3점</span>
 					            </div>
 					        </div> 
 					     </div> 
@@ -710,8 +710,8 @@ input[type=range] {
 						<div class="col-sm-6">
 					        <div class="progress-label"> 과제가 많은 수업을 좋아하시나요? </div>
 					        <div class="progress">
-					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
-					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">3점</span>
 					            </div>
 					        </div> 
 					     </div> 
@@ -736,8 +736,8 @@ input[type=range] {
 						<div class="col-sm-6">
 					        <div class="progress-label"> 발음, 발성, 속도의 강도가 어떤<br>강사님을 좋아하시나요? (차분 ↔ 파워풀)   </div>
 					        <div class="progress">
-					            <div class="progress-bar progress-bar-primary" data-progress-animation="100%">
-					                <span class="progress-bar-tooltip" style="min-width: max-content;">5점</span>
+					            <div class="progress-bar progress-bar-primary" data-progress-animation="60%">
+					                <span class="progress-bar-tooltip" style="min-width: max-content;">3점</span>
 					            </div>
 					        </div> 
 					     </div> 

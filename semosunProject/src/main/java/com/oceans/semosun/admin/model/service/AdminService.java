@@ -1,5 +1,6 @@
 package com.oceans.semosun.admin.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,10 @@ public class AdminService {
 
 	public List<Member> memberList() {
 		return adminDAO.memberList();
+	}
+
+	public HashMap<String, Object> selectOneMemberGraph(int userNo) {
+		return adminDAO.selectOneMemberGraph(userNo);
 	}
 
 }

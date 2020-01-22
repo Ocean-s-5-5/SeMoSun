@@ -47,7 +47,7 @@
                         <ul class="breadcrumbs">
                             <li><a href="#">Home</a>
                             </li>
-                            <li><a href="#">Blog</a>
+                            <li><a href="#">신고</a>
                             </li>
                            
                         </ul>

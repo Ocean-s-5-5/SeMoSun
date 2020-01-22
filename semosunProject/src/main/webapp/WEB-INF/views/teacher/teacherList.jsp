@@ -611,8 +611,6 @@ border-right:1px solid #fff
                     </div>
                     <div class="col-md-6">
                      <h2>  지금 이순간에도 <span class="countNum">${ teacherCount }</span> 분의 강사 리뷰 <span class="countNum">${ reviewCount }</span>건이 작성되고 있습니다. </h2>
-                     <h2>안녕하세요 배타테스트에 오신 여러분을 환영합니다.</h2>
-                     <h2>살짝 F12를 두번 눌러주시면 그래프 크기가 예뻐집니다!</h2>
                     </div>
                     <div class="col-md-3">
                     </div>

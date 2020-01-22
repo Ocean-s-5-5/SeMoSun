@@ -25,8 +25,14 @@
 		     
 		     T.PROFILENAME, T.SUBJECT, T.COMPANY
 		FROM REVIEW R RIGHT OUTER JOIN teacher T ON(R.TNO=T.TNO)
-		WHERE T.TNO IN (SELECT TNO FROM TEACHER WHERE TSTATUS='Y') AND (R.RSTATUS != 'Y' OR R.RSTATUS IS NULL)
+		WHERE T.TNO IN (SELECT TNO FROM TEACHER WHERE TSTATUS='Y') AND R.RSTATUS = 'N'
 		GROUP BY T.TNO, T.TNAME, T.PROFILENAME, T.SUBJECT, T.COMPANY
+		
+		UNION
+		
+		SELECT TNO, TNAME, NULL, NULL, NULL, NULL, NULL, NULL, PROFILENAME, SUBJECT, COMPANY
+		FROM TEACHER WHERE TNO NOT IN(SELECT DISTINCT TNO FROM REVIEW WHERE RSTATUS = 'N')
+		
 		ORDER BY 3 DESC NULLS LAST
 	</select>
 	
@@ -35,14 +41,14 @@
 	</select>
 	
 	<select id="teacherChart" parameterType="int" resultType="hashmap">
-		SELECT TO_CHAR(ROUND(AVG((SCORE1 + SCORE2 + SCORE3 + SCORE4 + SCORE5)/5), 2)) Total,
-              TO_CHAR(ROUND(AVG(SCORE1), 2)) score1,  
-              TO_CHAR(ROUND(AVG(SCORE2), 2)) score2, 
-              TO_CHAR(ROUND(AVG(SCORE3), 2)) score3,  
-              TO_CHAR(ROUND(AVG(SCORE4), 2)) score4,  
-              TO_CHAR(ROUND(AVG(SCORE5), 2)) score5
+		SELECT NVL(TO_CHAR(ROUND(AVG((SCORE6 + SCORE7 + SCORE8 + SCORE9 + SCORE10)/5), 2)), 0) TOTAL,
+              NVL(TO_CHAR(ROUND(AVG(SCORE1), 2)), 0) score1,  
+              NVL(TO_CHAR(ROUND(AVG(SCORE2), 2)), 0) score2, 
+              NVL(TO_CHAR(ROUND(AVG(SCORE3), 2)), 0) score3,  
+              NVL(TO_CHAR(ROUND(AVG(SCORE4), 2)), 0) score4,  
+              NVL(TO_CHAR(ROUND(AVG(SCORE5), 2)), 0) score5
 		FROM REVIEW
-		WHERE TNO = #{tNo} AND RSTATUS != 'Y'
+		WHERE TNO = #{tNo} AND RSTATUS = 'N'
 	</select>
 	
 	<select id="getTeacherCount" resultType="int">

@@ -11,7 +11,7 @@
 <head>
 
 <!-- Basic -->
-<title>Venue | Contact</title>
+<title>세모선 | 로그인</title>
 
 <!-- Define Charset -->
 <meta charset="utf-8" />
@@ -384,12 +384,12 @@ to {
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<h2 style="color:black">Tabs</h2>
+						<h2 style="color:black">로그인</h2>
 					</div>
 					<div class="col-md-6">
 						<ul class="breadcrumbs">
-							<li><a href="#">Home</a></li>
-							<li>Tabs</li>
+							<li><a href="#">세모선</a></li>
+							<li>로그인</li>
 						</ul>
 					</div>
 				</div>

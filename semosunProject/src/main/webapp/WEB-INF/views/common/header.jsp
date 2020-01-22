@@ -25,7 +25,8 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath }"> <img id="logologologo" alt="" src="${pageContext.request.contextPath }/resources/images/semosunlogo.png"> </a> </div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath}/resources/app/semosunApp.apk" type="application/vnd.android.package-archive"><strong>앱 다운로드</strong></a></li>
+					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath}/resources/app/semosunApp.apk" type="application/vnd.android.package-archive"
+					 	   onclick="return confirm('반가워요! \n모바일이신가요? \n지금 세모선 앱을 다운로드 받으시겠습니까?');"><strong>앱 다운로드</strong></a></li>
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">강사리뷰</a></li>
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
 					<li><a style="font-family:S-CoreDream-4Regular;">게시판</a>
@@ -40,15 +41,17 @@
 					</c:if>
 					<c:if test="${!empty member}">
 					<li><a style="font-family:S-CoreDream-4Regular;">마이페이지</a>
-					<ul class="dropdown">
-							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/myPage/myPageProfile.do">마이페이지</a></li>
-							
+					<ul class="dropdown">			
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/myPage/myPageProfile.do">프로필</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/member/teacherSelectList.do">강사정보</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/member/reviewSelectList.do">리뷰정보</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/member/reportSelectList.do">신고정보</a></li>
+							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/member/likeySelectList.do">좋아요</a></li>
 						</ul>
 					</li>
 					<c:if test="${!empty member && member.userId eq 'admin'}">
 							<li><a style="font-family:S-CoreDream-4Regular;">관리자 페이지</a>
 						<ul class="dropdown">
-							<li><a style="font-family:S-CoreDream-4Regular;" href="${ pageContext.request.contextPath }/memberControl.am">관리자 페이지</a>
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/memberControl.am">회원 관리</a></li>
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacherControl.am">강사님 관리</a></li>
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/reportControl.am">신고 관리</a></li>

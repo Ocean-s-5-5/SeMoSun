@@ -678,7 +678,7 @@ solid
 </style>
 
 <!-- Basic -->
-<title>searchPage | Home</title>
+<title>searchPage | 세모선</title>
 
 <!-- Define Charset -->
 <meta charset="utf-8">
