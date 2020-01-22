@@ -52,5 +52,9 @@ public class AdminDAO {
 	public List<Member> memberList() {
 		return sqlSessionTemplate.selectList("admin-mapper.memberList");
 	}
+
+	public HashMap<String, Object> selectOneMemberGraph(int userNo) {
+		return sqlSessionTemplate.selectOne("admin-mapper.selectOneMemberGraph", userNo);
+	}
 	
 }

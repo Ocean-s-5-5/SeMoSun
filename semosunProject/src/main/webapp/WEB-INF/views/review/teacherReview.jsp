@@ -276,7 +276,7 @@
 					<div class="row">
                     <!-- Start Service Icon 4 -->
                     <div class="col-sm-6 service-box service-icon-left">
-                     <h4 class="classic-title"><span>강의 스타일 기준</span></h4>
+                     <h4 class="classic-title"><span>강사님 스타일과 나의 스타일을 비교!</span></h4>
                         <div class="service-icon">
                             <i class="fa fa-rocket icon-mini-effect icon-effect-1"></i>
                         </div>
@@ -290,12 +290,12 @@
                     <!-- End Service Icon 4 -->
                     <!-- Start Service Icon 3 -->
                     <div class="col-sm-6 service-box service-icon-left">
-                     <h4 class="classic-title"><span>강의평 분석</span></h4>
+                     <h4 class="classic-title"><span>스타일이 아닌 추천 별점!</span></h4>
                         <div class="service-icon">
                             <i class="fa fa-rocket icon-mini-effect icon-effect-1"></i>
                         </div>
                         <div class="service-content">
-                            <h4>리뷰의 통계를 확인하세요!</h4>
+                            <h4>추천별점 평균이 4점 이상면 긍정, 2점 이상면 보통, 이하면 부정입니다!</h4>
                            <figure class="highcharts-figure">
 					    <div id="highchart-container2"></div>
 					</figure>
@@ -438,7 +438,7 @@
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-    <form action="">
+    <form action="" onsubmit="return emptyCheck();">
     <input type="hidden" name="rno" value=""/>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">리뷰 등록하기</h5>
@@ -638,37 +638,37 @@
 		        <div class="row">
 		            <div class="col-sm-4"><!-- 강사 소속 -->
 				        <label for="recipient-name" class="col-form-label">소속:<span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${Teacher.company}" style="width: 100%;">
+				        <input type="text" class="form-control" aria-required="true" readonly="readonly" value="${Teacher.company}" style="width: 100%;">
 		            </div>
 		            <div class="col-sm-4"><!-- 강사 이름 -->
 		            	<input type="hidden" name="tNo" value="${Teacher.tNo}"/>
 				        <label for="recipient-name" class="col-form-label">강사:<span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${Teacher.tName}" style="width: 100%;">
+				        <input type="text" class="form-control" aria-required="true" readonly="readonly" value="${Teacher.tName}" style="width: 100%;">
 		            </div>
 		            <div class="col-sm-4"><!-- 작성자 이름 -->
 		            	<input type="hidden" name="userNo" value="${member.userNo }"/>
 				        <label for="recipient-name" class="col-form-label">작성자:<span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" readonly="readonly" value="${member.nickName}" style="width: 100%;">
+				        <input type="text" class="form-control" aria-required="true" readonly="readonly" value="${member.nickName}" style="width: 100%;">
 		            </div>
 		        </div>
 		    	<!-- 리뷰 -->
 		        <div class="row"><!-- 한줄 평 -->
 		            <div class="col-md-12">
 				         <label for="recipient-name" class="col-form-label">선생님에 대하여 한줄평을 입력해주세요. <span class="required">*</span></label>
-				        <input type="text" class="form-control" id="recipient-name" aria-required="true" name="rtitle" value="rtitle" style="width: 100%;"/>
+				        <input type="text" class="form-control" aria-required="true" name="rtitle" style="width: 100%;" maxlength="20"/>
 		            </div>
 		        </div>
                 <pre style="background: white;">                                                              </pre>
 		        <div class="row"><!-- 장점 -->
 		            <div class="col-md-12">
 				        <label for="message-text" class="col-form-label"><span class="jsx-3001902121 box primary">장점</span></label><label for="message-text"><span class="required">&nbsp;*</span></label>
-				        <textarea class="form-control" id="message-text" cols="45" rows="3" aria-required="true" name="gcontent" style="width: 100%;" placeholder="어떤 점이 좋았는지를 알려주세요. 내가 1년 전 필요했던 정보는 그 선생님의 “가장 큰 장점”에 대한 “이유”를 포함한 정보 입니다.">gcontent</textarea>
+				        <textarea class="form-control" cols="45" rows="3" aria-required="true" name="gcontent" style="width: 100%;" placeholder="어떤 점이 좋았는지를 알려주세요. 내가 1년 전 필요했던 정보는 그 선생님의 “가장 큰 장점”에 대한 “이유”를 포함한 정보 입니다."  maxlength="650">gcontent</textarea>
 		            </div>
 		        </div>
 		        <div class="row"><!-- 단점 -->
 		            <div class="col-md-12">
 				        <label for="message-text" class="col-form-label"><span class="jsx-3001902121 box point">단점</span></label><label for="message-text"><span class="required">&nbsp;*</span></label>
-				        <textarea class="form-control" id="message-text" cols="45" rows="3" aria-required="true" name="bcontent" style="width: 100%;" placeholder="어떤 점이 불만이었는지, 무엇이 부족하다고 생각하셨는지를 알려주세요. 우리가 알고 싶은 것은, “무엇이 좋냐”뿐 아니라 “무엇이 안 좋냐”를 포함한 정보 입니다.">bcontent</textarea>
+				        <textarea class="form-control" cols="45" rows="3" aria-required="true" name="bcontent" style="width: 100%;" placeholder="어떤 점이 불만이었는지, 무엇이 부족하다고 생각하셨는지를 알려주세요. 우리가 알고 싶은 것은, “무엇이 좋냐”뿐 아니라 “무엇이 안 좋냐”를 포함한 정보 입니다."  maxlength="650">bcontent</textarea>
 		            </div>
 		        </div>
               </div>
@@ -712,6 +712,12 @@
 		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 		
 		<script type="text/javascript">
+		function emptyCheck() {
+			if($('form [name=rtitle]').val().trim().length == 0) { alert('한줄 평을 입력해주세요!'); return false; }
+			if($('form [name=gcontent]').val().trim().length == 0) { alert('장점 란을 입력해주세요!'); return false; }
+			if($('form [name=bcontent]').val().trim().length == 0) { alert('단점 란을 입력해주세요!'); return false; }
+			return true;
+		}
 		function changeProgress(obj){
 			$(obj).parents('.row').find('.progress-bar').attr('data-progress-animation', $(obj).val() * 20 + '%').css('width',$(obj).val() * 20 + '%');
 			$(obj).parents('.row').find('.progress-bar-tooltip').text($(obj).val() + '점');

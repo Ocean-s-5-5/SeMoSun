@@ -6,7 +6,7 @@
 <!Doctype html>  
 <html lang="ko">
 <head>
-	<title>Venue - Documentation</title>
+	<title>세모선 관리자 - 신고관리</title>
 	<c:import url="common/util.jsp"/>
 <style type="text/css">
 .title {

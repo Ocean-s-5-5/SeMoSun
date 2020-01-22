@@ -650,7 +650,7 @@ border-right:1px solid #fff
 					}
                 </script>
                    <!-- list -->
-                   <div id="portfolio" class="portfolio-3" style="position: relative; height: 986.109px;">
+                   <div id="portfolio" class="portfolio-3" style="height: 1000px;">
 					<c:forEach items="${list }" var="teacher">
 	                        <!-- Start Portfolio Item -->
 	                        <div class="portfolio-item col-md-4" style="position: absolute; left: 0px; top: 0px;">
@@ -678,7 +678,7 @@ border-right:1px solid #fff
                    </div>
                    
                    <!-- graph -->
-                   <div id="portfolio-graph" class="portfolio-3" style="position: relative; height: 986.109px;">
+                   <div id="portfolio-graph" class="portfolio-3" style="height: 1000px;">
 						<figure class="highcharts-figure">
 						    <div id="container"></div>
 						</figure>

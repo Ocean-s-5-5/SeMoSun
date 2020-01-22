@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -133,6 +134,12 @@ public class AdminController {
 		m.setUserId(userId);
 		memberService.DeleteOneMember(m);
 		return memberControl(model);
+	}
+	
+	@RequestMapping("/admin/selectOneMemberGraph.am")
+	@ResponseBody
+	public HashMap<String, Object> selectOneMemberGraph(int userNo, Model model) {
+		return adminService.selectOneMemberGraph(userNo);
 	}
 	
 }

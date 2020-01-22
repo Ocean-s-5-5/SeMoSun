@@ -9,6 +9,7 @@
     
     <link href="${pageContext.request.contextPath }/resources/assets/css/bootstrap.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/resources/assets/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/resources/css/highcharts.css" rel="stylesheet">
     
 <style>
 /* 헤더 숨기기 */
