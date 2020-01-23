@@ -25,7 +25,7 @@ public class ReviewDAO {
 		selectMap.put("tNo", tNo);
 		selectMap.put("userNo", userNo);
 		
-		RowBounds rowBounds = new RowBounds(cPage-1, numPerPage);
+		RowBounds rowBounds = new RowBounds((cPage-1)*numPerPage, numPerPage);
 		return sqlSession.selectList("review-mapper.selectListTeacherReview", selectMap, rowBounds);
 	}
 

@@ -29,7 +29,7 @@
 					 	   onclick="return confirm('반가워요! \n모바일이신가요? \n지금 세모선 앱을 다운로드 받으시겠습니까?');"><strong>앱 다운로드</strong></a></li>
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/teacher/selectTeacherList.do">강사리뷰</a></li>
 					<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/talk/talkList.do">세모선숲</a> </li>
-					<li><a style="font-family:S-CoreDream-4Regular;">게시판</a>
+					<li><a style="font-family:S-CoreDream-4Regular;">고객센터</a>
 						<ul class="dropdown">
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/noticeList.nt">공지사항</a></li>
 							<li><a style="font-family:S-CoreDream-4Regular;" href="${pageContext.request.contextPath }/qnaList.do">문의사항</a></li>

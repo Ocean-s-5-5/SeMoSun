@@ -808,7 +808,7 @@ solid
 						<!-- 수다방 검색결과 -->
 						
 					<h4 class="title">
-						<span><b> 검색된 수다방 게시물 수 : <font id="reviewCnt"
+						<span><b> 검색된 세모선 숲 수 : <font id="reviewCnt"
 								style="color: red;">${ talkList.size()}</font> 건
 						</b></span>
 					</h4>

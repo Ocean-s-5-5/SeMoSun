@@ -5,20 +5,24 @@ import org.springframework.stereotype.Component;
 public class Utils {
 	
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url){
-		 return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
-	}
-	
-	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword){
-		return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
-	}
-	
-	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url ,  int option){
-		return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
-	}
-	
-	public static String getPageBar(int totalContents, int cPage, int numPerPage, int tNo, String url){
-		return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
-	}
+	       return getPageBar(totalContents, cPage, numPerPage, url , "", -1, 0);
+	   }
+	   
+	   public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword){
+	      return getPageBar(totalContents, cPage, numPerPage, url , keyword, -1, 0);
+	   }
+	   
+	   public static String getPageBar(int totalContents, int cPage, int numPerPage, String url ,  int option){
+	      return getPageBar(totalContents, cPage, numPerPage, url , "", option, 0);
+	   }
+	   
+	   public static String getPageBar(int totalContents, int cPage, int numPerPage, int tNo, String url){
+	      return getPageBar(totalContents, cPage, numPerPage, url , "", -1, tNo);
+	   }
+	   public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword, int option){
+	      return getPageBar(totalContents, cPage, numPerPage, url , keyword, option, 0);
+	   }
+	   
 	public static String getPageBar(int totalContents, int cPage, int numPerPage, String url , String keyword, int option, int tNo){
 		String pageBar = "";
 		int pageBarSize = 5;

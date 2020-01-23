@@ -902,7 +902,7 @@ font-family:S-CoreDream-4Regular !important;
                             <div class="milestone-icon"><img src="${pageContext.request.contextPath}/resources/images/icons/talkicon.png"/></div>
                             <div class="milestone-right">
                                 <div class="milestone-number"></div>
-                                <div class="milestone-text" style="font-family:S-CoreDream-4Regular;">전체 수다방 수</div>
+                                <div class="milestone-text" style="font-family:S-CoreDream-4Regular;">전체 세모선숲 수</div>
                             </div>
                         </div>
 
@@ -1131,7 +1131,7 @@ font-family:S-CoreDream-4Regular !important;
 					
 					<div class="semo1 sseemo" style="height: 298px !important;">
 					<a href="${pageContext.request.contextPath }/talk/talkList.do">
-						<h3 class="jsx-4179964491" style=" font-size:18px; margin-top: 10px;">수다방</h3>
+						<h3 class="jsx-4179964491" style=" font-size:18px; margin-top: 10px;">세모선 숲</h3>
 				
 						<ul class="semo2 semoTalk" style="overflow-y: scroll;">
 						</ul>
@@ -1262,6 +1262,16 @@ font-family:S-CoreDream-4Regular !important;
 								        }
 								        return arr;
 								    }, []);
+								data.sort(function(a, b) { // 내림차순
+								    return b.weight - a.weight;
+								    // 44, 25, 21, 13
+								});
+								
+								var soopNum = data.length;
+								for (var i = 50; i < soopNum; i++) {
+									data.pop();
+								}
+								
 								Highcharts.chart('container_wordcloud', {
 								    accessibility: {
 								        screenReaderSection: {
